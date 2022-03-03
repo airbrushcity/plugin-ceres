@@ -1,0 +1,2926 @@
+{
+    "formatVersion": 1,
+    "menu": {
+        "Config.GlobalTab": {
+            "label": "Config.globalTab",
+            "formFields": {
+                "global.favicon": {
+                    "type": "inputFile",
+                    "required": false,
+                    "label": "Config.globalFaviconLabel",
+                    "options": {
+                        "defaultValue": ""
+                    }
+                },
+                "global.default_contact_class_b2b": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Config.globalDefaultContactClassB2bLabel",
+                    "options": {
+                        "defaultValue": ""
+                    }
+                },
+                "global.enableOldUrlPattern": {
+                    "type": "checkBox",
+                    "required": false,
+                    "label": "Config.globalEnableOldUrlPatternLabel",
+                    "options": {
+                        "defaultValue": "false"
+                    }
+                },
+                "contact.api_key": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Config.contactApiKeyLabel",
+                    "options": {
+                        "defaultValue": ""
+                    }
+                },
+                "global.google_recaptcha_version": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.globalGoogleRecaptchaVersionLabel",
+                    "options": {
+                        "defaultValue": 2,
+                        "selectBoxValues": [
+                            {
+                                "value": 2,
+                                "caption": "Config.globalGoogleRecaptchaVersion2Invisible"
+                            },
+                            {
+                                "value": 3,
+                                "caption": "Config.globalGoogleRecaptchaVersion3"
+                            }
+                        ]
+                    }
+                },
+                "global.google_recaptcha_api_key": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Config.globalGoogleRecaptchaApiKeyLabel",
+                    "options": {
+                        "defaultValue": ""
+                    }
+                },
+                "global.google_recaptcha_secret": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Config.globalGoogleRecaptchaSecretLabel",
+                    "options": {
+                        "defaultValue": ""
+                    }
+                },
+                "global.google_recaptcha_threshold": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Config.globalGoogleRecaptchaThreshold",
+                    "options": {
+                        "defaultValue": 0.5
+                    }
+                },
+                "global.user_data_hash_max_age": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.globalUserDataHashMaxAgeLabel",
+                    "options": {
+                        "defaultValue": 24,
+                        "selectBoxValues": [
+                            {
+                                "value": 1,
+                                "caption": "Config.globalMaxAge1Hour"
+                            },
+                            {
+                                "value": 6,
+                                "caption": "Config.globalMaxAge6Hours"
+                            },
+                            {
+                                "value": 12,
+                                "caption": "Config.globalMaxAge12Hours"
+                            },
+                            {
+                                "value": 24,
+                                "caption": "Config.globalMaxAge24Hours"
+                            },
+                            {
+                                "value": 168,
+                                "caption": "Config.globalMaxAge1Week"
+                            },
+                            {
+                                "value": -1,
+                                "caption": "Config.globalMaxAgeInfinite"
+                            }
+                        ]
+                    }
+                },
+                "global.registration_require_privacy_policy_confirmation": {
+                    "type": "checkBox",
+                    "required": false,
+                    "label": "Config.globalRegistrationRequirePrivacyPolicyConfirmation",
+                    "options": {
+                        "defaultValue": "true"
+                    }
+                },
+                "global.block_cookies": {
+                    "type": "checkBox",
+                    "required": false,
+                    "label": "Config.globalBlockCookies",
+                    "options": {
+                        "defaultValue": "true"
+                    }
+                }
+            }
+        },
+        "Config.HeaderTab": {
+            "label": "Config.headerTab",
+            "formFields": {
+                "header.show_navbars": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.headerShowNavbarsLabel",
+                    "options": {
+                        "defaultValue": "top",
+                        "selectBoxValues": [
+                            {
+                                "value": "top",
+                                "caption": "Config.headerShowNavbarsTop"
+                            },
+                            {
+                                "value": "side",
+                                "caption": "Config.headerShowNavbarsSide"
+                            },
+                            {
+                                "value": "both",
+                                "caption": "Config.headerShowNavbarsBoth"
+                            }
+                        ]
+                    }
+                },
+                "header.show_category_types": {
+                    "type": "multiCheckBox",
+                    "required": false,
+                    "label": "Config.headerShowCategoryTypesLabel",
+                    "options": {
+                        "defaultValue": "all",
+                        "checkBoxValues": [
+                            {
+                                "value": "item",
+                                "caption": "Config.headerShowCategoryTypesItem"
+                            },
+                            {
+                                "value": "content",
+                                "caption": "Config.headerShowCategoryTypesContent"
+                            },
+                            {
+                                "value": "blog",
+                                "caption": "Config.headerShowCategoryTypesBlog"
+                            }
+                        ]
+                    }
+                },
+                "header.menu_levels": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.headerMenuLevelsLabel",
+                    "options": {
+                        "defaultValue": 4,
+                        "selectBoxValues": [
+                            {
+                                "value": 1,
+                                "caption": "Config.headerMenuLevels1"
+                            },
+                            {
+                                "value": 2,
+                                "caption": "Config.headerMenuLevels2"
+                            },
+                            {
+                                "value": 3,
+                                "caption": "Config.headerMenuLevels3"
+                            },
+                            {
+                                "value": 4,
+                                "caption": "Config.headerMenuLevels4"
+                            },
+                            {
+                                "value": 5,
+                                "caption": "Config.headerMenuLevels5"
+                            },
+                            {
+                                "value": 6,
+                                "caption": "Config.headerMenuLevels6"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "Config.FooterTab": {
+            "label": "Config.footerTab",
+            "formFields": {
+                "footer.to_top_button": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.footerToTopButtonLabel",
+                    "options": {
+                        "defaultValue": "right",
+                        "selectBoxValues": [
+                            {
+                                "value": "right",
+                                "caption": "Config.footerToTopButtonRight"
+                            },
+                            {
+                                "value": "bottom",
+                                "caption": "Config.footerToTopButtonBottom"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "Config.ItemViewTab": {
+            "label": "Config.itemViewTab",
+            "formFields": {
+                "item.displayName": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.itemDisplayNameLabel",
+                    "options": {
+                        "defaultValue": "itemName",
+                        "selectBoxValues": [
+                            {
+                                "value": "itemName",
+                                "caption": "Config.itemDisplayNameItemName"
+                            },
+                            {
+                                "value": "variationName",
+                                "caption": "Config.itemDisplayNameVariationName"
+                            },
+                            {
+                                "value": "itemNameVariationName",
+                                "caption": "Config.itemDisplayNameItemNameVariationName"
+                            }
+                        ]
+                    }
+                },
+                "item.name": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.itemNameLabel",
+                    "options": {
+                        "defaultValue": "0",
+                        "selectBoxValues": [
+                            {
+                                "value": "0",
+                                "caption": "Config.itemName0"
+                            },
+                            {
+                                "value": "1",
+                                "caption": "Config.itemName1"
+                            },
+                            {
+                                "value": "2",
+                                "caption": "Config.itemName2"
+                            }
+                        ]
+                    }
+                },
+                "item.storeSpecial": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.itemStoreSpecialLabel",
+                    "options": {
+                        "defaultValue": "0",
+                        "selectBoxValues": [
+                            {
+                                "value": "0",
+                                "caption": "Config.itemStoreSpecial0"
+                            },
+                            {
+                                "value": "1",
+                                "caption": "Config.itemStoreSpecial1"
+                            },
+                            {
+                                "value": "2",
+                                "caption": "Config.itemStoreSpecial2"
+                            }
+                        ]
+                    }
+                },
+                "item.show_please_select": {
+                    "type": "checkBox",
+                    "required": false,
+                    "label": "Config.itemShowPleaseSelect",
+                    "options": {
+                        "defaultValue": "false"
+                    }
+                },
+                "item.enable_image_carousel": {
+                    "type": "checkBox",
+                    "required": false,
+                    "label": "Config.itemEnableImageCarouselLabel",
+                    "options": {
+                        "defaultValue": "true"
+                    }
+                }
+            }
+        },
+        "Config.ShoppingCartTab": {
+            "label": "Config.shoppingCartTab",
+            "formFields": {
+                "basket.item_data": {
+                    "type": "multiCheckBox",
+                    "required": false,
+                    "label": "Config.basketItemDataLabel",
+                    "options": {
+                        "defaultValue": "basket.item.item_id, basket.item.description_short, basket.item.availability, basket.item.customNumber",
+                        "checkBoxValues": [
+                            {
+                                "value": "basket.item.item_id",
+                                "caption": "Config.basketItemDataItemId"
+                            },
+                            {
+                                "value": "basket.item.description_short",
+                                "caption": "Config.basketItemDataDescriptionShort"
+                            },
+                            {
+                                "value": "basket.item.description_long",
+                                "caption": "Config.basketItemDataDescriptionLong"
+                            },
+                            {
+                                "value": "basket.item.availability",
+                                "caption": "Config.basketItemDataAvailability"
+                            },
+                            {
+                                "value": "basket.item.customNumber",
+                                "caption": "Config.basketItemDataCustomNumber"
+                            }
+                        ]
+                    }
+                },
+                "basket.preview_data": {
+                    "type": "multiCheckBox",
+                    "required": false,
+                    "label": "Config.basketPreviewDataLabel",
+                    "options": {
+                        "defaultValue": "basket.value_of_items_gross, basket.shipping_costs_gross, basket.order_total_gross",
+                        "checkBoxValues": [
+                            {
+                                "value": "basket.value_of_items_gross",
+                                "caption": "Config.basketDataValueOfItemsGross"
+                            },
+                            {
+                                "value": "basket.value_of_items_net",
+                                "caption": "Config.basketDataValueOfItemsNet"
+                            },
+                            {
+                                "value": "basket.shipping_costs_gross",
+                                "caption": "Config.basketDataShippingCostsGross"
+                            },
+                            {
+                                "value": "basket.shipping_costs_net",
+                                "caption": "Config.basketDataShippingCostsNet"
+                            },
+                            {
+                                "value": "basket.vat",
+                                "caption": "Config.basketDataVat"
+                            },
+                            {
+                                "value": "basket.order_total_gross",
+                                "caption": "Config.basketDataOrderTotalGross"
+                            },
+                            {
+                                "value": "basket.order_total_net",
+                                "caption": "Config.basketDataOrderTotalNet"
+                            },
+                            {
+                                "value": "basket.rebate",
+                                "caption": "Config.basketDataRebate"
+                            },
+                            {
+                                "value": "basket.promotion_coupon",
+                                "caption": "Config.basketDataPromotionCoupon"
+                            },
+                            {
+                                "value": "basket.additional_costs",
+                                "caption": "Config.basketDataAdditionalCosts"
+                            },
+                            {
+                                "value": "basket.sales_coupon",
+                                "caption": "Config.basketDataSalesCoupon"
+                            },
+                            {
+                                "value": "basket.open_amount",
+                                "caption": "Config.basketDataOpenAmount"
+                            }
+                        ]
+                    }
+                },
+                "basket.add_item_to_basket_confirm": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.basketAddItemToBasketConfirmLabel",
+                    "options": {
+                        "defaultValue": "overlay",
+                        "selectBoxValues": [
+                            {
+                                "value": "overlay",
+                                "caption": "Config.basketAddItemToBasketConfirmOverlay"
+                            },
+                            {
+                                "value": "preview",
+                                "caption": "Config.basketAddItemToBasketConfirmPreview"
+                            },
+                            {
+                                "value": "no_information",
+                                "caption": "Config.basketAddItemToBasketConfirmNoInformation"
+                            }
+                        ]
+                    }
+                },
+                "basket.preview_type": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.basketPreviewTypeLabel",
+                    "options": {
+                        "defaultValue": "right",
+                        "selectBoxValues": [
+                            {
+                                "value": "hover",
+                                "caption": "Config.basketPreviewTypeHover"
+                            },
+                            {
+                                "value": "right",
+                                "caption": "Config.basketPreviewTypeRight"
+                            }
+                        ]
+                    }
+                },
+                "basket.show_shipping_country_select": {
+                    "type": "checkBox",
+                    "required": false,
+                    "label": "Config.basketShowShippingCountrySelect",
+                    "options": {
+                        "defaultValue": "true"
+                    }
+                }
+            }
+        },
+        "Config.PaginationAndSortingTab": {
+            "label": "Config.paginationAndSortingTab",
+            "formFields": {
+                "pagination.itemsPerPage": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Config.paginationItemsPerPageLabel",
+                    "options": {
+                        "defaultValue": "20"
+                    }
+                },
+                "pagination.noIndex": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Config.pagination_noIndex",
+                    "options": {
+                        "defaultValue": "0"
+                    }
+                },
+                "sort.defaultSorting": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.sortDefaultSortingLabel",
+                    "options": {
+                        "defaultValue": "texts.name1_asc",
+                        "selectBoxValues": [
+                            {
+                                "value": "default.recommended_sorting",
+                                "caption": "Config.sortDataRecommendedSorting"
+                            },
+                            {
+                                "value": "variation.position_asc",
+                                "caption": "Config.sortDataTopsellerAsc"
+                            },
+                            {
+                                "value": "variation.position_desc",
+                                "caption": "Config.sortDataTopsellerDesc"
+                            },
+                            {
+                                "value": "texts.name1_asc",
+                                "caption": "Config.sortDataNameAsc"
+                            },
+                            {
+                                "value": "texts.name1_desc",
+                                "caption": "Config.sortDataNameDesc"
+                            },
+                            {
+                                "value": "sorting.price.avg_asc",
+                                "caption": "Config.sortDataPriceAsc"
+                            },
+                            {
+                                "value": "sorting.price.avg_desc",
+                                "caption": "Config.sortDataPriceDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_desc",
+                                "caption": "Config.sortDataVariationCreatedAtDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_asc",
+                                "caption": "Config.sortDataVariationCreatedAtAsc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_asc",
+                                "caption": "Config.sortDataAvailabilityAsc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_desc",
+                                "caption": "Config.sortDataAvailabilityDesc"
+                            },
+                            {
+                                "value": "variation.number_asc",
+                                "caption": "Config.sortDataVariationNumberAsc"
+                            },
+                            {
+                                "value": "variation.number_desc",
+                                "caption": "Config.sortDataVariationNumberDesc"
+                            },
+                            {
+                                "value": "variation.updatedAt_asc",
+                                "caption": "Config.sortDataVariationUpdatedAtAsc"
+                            },
+                            {
+                                "value": "variation.updatedAt_desc",
+                                "caption": "Config.sortDataVariationUpdatedAtDesc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_asc",
+                                "caption": "Config.sortDataManufacturerAsc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_desc",
+                                "caption": "Config.sortDataManufacturerDesc"
+                            }
+                        ]
+                    }
+                },
+                "sorting.priorityCategory1": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.sortingPriorityCategory1Label",
+                    "options": {
+                        "defaultValue": "texts.name_asc",
+                        "selectBoxValues": [
+                            {
+                                "value": "item.id_asc",
+                                "caption": "Config.sortingPriorityCategoryItemIdAsc"
+                            },
+                            {
+                                "value": "item.id_desc",
+                                "caption": "Config.sortingPriorityCategoryItemIdDesc"
+                            },
+                            {
+                                "value": "texts.name_asc",
+                                "caption": "Config.sortingPriorityCategoryNameAsc"
+                            },
+                            {
+                                "value": "texts.name_desc",
+                                "caption": "Config.sortingPriorityCategoryNameDesc"
+                            },
+                            {
+                                "value": "sorting.price.avg_asc",
+                                "caption": "Config.sortingPriorityCategoryPriceAsc"
+                            },
+                            {
+                                "value": "sorting.price.avg_desc",
+                                "caption": "Config.sortingPriorityCategoryPriceDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationCreatedAtDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationCreatedAtAsc"
+                            },
+                            {
+                                "value": "variation.id_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationIdAsc"
+                            },
+                            {
+                                "value": "variation.id_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationIdDesc"
+                            },
+                            {
+                                "value": "variation.number_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationNumberAsc"
+                            },
+                            {
+                                "value": "variation.number_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationNumberDesc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_asc",
+                                "caption": "Config.sortingPriorityCategoryAvailabilityAsc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_desc",
+                                "caption": "Config.sortingPriorityCategoryAvailabilityDesc"
+                            },
+                            {
+                                "value": "variation.updatedAt_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationUpdatedAtAsc"
+                            },
+                            {
+                                "value": "variation.updatedAt_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationUpdatedAtDesc"
+                            },
+                            {
+                                "value": "variation.position_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationPositionAsc"
+                            },
+                            {
+                                "value": "variation.position_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationPositionDesc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_asc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerAsc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_desc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerDesc"
+                            },
+                            {
+                                "value": "item.manufacturer.position_asc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerPositionAsc"
+                            },
+                            {
+                                "value": "item.manufacturer.position_desc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerPositionDesc"
+                            },
+                            {
+                                "value": "stock.net_asc",
+                                "caption": "Config.sortingPriorityCategoryStockAsc"
+                            },
+                            {
+                                "value": "stock.net_desc",
+                                "caption": "Config.sortingPriorityCategoryStockDesc"
+                            },
+                            {
+                                "value": "item.random",
+                                "caption": "Config.sortDataRandom"
+                            }
+                        ]
+                    }
+                },
+                "sorting.priorityCategory2": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.sortingPriorityCategory2Label",
+                    "options": {
+                        "defaultValue": "notSelected",
+                        "selectBoxValues": [
+                            {
+                                "value": "notSelected",
+                                "caption": "Config.sortingPriorityCategoryNotSelected"
+                            },
+                            {
+                                "value": "item.id_asc",
+                                "caption": "Config.sortingPriorityCategoryItemIdAsc"
+                            },
+                            {
+                                "value": "item.id_desc",
+                                "caption": "Config.sortingPriorityCategoryItemIdDesc"
+                            },
+                            {
+                                "value": "texts.name_asc",
+                                "caption": "Config.sortingPriorityCategoryNameAsc"
+                            },
+                            {
+                                "value": "texts.name_desc",
+                                "caption": "Config.sortingPriorityCategoryNameDesc"
+                            },
+                            {
+                                "value": "sorting.price.avg_asc",
+                                "caption": "Config.sortingPriorityCategoryPriceAsc"
+                            },
+                            {
+                                "value": "sorting.price.avg_desc",
+                                "caption": "Config.sortingPriorityCategoryPriceDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationCreatedAtDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationCreatedAtAsc"
+                            },
+                            {
+                                "value": "variation.id_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationIdAsc"
+                            },
+                            {
+                                "value": "variation.id_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationIdDesc"
+                            },
+                            {
+                                "value": "variation.number_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationNumberAsc"
+                            },
+                            {
+                                "value": "variation.number_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationNumberDesc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_asc",
+                                "caption": "Config.sortingPriorityCategoryAvailabilityAsc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_desc",
+                                "caption": "Config.sortingPriorityCategoryAvailabilityDesc"
+                            },
+                            {
+                                "value": "variation.updatedAt_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationUpdatedAtAsc"
+                            },
+                            {
+                                "value": "variation.updatedAt_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationUpdatedAtDesc"
+                            },
+                            {
+                                "value": "variation.position_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationPositionAsc"
+                            },
+                            {
+                                "value": "variation.position_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationPositionDesc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_asc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerAsc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_desc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerDesc"
+                            },
+                            {
+                                "value": "item.manufacturer.position_asc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerPositionAsc"
+                            },
+                            {
+                                "value": "item.manufacturer.position_desc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerPositionDesc"
+                            },
+                            {
+                                "value": "stock.net_asc",
+                                "caption": "Config.sortingPriorityCategoryStockAsc"
+                            },
+                            {
+                                "value": "stock.net_desc",
+                                "caption": "Config.sortingPriorityCategoryStockDesc"
+                            },
+                            {
+                                "value": "item.random",
+                                "caption": "Config.sortDataRandom"
+                            }
+                        ]
+                    }
+                },
+                "sorting.priorityCategory3": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.sortingPriorityCategory3Label",
+                    "options": {
+                        "defaultValue": "notSelected",
+                        "selectBoxValues": [
+                            {
+                                "value": "notSelected",
+                                "caption": "Config.sortingPriorityCategoryNotSelected"
+                            },
+                            {
+                                "value": "item.id_asc",
+                                "caption": "Config.sortingPriorityCategoryItemIdAsc"
+                            },
+                            {
+                                "value": "item.id_desc",
+                                "caption": "Config.sortingPriorityCategoryItemIdDesc"
+                            },
+                            {
+                                "value": "texts.name_asc",
+                                "caption": "Config.sortingPriorityCategoryNameAsc"
+                            },
+                            {
+                                "value": "texts.name_desc",
+                                "caption": "Config.sortingPriorityCategoryNameDesc"
+                            },
+                            {
+                                "value": "sorting.price.avg_asc",
+                                "caption": "Config.sortingPriorityCategoryPriceAsc"
+                            },
+                            {
+                                "value": "sorting.price.avg_desc",
+                                "caption": "Config.sortingPriorityCategoryPriceDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationCreatedAtDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationCreatedAtAsc"
+                            },
+                            {
+                                "value": "variation.id_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationIdAsc"
+                            },
+                            {
+                                "value": "variation.id_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationIdDesc"
+                            },
+                            {
+                                "value": "variation.number_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationNumberAsc"
+                            },
+                            {
+                                "value": "variation.number_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationNumberDesc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_asc",
+                                "caption": "Config.sortingPriorityCategoryAvailabilityAsc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_desc",
+                                "caption": "Config.sortingPriorityCategoryAvailabilityDesc"
+                            },
+                            {
+                                "value": "variation.updatedAt_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationUpdatedAtAsc"
+                            },
+                            {
+                                "value": "variation.updatedAt_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationUpdatedAtDesc"
+                            },
+                            {
+                                "value": "variation.position_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationPositionAsc"
+                            },
+                            {
+                                "value": "variation.position_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationPositionDesc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_asc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerAsc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_desc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerDesc"
+                            },
+                            {
+                                "value": "item.manufacturer.position_asc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerPositionAsc"
+                            },
+                            {
+                                "value": "item.manufacturer.position_desc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerPositionDesc"
+                            },
+                            {
+                                "value": "stock.net_asc",
+                                "caption": "Config.sortingPriorityCategoryStockAsc"
+                            },
+                            {
+                                "value": "stock.net_desc",
+                                "caption": "Config.sortingPriorityCategoryStockDesc"
+                            },
+                            {
+                                "value": "item.random",
+                                "caption": "Config.sortDataRandom"
+                            }
+                        ]
+                    }
+                },
+                "sort.defaultSortingSearch": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.sortDefaultSortingSearchLabel",
+                    "options": {
+                        "defaultValue": "item.score",
+                        "selectBoxValues": [
+                            {
+                                "value": "item.score",
+                                "caption": "Config.sortDataItemScore"
+                            },
+                            {
+                                "value": "default.recommended_sorting",
+                                "caption": "Config.sortDataRecommendedSorting"
+                            },
+                            {
+                                "value": "variation.position_asc",
+                                "caption": "Config.sortDataTopsellerAsc"
+                            },
+                            {
+                                "value": "variation.position_desc",
+                                "caption": "Config.sortDataTopsellerDesc"
+                            },
+                            {
+                                "value": "texts.name1_asc",
+                                "caption": "Config.sortDataNameAsc"
+                            },
+                            {
+                                "value": "texts.name1_desc",
+                                "caption": "Config.sortDataNameDesc"
+                            },
+                            {
+                                "value": "sorting.price.avg_asc",
+                                "caption": "Config.sortDataPriceAsc"
+                            },
+                            {
+                                "value": "sorting.price.avg_desc",
+                                "caption": "Config.sortDataPriceDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_desc",
+                                "caption": "Config.sortDataVariationCreatedAtDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_asc",
+                                "caption": "Config.sortDataVariationCreatedAtAsc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_asc",
+                                "caption": "Config.sortDataAvailabilityAsc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_desc",
+                                "caption": "Config.sortDataAvailabilityDesc"
+                            },
+                            {
+                                "value": "variation.number_asc",
+                                "caption": "Config.sortDataVariationNumberAsc"
+                            },
+                            {
+                                "value": "variation.number_desc",
+                                "caption": "Config.sortDataVariationNumberDesc"
+                            },
+                            {
+                                "value": "variation.updatedAt_asc",
+                                "caption": "Config.sortDataVariationUpdatedAtAsc"
+                            },
+                            {
+                                "value": "variation.updatedAt_desc",
+                                "caption": "Config.sortDataVariationUpdatedAtDesc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_asc",
+                                "caption": "Config.sortDataManufacturerAsc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_desc",
+                                "caption": "Config.sortDataManufacturerDesc"
+                            }
+                        ]
+                    }
+                },
+                "sorting.prioritySearch1": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.sortingPrioritySearch1Label",
+                    "options": {
+                        "defaultValue": "item.score",
+                        "selectBoxValues": [
+                            {
+                                "value": "item.score",
+                                "caption": "Config.sortDataItemScore"
+                            },
+                            {
+                                "value": "item.id_asc",
+                                "caption": "Config.sortingPriorityCategoryItemIdAsc"
+                            },
+                            {
+                                "value": "item.id_desc",
+                                "caption": "Config.sortingPriorityCategoryItemIdDesc"
+                            },
+                            {
+                                "value": "texts.name_asc",
+                                "caption": "Config.sortingPriorityCategoryNameAsc"
+                            },
+                            {
+                                "value": "texts.name_desc",
+                                "caption": "Config.sortingPriorityCategoryNameDesc"
+                            },
+                            {
+                                "value": "sorting.price.avg_asc",
+                                "caption": "Config.sortingPriorityCategoryPriceAsc"
+                            },
+                            {
+                                "value": "sorting.price.avg_desc",
+                                "caption": "Config.sortingPriorityCategoryPriceDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationCreatedAtDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationCreatedAtAsc"
+                            },
+                            {
+                                "value": "variation.id_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationIdAsc"
+                            },
+                            {
+                                "value": "variation.id_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationIdDesc"
+                            },
+                            {
+                                "value": "variation.number_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationNumberAsc"
+                            },
+                            {
+                                "value": "variation.number_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationNumberDesc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_asc",
+                                "caption": "Config.sortingPriorityCategoryAvailabilityAsc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_desc",
+                                "caption": "Config.sortingPriorityCategoryAvailabilityDesc"
+                            },
+                            {
+                                "value": "variation.updatedAt_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationUpdatedAtAsc"
+                            },
+                            {
+                                "value": "variation.updatedAt_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationUpdatedAtDesc"
+                            },
+                            {
+                                "value": "variation.position_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationPositionAsc"
+                            },
+                            {
+                                "value": "variation.position_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationPositionDesc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_asc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerAsc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_desc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerDesc"
+                            },
+                            {
+                                "value": "item.manufacturer.position_asc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerPositionAsc"
+                            },
+                            {
+                                "value": "item.manufacturer.position_desc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerPositionDesc"
+                            },
+                            {
+                                "value": "stock.net_asc",
+                                "caption": "Config.sortingPriorityCategoryStockAsc"
+                            },
+                            {
+                                "value": "stock.net_desc",
+                                "caption": "Config.sortingPriorityCategoryStockDesc"
+                            },
+                            {
+                                "value": "item.random",
+                                "caption": "Config.sortDataRandom"
+                            }
+                        ]
+                    }
+                },
+                "sorting.prioritySearch2": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.sortingPrioritySearch2Label",
+                    "options": {
+                        "defaultValue": "notSelected",
+                        "selectBoxValues": [
+                            {
+                                "value": "notSelected",
+                                "caption": "Config.sortingPriorityCategoryNotSelected"
+                            },
+                            {
+                                "value": "item.score",
+                                "caption": "Config.sortDataItemScore"
+                            },
+                            {
+                                "value": "item.id_asc",
+                                "caption": "Config.sortingPriorityCategoryItemIdAsc"
+                            },
+                            {
+                                "value": "item.id_desc",
+                                "caption": "Config.sortingPriorityCategoryItemIdDesc"
+                            },
+                            {
+                                "value": "texts.name_asc",
+                                "caption": "Config.sortingPriorityCategoryNameAsc"
+                            },
+                            {
+                                "value": "texts.name_desc",
+                                "caption": "Config.sortingPriorityCategoryNameDesc"
+                            },
+                            {
+                                "value": "sorting.price.avg_asc",
+                                "caption": "Config.sortingPriorityCategoryPriceAsc"
+                            },
+                            {
+                                "value": "sorting.price.avg_desc",
+                                "caption": "Config.sortingPriorityCategoryPriceDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationCreatedAtDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationCreatedAtAsc"
+                            },
+                            {
+                                "value": "variation.id_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationIdAsc"
+                            },
+                            {
+                                "value": "variation.id_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationIdDesc"
+                            },
+                            {
+                                "value": "variation.number_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationNumberAsc"
+                            },
+                            {
+                                "value": "variation.number_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationNumberDesc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_asc",
+                                "caption": "Config.sortingPriorityCategoryAvailabilityAsc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_desc",
+                                "caption": "Config.sortingPriorityCategoryAvailabilityDesc"
+                            },
+                            {
+                                "value": "variation.updatedAt_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationUpdatedAtAsc"
+                            },
+                            {
+                                "value": "variation.updatedAt_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationUpdatedAtDesc"
+                            },
+                            {
+                                "value": "variation.position_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationPositionAsc"
+                            },
+                            {
+                                "value": "variation.position_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationPositionDesc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_asc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerAsc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_desc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerDesc"
+                            },
+                            {
+                                "value": "item.manufacturer.position_asc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerPositionAsc"
+                            },
+                            {
+                                "value": "item.manufacturer.position_desc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerPositionDesc"
+                            },
+                            {
+                                "value": "stock.net_asc",
+                                "caption": "Config.sortingPriorityCategoryStockAsc"
+                            },
+                            {
+                                "value": "stock.net_desc",
+                                "caption": "Config.sortingPriorityCategoryStockDesc"
+                            },
+                            {
+                                "value": "item.random",
+                                "caption": "Config.sortDataRandom"
+                            }
+                        ]
+                    }
+                },
+                "sorting.prioritySearch3": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.sortingPrioritySearch3Label",
+                    "options": {
+                        "defaultValue": "notSelected",
+                        "selectBoxValues": [
+                            {
+                                "value": "notSelected",
+                                "caption": "Config.sortingPriorityCategoryNotSelected"
+                            },
+                            {
+                                "value": "item.score",
+                                "caption": "Config.sortDataItemScore"
+                            },
+                            {
+                                "value": "item.id_asc",
+                                "caption": "Config.sortingPriorityCategoryItemIdAsc"
+                            },
+                            {
+                                "value": "item.id_desc",
+                                "caption": "Config.sortingPriorityCategoryItemIdDesc"
+                            },
+                            {
+                                "value": "texts.name_asc",
+                                "caption": "Config.sortingPriorityCategoryNameAsc"
+                            },
+                            {
+                                "value": "texts.name_desc",
+                                "caption": "Config.sortingPriorityCategoryNameDesc"
+                            },
+                            {
+                                "value": "sorting.price.avg_asc",
+                                "caption": "Config.sortingPriorityCategoryPriceAsc"
+                            },
+                            {
+                                "value": "sorting.price.avg_desc",
+                                "caption": "Config.sortingPriorityCategoryPriceDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationCreatedAtDesc"
+                            },
+                            {
+                                "value": "variation.createdAt_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationCreatedAtAsc"
+                            },
+                            {
+                                "value": "variation.id_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationIdAsc"
+                            },
+                            {
+                                "value": "variation.id_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationIdDesc"
+                            },
+                            {
+                                "value": "variation.number_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationNumberAsc"
+                            },
+                            {
+                                "value": "variation.number_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationNumberDesc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_asc",
+                                "caption": "Config.sortingPriorityCategoryAvailabilityAsc"
+                            },
+                            {
+                                "value": "variation.availability.averageDays_desc",
+                                "caption": "Config.sortingPriorityCategoryAvailabilityDesc"
+                            },
+                            {
+                                "value": "variation.updatedAt_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationUpdatedAtAsc"
+                            },
+                            {
+                                "value": "variation.updatedAt_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationUpdatedAtDesc"
+                            },
+                            {
+                                "value": "variation.position_asc",
+                                "caption": "Config.sortingPriorityCategoryVariationPositionAsc"
+                            },
+                            {
+                                "value": "variation.position_desc",
+                                "caption": "Config.sortingPriorityCategoryVariationPositionDesc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_asc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerAsc"
+                            },
+                            {
+                                "value": "item.manufacturer.externalName_desc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerDesc"
+                            },
+                            {
+                                "value": "item.manufacturer.position_asc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerPositionAsc"
+                            },
+                            {
+                                "value": "item.manufacturer.position_desc",
+                                "caption": "Config.sortingPriorityCategoryManufacturerPositionDesc"
+                            },
+                            {
+                                "value": "stock.net_asc",
+                                "caption": "Config.sortingPriorityCategoryStockAsc"
+                            },
+                            {
+                                "value": "stock.net_desc",
+                                "caption": "Config.sortingPriorityCategoryStockDesc"
+                            },
+                            {
+                                "value": "item.random",
+                                "caption": "Config.sortDataRandom"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "Config.CheckoutAndMyAccountTab": {
+            "label": "Config.checkoutAndMyAccountTab",
+            "formFields": {
+                "my_account.order_return_days": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Config.myAccountOrderReturnDaysLabel",
+                    "options": {
+                        "defaultValue": "14"
+                    }
+                },
+                "my_account.order_return_initial_status": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Config.myAccountOrderReturnInitialStatusLabel",
+                    "options": {
+                        "defaultValue": "9"
+                    }
+                },
+                "my_account.confirmation_link_login_redirect": {
+                    "type": "checkBox",
+                    "required": false,
+                    "label": "Config.myAccountConfirmationLinkLoginRedirectLabel",
+                    "options": {
+                        "defaultValue": "false"
+                    }
+                },
+                "my_account.confirmation_link_expiration": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.myAccountConfirmationLinkExpirationLabel",
+                    "options": {
+                        "defaultValue": "always",
+                        "selectBoxValues": [
+                            {
+                                "value": "always",
+                                "caption": "Config.myAccountConfirmationLinkExpirationAlways"
+                            },
+                            {
+                                "value": "30",
+                                "caption": "Config.myAccountConfirmationLinkExpirationThirtyDays"
+                            },
+                            {
+                                "value": "90",
+                                "caption": "Config.myAccountConfirmationLinkExpirationNinetyDays"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "Config.LanguagesTab": {
+            "label": "Config.languagesTab",
+            "formFields": {
+                "language.active_languages": {
+                    "type": "multiCheckBox",
+                    "required": false,
+                    "label": "Config.languageActiveLanguagesLabel",
+                    "options": {
+                        "defaultValue": "de",
+                        "checkBoxValues": [
+                            {
+                                "value": "de",
+                                "caption": "Config.languageActiveLanguagesDe"
+                            },
+                            {
+                                "value": "en",
+                                "caption": "Config.languageActiveLanguagesEn"
+                            },
+                            {
+                                "value": "bg",
+                                "caption": "Config.languageActiveLanguagesBg"
+                            },
+                            {
+                                "value": "fr",
+                                "caption": "Config.languageActiveLanguagesFr"
+                            },
+                            {
+                                "value": "it",
+                                "caption": "Config.languageActiveLanguagesIt"
+                            },
+                            {
+                                "value": "es",
+                                "caption": "Config.languageActiveLanguagesEs"
+                            },
+                            {
+                                "value": "tr",
+                                "caption": "Config.languageActiveLanguagesTr"
+                            },
+                            {
+                                "value": "nl",
+                                "caption": "Config.languageActiveLanguagesNl"
+                            },
+                            {
+                                "value": "pl",
+                                "caption": "Config.languageActiveLanguagesPl"
+                            },
+                            {
+                                "value": "pt",
+                                "caption": "Config.languageActiveLanguagesPt"
+                            },
+                            {
+                                "value": "nn",
+                                "caption": "Config.languageActiveLanguagesNn"
+                            },
+                            {
+                                "value": "ro",
+                                "caption": "Config.languageActiveLanguagesRo"
+                            },
+                            {
+                                "value": "da",
+                                "caption": "Config.languageActiveLanguagesDa"
+                            },
+                            {
+                                "value": "se",
+                                "caption": "Config.languageActiveLanguagesSe"
+                            },
+                            {
+                                "value": "cz",
+                                "caption": "Config.languageActiveLanguagesCz"
+                            },
+                            {
+                                "value": "ru",
+                                "caption": "Config.languageActiveLanguagesRu"
+                            },
+                            {
+                                "value": "sk",
+                                "caption": "Config.languageActiveLanguagesSk"
+                            },
+                            {
+                                "value": "cn",
+                                "caption": "Config.languageActiveLanguagesCn"
+                            },
+                            {
+                                "value": "vn",
+                                "caption": "Config.languageActiveLanguagesVn"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "Config.CurrenciesTab": {
+            "label": "Config.currenciesTab",
+            "formFields": {
+                "currency.format": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.currencyFormatLabel",
+                    "options": {
+                        "defaultValue": "name",
+                        "selectBoxValues": [
+                            {
+                                "value": "name",
+                                "caption": "Config.currencyFormatName"
+                            },
+                            {
+                                "value": "symbol",
+                                "caption": "Config.currencyFormatSymbol"
+                            }
+                        ]
+                    }
+                },
+                "currency.enable_selection": {
+                    "type": "checkBox",
+                    "required": false,
+                    "label": "Config.currencyEnableSelectionLabel",
+                    "options": {
+                        "defaultValue": "true"
+                    }
+                },
+                "currency.format_selection": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.currencyFormatSelectionLabel",
+                    "options": {
+                        "defaultValue": "all",
+                        "selectBoxValues": [
+                            {
+                                "value": "name",
+                                "caption": "Config.currencyFormatName"
+                            },
+                            {
+                                "value": "symbol",
+                                "caption": "Config.currencyFormatSymbol"
+                            },
+                            {
+                                "value": "all",
+                                "caption": "Config.currencyFormatAll"
+                            }
+                        ]
+                    }
+                },
+                "currency.available_currencies": {
+                    "type": "multiCheckBox",
+                    "required": false,
+                    "label": "Config.currencyAvailableCurrenciesLabel",
+                    "options": {
+                        "defaultValue": "all",
+                        "checkBoxValues": [
+                            {
+                                "value": "AED",
+                                "caption": "Config.currencyAvailableCurrenciesAED"
+                            },
+                            {
+                                "value": "ANG",
+                                "caption": "Config.currencyAvailableCurrenciesANG"
+                            },
+                            {
+                                "value": "ARS",
+                                "caption": "Config.currencyAvailableCurrenciesARS"
+                            },
+                            {
+                                "value": "AUD",
+                                "caption": "Config.currencyAvailableCurrenciesAUD"
+                            },
+                            {
+                                "value": "BGN",
+                                "caption": "Config.currencyAvailableCurrenciesBGN"
+                            },
+                            {
+                                "value": "BHD",
+                                "caption": "Config.currencyAvailableCurrenciesBHD"
+                            },
+                            {
+                                "value": "BRL",
+                                "caption": "Config.currencyAvailableCurrenciesBRL"
+                            },
+                            {
+                                "value": "CAD",
+                                "caption": "Config.currencyAvailableCurrenciesCAD"
+                            },
+                            {
+                                "value": "CHF",
+                                "caption": "Config.currencyAvailableCurrenciesCHF"
+                            },
+                            {
+                                "value": "CNY",
+                                "caption": "Config.currencyAvailableCurrenciesCNY"
+                            },
+                            {
+                                "value": "CZK",
+                                "caption": "Config.currencyAvailableCurrenciesCZK"
+                            },
+                            {
+                                "value": "DKK",
+                                "caption": "Config.currencyAvailableCurrenciesDKK"
+                            },
+                            {
+                                "value": "EUR",
+                                "caption": "Config.currencyAvailableCurrenciesEUR"
+                            },
+                            {
+                                "value": "GBP",
+                                "caption": "Config.currencyAvailableCurrenciesGBP"
+                            },
+                            {
+                                "value": "HKD",
+                                "caption": "Config.currencyAvailableCurrenciesHKD"
+                            },
+                            {
+                                "value": "HRK",
+                                "caption": "Config.currencyAvailableCurrenciesHRK"
+                            },
+                            {
+                                "value": "HUF",
+                                "caption": "Config.currencyAvailableCurrenciesHUF"
+                            },
+                            {
+                                "value": "IDR",
+                                "caption": "Config.currencyAvailableCurrenciesIDR"
+                            },
+                            {
+                                "value": "INR",
+                                "caption": "Config.currencyAvailableCurrenciesINR"
+                            },
+                            {
+                                "value": "JPY",
+                                "caption": "Config.currencyAvailableCurrenciesJPY"
+                            },
+                            {
+                                "value": "KES",
+                                "caption": "Config.currencyAvailableCurrenciesKES"
+                            },
+                            {
+                                "value": "MXN",
+                                "caption": "Config.currencyAvailableCurrenciesMXN"
+                            },
+                            {
+                                "value": "MYR",
+                                "caption": "Config.currencyAvailableCurrenciesMYR"
+                            },
+                            {
+                                "value": "NOK",
+                                "caption": "Config.currencyAvailableCurrenciesNOK"
+                            },
+                            {
+                                "value": "NZD",
+                                "caption": "Config.currencyAvailableCurrenciesNZD"
+                            },
+                            {
+                                "value": "PHP",
+                                "caption": "Config.currencyAvailableCurrenciesPHP"
+                            },
+                            {
+                                "value": "PLN",
+                                "caption": "Config.currencyAvailableCurrenciesPLN"
+                            },
+                            {
+                                "value": "QAR",
+                                "caption": "Config.currencyAvailableCurrenciesQAR"
+                            },
+                            {
+                                "value": "RON",
+                                "caption": "Config.currencyAvailableCurrenciesRON"
+                            },
+                            {
+                                "value": "RUB",
+                                "caption": "Config.currencyAvailableCurrenciesRUB"
+                            },
+                            {
+                                "value": "SEK",
+                                "caption": "Config.currencyAvailableCurrenciesSEK"
+                            },
+                            {
+                                "value": "SGD",
+                                "caption": "Config.currencyAvailableCurrenciesSGD"
+                            },
+                            {
+                                "value": "THB",
+                                "caption": "Config.currencyAvailableCurrenciesTHB"
+                            },
+                            {
+                                "value": "TRY",
+                                "caption": "Config.currencyAvailableCurrenciesTRY"
+                            },
+                            {
+                                "value": "TWD",
+                                "caption": "Config.currencyAvailableCurrenciesTWD"
+                            },
+                            {
+                                "value": "UAH",
+                                "caption": "Config.currencyAvailableCurrenciesUAH"
+                            },
+                            {
+                                "value": "USD",
+                                "caption": "Config.currencyAvailableCurrenciesUSD"
+                            },
+                            {
+                                "value": "VND",
+                                "caption": "Config.currencyAvailableCurrenciesVND"
+                            },
+                            {
+                                "value": "XCD",
+                                "caption": "Config.currencyAvailableCurrenciesXCD"
+                            },
+                            {
+                                "value": "ZAR",
+                                "caption": "Config.currencyAvailableCurrenciesZAR"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "Config.SEOTab": {
+            "label": "Config.seoTab",
+            "formFields": {
+                "meta.robots_home": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.metaRobotsHomeLabel",
+                    "options": {
+                        "defaultValue": "all",
+                        "selectBoxValues": [
+                            {
+                                "value": "all",
+                                "caption": "Config.metaRobotsAll"
+                            },
+                            {
+                                "value": "index",
+                                "caption": "Config.metaRobotsIndex"
+                            },
+                            {
+                                "value": "nofollow",
+                                "caption": "Config.metaRobotsNofollow"
+                            },
+                            {
+                                "value": "noindex",
+                                "caption": "Config.metaRobotsNoindex"
+                            },
+                            {
+                                "value": "noindex, nofollow",
+                                "caption": "Config.metaRobotsNoindexNofollow"
+                            }
+                        ]
+                    }
+                },
+                "meta.robots_contact": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.metaRobotsContactLabel",
+                    "options": {
+                        "defaultValue": "all",
+                        "selectBoxValues": [
+                            {
+                                "value": "all",
+                                "caption": "Config.metaRobotsAll"
+                            },
+                            {
+                                "value": "index",
+                                "caption": "Config.metaRobotsIndex"
+                            },
+                            {
+                                "value": "nofollow",
+                                "caption": "Config.metaRobotsNofollow"
+                            },
+                            {
+                                "value": "noindex",
+                                "caption": "Config.metaRobotsNoindex"
+                            },
+                            {
+                                "value": "noindex, nofollow",
+                                "caption": "Config.metaRobotsNoindexNofollow"
+                            }
+                        ]
+                    }
+                },
+                "meta.robots_cancel_rights": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.metaRobotsCancelRightsLabel",
+                    "options": {
+                        "defaultValue": "all",
+                        "selectBoxValues": [
+                            {
+                                "value": "all",
+                                "caption": "Config.metaRobotsAll"
+                            },
+                            {
+                                "value": "index",
+                                "caption": "Config.metaRobotsIndex"
+                            },
+                            {
+                                "value": "nofollow",
+                                "caption": "Config.metaRobotsNofollow"
+                            },
+                            {
+                                "value": "noindex",
+                                "caption": "Config.metaRobotsNoindex"
+                            },
+                            {
+                                "value": "noindex, nofollow",
+                                "caption": "Config.metaRobotsNoindexNofollow"
+                            }
+                        ]
+                    }
+                },
+                "meta.robots_cancel_form": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.metaRobotsCancelFormLabel",
+                    "options": {
+                        "defaultValue": "all",
+                        "selectBoxValues": [
+                            {
+                                "value": "all",
+                                "caption": "Config.metaRobotsAll"
+                            },
+                            {
+                                "value": "index",
+                                "caption": "Config.metaRobotsIndex"
+                            },
+                            {
+                                "value": "nofollow",
+                                "caption": "Config.metaRobotsNofollow"
+                            },
+                            {
+                                "value": "noindex",
+                                "caption": "Config.metaRobotsNoindex"
+                            },
+                            {
+                                "value": "noindex, nofollow",
+                                "caption": "Config.metaRobotsNoindexNofollow"
+                            }
+                        ]
+                    }
+                },
+                "meta.robots_legal_disclosure": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.metaRobotsLegalDisclosureLabel",
+                    "options": {
+                        "defaultValue": "all",
+                        "selectBoxValues": [
+                            {
+                                "value": "all",
+                                "caption": "Config.metaRobotsAll"
+                            },
+                            {
+                                "value": "index",
+                                "caption": "Config.metaRobotsIndex"
+                            },
+                            {
+                                "value": "nofollow",
+                                "caption": "Config.metaRobotsNofollow"
+                            },
+                            {
+                                "value": "noindex",
+                                "caption": "Config.metaRobotsNoindex"
+                            },
+                            {
+                                "value": "noindex, nofollow",
+                                "caption": "Config.metaRobotsNoindexNofollow"
+                            }
+                        ]
+                    }
+                },
+                "meta.robots_privacy_policy": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.metaRobotsPrivacyPolicyLabel",
+                    "options": {
+                        "defaultValue": "all",
+                        "selectBoxValues": [
+                            {
+                                "value": "all",
+                                "caption": "Config.metaRobotsAll"
+                            },
+                            {
+                                "value": "index",
+                                "caption": "Config.metaRobotsIndex"
+                            },
+                            {
+                                "value": "nofollow",
+                                "caption": "Config.metaRobotsNofollow"
+                            },
+                            {
+                                "value": "noindex",
+                                "caption": "Config.metaRobotsNoindex"
+                            },
+                            {
+                                "value": "noindex, nofollow",
+                                "caption": "Config.metaRobotsNoindexNofollow"
+                            }
+                        ]
+                    }
+                },
+                "meta.robots_terms_and_conditions": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.metaRobotsTermsAndConditionsLabel",
+                    "options": {
+                        "defaultValue": "all",
+                        "selectBoxValues": [
+                            {
+                                "value": "all",
+                                "caption": "Config.metaRobotsAll"
+                            },
+                            {
+                                "value": "index",
+                                "caption": "Config.metaRobotsIndex"
+                            },
+                            {
+                                "value": "nofollow",
+                                "caption": "Config.metaRobotsNofollow"
+                            },
+                            {
+                                "value": "noindex",
+                                "caption": "Config.metaRobotsNoindex"
+                            },
+                            {
+                                "value": "noindex, nofollow",
+                                "caption": "Config.metaRobotsNoindexNofollow"
+                            }
+                        ]
+                    }
+                },
+                "meta.robots_search_result": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.metaRobotsSearchResult",
+                    "options": {
+                        "defaultValue": "all",
+                        "selectBoxValues": [
+                            {
+                                "value": "all",
+                                "caption": "Config.metaRobotsAll"
+                            },
+                            {
+                                "value": "index",
+                                "caption": "Config.metaRobotsIndex"
+                            },
+                            {
+                                "value": "nofollow",
+                                "caption": "Config.metaRobotsNofollow"
+                            },
+                            {
+                                "value": "noindex",
+                                "caption": "Config.metaRobotsNoindex"
+                            },
+                            {
+                                "value": "noindex, nofollow",
+                                "caption": "Config.metaRobotsNoindexNofollow"
+                            }
+                        ]
+                    }
+                },
+                "availability.mapping": {
+                    "type": "verticalContainer",
+                    "label": "Config.availabilityMapping",
+                    "options": {
+                        "containerEntries": {
+                            "availability.mapping.availability1": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.availability1",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "",
+                                            "caption": "Config.availabilityNotSet"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStock",
+                                            "caption": "Config.availabilityInStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OutOfStock",
+                                            "caption": "Config.availabilityOutOfStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreOrder",
+                                            "caption": "Config.availabilityPreOrder"
+                                        },
+                                        {
+                                            "value": "http://schema.org/Discontinued",
+                                            "caption": "Config.availabilityDiscontinued"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStoreOnly",
+                                            "caption": "Config.availabilityInStoreOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/LimitedAvailability",
+                                            "caption": "Config.availabilityLimitedAvailability"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OnlineOnly",
+                                            "caption": "Config.availabilityOnlineOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreSale",
+                                            "caption": "Config.availabilityPreSale"
+                                        },
+                                        {
+                                            "value": "http://schema.org/SoldOut",
+                                            "caption": "Config.availabilitySoldOut"
+                                        }
+                                    ]
+                                }
+                            },
+                            "availability.mapping.availability2": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.availability2",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "",
+                                            "caption": "Config.availabilityNotSet"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStock",
+                                            "caption": "Config.availabilityInStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OutOfStock",
+                                            "caption": "Config.availabilityOutOfStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreOrder",
+                                            "caption": "Config.availabilityPreOrder"
+                                        },
+                                        {
+                                            "value": "http://schema.org/Discontinued",
+                                            "caption": "Config.availabilityDiscontinued"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStoreOnly",
+                                            "caption": "Config.availabilityInStoreOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/LimitedAvailability",
+                                            "caption": "Config.availabilityLimitedAvailability"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OnlineOnly",
+                                            "caption": "Config.availabilityOnlineOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreSale",
+                                            "caption": "Config.availabilityPreSale"
+                                        },
+                                        {
+                                            "value": "http://schema.org/SoldOut",
+                                            "caption": "Config.availabilitySoldOut"
+                                        }
+                                    ]
+                                }
+                            },
+                            "availability.mapping.availability3": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.availability3",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "",
+                                            "caption": "Config.availabilityNotSet"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStock",
+                                            "caption": "Config.availabilityInStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OutOfStock",
+                                            "caption": "Config.availabilityOutOfStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreOrder",
+                                            "caption": "Config.availabilityPreOrder"
+                                        },
+                                        {
+                                            "value": "http://schema.org/Discontinued",
+                                            "caption": "Config.availabilityDiscontinued"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStoreOnly",
+                                            "caption": "Config.availabilityInStoreOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/LimitedAvailability",
+                                            "caption": "Config.availabilityLimitedAvailability"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OnlineOnly",
+                                            "caption": "Config.availabilityOnlineOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreSale",
+                                            "caption": "Config.availabilityPreSale"
+                                        },
+                                        {
+                                            "value": "http://schema.org/SoldOut",
+                                            "caption": "Config.availabilitySoldOut"
+                                        }
+                                    ]
+                                }
+                            },
+                            "availability.mapping.availability4": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.availability4",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "",
+                                            "caption": "Config.availabilityNotSet"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStock",
+                                            "caption": "Config.availabilityInStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OutOfStock",
+                                            "caption": "Config.availabilityOutOfStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreOrder",
+                                            "caption": "Config.availabilityPreOrder"
+                                        },
+                                        {
+                                            "value": "http://schema.org/Discontinued",
+                                            "caption": "Config.availabilityDiscontinued"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStoreOnly",
+                                            "caption": "Config.availabilityInStoreOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/LimitedAvailability",
+                                            "caption": "Config.availabilityLimitedAvailability"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OnlineOnly",
+                                            "caption": "Config.availabilityOnlineOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreSale",
+                                            "caption": "Config.availabilityPreSale"
+                                        },
+                                        {
+                                            "value": "http://schema.org/SoldOut",
+                                            "caption": "Config.availabilitySoldOut"
+                                        }
+                                    ]
+                                }
+                            },
+                            "availability.mapping.availability5": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.availability5",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "",
+                                            "caption": "Config.availabilityNotSet"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStock",
+                                            "caption": "Config.availabilityInStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OutOfStock",
+                                            "caption": "Config.availabilityOutOfStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreOrder",
+                                            "caption": "Config.availabilityPreOrder"
+                                        },
+                                        {
+                                            "value": "http://schema.org/Discontinued",
+                                            "caption": "Config.availabilityDiscontinued"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStoreOnly",
+                                            "caption": "Config.availabilityInStoreOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/LimitedAvailability",
+                                            "caption": "Config.availabilityLimitedAvailability"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OnlineOnly",
+                                            "caption": "Config.availabilityOnlineOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreSale",
+                                            "caption": "Config.availabilityPreSale"
+                                        },
+                                        {
+                                            "value": "http://schema.org/SoldOut",
+                                            "caption": "Config.availabilitySoldOut"
+                                        }
+                                    ]
+                                }
+                            },
+                            "availability.mapping.availability6": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.availability6",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "",
+                                            "caption": "Config.availabilityNotSet"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStock",
+                                            "caption": "Config.availabilityInStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OutOfStock",
+                                            "caption": "Config.availabilityOutOfStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreOrder",
+                                            "caption": "Config.availabilityPreOrder"
+                                        },
+                                        {
+                                            "value": "http://schema.org/Discontinued",
+                                            "caption": "Config.availabilityDiscontinued"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStoreOnly",
+                                            "caption": "Config.availabilityInStoreOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/LimitedAvailability",
+                                            "caption": "Config.availabilityLimitedAvailability"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OnlineOnly",
+                                            "caption": "Config.availabilityOnlineOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreSale",
+                                            "caption": "Config.availabilityPreSale"
+                                        },
+                                        {
+                                            "value": "http://schema.org/SoldOut",
+                                            "caption": "Config.availabilitySoldOut"
+                                        }
+                                    ]
+                                }
+                            },
+                            "availability.mapping.availability7": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.availability7",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "",
+                                            "caption": "Config.availabilityNotSet"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStock",
+                                            "caption": "Config.availabilityInStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OutOfStock",
+                                            "caption": "Config.availabilityOutOfStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreOrder",
+                                            "caption": "Config.availabilityPreOrder"
+                                        },
+                                        {
+                                            "value": "http://schema.org/Discontinued",
+                                            "caption": "Config.availabilityDiscontinued"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStoreOnly",
+                                            "caption": "Config.availabilityInStoreOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/LimitedAvailability",
+                                            "caption": "Config.availabilityLimitedAvailability"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OnlineOnly",
+                                            "caption": "Config.availabilityOnlineOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreSale",
+                                            "caption": "Config.availabilityPreSale"
+                                        },
+                                        {
+                                            "value": "http://schema.org/SoldOut",
+                                            "caption": "Config.availabilitySoldOut"
+                                        }
+                                    ]
+                                }
+                            },
+                            "availability.mapping.availability8": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.availability8",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "",
+                                            "caption": "Config.availabilityNotSet"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStock",
+                                            "caption": "Config.availabilityInStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OutOfStock",
+                                            "caption": "Config.availabilityOutOfStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreOrder",
+                                            "caption": "Config.availabilityPreOrder"
+                                        },
+                                        {
+                                            "value": "http://schema.org/Discontinued",
+                                            "caption": "Config.availabilityDiscontinued"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStoreOnly",
+                                            "caption": "Config.availabilityInStoreOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/LimitedAvailability",
+                                            "caption": "Config.availabilityLimitedAvailability"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OnlineOnly",
+                                            "caption": "Config.availabilityOnlineOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreSale",
+                                            "caption": "Config.availabilityPreSale"
+                                        },
+                                        {
+                                            "value": "http://schema.org/SoldOut",
+                                            "caption": "Config.availabilitySoldOut"
+                                        }
+                                    ]
+                                }
+                            },
+                            "availability.mapping.availability9": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.availability9",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "",
+                                            "caption": "Config.availabilityNotSet"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStock",
+                                            "caption": "Config.availabilityInStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OutOfStock",
+                                            "caption": "Config.availabilityOutOfStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreOrder",
+                                            "caption": "Config.availabilityPreOrder"
+                                        },
+                                        {
+                                            "value": "http://schema.org/Discontinued",
+                                            "caption": "Config.availabilityDiscontinued"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStoreOnly",
+                                            "caption": "Config.availabilityInStoreOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/LimitedAvailability",
+                                            "caption": "Config.availabilityLimitedAvailability"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OnlineOnly",
+                                            "caption": "Config.availabilityOnlineOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreSale",
+                                            "caption": "Config.availabilityPreSale"
+                                        },
+                                        {
+                                            "value": "http://schema.org/SoldOut",
+                                            "caption": "Config.availabilitySoldOut"
+                                        }
+                                    ]
+                                }
+                            },
+                            "availability.mapping.availability10": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.availability10",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "",
+                                            "caption": "Config.availabilityNotSet"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStock",
+                                            "caption": "Config.availabilityInStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OutOfStock",
+                                            "caption": "Config.availabilityOutOfStock"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreOrder",
+                                            "caption": "Config.availabilityPreOrder"
+                                        },
+                                        {
+                                            "value": "http://schema.org/Discontinued",
+                                            "caption": "Config.availabilityDiscontinued"
+                                        },
+                                        {
+                                            "value": "http://schema.org/InStoreOnly",
+                                            "caption": "Config.availabilityInStoreOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/LimitedAvailability",
+                                            "caption": "Config.availabilityLimitedAvailability"
+                                        },
+                                        {
+                                            "value": "http://schema.org/OnlineOnly",
+                                            "caption": "Config.availabilityOnlineOnly"
+                                        },
+                                        {
+                                            "value": "http://schema.org/PreSale",
+                                            "caption": "Config.availabilityPreSale"
+                                        },
+                                        {
+                                            "value": "http://schema.org/SoldOut",
+                                            "caption": "Config.availabilitySoldOut"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "brand.mapping": {
+                    "type": "verticalContainer",
+                    "label": "Config.brandMapping",
+                    "options": {
+                        "containerEntries": {
+                            "brand.mapping.brand": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.brand",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "1",
+                                            "caption": "Config.brandNotSet",
+                                            "position": 0
+                                        },
+                                        {
+                                            "value": "2",
+                                            "caption": "Config.manufacturerExtern",
+                                            "position": 1
+                                        },
+                                        {
+                                            "value": "3",
+                                            "caption": "Config.brandSetPropertyOnArticle",
+                                            "position": 2
+                                        }
+                                    ]
+                                }
+                            },
+                            "brand.mapping.brandID": {
+                                "type": "inputText",
+                                "required": false,
+                                "label": "Config.brandID",
+                                "options": {
+                                    "defaultValue": ""
+                                }
+                            }
+                        }
+                    }
+                },
+                "manufacturer.mapping": {
+                    "type": "verticalContainer",
+                    "label": "Config.manufacturerMapping",
+                    "options": {
+                        "containerEntries": {
+                            "manufacturer.mapping.manufacturer": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.manufacturer",
+                                "options": {
+                                    "defaultValue": "2",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "1",
+                                            "caption": "Config.manufacturerNotSet",
+                                            "position": 0
+                                        },
+                                        {
+                                            "value": "2",
+                                            "caption": "Config.manufacturerExtern",
+                                            "position": 1
+                                        },
+                                        {
+                                            "value": "3",
+                                            "caption": "Config.manufacturerName",
+                                            "position": 2
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "gtin.mapping": {
+                    "type": "verticalContainer",
+                    "label": "Config.gtinMapping",
+                    "options": {
+                        "containerEntries": {
+                            "gtin.mapping.gtin": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.gtin",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "1",
+                                            "caption": "Config.gtinNotSet",
+                                            "position": 0
+                                        },
+                                        {
+                                            "value": "2",
+                                            "caption": "Config.gtinSetFirst",
+                                            "position": 1
+                                        },
+                                        {
+                                            "value": "3",
+                                            "caption": "Config.gtinSet",
+                                            "position": 2
+                                        }
+                                    ]
+                                }
+                            },
+                            "gtin.mapping.gtinID": {
+                                "type": "inputText",
+                                "required": false,
+                                "label": "Config.gtinID",
+                                "options": {
+                                    "defaultValue": ""
+                                }
+                            }
+                        }
+                    }
+                },
+                "gtin8.mapping": {
+                    "type": "verticalContainer",
+                    "label": "Config.gtin8Mapping",
+                    "options": {
+                        "containerEntries": {
+                            "gtin8.mapping.gtin8": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.gtin8",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "1",
+                                            "caption": "Config.gtin8NotSet",
+                                            "position": 0
+                                        },
+                                        {
+                                            "value": "2",
+                                            "caption": "Config.gtin8SetFirst",
+                                            "position": 1
+                                        },
+                                        {
+                                            "value": "3",
+                                            "caption": "Config.gtin8Set",
+                                            "position": 2
+                                        }
+                                    ]
+                                }
+                            },
+                            "gtin8.mapping.gtin8ID": {
+                                "type": "inputText",
+                                "required": false,
+                                "label": "Config.gtin8ID",
+                                "options": {
+                                    "defaultValue": ""
+                                }
+                            }
+                        }
+                    }
+                },
+                "gtin13.mapping": {
+                    "type": "verticalContainer",
+                    "label": "Config.gtin13Mapping",
+                    "options": {
+                        "containerEntries": {
+                            "gtin13.mapping.gtin13": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.gtin13",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "1",
+                                            "caption": "Config.gtin13NotSet",
+                                            "position": 0
+                                        },
+                                        {
+                                            "value": "2",
+                                            "caption": "Config.gtin13SetFirst",
+                                            "position": 1
+                                        },
+                                        {
+                                            "value": "3",
+                                            "caption": "Config.gtin13Set",
+                                            "position": 2
+                                        }
+                                    ]
+                                }
+                            },
+                            "gtin13.mapping.gtin13ID": {
+                                "type": "inputText",
+                                "required": false,
+                                "label": "Config.gtin13ID",
+                                "options": {
+                                    "defaultValue": ""
+                                }
+                            }
+                        }
+                    }
+                },
+                "isbn.mapping": {
+                    "type": "verticalContainer",
+                    "label": "Config.isbnMapping",
+                    "options": {
+                        "containerEntries": {
+                            "isbn.mapping.isbn": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.isbn",
+                                "options": {
+                                    "defaultValue": "1",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "1",
+                                            "caption": "Config.isbnNotSet",
+                                            "position": 0
+                                        },
+                                        {
+                                            "value": "2",
+                                            "caption": "Config.isbnSetFirst",
+                                            "position": 1
+                                        },
+                                        {
+                                            "value": "3",
+                                            "caption": "Config.isbnSet",
+                                            "position": 2
+                                        }
+                                    ]
+                                }
+                            },
+                            "isbn.mapping.isbnID": {
+                                "type": "inputText",
+                                "required": false,
+                                "label": "Config.isbnID",
+                                "options": {
+                                    "defaultValue": ""
+                                }
+                            }
+                        }
+                    }
+                },
+                "mpn.mapping": {
+                    "type": "verticalContainer",
+                    "label": "Config.mpnMapping",
+                    "options": {
+                        "containerEntries": {
+                            "mpn.mapping.mpn": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.mpn",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "1",
+                                            "caption": "Config.mpnNotSet",
+                                            "position": 0
+                                        },
+                                        {
+                                            "value": "2",
+                                            "caption": "Config.externalVariationId",
+                                            "position": 1
+                                        },
+                                        {
+                                            "value": "3",
+                                            "caption": "Config.mpnSet",
+                                            "position": 2
+                                        }
+                                    ]
+                                }
+                            },
+                            "mpn.mapping.mpnID": {
+                                "type": "inputText",
+                                "required": false,
+                                "label": "Config.mpnID",
+                                "options": {
+                                    "defaultValue": ""
+                                }
+                            }
+                        }
+                    }
+                },
+                "priceValidUntil.mapping": {
+                    "type": "verticalContainer",
+                    "label": "Config.priceValidUntilMapping",
+                    "options": {
+                        "containerEntries": {
+                            "priceValidUntil.mapping.priceValidUntilID": {
+                                "type": "inputText",
+                                "required": false,
+                                "label": "Config.priceValidUntilID",
+                                "options": {
+                                    "defaultValue": ""
+                                }
+                            }
+                        }
+                    }
+                },
+                "sku.mapping": {
+                    "type": "verticalContainer",
+                    "label": "Config.skuMapping",
+                    "options": {
+                        "containerEntries": {
+                            "sku.mapping.sku": {
+                                "type": "selectBox",
+                                "required": false,
+                                "label": "Config.sku",
+                                "options": {
+                                    "defaultValue": "",
+                                    "selectBoxValues": [
+                                        {
+                                            "value": "1",
+                                            "caption": "Config.skuVariationID",
+                                            "position": 0
+                                        },
+                                        {
+                                            "value": "2",
+                                            "caption": "Config.skuVariationNr",
+                                            "position": 1
+                                        },
+                                        {
+                                            "value": "3",
+                                            "caption": "Config.skuVarPropSet",
+                                            "position": 2
+                                        },
+                                        {
+                                            "value": "4",
+                                            "caption": "Config.skuItemID",
+                                            "position": 3
+                                        }
+                                    ]
+                                }
+                            },
+                            "sku.mapping.skuID": {
+                                "type": "inputText",
+                                "required": false,
+                                "label": "Config.skuID",
+                                "options": {
+                                    "defaultValue": ""
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Config.DesignTab": {
+            "label": "Config.designTab",
+            "formFields": {
+                "custom-font-regular": {
+                    "type": "inputText",
+                    "required": false,
+                    "shopBuilder": true,
+                    "scss": false,
+                    "label": "Custom Schriftart",
+                    "options": {
+                        "defaultValue": ""
+                    }
+                },
+                "custom-font-bold": {
+                    "type": "inputText",
+                    "required": false,
+                    "shopBuilder": true,
+                    "scss": false,
+                    "label": "Custom Schriftart",
+                    "options": {
+                        "defaultValue": ""
+                    }
+                },
+                "custom-font-italic": {
+                    "type": "inputText",
+                    "required": false,
+                    "shopBuilder": true,
+                    "scss": false,
+                    "label": "Custom Schriftart",
+                    "options": {
+                        "defaultValue": ""
+                    }
+                },
+                "custom-font-bold-italic": {
+                    "type": "inputText",
+                    "required": false,
+                    "shopBuilder": true,
+                    "scss": false,
+                    "label": "Custom Schriftart",
+                    "options": {
+                        "defaultValue": ""
+                    }
+                }
+            }
+        },
+        "Config.LoggingAndPerformanceTab": {
+            "label": "Config.loggingAndPerformanceTab",
+            "formFields": {
+                "log.data": {
+                    "type": "multiCheckBox",
+                    "required": false,
+                    "label": "Config.logDataLabel",
+                    "options": {
+                        "defaultValue": "print_errors, print_success, print_warnings",
+                        "checkBoxValues": [
+                            {
+                                "value": "print_errors",
+                                "caption": "Config.logDataPrintErrors"
+                            },
+                            {
+                                "value": "print_success",
+                                "caption": "Config.logDataPrintSuccess"
+                            },
+                            {
+                                "value": "print_warnings",
+                                "caption": "Config.logDataPrintWarnings"
+                            },
+                            {
+                                "value": "print_infos",
+                                "caption": "Config.logDataPrintInfos"
+                            },
+                            {
+                                "value": "print_stack_trace",
+                                "caption": "Config.logDataPrintStackTrace"
+                            },
+                            {
+                                "value": "log_messages",
+                                "caption": "Config.logDataLogMessages"
+                            },
+                            {
+                                "value": "show_error_code",
+                                "caption": "Config.logDataShowErrorCode"
+                            }
+                        ]
+                    }
+                },
+                "log.performance.level": {
+                    "type": "selectBox",
+                    "required": false,
+                    "label": "Config.logPerformanceLevelLabel",
+                    "options": {
+                        "defaultValue": "live",
+                        "selectBoxValues": [
+                            {
+                                "value": "development",
+                                "caption": "Config.logPerformanceLevelDevelopment"
+                            },
+                            {
+                                "value": "live",
+                                "caption": "Config.logPerformanceLevelLive"
+                            }
+                        ]
+                    }
+                },
+                "log.check_syntax": {
+                    "type": "checkBox",
+                    "required": false,
+                    "label": "Config.logCheckSyntax",
+                    "options": {
+                        "defaultValue": "true"
+                    }
+                },
+                "log.performance.ssr": {
+                    "type": "checkBox",
+                    "required": false,
+                    "label": "Config.logPerformanceSsr",
+                    "options": {
+                        "defaultValue": "false"
+                    }
+                },
+                "log.performance.eventPropagation": {
+                    "type": "checkBox",
+                    "required": false,
+                    "label": "Config.logPerformanceEventPropagation",
+                    "options": {
+                        "defaultValue": "true"
+                    }
+                }
+            }
+        }
+    }
+}
