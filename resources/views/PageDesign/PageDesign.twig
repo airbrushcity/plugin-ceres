@@ -1,1 +1,15 @@
 <!-- Page Design Loaded -->
+{% import "Ceres::PageDesign.Macros.IncludeComponents" as Loader %}
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+{% import "Ceres::PageDesign.Macros.Translations" as Translations %}
+{{ component( "Ceres::PageDesign.Components.Notifications" ) }}
+{{ component( "Ceres::PageDesign.Components.Popper" ) }}
+{{ component( "Ceres::Customer.Components.ForgotPassword" ) }}
+
+{% if isShopBuilder %}
+    {% include "Ceres::Widgets.WidgetComponents" %}
+{% endif %}
+
+{% set isItem = services.template.isItem() == "1" %}
+{% set currencyFormat = config("Ceres.currency.format") %}
+{% set defaultLanguage = webstoreConfig.defaultLanguage %}
