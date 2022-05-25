@@ -1,0 +1,12 @@
+{% macro get( itemName, bundleType ) %}
+    {% spaceless %}
+    {% if bundleType == "bundle" %}
+        {% set itemName = services.order.removeBundlePrefix(itemName) %}
+        {{ trans("Ceres::Template.itemBundleName", {"itemName": itemName}) }}
+    {% elseif bundleType == "bundle_item" %}
+        {{ services.order.removeBundleComponentPrefix(itemName) }}
+    {% else %}
+        {{ itemName }}
+    {% endif %}
+    {% endspaceless %}
+{% endmacro %}
