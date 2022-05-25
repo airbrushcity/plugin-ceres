@@ -182,12 +182,10 @@
                             <span class="col-6 col-sm-9 col-md-7 text-right">{{ Twig.print('itemPrice | formatMonetary( itemAmount.currency )') }}</span>
                         </div>
 
-
                         <div class="row" {{ Twig.print('set_testing_attr("data-testing", "order-confirmation-quantity")') }}>
                             <strong class="col-6 col-sm-3 col-md-5">{{ Twig.trans("Ceres::Template.orderConfirmationQuantity") }}</strong>
                             <span class="col-6 col-sm-9 col-md-7 text-right">{{ Twig.print('item.quantity') }}</span>
                         </div>
-
 
                         {{ Twig.for("attribute", "item.attributes") }}
                         <div class="row">
@@ -195,7 +193,7 @@
                             <span class="col-6 col-sm-7 col-md-7 text-right">{{ Twig.print("attribute.value") }}</span>
                         </div>
                         {{ Twig.endfor() }}
-                        {{ Twig.if("discountAmount > 0") }}
+                        {{ Twig.if("itemAmount.discount > 0") }}
                             <div class="row rebate-hint">
                                 <strong class="col-6 col-sm-3 col-md-5">{{ Twig.trans("Ceres::Template.orderConfirmationItemDiscount") }}</strong>
                                 <span class="col-6 col-sm-9 col-md-7 text-right">{{ Twig.print('discountAmount | formatMonetary( itemAmount.currency )') }}</span>
@@ -209,7 +207,17 @@
                             {{ Twig.set("uid", "uid()") }}
                             <div id="collapse-{{ Twig.print('uid') }}" class="collapse row pl-4{% if isPreview %} show{% endif %}">
                                 {{ Twig.for("property", "item.orderProperties") }}
-                                    <strong class="col-12 mt-1 item-word-break">{{ Twig.print('property | propertyName') }} {{ Twig.if("webstoreConfig.useVariationOrderProperties and property.surcharge > 0") }} ({{ Twig.trans("Ceres::Template.basketIncludeAbbr") }} {{ Twig.print("property.surcharge | formatMonetary(itemAmount.currency)") }}) {{ Twig.endif() }}</strong>
+                                    <strong class="col-12 mt-1 item-word-break" data-testing="purchased-order-property">
+                                        {{ Twig.print('property | propertyName') }}
+                                        {{ Twig.if("webstoreConfig.useVariationOrderProperties and property.surcharge > 0") }}
+                                            {{ Twig.if("not property.hasTax or property.isAdditionalCosts") }}
+                                                ({{ Twig.trans("Ceres::Template.basketPlusAbbr") }}
+                                            {{ Twig.else() }}
+                                                ({{ Twig.trans("Ceres::Template.basketIncludeAbbr") }}
+                                            {{ Twig.endif() }}
+                                            {{ Twig.print("property.surcharge | formatMonetary(itemAmount.currency)") }})
+                                        {{ Twig.endif() }}
+                                    </strong>
                                     {{ Twig.if("property.type == 'file'") }}
                                         {{ Twig.if("property.fileUrl is not empty") }}
                                             <a class="text-appearance" href="{{ Twig.print("property.fileUrl") }}" target="_blank">

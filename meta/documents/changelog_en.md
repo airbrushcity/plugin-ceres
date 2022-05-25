@@ -1,5 +1,99 @@
 # Release Notes for plentyShop LTS
 
+## v5.0.51 (2022-05-23) <a href="https://github.com/plentymarkets/plugin-ceres/compare/5.0.50...5.0.51" target="_blank" rel="noopener"><b>Overview of all changes</b></a>
+
+### New
+
+- It's now possible to display the prices of the last 30 days. This information is shown when displaying a strikethrough price and the item has a price from the last 30 days.
+- The **Consent in the checkout** widget has been added to the checkout.
+
+### Fixed
+
+- The item for displaying more item information no longer covers the mega menu.
+- On the order confirmation page, the item list sometimes displayed a total rebate of €0.00. This problem has been resolved.
+
+### Changed templates
+
+- In Ceres 5.0.51 we made changes to template files which are relevant for theme developers. You can find the changed templates below. The link directs you to the effected changes in the corresponding files.
+- [resources/views/Checkout/OrderDetails.twig](https://github.com/plentymarkets/plugin-ceres/pull/3275/files#diff-49e9a28ec33181e8fd3720d39345363b8b0614f2bf29ceb66b403ef22c18bd4d)
+- [resources/views/MyAccount/Partials/OrderHistoryListItemDetails.twig](https://github.com/plentymarkets/plugin-ceres/pull/3275/files#diff-dcc9c181484eba069617434b9c7c20b7906e9ab74907f134720e220a818c968a)
+- [resources/views/Widgets/OrderConfirmation/PurchasedItemsWidget.twig](https://github.com/plentymarkets/plugin-ceres/pull/3275/files#diff-2cee15b4b8add92d304d2f4cbbb5a5891a5752c533b564f1e1d152982c1e62d0)
+
+## v5.0.50 (2022-05-04) <a href="https://github.com/plentymarkets/plugin-ceres/compare/5.0.49...5.0.50" target="_blank" rel="noopener"><b>Overview of all changes</b></a>
+
+### Changed
+
+- The amount already paid is now displayed on the order confirmation page.
+- The order confirmation page can now display multiple redeemed coupon values.
+- The plentyShop LTS plugin is now compatible with PHP 8.
+- Order properties and characteristics configured as additional costs are now shown as separate items in the totals.
+- For order properties and characteristics, it is now displayed in the single item view, in the shopping cart, and in the order confirmation whether the costs are inclusive or additional.
+- Required, pre-selected order properties that have been configured as additional costs are now displayed without a checkbox below the item price on the single item view.
+
+### Fixed
+
+- When adding an item to the shopping cart, the base price was displayed incorrectly if the item quantity for a graduated price was reached by the addition. This behaviour has been fixed.
+- If the tag name for the language selected in the shop was not stored for a tag, Javascript errors could occur in the shop. This has been fixed. 
+
+
+## v5.0.49 (2022-04-11) <a href="https://github.com/plentymarkets/plugin-ceres/compare/5.0.48...5.0.49" target="_blank" rel="noopener"><b>Overview of all changes</b></a>
+
+### Changed
+
+- The display of graduated prices in the **From price** in the category view can now be configured. The settings for this can be found in the plentyShop assistant under **Displayed information**. This setting is disabled by default.
+- Characteristics of type "none" with additional costs are now displayed below the item price.
+
+### Fixed
+
+- The base price display on the category view was calculated incorrectly if graduated prices were defined for the article. This has been fixed.
+
+### Changed templates
+
+- In Ceres 5.0.49 we made changes to template files which are relevant for theme developers. You can find the changed templates below. The link directs you to the effected changes in the corresponding files.
+- [resources/js/src/app/components/itemList/CategoryItem.vue](https://github.com/plentymarkets/plugin-ceres/pull/3265/files#diff-4c35af622ef09ba8949eb1c47557e3e6651b088291a0d2e2463c9244007b5516)
+
+## v5.0.48 (2022-03-21) <a href="https://github.com/plentymarkets/plugin-ceres/compare/5.0.47...5.0.48" target="_blank" rel="noopener"><b>Overview of all changes</b></a>
+
+### TODO
+
+- Due to changes to ShopBuilder widgets, it is necessary to regenerate the ShopBuilder contents via the **Regenerate contents** button in the **CMS » ShopBuilder** menu.
+
+### Added
+
+- The item grid and item list widgets now contain a new option via which the VAT note can be hidden.
+- The item grid and item list widgets now contain a new option via which the bakground of the item tiles can be coloured grey.
+- The newsletter widget now contains a text for describing mandatory input fields. You can edit the text with the translation key **newsletterIsRequired** in the **CMS » Multilingualism** menu. 
+- We added a new option to the image carousel widget with which images can be scaled to the full screen width.
+- The widgets image box, image carousel and background image now contain an option via which images can be scaled to the full screen height.
+- The widgets coupon input, item list, item grid, tool bar, order data and order history now contain the option to display buttons as outlined buttons. For item lists and item grid widgets, this only applies to the display on mobile devices.
+- You can now create ShopBuilder contents of the type **Softlogin** with the corresponding coftlogin widget.
+
+### Changed
+
+- The order property option **Pre-selected** is now considered by checkboxes in the shop. For order properties of the type **None** for which the order options **Pre-selected** and **Required** are active, no checkbox is displayed in the shop.
+- The URL from which the default company logo and default footer logo were loaded has been changed.
+
+### Fixed
+
+- The default tagging of cache blocks that contain category tree data or item data now works as intended.
+
+### Changed templates
+
+- In Ceres 5.0.48 we made changes to template files which are relevant for theme developers. You can find the changed templates below. The link directs you to the effected changes in the corresponding files.
+- [resources/views/Widgets/Category/ItemGridWidget.twig](https://github.com/plentymarkets/plugin-ceres/pull/3232/files#diff-f0aaf1ea155523f16c664c97d4b8877ad9db66f705f85a59ebffc0a3834f2456)
+- [resources/views/Widgets/Common/ItemListWidget.twig](https://github.com/plentymarkets/plugin-ceres/pull/3232/files#diff-56e4aca5195c81e2f933daaf2a1d1397fcd1e72844a24d75155dcab09e4cb0ee)
+- [resources/js/src/app/components/newsletter/NewsletterInput.vue](https://github.com/plentymarkets/plugin-ceres/pull/3235/files#diff-b0d8af375291becdbc1a0f4d1a4cee18317d747dc3bd044270ff390cdf4b1fa6)
+- [resources/views/Widgets/Common/ImageCarouselWidget.twig](https://github.com/plentymarkets/plugin-ceres/pull/3233/files#diff-43b0576fe9cb61d0343a4aa220f562347c237717821f276ab632973e3970ec96)
+- [resources/views/Widgets/Common/BackgroundWidget.twig](https://github.com/plentymarkets/plugin-ceres/pull/3213/files#diff-bd9967b42e5604fbd1cc0034b2ed9fbc4bb18113880fe371167076f046aee956)
+- [resources/views/Widgets/Common/ImageBoxWidget.twig](https://github.com/plentymarkets/plugin-ceres/pull/3213/files#diff-9f438954b9f177761379a8b382eea014077ec743060583796ac4f9aaed3d3003)
+- [resources/views/Widgets/Common/ImageCarouselWidget.twig](https://github.com/plentymarkets/plugin-ceres/pull/3213/files#diff-43b0576fe9cb61d0343a4aa220f562347c237717821f276ab632973e3970ec96)
+- [resources/views/Widgets/MyAccount/OrderHistoryWidget.twig](https://github.com/plentymarkets/plugin-ceres/pull/3256/files#diff-f196d6bb6f33571742988039f2a995b8bb5b7e2b8e217ba7ddb9a6ebde4ada85)
+- [resources/views/Widgets/OrderConfirmation/OrderDataWidget.twig](https://github.com/plentymarkets/plugin-ceres/pull/3256/files#diff-82affb09026a21fd94995e057ae7214f6751cf84dfed718216f4760865567c33)
+- [resources/views/Widgets/Basket/CouponWidget.twig](https://github.com/plentymarkets/plugin-ceres/pull/3243/files#diff-1510e82d2597eb5bd730a313495e2f99bf742edc008f1d1e367fe7541e0e14e2)
+- [resources/views/Widgets/Category/ItemGridWidget.twig](https://github.com/plentymarkets/plugin-ceres/pull/3243/files#diff-f0aaf1ea155523f16c664c97d4b8877ad9db66f705f85a59ebffc0a3834f2456)
+- [resources/views/Widgets/Category/ToolbarWidget.twig](https://github.com/plentymarkets/plugin-ceres/pull/3243/files#diff-cfedbade4ecd9f8d924f41e488e7d75c9b3273dbc2e422fe3f3238ea03b0d3ea)
+- [resources/views/Widgets/Common/ItemListWidget.twig](https://github.com/plentymarkets/plugin-ceres/pull/3243/files#diff-56e4aca5195c81e2f933daaf2a1d1397fcd1e72844a24d75155dcab09e4cb0ee)
+
 ## v5.0.47 (2022-02-25) <a href="https://github.com/plentymarkets/plugin-ceres/compare/5.0.46...5.0.47" target="_blank" rel="noopener"><b>Overview of all changes</b></a>
 
 ### Fixed
@@ -466,14 +560,14 @@
 
 - The Ceres settings and the plentyShop assistant now include the new setting **Use Vue Server-Side Rendering** in the **Performance** section with which you can activate server-side rendering in order to generate markup on the server's side, thereby improving shop performance. This setting is inactive by default.
 - The Ceres settings and the plentyShop assistant now include the new setting **Activate state cloning for event propagation in VueX** in the **Performance** section to activate and deactivate state clonging. Deactivating state cloning improves shop performance, but may lead to errors in combination with external plugins. This setting is active by default.
-- We added the setting **Preload image** to the widgets image box, image carousel, background image, and item image. This setting serves to improve shop performance in combination with Vue Server-Side Rendering. You can find further information on how to use this setting [here](https://knowledge.plentymarkets.com/en/slp/webshop/best-practices#_optimising_image_widgets).
+- We added the setting **Preload image** to the widgets image box, image carousel, background image, and item image. This setting serves to improve shop performance in combination with Vue Server-Side Rendering. You can find further information on how to use this setting [here](https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/best-practices.html#_optimising_image_widgets).
 - `aria-labels` have been added to the quantity input of items in order to increase its accessibility. We would like to thank @MaxBentz for their contribution!
 - You can now activate the mapping of the brand and the manufacturer for item view Rich Snippets in the SEO settings of the Ceres configuration and in the plentyShop assistant.
 - We added the ClientOnly component. This enables external developers to wrap components that are not compatible with Vue Server-Side Rendering, so that these components are only generated on the side of the client.
 
 ### Changed
 
-- Images in the background image widget can now be loaded at a later time by activating the widget setting **Lazyload background image**. You can find further information on how to use this setting [here](https://knowledge.plentymarkets.com/en/slp/webshop/best-practices#_optimising_image_widgets).
+- Images in the background image widget can now be loaded at a later time by activating the widget setting **Lazyload background image**. You can find further information on how to use this setting [here](https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/best-practices.html#_optimising_image_widgets).
 - Shipping addresses for post offices or Packstations can no longer be created in the My Account area if no shipping profile exists that includes the corresponding option.
 - A unique ID has been added to the country selection in order to remove two console warnings. We would like to thank @jvolke for their contribution. 
 - We added a slot to the LazyImg component, thereby making it possible to add additional image sources.
@@ -1202,8 +1296,8 @@
 
 ### Added
 
-- This version supports <a href="https://knowledge.plentymarkets.com/en/slp/artikel/anwendungsfaelle/multipacks-pakete-sets#3000" target="_blank">Item sets</a>. We added the **Components for item sets** widget to the ShopBuilder. It serves to edit item set contents via the ShopBuilder. This feature is currently in beta.
-- This version supports <a href="https://knowledge.plentymarkets.com/en/slp/auftraege/gutscheine">Multipurpose coupons</a>. Multipurpose coupons can be personalised and downloaded as a PDF file on the order confirmation page.
+- This version supports <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/item/combining-products.html#3000" target="_blank">Item sets</a>. We added the **Components for item sets** widget to the ShopBuilder. It serves to edit item set contents via the ShopBuilder. This feature is currently in beta.
+- This version supports <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/orders/coupons.html">Multipurpose coupons</a>. Multipurpose coupons can be personalised and downloaded as a PDF file on the order confirmation page.
 - We added the three search widgets **Search suggestions**, **Search results: Categories**, and **Search results: Items** to the ShopBuilder. These can be placed in the search area of the top bar widget in the header.
 - You can now click the search icon in the top bar widget to open a dropzone in which you can place widgets.
 - An additional search is now carried out for misspelled search terms. The search results page now provides an alternative search term in the "Did you mean...?" message.
@@ -1945,7 +2039,7 @@
 ### TODO
 
 - Due to changes of the markup of ShopBuilder widgets, the ShopBuilder pages must be regenerated after the update. The pages can be regenerated by clicking the button **Regenerate contents** in the toolbar in the menu **CMS » ShopBuilder**.
-- The compatibility of themes designed for older ceres versions must be checked and themes might require an update. For further information about updating themes, refer to the <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/reference/ceres-3-update" target="_blank" rel="noopener"><b>manual</b></a>.
+- The compatibility of themes designed for older ceres versions must be checked and themes might require an update. For further information about updating themes, refer to the <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/ceres-3-update.html" target="_blank" rel="noopener"><b>manual</b></a>.
 
 ### Added
 
@@ -1957,7 +2051,7 @@
 
 ### Changed
 
-- The Bootstrap framework has been updated to version 4.2.1. For further information about Boostrap and about updating themes, refer to the <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/reference/ceres-3-update" target="_blank" rel="noopener"><b>manual</b></a>.
+- The Bootstrap framework has been updated to version 4.2.1. For further information about Boostrap and about updating themes, refer to the <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/ceres-3-update.html" target="_blank" rel="noopener"><b>manual</b></a>.
 - Widgets are now grouped in categories in the ShopBuilder.
 - The dynamic display of variations now considers the attribute setting **Groupable in item lists**.
 - The TopBar widget has been optimised to fit smaller screen resolutions.
@@ -2508,8 +2602,8 @@
 
 - Explanatory texts for registration and intended use have been added (EHI).
 - A container has been added to the OrderConfirmation page so that shipping-plugins are now able to display additional content.
-- The setting Name of an item to display has been added to the Item view tab. This value determines whether the item name, the variation name (if available) or a combination of the two names are displayed in the online store. For further information, refer to <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#90" target="_blank">Customising the item view</a>.
-- Categories of the Content type can now be displayed in the navigation bar. For this purpose the setting Type of categories rendered in the navigation has been added to the Header tab in the Ceres configuration. For further information, refer to <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#70" target="_blank">Customising the header and footer</a>.
+- The setting Name of an item to display has been added to the Item view tab. This value determines whether the item name, the variation name (if available) or a combination of the two names are displayed in the online store. For further information, refer to <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#90" target="_blank">Customising the item view</a>.
+- Categories of the Content type can now be displayed in the navigation bar. For this purpose the setting Type of categories rendered in the navigation has been added to the Header tab in the Ceres configuration. For further information, refer to <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#70" target="_blank">Customising the header and footer</a>.
 
 ### Fixed
 
@@ -2538,7 +2632,7 @@
 
 - A service class has been implemented that enables translations via JavaScript, similar to the handling of translations with Laravel on the server side.
 - Texts in different languages will now be loaded directly from the server. It is no longer necessary to compile language-dependent JavaScript files on your local machine.
-- A cancellation form has been added. You can either create a cancellation form by saving the legal information in the back end or specify a PDF document for downloading in the Footer tab of the Ceres config. For further information, refer to [Saving legal information](https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#300).
+- A cancellation form has been added. You can either create a cancellation form by saving the legal information in the back end or specify a PDF document for downloading in the Footer tab of the Ceres config. For further information, refer to [Saving legal information](https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#300).
 
 ### Changed
 
@@ -2636,7 +2730,7 @@
 
 - Added possibility in the **Checkout**  for payment plugins to deactivate themselves.
 - Upon registering with an already existing email, the overly stays upon to better perceive the error message.
-- Items and variations can now be displayed dynamically. For further information, refer to <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#90" target="_blank">Customising the item view</a>.
+- Items and variations can now be displayed dynamically. For further information, refer to <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#90" target="_blank">Customising the item view</a>.
 
 ### Fixed
 
@@ -2672,7 +2766,7 @@
 
 ### Added
 
-- The Twig template `SingleItemWrapper` has been added. This template allows you to use <a href="https://knowledge.plentymarkets.com/en/item/managing-items#720" target="_blank"><b>item templates</b></a> in Ceres.
+- The Twig template `SingleItemWrapper` has been added. This template allows you to use <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/item/callisto-templates.html" target="_blank"><b>item templates</b></a> in Ceres.
 
 ### Fixed
 
@@ -2691,13 +2785,13 @@
 - The technology VueX has been integrated in the online store.
 - The template container `SingleItem.AdditionalContentAfterVAT` has been added for displaying additional content after the **VAT** information in the single item view (Thanks <a href="https://github.com/jalie" target="_blank"><b>@jalie</b></a>).
 - The template container `RegistrationOverlay.ExtendOverlayButtons` has been added for displaying additional content in the registration overlay (Thanks <a href="https://github.com/mkreusch" target="_blank"><b>@mkreusch</b></a>).
-- A mega menu has been added for the navigation. For further information refer to <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#80" target="_blank"><b>Customising the header and footer</b></a>.
-- A default customer class for B2B customers can now be specified in Ceres. For further information refer to <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#45" target="_blank"><b>Carrying out global settings</b></a>.
-- Items can now be sorted by stock in the category view using the **Recommended item sorting** option. For further information refer to <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#200" target="_blank"><b>Customising the pagination and sorting</b></a>.
+- A mega menu has been added for the navigation. For further information refer to <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#80" target="_blank"><b>Customising the header and footer</b></a>.
+- A default customer class for B2B customers can now be specified in Ceres. For further information refer to <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#45" target="_blank"><b>Carrying out global settings</b></a>.
+- Items can now be sorted by stock in the category view using the **Recommended item sorting** option. For further information refer to <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#200" target="_blank"><b>Customising the pagination and sorting</b></a>.
 - A customer that ordered as a guest may now change the payment method on the order confirmation page if enabled.
 - A customer that ordered as a guest can now pay an order subsequently, e.g. when the payment method changes.
 - An error message has been added that will be displayed when an error occurs during adding items to the shopping cart.
-- Currency settings can now be carried out in Ceres. For further information refer to <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#203" target="_blank"><b>Carrying out settings for currencies</b></a>.
+- Currency settings can now be carried out in Ceres. For further information refer to <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#203" target="_blank"><b>Carrying out settings for currencies</b></a>.
 - Various loading animations on buttons have been added to provide better feedback to customers when something is loaded.
 - If an element updates in the shopping cart, a loading animation is displayed.
 - When changing addresses in the **My account** area, the input fields will now be disabled until the address data is loaded from the server.
@@ -2791,7 +2885,7 @@
 
 ### Add
 
-- Meta descriptions and robots settings for static pages of the online store can now be entered in the **SEO** tab. For further information about this, refer to <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#201" target="_blank"><b>Carrying out settings for search engine optimisation</b></a>.
+- Meta descriptions and robots settings for static pages of the online store can now be entered in the **SEO** tab. For further information about this, refer to <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#201" target="_blank"><b>Carrying out settings for search engine optimisation</b></a>.
 
 ### Changed
 
@@ -2802,7 +2896,7 @@
 
 ### Added
 
-- Graduated prices are now integrated in Ceres and will be displayed below the order properties in the single item view. For further information about graduated prices, refer to <a href="https://knowledge.plentymarkets.com/en/item/managing-items#870" target="_blank"><b>Managing sales prices</b></a>.
+- Graduated prices are now integrated in Ceres and will be displayed below the order properties in the single item view. For further information about graduated prices, refer to <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/item/prices.html#870" target="_blank"><b>Managing sales prices</b></a>.
 
 ### Changed
 
@@ -2833,7 +2927,7 @@
 
 ### Added
 
-- It is now possible to return items of an order in the **My account** area. For further information about returns, refer to <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#430" target="_blank"><b>Activating returns</b></a>.
+- It is now possible to return items of an order in the **My account** area. For further information about returns, refer to <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#430" target="_blank"><b>Activating returns</b></a>.
 
 ### Fixed
 
@@ -2860,7 +2954,7 @@
 
 - Attributes (e.g. size) are now displayed in the shopping cart.
 - Order notes can now be entered in the checkout.
-- The description of a category can now be displayed in the category view. Activate the setting <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#90" target="_blank"><b>Show category description in category view</b></a>.
+- The description of a category can now be displayed in the category view. Activate the setting <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#90" target="_blank"><b>Show category description in category view</b></a>.
 - The search by variation number has been implemented.
 
 ## v1.4.5 (2017-09-06)
@@ -2948,17 +3042,17 @@
 
 ### Added
 
-- The shopping cart information to be displayed in the header can now be specified. It is possible to display the value of items, the quantity of items or the value and quantity of items in the header. For further information, refer to the <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#80" target="_blank">manual</a>.
-- A custom favicon can be uploaded for the online store. For further information about uploading a favicon, refer to the <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#350" target="_blank">manual</a>.
+- The shopping cart information to be displayed in the header can now be specified. It is possible to display the value of items, the quantity of items or the value and quantity of items in the header. For further information, refer to the <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#80" target="_blank">manual</a>.
+- A custom favicon can be uploaded for the online store. For further information about uploading a favicon, refer to the <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#350" target="_blank">manual</a>.
 - Every page now has a dynamically generated page title.
 - The stock of items is now taken into consideration in the online store.
 - The setting **Invisible: in item list** in the **Settings** tab of a variation is now taken into consideration in the online store.
-- Variations without stock can now be activated for the variation drop-down menu. For further information, refer to the <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#90" target="_blank">manual</a>.
+- Variations without stock can now be activated for the variation drop-down menu. For further information, refer to the <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#90" target="_blank">manual</a>.
 - A wish list has been added. **Note:** In order to display the wish list in the online store, the route `/wish-list` must be activated in the **Routing** tab in the configuration of **IO**.
-- A contact page and the contact form has been added. **Note:** In order to display the contact page in the online store, the route `/contact` must be activated in the **Routing** tab in the configuration of **IO**. For further information about setting up the contact page, refer to the <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#370" target="_blank">manual</a>.
+- A contact page and the contact form has been added. **Note:** In order to display the contact page in the online store, the route `/contact` must be activated in the **Routing** tab in the configuration of **IO**. For further information about setting up the contact page, refer to the <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#370" target="_blank">manual</a>.
 - Error messages sent by the server are now displayed correctly in the front-end.
 - The link in the order confirmation email now forwards to the order confirmation page of Ceres.
-- A category image can now be displayed in the category view. For further information, refer to the <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#100" target="_blank">manual</a>.
+- A category image can now be displayed in the category view. For further information, refer to the <a href="https://knowledge.plentymarkets.com/en-gb/manual/main/online-store/setting-up-ceres.html#100" target="_blank">manual</a>.
 
 ## Changed
 

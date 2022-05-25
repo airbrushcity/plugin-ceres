@@ -17,6 +17,7 @@ use Ceres\Widgets\Category\ItemSortingWidget;
 use Ceres\Widgets\Category\ItemsPerPageWidget;
 use Ceres\Widgets\Category\PaginationWidget;
 use Ceres\Widgets\Category\ToolbarWidget;
+use Ceres\Widgets\Checkout\BasketItemConsentWidget;
 use Ceres\Widgets\Checkout\CancelPaymentWidget;
 use Ceres\Widgets\Checkout\ContactWishWidget;
 use Ceres\Widgets\Checkout\CustomerSignWidget;
@@ -102,6 +103,7 @@ use Ceres\Widgets\OrderConfirmation\OrderDocumentsWidget;
 use Ceres\Widgets\OrderConfirmation\OrderReturnWidget;
 use Ceres\Widgets\OrderConfirmation\OrderTotalsWidget;
 use Ceres\Widgets\OrderConfirmation\PurchasedItemsWidget;
+use Ceres\Widgets\OrderConfirmation\SoftLoginWidget;
 
 class WidgetCollection
 {
@@ -121,7 +123,8 @@ class WidgetCollection
         ShippingPrivacyCheckWidget::class,
         ShippingProfileWidget::class,
         SubscribeNewsletterCheckWidget::class,
-        CustomerSignWidget::class
+        CustomerSignWidget::class,
+        BasketItemConsentWidget::class
     ];
 
     const COMMON_WIDGETS = [
@@ -253,6 +256,10 @@ class WidgetCollection
         PriceFilterWidget::class
     ];
 
+    const SOFT_LOGIN_WIDGETS = [
+        SoftLoginWidget::class
+    ];
+
     public static function all()
     {
         return array_merge(
@@ -271,7 +278,8 @@ class WidgetCollection
             self::LOGIN_WIDGETS,
             self::MY_ACCOUNT_WIDGETS,
             self::ORDER_CONFIRMATION_WIDGETS,
-            self::CATEGORY_ITEM_WIDGETS
+            self::CATEGORY_ITEM_WIDGETS,
+            self::SOFT_LOGIN_WIDGETS
         );
     }
 

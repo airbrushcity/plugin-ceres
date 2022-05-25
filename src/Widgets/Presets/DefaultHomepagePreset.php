@@ -79,9 +79,13 @@ class DefaultHomepagePreset implements ContentPreset
         $this->preset->createWidget("Ceres::ImageCarouselWidget")
             ->withSetting("appearance", "primary")
             ->withSetting("preloadImage", true)
-            ->withSetting("customClass", "widget-fw vh-100 img-1-offset-md-20-flip-horizontal")
+            ->withSetting("customClass", "img-1-offset-md-20-flip-horizontal")
+            ->withSetting("fullHeight", true)
+            ->withSetting("fullWidth", true)
             ->withSetting("slides", $slides)
             ->withSetting("spacing.customMargin", true)
+            ->withSetting("spacing.margin.top.value", -80)
+            ->withSetting("spacing.margin.top.unit", "px")
             ->withSetting("spacing.margin.bottom.value", 3)
             ->withSetting("spacing.margin.bottom.unit", null);
     }
@@ -134,7 +138,7 @@ class DefaultHomepagePreset implements ContentPreset
 
         $twoColumnWidgetRight->createChild("second", "Ceres::ImageBoxWidget")
             ->withSetting("appearance", "primary")
-            ->withSetting("style", "inline-caption")
+            ->withSetting("style", "block-caption")
             ->withSetting("aspectRatio", "retain")
             ->withSetting("customImagePath", $this->imagePath . "category-living-1430x.webp")
             ->withSetting("fallbackImagePath", $this->imagePath . "category-living-1430x.jpg")
@@ -145,7 +149,8 @@ class DefaultHomepagePreset implements ContentPreset
     public function createBackground(): void
     {
         $bgContainer = $this->preset->createWidget("Ceres::BackgroundWidget")
-            ->withSetting("customClass", "align-items-end vh-100")
+            ->withSetting("customClass", "align-items-end")
+            ->withSetting("fullHeight", true)
             ->withSetting("fullWidth", true)
             ->withSetting("lazyloadImage", true)
             ->withSetting("sourceType", "custom-image")
@@ -307,7 +312,8 @@ class DefaultHomepagePreset implements ContentPreset
     public function createSecondBackground(): void
     {
         $bgContainer = $this->preset->createWidget("Ceres::BackgroundWidget")
-            ->withSetting("customClass", "text-right vh-100")
+            ->withSetting("customClass", "text-right")
+            ->withSetting("fullHeight", true)
             ->withSetting("fullWidth", true)
             ->withSetting("lazyloadImage", true)
             ->withSetting("sourceType", "custom-image")
