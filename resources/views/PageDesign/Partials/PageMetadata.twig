@@ -1,5 +1,4 @@
-{% spaceless %}
-{% set details = null %}
+{% spaceless %}{% set details = null %}
 {% if category is defined and category is not null %}
 	{% set details = category.details[0] %}
 {% endif %}
@@ -43,9 +42,8 @@
 {% if not (image starts with 'https://' or image starts with 'http://' or image starts with 'layout/'or image starts with '/documents/') %}
 	{% set image = plugin_path('Ceres') ~ "/" ~ image %}
 {% endif %}
-{% set defaultCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".css?v=" ~ buildHash %}
-{% endspaceless %}
-{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+{% set defaultCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".css?v=" ~ buildHash %}{% endspaceless %}
+
 <link rel="preload" as="style" href="{{ defaultCSS }}">
 <meta charset="utf-8">
 <meta name="robots" content="{% if forceNoIndex %}NOINDEX{% else %}{{ robots }}{% endif %}">

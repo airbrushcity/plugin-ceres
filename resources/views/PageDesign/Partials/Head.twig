@@ -1,11 +1,9 @@
-{% spaceless %}
-{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+{% spaceless %}{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 {% set defaultFavicon = '/tpl/favicon_' ~ webstoreConfig.webstoreId ~ '.ico' %}
 {% set canonicalUrl = services.url.getCanonicalURL() %}
 {% set languageUrls = services.url.getLanguageURLs() %}
 {% set defaultCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".css?v=" ~ buildHash %}
-{% set defaultSCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".scss?v=" ~ buildHash %}
-{% endspaceless %}
+{% set defaultSCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".scss?v=" ~ buildHash %}{% endspaceless %}
 
 <link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">
 {% if canonicalUrl is not null %}<link rel="canonical" href="{{ canonicalUrl  ~ services.url.getCanonicalQueryString() }}">{% endif %}
