@@ -161,18 +161,18 @@
 {% endblock %}
 
 {% block PartialHead2 %}
-    {% set canonicalUrl = services.url.getCanonicalURL(null, true) %}
+{% set canonicalUrl = services.url.getCanonicalURL(null, true) %}
+{% if currentPage == 2 %}
+<link rel="prev" href="{{ canonicalUrl ~ queryString({'page': null}) }}" />
+{% elseif currentPage > 2 %}
+<link rel="prev" href="{{ canonicalUrl ~ queryString({'page': currentPage - 1}) }}" />
+{% endif %}
+{% if currentPage + 1 <= pageMax %}
+<link rel="next" href="{{ canonicalUrl ~ queryString({'page': currentPage + 1}) }}" />
+{% endif %}
+{% endblock %}
 
-    {% if currentPage == 2 %}
-        <link rel="prev" href="{{ canonicalUrl ~ queryString({'page': null}) }}" />
-    {% elseif currentPage > 2 %}
-        <link rel="prev" href="{{ canonicalUrl ~ queryString({'page': currentPage - 1}) }}" />
-    {% endif %}
-
-    {% if currentPage + 1 <= pageMax %}
-        <link rel="next" href="{{ canonicalUrl ~ queryString({'page': currentPage + 1}) }}" />
-    {% endif %}
-
+{% block PartialHead %}
     {% if category is null %}
         {% if '&' in queryString() %}
             {% set robotsValue = 'NOINDEX' %}
