@@ -11,14 +11,32 @@
                             <div class="top-bar-items">
                                 <div class="controls">
                                     <ul id="controlsList" class="controls-list mb-0 d-flex list-inline pl-2 pl-sm-1 pl-md-0">
+                                         <li class="list-inline-item d-none d-lg-block">    	
+                                            <a class="pr-2" href="/">
+                                                <picture>
+                                                    <img
+                                                        class="img-fluid logospecial"
+                                                        src="https://image.schmincke-city.de/frontend/schmincke/schmincke-mini.png"
+                                                        alt="{{ trans("Ceres::Template.headerCompanyName") }}"
+                                                    />
+                                                </picture>
+                                            </a>
+                                        </li>    	
+
+                                        <li class="list-inline-item">       	
+                                            <button v-open-mobile-navigation class="navbar-toggler p-2" type="button">
+                                                &#9776; <span class="d-none d-lg-inline">Alle Kategorien</span>
+                                            </button>    	
+                                        </li>     
+
                                         <li class="list-inline-item control-user">
                                             <client-only>
                                                 <user-login-handler>
-                                                    <a class="nav-link" data-toggle="modal" aria-label="{{ trans('Ceres::Template.login') }}">
+                                                    <a href="/login" class="nav-link">
                                                         <i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
                                                         <span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
                                                     </a>
-                                                    <a class="nav-link" data-toggle="modal" aria-label="{{ trans('Ceres::Template.loginRegister') }}">
+                                                    <a href="/login" class="nav-link">
                                                         <i class="fa fa-user-plus mr-0 mr-sm-1" aria-hidden="true"></i>
                                                         <span class="d-none d-sm-inline">{{ trans("Ceres::Template.loginRegister") }}</span>
                                                     </a>
