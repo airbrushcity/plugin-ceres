@@ -10,8 +10,7 @@ module.exports = env =>
         mode: env.prod ? "production" : "development",
         entry: {
             base: "./resources/scss/base.scss",
-            checkout: "./resources/scss/checkout.scss",
-            shopbuilder: "./resources/scss/shopbuilder.scss"
+            checkout: "./resources/scss/checkout.scss"
         },
         module: {
             rules: [
