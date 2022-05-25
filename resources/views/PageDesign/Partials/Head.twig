@@ -6,6 +6,7 @@
 {% set defaultCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".css?v=" ~ buildHash %}
 {% set defaultSCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".scss?v=" ~ buildHash %}
 {% endspaceless %}
+
 <link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">
 {% if canonicalUrl is not null %}<link rel="canonical" href="{{ canonicalUrl  ~ services.url.getCanonicalQueryString() }}">{% endif %}
 
@@ -14,7 +15,6 @@
 <link rel="alternate" hreflang="{{language}}" href="{{url}}"/>
 {% endfor %}
 {% endif %}
-
 {% if LayoutContainer.show("Ceres::Template.StyleOverwrite") | trim is empty %}<link rel="stylesheet" href="{{ defaultCSS }}"{% if isShopBuilder %} data-sass-root="{{ plugin_path('Ceres') }}" data-sass-original="{{ defaultSCSS }}"{% endif %}>{% endif %}
 {% if isShopBuilder %}<link rel="stylesheet" href="{{ plugin_path("Ceres") }}/css/ceres-shopbuilder.css?v={{ buildHash }}">{% endif %}
 {{ LayoutContainer.show("Ceres::Template.StyleOverwrite") }}
