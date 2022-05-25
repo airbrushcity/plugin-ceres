@@ -42,19 +42,19 @@
 {% if not (image starts with 'https://' or image starts with 'http://' or image starts with 'layout/'or image starts with '/documents/') %}
 	{% set image = plugin_path('Ceres') ~ "/" ~ image %}
 {% endif %}
-{% set defaultCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".css?v=" ~ buildHash %}{% endspaceless %}
-
+{% endspaceless %}
+{% set defaultCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".css?v=" ~ buildHash %}
 <link rel="preload" as="style" href="{{ defaultCSS }}">
-<meta charset="utf-8">
+
 <meta name="robots" content="{% if forceNoIndex %}NOINDEX{% else %}{{ robots }}{% endif %}">
 <title>{{ title | trim | raw }}</title>
 {% if description | trim is not empty %}<meta name="description" content="{{ description | trim }}">{% endif %}
 
 {% if keywords | trim is not empty %}<meta name="keywords" content="{{ keywords | trim }}">{% endif %}
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="format-detection" content="telephone=no"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 <meta property="og:title" content="{{ title | trim | raw }}"/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="{{ url | trim }}"/>
