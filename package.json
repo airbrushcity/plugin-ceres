@@ -4,7 +4,7 @@
   "version": "5.2.51",
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbrushcity/plugin-kaufen.git"
+    "url": "https://github.com/airbrushcity/plugin-ceres.git"
   },
   "scripts": {
     "start": "webpack --watch --progress",
