@@ -1,3 +1,4 @@
+{% spaceless %}
 {% set details = null %}
 {% if category is defined and category is not null %}
     {% set details = category.details[0] %}
@@ -51,14 +52,12 @@
 {% if not (image starts with 'https://' or image starts with 'http://' or image starts with 'layout/'or image starts with '/documents/') %}
     {% set image = plugin_path('Ceres') ~ "/" ~ image %}
 {% endif %}
-
+{% endspaceless %}
 <meta name="robots" content="{% if forceNoIndex %}NOINDEX{% else %}{{ robots }}{% endif %}">
-{% if description | trim is not empty %}
-    <meta name="description" content="{{ description | trim }}">
-{% endif %}
-{% if keywords | trim is not empty %}
-    <meta name="keywords" content="{{ keywords | trim }}">
-{% endif %}
+<title>{{ title | trim | raw }}</title>
+{% if description | trim is not empty %}<meta name="description" content="{{ description | trim }}">{% endif %}
+{% if keywords | trim is not empty %}<meta name="keywords" content="{{ keywords | trim }}">{% endif %}
+
 <meta property="og:title" content="{{ title | trim | raw }}"/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="{{ url | trim }}"/>
@@ -81,4 +80,4 @@
 {% endblock %}
 </script>
 
-<title>{{ title | trim | raw }}</title>
+

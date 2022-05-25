@@ -1,10 +1,5 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="format-detection" content="telephone=no"> {# avoid DOM manipulation by Safari #}
-
 {% set defaultFavicon = '/tpl/favicon_' ~ webstoreConfig.webstoreId ~ '.ico' %}
 <link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">
 
@@ -20,57 +15,6 @@
         <link rel="alternate" hreflang="{{language}}" href="{{url}}"/>
     {% endfor %}
 {% endif %}
-
-<style data-font="Custom-Font">
-    {% set customFont =
-        {
-            regular: config('Ceres.custom-font-regular'),
-            bold: config('Ceres.custom-font-bold'),
-            italic: config('Ceres.custom-font-italic'),
-            boldItalic: config('Ceres.custom-font-bold-italic')
-        }
-    %}
-
-    {% if customFont.regular %}
-    {{ add_asset(customFont.regular, 'font', 'preload', {'crossorigin': true}) }}
-    @font-face {
-        font-family: "Custom-Font";
-        src: url("{{ customFont.regular }}");
-        font-display: optional;
-    }
-    {% endif %}
-    {% if customFont.bold %}
-    {{ add_asset(customFont.bold, 'font', 'preload', {'crossorigin': true}) }}
-    @font-face {
-        font-family: "Custom-Font";
-        src: url("{{ customFont.bold }}");
-        font-display: optional;
-        font-weight: bold;
-    }
-    {% endif %}
-    {% if customFont.italic %}
-    {{ add_asset(customFont.italic, 'font', 'preload', {'crossorigin': true}) }}
-    @font-face {
-        font-family: "Custom-Font";
-        src: url("{{ customFont.italic }}");
-        font-display: optional;
-        font-style: italic;
-    }
-    {% endif %}
-    {% if customFont.boldItalic %}
-    {{ add_asset(customFont.boldItalic, 'font', 'preload', {'crossorigin': true}) }}
-    @font-face {
-        font-family: "Custom-Font";
-        src: url("{{ customFont.boldItalic }}");
-        font-display: optional;
-        font-weight: bold;
-        font-style: italic;
-    }
-    {% endif %}
-
-    {# FIX: do not display icons until fontawesome is loaded #}
-    .icons-loading .fa { visibility: hidden !important; }
-</style>
 
 {% set iconCSS = plugin_path("Ceres") ~ "/css/ceres-icons.css" %}
 {# asynchronously load icons.css #}
