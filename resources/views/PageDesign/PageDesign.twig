@@ -57,14 +57,13 @@
 <!-- SSR:app() -->
 <div id="vue-app" class="app">
     {{ context.renderState() }}
-	
+	<lazy-hydrate when-idle>
+        <notifications template="#vue-notifications" :initial-notifications="{{ notifications | json_encode() }}"></notifications>
+    </lazy-hydrate>
     {% include getPartial('header') %}
 
     <div id="page-body" class="main">
         {% block PageBody %}{% endblock %}
-	<lazy-hydrate when-idle>
-        <notifications template="#vue-notifications" :initial-notifications="{{ notifications | json_encode() }}"></notifications>
-    </lazy-hydrate>
     </div>
 
     {% cacheblock %}
