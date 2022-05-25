@@ -117,7 +117,7 @@
                     "required": false,
                     "label": "Config.globalRegistrationRequirePrivacyPolicyConfirmation",
                     "options": {
-                        "defaultValue": "true"
+                        "defaultValue": "false"
                     }
                 },
                 "global.block_cookies": {
@@ -125,7 +125,7 @@
                     "required": false,
                     "label": "Config.globalBlockCookies",
                     "options": {
-                        "defaultValue": "true"
+                        "defaultValue": "false"
                     }
                 }
             }
@@ -160,7 +160,7 @@
                     "required": false,
                     "label": "Config.headerShowCategoryTypesLabel",
                     "options": {
-                        "defaultValue": "all",
+                        "defaultValue": "item",
                         "checkBoxValues": [
                             {
                                 "value": "item",
@@ -182,7 +182,7 @@
                     "required": false,
                     "label": "Config.headerMenuLevelsLabel",
                     "options": {
-                        "defaultValue": 4,
+                        "defaultValue": 6,
                         "selectBoxValues": [
                             {
                                 "value": 1,
