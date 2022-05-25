@@ -5,9 +5,7 @@
 {{ component( "Ceres::PageDesign.Components.Notifications" ) }}
 {{ component( "Ceres::PageDesign.Components.Popper" ) }}
 {{ component( "Ceres::Customer.Components.ForgotPassword" ) }}
-{% if isShopBuilder %}
-    {% include "Ceres::Widgets.WidgetComponents" %}
-{% endif %}
+{% if isShopBuilder %}{% include "Ceres::Widgets.WidgetComponents" %}{% endif %}
 {% set isItem = services.template.isItem() == "1" %}
 {% set currencyFormat = config("Ceres.currency.format") %}
 {% set defaultLanguage = webstoreConfig.defaultLanguage %}
@@ -15,9 +13,9 @@
 <head>{{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningHeadTag") }}
 <html lang="{{ lang }}" data-framework="vue" prefix="og: http://ogp.me/ns#" class="icons-loading">
 {% block PartialHead %}
-{% embed getPartial('page-metadata') %}{% endembed %}
+{% embed getPartial('page-metadata') %}
+{% endembed %}
 {% endblock %}
-{% block PartialHead2 %}{% endblock %}
 {% include getPartial('head') %}
 {% for styleTemplate in get_additional_styles() %}
 {% include styleTemplate.path ignore missing with styleTemplate.params %}
@@ -28,6 +26,11 @@
 {% if isItem %}
 {{ LayoutContainer.show("Ceres::SingleItem.Styles") }}
 {% endif %}
+{% block PartialHead2 %}{% endblock %}
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */ 
+(function( w ){"use strict"; if( !w.loadCSS ){w.loadCSS=function(){};}var rp=loadCSS.relpreload={}; rp.support=(function(){var ret; try{ret=w.document.createElement( "link" ).relList.supports( "preload" );}catch (e){ret=false;}return function(){return ret;};})(); rp.bindMediaToggle=function( link ){var finalMedia=link.media || "all"; function enableStylesheet(){// unbind listeners if( link.addEventListener ){link.removeEventListener( "load", enableStylesheet );}else if( link.attachEvent ){link.detachEvent( "onload", enableStylesheet );}link.setAttribute( "onload", null ); link.media=finalMedia;}if( link.addEventListener ){link.addEventListener( "load", enableStylesheet );}else if( link.attachEvent ){link.attachEvent( "onload", enableStylesheet );}setTimeout(function(){link.rel="stylesheet"; link.media="only x";}); setTimeout( enableStylesheet, 3000 );}; rp.poly=function(){if( rp.support() ){return;}var links=w.document.getElementsByTagName( "link" ); for( var i=0; i < links.length; i++ ){var link=links[ i]; if( link.rel==="preload" && link.getAttribute( "as" )==="style" && !link.getAttribute( "data-loadcss" ) ){link.setAttribute( "data-loadcss", true ); rp.bindMediaToggle( link );}}}; if( !rp.support() ){rp.poly(); var run=w.setInterval( rp.poly, 500 ); if( w.addEventListener ){w.addEventListener( "load", function(){rp.poly(); w.clearInterval( run );});}else if( w.attachEvent ){w.attachEvent( "onload", function(){rp.poly(); w.clearInterval( run );});}}if( typeof exports !=="undefined" ){exports.loadCSS=loadCSS;}else{w.loadCSS=loadCSS;}}( typeof global !=="undefined" ? global : this ) ); (function(){var checkIconFont=function(){if(!document.fonts || document.fonts.check("1em FontAwesome")){document.documentElement.classList.remove('icons-loading');}}; if(document.fonts){document.fonts.addEventListener("loadingdone", checkIconFont); window.addEventListener("load", checkIconFont);}checkIconFont();})();
+</script>
 </head>
 <body class="{{ bodyClasses | join(' ') }} {% if request.get('openBasketPreview') == 1 %} basket-open{% endif %}">
 {{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningBodyTag") }}

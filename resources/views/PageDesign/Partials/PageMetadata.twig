@@ -45,7 +45,9 @@
 {% endif %}
 {% set defaultCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".css?v=" ~ buildHash %}
 {% endspaceless %}
+
 <link rel="preload" as="style" href="{{ defaultCSS }}">
+
 <meta charset="utf-8">
 <meta name="robots" content="{% if forceNoIndex %}NOINDEX{% else %}{{ robots }}{% endif %}">
 <title>{{ title | trim | raw }}</title>
