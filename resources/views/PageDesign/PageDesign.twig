@@ -5,20 +5,15 @@
 {{ component( "Ceres::PageDesign.Components.Notifications" ) }}
 {{ component( "Ceres::PageDesign.Components.Popper" ) }}
 {{ component( "Ceres::Customer.Components.ForgotPassword" ) }}
-
 {% if isShopBuilder %}
     {% include "Ceres::Widgets.WidgetComponents" %}
 {% endif %}
-
 {% set isItem = services.template.isItem() == "1" %}
 {% set currencyFormat = config("Ceres.currency.format") %}
 {% set defaultLanguage = webstoreConfig.defaultLanguage %}
-
 {% endspaceless %}<!DOCTYPE html>
-<head>
-{{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningHeadTag") }}
+<head>{{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningHeadTag") }}
 <html lang="{{ lang }}" data-framework="vue" prefix="og: http://ogp.me/ns#" class="icons-loading">
-
 {% block PartialHead %}
 {% embed getPartial('page-metadata') %}{% endembed %}
 {% endblock %}
@@ -33,11 +28,8 @@
 {{ LayoutContainer.show("Ceres::SingleItem.Styles") }}
 {% endif %}
 </head>
-
 <body class="{{ bodyClasses | join(' ') }} {% if request.get('openBasketPreview') == 1 %} basket-open{% endif %}">
-
 {{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningBodyTag") }}
-
 <script>
     if('ontouchstart' in document.documentElement)
     {
@@ -48,7 +40,6 @@
         document.body.classList.add("no-touch");
     }
 </script>
-
 <!-- SSR:app() -->
 <div id="vue-app" class="app">
     {{ context.renderState() }}
