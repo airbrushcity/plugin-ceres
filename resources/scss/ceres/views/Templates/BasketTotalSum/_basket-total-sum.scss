@@ -3,19 +3,6 @@
     dd {
         display: inline-block;
         vertical-align: top;
-
-        &.font-weight-bold {
-            font-weight: $font-weight-normal !important; // override utility class
-        }
-    }
-
-    .totalSum {
-        dt,
-        dd {
-            &.font-weight-bold {
-                font-weight: $font-weight-bolder !important; // override utility class
-            }
-        }
     }
 
     dt {
@@ -36,27 +23,4 @@
             margin: 5px 0;
         }
     }
-}
-
-.widget-coupon {
-    .input-group {
-        flex-wrap: wrap;
-        margin: 0 calc(#{map-get($spacers, 1)} * (-1));
-        width: initial;
-
-        input.form-control {
-            min-width: 200px;
-            margin: map-get($spacers, 1) map-get($spacers, 1) 0 map-get($spacers, 1);
-            flex-grow: 4;
-        }
-        .input-group-btn {
-            margin: map-get($spacers, 1) map-get($spacers, 1) 0 map-get($spacers, 1);
-            flex-grow: 1;
-
-            .btn {
-                width: 100%;
-            }
-        }
-    }
-
 }

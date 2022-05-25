@@ -47,30 +47,10 @@
     overflow-x: hidden;
     overflow-y: auto;
     font-size: 1rem;
-
-    a,
-    a span {
-        &.text-appearance {
-            &:not(.btn) {
-                @include link-primary();
-            }
-        }
-    }
 }
 
 .basket-preview-header {
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: map-get($spacers, 2) map-get($spacers, 3) !important; // override utility-class
-
-    &.border-bottom {
-        border-bottom: none !important; // override utility class
-    }
-
-    .h3 {
-        @include font-h2();
-    }
+    @extend .modal-header;
 }
 
 .basket-preview-content {
@@ -79,34 +59,21 @@
     overflow-y: auto;
 
     .totals {
-        border-top: 1px solid;
-        @include theme() { border-color: theme-get('gray-400'); }
-    }
-
-    .basket-list-item {
-        .image-container {
-            width: 100px;
-            padding-top: 100px;
-        }
+        background-color: $gray-100;
+        border-top: 1px solid $gray-300;
     }
 }
 
 .basket-preview-footer {
     flex-wrap: wrap;
-    margin: 0 calc(#{map-get($spacers, 1)} * (-1));
 
-    > a.btn {
-        width: initial;
-        flex-grow: 1;
-        margin: map-get($spacers, 1) map-get($spacers, 1) 0 map-get($spacers, 1);
+    > * {
+        flex: 1 0 40%;
+        margin-top: $spacer * .5;
     }
 
-    .btn-outline-primary {
-        @include btn-appearance($color: $dark, $outline: true); // override utility class/markup
-    }
-
-    .btn-primary {
-        @include btn-appearance($color: $dark, $outline: false); // override utility class/markup
+    > *:nth-child(2n) {
+        margin-left: $spacer;
     }
 }
 
@@ -123,7 +90,7 @@
         .totals {
             flex-basis: 45%;
             max-width: 45%;
-            @include theme() { background-color: theme-get('white'); }
+            background-color: $white;
             border-top: none;
             border-left: 1px solid $gray-300;
         }
@@ -135,10 +102,10 @@
 @include media-breakpoint-up(lg) {
     .basket-preview-wrapper.open-hover {
         position: absolute;
-        top: 72px;
+        top: auto;
         display: none;
         max-width: 440px;
-        max-height: calc(100vh - 120px);
+        max-height: 90vh;
 
         .no-touch .control-basket:hover &,
         .basket-open & {
@@ -148,7 +115,7 @@
 
         .basket-preview {
             height: auto;
-            max-height: calc(100vh - 120px);
+            max-height: 90vh;
         }
 
         .basket-preview-header {
@@ -161,7 +128,7 @@
         }
 
         .totals {
-            @include theme() { background-color: theme-get('white'); }
+            background-color: $white;
         }
 
         .basket-preview-overlay {
@@ -171,7 +138,6 @@
 }
 
 .basket-open {
-    overflow: hidden;
     [data-header-offset] {
         > * {
             z-index: auto !important; // stylelint-disable-line declaration-no-important
@@ -184,4 +150,8 @@ html.safari .basket-preview-content .totals { // stylelint-disable-line selector
 }
 html.ios .basket-preview-content .totals { // stylelint-disable-line selector-no-qualifying-type
     display: block !important; // stylelint-disable-line declaration-no-important
+}
+
+body.basket-open {
+    overflow: hidden;
 }

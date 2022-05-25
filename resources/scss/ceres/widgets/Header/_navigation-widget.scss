@@ -1,52 +1,13 @@
-.navbar {
-    right: 0; // ToDo: Consider removing this class in markup
-    left: 0;  // ToDo: left:0 and right:0 initially come from .header-fw which is now not in use anymore
-    @include theme() { background-color: theme-get('navbar-bg-color'); }
-    @include fade-transition(background-color);
-    
-    &.bg-transparent {
-        &:not(.default-font-color) {
-            &.normalmenu a,
-            &.megamenu a {
-                @include theme() {
-                    color: theme-get('top-bar-transparent-color');
-                }
-    
-                &:hover {
-                    @include theme() {
-                        color: theme-get('link-primary-hover');
-                    }
-                }
-            }
-            &.normalmenu .collapse a,
-            &.megamenu .collapse a {
-                @include theme() {
-                    color: theme-get('top-bar-color');
-                }
-        
-                &:hover {
-                    @include theme() {
-                        color: theme-get('link-primary-hover');
-                    }
-                }
-            }
-        }
-    }
-    
-    &.normalmenu a,
-    &.megamenu a {
-        @include theme() { color: theme-get('top-bar-color'); }
-        &:hover {
-            @include theme() { color: theme-get('link-primary-hover'); }
-        }
-    }
+/* settings */
+$menu-link-color: $primary !default;
+$mobile-navigation-color: $primary !default;
+$megamenu-color: $primary !default;
+$normalmenu-color: $primary !default;
 
-    &.border-bottom {
-        border-bottom: none !important; // ToDo: remove utility class from template?
-    }
+.navbar {
+    background-color: $navbar-background-color;
 
     > .container-max {
-        padding: 0;
         > .row {
             flex-wrap: nowrap;
             align-items: center;
@@ -58,32 +19,14 @@
     }
 }
 
-.main-navbar-collapsable
-{
-    padding: 0 map-get($spacers, 3);
-}
-
-.brand-wrapper {
-    flex-shrink: 0 !important; // override utility-class/markup
-
-    &.px-lg-3 // override utility-class/markup
-    {
-        padding-left: map_get($spacers, 3) !important;
-        padding-right: map_get($spacers, 3) !important;
-    }
-    
-    .navbar-brand {
-        img {
-            max-height: 50px;
-        }
+.navbar-brand {
+    img {
+        max-height: 42px;
     }
 }
 
 .navbar-toggler {
     margin-left: auto;
-    border: none;
-    padding: map-get($spacers, 3) !important;
-    @include theme() { color: theme-get('font-color-primary'); }
 }
 
 // When mobile navigation is open
@@ -93,15 +36,15 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
 }
 
 .normalmenu {
-    
     a {
-        @include font-navigation();
-        padding: map-get($spacers, 2);
+        padding: 1rem;
+        color: inherit;
     }
-    
+
     .mainmenu {
         > li {
             position: relative;
+            color: color-yiq($normalmenu-color);
         }
     }
 
@@ -113,17 +56,28 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
         overflow: hidden;
         word-wrap: break-word;
         visibility: hidden;
-        @include theme() { background-color: theme-get('white'); }
+        background: $normalmenu-color;
         opacity: 0;
-        box-shadow: $box-shadow;
 
         > li {
             min-width: 150px;
         }
     }
 
+    .collapse-inner {
+        > li {
+            &:hover {
+                background: darken($normalmenu-color, 10%);
+            }
+        }
+    }
+
     .bt-more {
         text-transform: lowercase;
+
+        &:hover {
+            background: darken($normalmenu-color, 10%);
+        }
     }
 }
 
@@ -131,7 +85,9 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
     .mainmenu {
         > li {
             &:hover,
-            &.hover {
+            &.hover { // stylelint-disable-line selector-no-qualifying-type
+                color: inherit;
+
                 > ul {
                     display: block;
                 }
@@ -146,19 +102,19 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
         min-width: 100%;
         min-height: 7em;
         max-height: 86vh;
-        padding: map_get($spacers, 3) 0;
+        padding: 1em 0;
         overflow-x: auto;
         overflow-y: hidden;
         column-count: 5;
         column-fill: balance;
         column-gap: .5em;
+        column-rule: 1px solid $gray-300;
         word-wrap: break-word;
-        @include theme() { background-color: theme-get('navbar-bg-color'); }
-        box-shadow: $box-shadow;
+        background-color: color-yiq($megamenu-color);
 
         li {
-            margin: 0 map_get($spacers, 3) map_get($spacers, 3) map_get($spacers, 3);
-            font-size: 0; // fixes weird alignment
+            // 0.1px for rendering fix
+            padding: .1px 1.5em;
             line-height: 170%;
             text-align: left;
         }
@@ -166,19 +122,24 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
 
     .collapse-inner {
         padding-bottom: 1em;
+
+        li {
+            &:hover a {
+                color: $megamenu-color;
+            }
+        }
+        a {
+            color: $black;
+        }
     }
 
-    a {
-        @include font-navigation();
-        @include theme() { color: theme-get('top-bar-color'); }
-    }
-    
     .level1 {
-    
-    }
-    .level2 {
         a {
-            font-weight: $font-weight-normal;
+            font-weight: 700;
+            color: $megamenu-color !important; // stylelint-disable-line declaration-no-important
+        }
+        &:hover a {
+            color: darken($megamenu-color, 10%) !important; // stylelint-disable-line declaration-no-important
         }
     }
     .level3 {
@@ -187,6 +148,7 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
 
     .bt-more {
         a {
+            color: $gray-600 !important; // stylelint-disable-line declaration-no-important
             text-transform: lowercase;
         }
     }
@@ -218,16 +180,24 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
 
         > li {
             > a {
-                padding: map-get($spacers, 3);
+                padding: 1.3rem 1rem;
+                color: $menu-link-color;
             }
 
-            &:hover,
-            &.hover {
+            &:hover, // stylelint-disable-line selector-no-qualifying-type
+            &.hover { // stylelint-disable-line selector-no-qualifying-type
+                background-color: $menu-link-color;
+
+                > a {
+                    color: color-yiq($menu-link-color);
+                }
+
                 > ul {
-                    overflow-y: auto; // show the overflow-y only when the menu is visible / required for safari (desktop)
+                    // show the overflow-y only when the menu is visible / required for safari (desktop)
+                    overflow-y: auto;
+
                     visibility: visible;
                     opacity: 1;
-                    z-index: $zindex-9;
                 }
             }
         }
@@ -237,8 +207,9 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
         > a {
             &::after {
                 padding-left: .5em;
-                @include plentyshop-icon('\e907'); // stylelint-disable-line font-family-no-missing-generic-family-keyword
-                font-size: $small-font-size;
+                font-family: FontAwesome; // stylelint-disable-line font-family-no-missing-generic-family-keyword
+                font-size: inherit;
+                content: "\f0d7";
             }
         }
     }
@@ -250,6 +221,7 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
     }
 }
 
+
 .mobile-navigation {
     position: fixed;
     top: 0;
@@ -259,53 +231,35 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
     z-index: 99999;
     overflow-y: auto;
     font-size: 1.2em;
-    @include theme() { color: theme-get('top-bar-color'); }
-    @include theme() { background-color: theme-get('navbar-bg-color'); }
+    color: color-yiq($mobile-navigation-color);
+    background: $mobile-navigation-color;
     opacity: .6;
     @include transition(all .3s ease);
     transform: translateX(100%);
     -webkit-overflow-scrolling: touch;
-    padding: 0 map-get($spacers, 2);
 
     &.open {
         opacity: 1;
         transform: translateX(0);
     }
 
+    .nav-direction {
+        flex: 1 0 20%;
+        padding: 1rem;
+        text-align: center;
+    }
+
     .sk-fading-circle .sk-circle::before,
     .loading-animation > div {
-        // ToDo: @vwiebe fix color-contrast
-        @include theme() { background-color: theme-get('top-bar-color'); }
+        background-color: color-yiq($mobile-navigation-color);
     }
 
     .breadcrumb {
-        display: flex !important; // override utility-class
-        justify-content: space-between;
-        align-items: center;
-        padding: map-get($spacers, 2) !important; // override utility-class
-        @include theme() { background-color: theme-get('navbar-bg-color'); }
+        font-size: .8em;
+        background: $gray-900;
 
         .breadcrumb-item {
-            padding-right: calc(#{$spacer} * 1.5);
-            @include font-navigation();
-            text-transform: capitalize;
-
-            &:hover {
-                color: $primary;
-            }
-
-            + .breadcrumb-item::before {
-                display: inline-block;
-                padding-right: calc(#{$spacer} * 0.8);
-                content: "–";
-                transform: scaleX(1.5);
-                font-weight: 800;
-            }
-
-            i {
-                font-size: $font-size-lg;
-                line-height: 1.5;
-            }
+            padding-right: .5rem;
         }
 
         li {
@@ -318,11 +272,12 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
             }
 
             &.btn-close { // stylelint-disable-line selector-no-qualifying-type
-                order: 1000;
-                margin-left: auto;
-
-                &:hover {
-                    color: $primary;
+                float: right;
+                padding-top: .6em;
+                &::before {
+                    font-family: FontAwesome; // stylelint-disable-line font-family-no-missing-generic-family-keyword
+                    font-size: 1.2em;
+                    content: "\f00d";
                 }
             }
             &:not(:first-of-type) a::before {
@@ -338,10 +293,17 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
     }
 
     .mainmenu {
+        position: absolute;
         display: none;
+        height: 90%;
 
         &.menu-active {
             display: block !important; // stylelint-disable-line declaration-no-important
+        }
+
+        .btn-up {
+            flex: none !important; // stylelint-disable-line declaration-no-important
+            transform: rotateY(180deg);
         }
 
         li {
@@ -354,33 +316,11 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
             a {
                 display: inline-block;
                 flex: 1 0 80%;
-                padding: map-get($spacers, 2);
-                @include font-navigation();
-                @include theme() { color: theme-get('top-bar-color'); }
-    
-                &:hover {
-                    @include theme() { color: theme-get('link-primary-hover'); }
-                }
-            }
-
-            .nav-direction {
+                padding: 1rem;
                 color: inherit;
-                font-size: $font-size-base;
 
                 &:hover {
-                    color: $primary;
-                }
-
-                &:not(.btn-up) {
-                    flex: 1 0 20%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-end;
-                    padding: 0 1rem;
-                }
-
-                &.btn-up {
-                    padding: map-get($spacers, 2);
+                    color: inherit;
                 }
             }
         }
@@ -388,7 +328,7 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
 
     .nav-placeholder {
         height: 25px;
-        @include theme() { background-color: theme-get('black'); }
+        background: $black;
         border-radius: 3px; // stylelint-disable-line property-blacklist
         animation: mobile-nav-placeholder .8s infinite ease-in-out;
     }
@@ -467,5 +407,9 @@ html.ie { // stylelint-disable-line selector-no-qualifying-type
                 flex: 1 0 10%;
             }
         }
+    }
+    .navbar-brand img[src*="svg"] { // stylelint-disable-line selector-no-qualifying-type
+        width: 100%;
+        height: 100%;
     }
 }

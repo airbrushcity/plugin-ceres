@@ -13,19 +13,6 @@
     .cmp-address-list {
         @include transition(all .3s ease);
     }
-    
-    .basket-list-item {
-        .image-container {
-            @include media-breakpoint-up(sm) {
-                padding-top: 100px;
-                width: 100px;
-            }
-            @include media-breakpoint-up(md) {
-                padding-top: 100px;
-                width: 100px;
-            }
-        }
-    }
 }
 
 .my-account-no-line {

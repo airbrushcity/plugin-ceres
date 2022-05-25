@@ -1,16 +1,16 @@
 {
-    "version"           : "5.2.51",
+    "version"           : "5.0.51",
     "name"              : "Ceres",
-    "marketplaceName"   : {"de": "Kaufen","en": "Buy"},
-    "description"       : "This is a modified template plugin for plentymarkets online stores.",
-    "author"            : "Airbrush City GmbH",
+    "marketplaceName"   : {"de": "plentyShop LTS","en": "plentyShop LTS"},
+    "description"       : "This is the official plentyShop LTS plugin developed by plentymarkets. plentyShop LTS is the default template plugin for plentymarkets online stores.",
+    "author"            : "plentysystems AG",
     "license"           : "AGPL-3.0",
     "pluginIcon"        : "icon_plugin_xs.png",
     "price"             : 0.00,
-    "shortDescription"  : {"de": "plentyShop LTS, modifiziert.","en": "plentyShop LTS, modified."},
+    "shortDescription"  : {"de": "plentyShop LTS, das offizielle Onlineshop-Plugin von plentymarkets.","en": "plentyShop LTS, the plentymarkets online shop plugin."},
     "authorIcon"        : "icon_author_xs.png",
-    "email"             : "a.kolbfleisch@airbrush-city.de",
-    "phone"             : "+49 5824 953954",
+    "email"             : "sales@plentymarkets.com",
+    "phone"             : "+49 561 98 681 100",
     "categories"        : ["3885"],
     "keywords"          : ["plentymarkets", "plugins", "layout", "template", "ceres", "plentyshop"],
     "type"              : "template",
@@ -103,9 +103,79 @@
             "description"   : "Add additional content on the terms and conditions page."
         },
         {
+            "key"           : "StaticPages.PageNotFound",
+            "name"          : "Static Pages: Page not found (deprecated)",
+            "description"   : "Add additional content on the 404 page."
+        },
+        {
             "key"           : "Homepage",
             "name"          : "Override homepage",
             "description"   : "Override the complete homepage."
+        },
+        {
+            "key"           : "Homepage.Container1",
+            "name"          : "Homepage: Container 1 (deprecated)",
+            "description"   : "Replace the image slider of the homepage."
+        },
+        {
+            "key"           : "Homepage.Container2",
+            "name"          : "Homepage: Container 2 (deprecated)",
+            "description"   : "Replace the upper item preview of the homepage."
+        },
+        {
+            "key"           : "Homepage.Container3",
+            "name"          : "Homepage: Container 3 (deprecated)",
+            "description"   : "Replace the lower item preview of the homepage."
+        },
+        {
+            "key"           : "Homepage.Container4",
+            "name"          : "Homepage: Container 4 (deprecated)",
+            "description"   : "Replace the first category preview of the homepage."
+        },
+        {
+            "key"           : "Homepage.Container5",
+            "name"          : "Homepage: Container 5 (deprecated)",
+            "description"   : "Replace the second category preview of the homepage."
+        },
+        {
+            "key"           : "Homepage.Container6",
+            "name"          : "Homepage: Container 6 (deprecated)",
+            "description"   : "Replace the first list of items of the homepage."
+        },
+        {
+            "key"           : "Homepage.Container7",
+            "name"          : "Homepage: Container 7 (deprecated)",
+            "description"   : "Replace the third category preview of the homepage."
+        },
+        {
+            "key"           : "Homepage.Container8",
+            "name"          : "Homepage: Container 8 (deprecated)",
+            "description"   : "Replace the fourth category preview of the homepage."
+        },
+        {
+            "key"           : "Homepage.Container9",
+            "name"          : "Homepage: Container 9 (deprecated)",
+            "description"   : "Replace the second list of items of the homepage."
+        },
+        {
+            "key"           : "Homepage.Container10",
+            "name"          : "Homepage: Container 10 (deprecated)",
+            "description"   : "Add additional content on the homepage."
+        },
+        {
+            "key"           : "Homepage.PaymentMethods",
+            "name"          : "Homepage: Payment method container (deprecated)",
+            "description"   : "Add a logo of the payment method to the payment methods on the homepage."
+        },
+        {
+            "key"           : "Homepage.Shipping",
+            "name"          : "Homepage: Shipping method container (deprecated)",
+            "description"   : "Add a logo of the shipping method to the shipping methods on the homepage."
+        },
+        {
+            "key"           : "Homepage.Certified",
+            "name"          : "Homepage: Certified container (deprecated)",
+            "description"   : "Add a \"Certified by\" logo to the container on the homepage."
         },
         {
             "key"           : "Header",
@@ -123,6 +193,31 @@
             "description"   : "Override the complete footer of all pages."
         },
         {
+            "key"           : "Footer.RowOne",
+            "name"          : "Footer: Row 1 container (deprecated)",
+            "description"   : "Add content to the first row of the footer."
+        },
+        {
+            "key"           : "Footer.RowTwo",
+            "name"          : "Footer: Row 2 container (deprecated)",
+            "description"   : "Add content to the second row of the footer."
+        },
+        {
+            "key"           : "Footer.RowThree",
+            "name"          : "Footer: Row 3 container (deprecated)",
+            "description"   : "Add content to the third row of the footer."
+        },
+        {
+            "key"           : "SingleItem.BeforePrice",
+            "name"          : "Single item: Before price (deprecated)",
+            "description"   : "Add content before the item price in the single item view."
+        },
+        {
+            "key"           : "SingleItem.AfterPrice",
+            "name"          : "Single item: After price (deprecated)",
+            "description"   : "Add content after the item price in the single item view."
+        },
+        {
             "key"           : "SingleItem.BeforeAddToBasket",
             "name"          : "Single item: Before \"Add to shopping cart\" button",
             "description"   : "Add content before the 'Add to shopping cart' button in the single item view."
@@ -131,6 +226,36 @@
             "key"           : "SingleItem.AfterAddToBasket",
             "name"          : "Single item: After \"Add to shopping cart\" button",
             "description"   : "Add content after the 'Add to shopping cart' button in the single item view."
+        },
+        {
+            "key"           : "SingleItem.AdditionalContentAfterAddToBasket",
+            "name"          : "Single item: Additional content after \"Add to shopping cart\" button (deprecated)",
+            "description"   : "Add additional content after the 'Add to shopping cart' button in the single item view."
+        },
+        {
+            "key"           : "SingleItem.AdditionalContentAfterVAT",
+            "name"          : "Single item: Additional content after \"VAT\" information (deprecated)",
+            "description"   : "Add additional content after the 'VAT' information in the single item view."
+        },
+        {
+            "key"           : "SingleItem.AddDetailTabs",
+            "name"          : "Single item: Add detail tabs (deprecated)",
+            "description"   : "Add additional tabs to the tab menu in the single item view."
+        },
+        {
+            "key"           : "SingleItem.AddDetailTabsContent",
+            "name"          : "Single item: Add content to detail tabs (deprecated)",
+            "description"   : "Add content to the detail tabs in the single item view."
+        },
+        {
+            "key"           : "SingleItem.ItemListContainer",
+            "name"          : "Single item: Container for item lists (deprecated)",
+            "description"   : "Add item lists in the single item view."
+        },
+        {
+            "key"           : "SingleItem.FeedbackContainer",
+            "name"          : "Single item: Container for customer feedback (deprecated)",
+            "description"   : "Add customer feedback in the single item view."
         },
         {
             "key"           : "SingleItem.ImageCarousel",
@@ -208,6 +333,21 @@
             "description"   : "Add content after the basket totals in the shopping cart."
         },
         {
+            "key"           : "Basket.BeforeCoupon",
+            "name"          : "Shopping cart: Before the coupon input (deprecated)",
+            "description"   : "Add content before the Coupon input field in the shopping cart."
+        },
+        {
+            "key"           : "Basket.BeforeCheckoutButton",
+            "name"          : "Shopping cart: Before \"Checkout\" button (deprecated)",
+            "description"   : "Add content before the 'Checkout' button in the shopping cart."
+        },
+        {
+            "key"           : "Basket.AfterCheckoutButton",
+            "name"          : "Shopping cart: After \"Checkout\" button (deprecated)",
+            "description"   : "Add content after the 'Checkout' button in the shopping cart."
+        },
+        {
             "key"           : "Basket.ExtendOverlayButtons",
             "name"          : "Shopping cart overlay: Extend buttons",
             "description"   : "Add additional content to the 'add to basket overlay' buttons."
@@ -236,6 +376,12 @@
             "key"           : "Checkout",
             "name"          : "Checkout: Override checkout",
             "description"   : "Override the complete checkout page.",
+            "multiple"      : false
+        },
+        {
+            "key"           : "Checkout.AddressLists",
+            "name"          : "Checkout: Override address controls (deprecated)",
+            "description"   : "Override the invoice and delivery address controls in the checkout.",
             "multiple"      : false
         },
         {
@@ -316,6 +462,11 @@
             "description"   : "Add content after the basket totals in the checkout."
         },
         {
+            "key"           : "Checkout.PlaceOrder",
+            "name"          : "Checkout: Override \"Order now\" button (deprecated)",
+            "description"   : "Override the 'Order now' button in the checkout. The containers 'Before Order now button' and 'After Order now button' will also be overridden."
+        },
+        {
             "key"           : "Checkout.BeforePlaceOrder",
             "name"          : "Checkout: Before \"Order now\" button",
             "description"   : "Add content before the 'Order now' button in the checkout."
@@ -341,6 +492,23 @@
             "description"   : "Load CSS in the head after all other styles have been loaded."
         },
         {
+            "key"           : "Ceres::Checkout.Headline",
+            "name"          : "Checkout: Override headline (deprecated)",
+            "description"   : "Override the default headline in the checkout."
+        },
+        {
+            "key"           : "OrderConfirmation.Override",
+            "name"          : "Order confirmation: Override order confirmation (deprecated)",
+            "description"   : "Override the complete order confirmation page.",
+            "multiple"      : false
+        },
+        {
+            "key"           : "OrderConfirmation.BeforeOrderDetails",
+            "name"          : "Order confirmation: Before order details (deprecated)",
+            "description"   : "Add content before the order details on the order confirmation page.",
+            "multiple"      : false
+        },
+        {
             "key"           : "OrderConfirmation.AdditionalShippingInformation",
             "name"          : "Order confirmation: Additional shipping information",
             "description"   : "Add additional shipping information to the order details on the order confirmation page."
@@ -357,9 +525,29 @@
             "multiple"      : false
         },
         {
+            "key"           : "OrderConfirmation.AddContentAfterConfirmationThanks",
+            "name"          : "Order confirmation: Additional content after order confirmation thank you message (deprecated)",
+            "description"   : "Additional content after confirmation message on the order confirmation page."
+        },
+        {
+            "key"           : "OrderConfirmation.AfterTotals",
+            "name"          : "Order confirmation: Add content after totals (deprecated)",
+            "description"   : "Add content after totals on the order confirmation page."
+        },
+        {
+            "key"           : "OrderConfirmation.AddContentAfterOrderDetailsRow",
+            "name"          : "Order confirmation: Add content before 'Back to Homepage' link (deprecated)",
+            "description"   : "Add content before the 'Back to Homepage' link"
+        },
+        {
             "key"           : "MyAccount.OrderHistoryPaymentInformation",
             "name"          : "My account: Additional payment information",
             "description"   : "Add additional payment information after the order information on the My account page."
+        },
+        {
+            "key"           : "MyAccount.OrderReturnHistoryItem",
+            "name"          : "My account: Additional order return information (deprecated)",
+            "description"   : "Add additional information after the order return details."
         },
         {
             "key"           : "CategoryItem.BeforePrices",
@@ -375,6 +563,11 @@
             "key"           : "CategoryItem.SideNavBarBottom",
             "name"          : "Category item list: Container below side navigation",
             "description"   : "Add content below the side navigation bar in the category item view."
+        },
+        {
+            "key"           : "Login.AdditionalContentAfterButtons",
+            "name"          : "Login: Container below the buttons (deprecated)",
+            "description"   : "Add content below the buttons in the login view."
         },
         {
             "key"           : "LoginOverlay.ExtendOverlayButtons",

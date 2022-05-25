@@ -17,18 +17,6 @@
         display: table-cell;
         padding-left: .5rem;
         vertical-align: top;
-
-        .row {
-            margin-bottom: map-get($spacers, 2);
-
-            strong {
-                font-weight: $font-weight-normal !important; // override utility-class/markup
-            }
-
-            strong, span {
-                line-height: 1.2;
-            }
-        }
     }
 
     & .item-bundle {

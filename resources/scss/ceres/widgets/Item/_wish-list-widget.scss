@@ -1,20 +1,22 @@
-.widget-wish-list {
-    .basket-list-item {
-        .meta-container-wrapper {
-            .d-inline {
-                .btn {
-                    margin-bottom: map-get($spacers, 3);
-                }
+.widget-wish-list,
+.page-wish-list {
+    .category-list-view-port {
+        button {
+            display: flex;
+            flex-direction: row-reverse;
+            white-space: nowrap;
+
+            .fa {
+                margin-left: .25rem;
+                font-size: inherit;
+                line-height: inherit;
             }
         }
     }
-    p {
-        &.h4 {
-            &.my-5 {
-                // overwrite utility class in template
-                margin-top: 0 !important; // stylelint-disable-line declaration-no-important
-                margin-bottom: 0 !important; // stylelint-disable-line declaration-no-important
-            }
+
+    .item-additional-information {
+        .badge {
+            font-size: 85%;
         }
     }
 }

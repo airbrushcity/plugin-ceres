@@ -1,10 +1,11 @@
 // stylelint-disable
+
 .featured-category {
     display: block;
     height: 100%;
     overflow: hidden;
     font-family: $font-family-heading;
-    @include theme() { color: theme-get('white'); }
+    color: $white;
     text-align: center;
 
     @include img-cover();

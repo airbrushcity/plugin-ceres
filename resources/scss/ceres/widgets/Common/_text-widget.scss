@@ -15,10 +15,4 @@
     p:last-of-type {
         margin-bottom: 0;
     }
-
-    &.widget-none {
-        h4, h5, h6 {
-            @include theme() { color: theme-get('font-color-secondary'); }
-        }
-    }
 }

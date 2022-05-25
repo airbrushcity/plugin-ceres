@@ -1,4 +1,4 @@
-@import "Mixins/mixins";
+@import "mixins/mixins";
 
 @import "Category/filter-base-widget";
 @import "Category/item-grid-widget";
@@ -7,9 +7,7 @@
 @import "Category/step-by-step-navigation-widget";
 @import "Category/toolbar-widget";
 @import "Checkout/provider-select-widget";
-@import "Checkout/order-totals";
 @import "Common/background-widget";
-@import "Common/contact-form";
 @import "Common/faq-widget";
 @import "Common/image-box-widget";
 @import "Common/image-carousel-widget";
@@ -31,4 +29,3 @@
 @import "Helper/widget-placeholder";
 @import "Item/attribute-widget";
 @import "Item/wish-list-widget";
-@import "Registration/registration-widget";

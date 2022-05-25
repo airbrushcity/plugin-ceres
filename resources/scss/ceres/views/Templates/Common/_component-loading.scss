@@ -10,7 +10,7 @@
         height: 100%;
         visibility: hidden;
         content: "";
-        @include theme() { background-color: theme-get('gray-100'); }
+        background: $gray-100;
         @include border-radius(1px);
         opacity: 0;
         @include transition(opacity .1s ease-out);

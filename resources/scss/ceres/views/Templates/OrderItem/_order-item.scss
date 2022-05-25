@@ -166,7 +166,7 @@
         }
 
         &.btn-danger:hover {
-            @include theme() { color: theme-get('white'); }
+            color: $white;
         }
 
         &:focus {

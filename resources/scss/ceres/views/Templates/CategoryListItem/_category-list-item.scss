@@ -1,17 +1,31 @@
 .cmp-product-thumb {
-    display: flex;
     width: 100%;
+    padding: .8rem;
     margin-bottom: $grid-gutter-width / 2;
     overflow: hidden;
-    @include theme() { background-color: theme-get('white'); }
+    background-color: $white;
 
-    > div {
+    .prices {
         display: flex;
-        flex-grow: 1;
+    }
 
-        @include media-breakpoint-up(sm) {
-            flex-direction: column;
-        }
+    .crossprice {
+        font-size: .81em;
+        font-weight: 700;
+        color: $gray-500;
+    }
+
+    .price-view-port {
+        flex: 1 0 0;
+    }
+
+    .thumb-title {
+        display: block;
+        min-height: 32px;
+        font-weight: 700;
+        line-height: 1.1em;
+        color: $gray-600;
+        text-align: left;
     }
 
     .add-to-basket-lg-container {
@@ -19,33 +33,25 @@
         top: 0;
         right: 0;
         z-index: 90;
-        height: $input-btn-height;
-        width: $input-btn-height;
-        border-radius: $input-btn-height;
-        margin: map-get($spacers, 2);
-        padding: map-get($spacers, 2);
         cursor: pointer;
-        @include theme() { background-color: theme-get('gray-200'); }
-        transform: translateX(80px);
-        -webkit-transition: 0.3s ease-out;
-        transition: 0.3s ease-out;
+        border-color: transparent #f7f7f9 transparent transparent;
+        border-style: solid;
+        border-width: 0 70px 70px 0;
         @include transition(.3s ease-out);
-        justify-content: center;
-        align-items: center;
 
-        @include media-breakpoint-up(lg) {
-            display: flex !important; // override utility-class
+        i {
+            position: absolute;
+            top: 11px;
+            right: -56px;
+            @include transition(.3s ease-out);
         }
 
         &:hover {
-            background-color: $primary;
-            color: color-contrast($primary);
-        }
-    }
+            border-color: transparent $primary transparent transparent;
 
-    &:hover {
-        .add-to-basket-lg-container {
-            transform: translateX(0px);
+            i {
+                color: color-yiq($primary);
+            }
         }
     }
 
@@ -61,99 +67,43 @@
         z-index: 10;
 
         .badge {
-            &.badge-new {
-                background: $success;
-            }
-
-            &.badge-top {
-                background-color: $primary;
-            }
+            font-size: .9rem;
+            font-weight: 300;
+            box-shadow: 0 0 3px 0 rgba(0, 0, 0, .4);
         }
     }
 
     .thumb-content {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
+        display: inline-block;
         width: calc(100% - 120px); // stylelint-disable-line function-blacklist
+        padding: 0 .8rem;
         vertical-align: top;
-        padding: 0 map-get($spacers, 3);
-        @include theme() { background-color: theme-get('white'); }
+        background-color: $white;
 
-        .thumb-title {
-            @include font-paragraph;
-            font-weight: $font-weight-bolder;
-        }
-    
-        .thumb-meta {
-            &.mt-2 {
-                margin-top: map-get($spacers, 1) !important; // override utility-class/markups
-            }
-
-            .prices {
-                display: flex;
-                flex-direction: row-reverse;
-                justify-content: space-between;
-                flex-wrap: wrap-reverse;
-                @include font-paragraph;
-                @include theme() { color: theme-get('font-color-secondary'); }
-
-                .price-view-port {
-                    text-align: right;
-
-                    .crossprice {
-                        opacity: 0.7;
-                    }
-                }
-
-                .price {
-                    margin-right: auto;
-                    @include font-paragraph;
-                    @include theme() { color: theme-get('font-color-secondary'); }
-                }
-            }
-
-            + div {
-                margin-top: auto;
-            }
-        }
-
-        // addToBasket on mobile
+        /* addToBasket */
         .btn {
             z-index: 1;
-
-            // Hide button text on mobile
-            @include media-breakpoint-down(lg) {
-                font-size: 0;
-                letter-spacing: -1px;
-
-                i {
-                    font-size: initial;
-                    margin: 0;
-                    letter-spacing: 0;
-
-                    &.fa-arrow-right {
-                        display: initial !important;
-                    }
-                }
-            }
         }
 
-        .vat {
-            margin-top: map-get($spacers, 1);
-
-            a {
-                z-index: 1;
-            }
+        .vat a {
+            z-index: 1;
         }
     }
 
+    .price {
+        font-size: 1.2rem;
+        font-weight: 700;
+        line-height: 1.1;
+        color: $gray-600;
+    }
+
+    .category-lowest-price,
     .category-unit-price {
-        @include theme() { color: theme-get('font-color-secondary'); }
+        color: $gray-500;
     }
 
     .btn-group {
-        margin-top: map-get($spacers, 1);
+        margin-top: 5px;
     }
 
     @include media-breakpoint-up(sm) {
@@ -162,9 +112,13 @@
 
         .thumb-content {
             width: 100%;
-            padding: map-get($spacers, 3) 0;
+            padding: .8rem;
         }
-        
+
+        .thumb-title {
+            font-weight: 400;
+        }
+
         .thumb-image {
             width: 100%;
         }
@@ -200,20 +154,4 @@
 
 .no-pointer-events {
     pointer-events: none;
-}
-
-@mixin visible-add-to-basket {
-    .cmp-product-thumb {
-        .add-to-basket-lg-container {
-            transform: translateX(0px);
-        }
-    }
-}
-
-@media only screen and (min-device-width: 601px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
-    @include visible-add-to-basket;
-}
-
-@media only screen and (min-device-width: 601px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
-    @include visible-add-to-basket;
 }

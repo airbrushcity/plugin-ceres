@@ -1,15 +1,4 @@
 .widget-toolbar {
-    .title,
-    .card .form-check-label,
-    .item-filter-price {
-        padding: .75rem;
-    }
-
-    .form-check-input:checked + label,
-    .form-check-input:hover + label {
-        padding-left: .75rem !important; // stylelint-disable-line declaration-no-important
-    }
-
     .widget {
         margin-bottom: 0;
     }
@@ -26,9 +15,9 @@
 
     .filter-collapse {
         > div {
-            padding: $grid-gutter-width;
-            @include theme() { background-color: theme-get('white'); }
-            box-shadow: $box-shadow;
+            padding: 2rem;
+            background: $white;
+            border: 1px solid $gray-200;
         }
     }
 

@@ -5,42 +5,40 @@
         height: 100%;
         min-height: 75px;
         cursor: pointer;
-        @include theme() { background-color: theme-get('gray-100'); }
-        overflow: hidden;
-        &:hover {
-            img {
-                transform: scale(1.05);
-            }
-        }
-        &.border {
-            // overwrite utility class in template
-            border: none !important; // stylelint-disable-line declaration-no-important
-        }
+        background-color: $white;
+
         &.preview svg {
             position: absolute;
             right: 0;
             left: 0;
             display: block !important; // stylelint-disable-line declaration-no-important
-            @include theme() { fill: theme-get('gray-100'); }
+            fill: $gray-100;
         }
-        .nav-text {
-            @include theme() { background-color: theme-get('gray-100'); }
-            span {
-                @include font-paragraph;
-                font-weight: $font-weight-bolder;
-            }
+    }
+
+    .nav-text {
+        flex: auto;
+        background-color: $gray-200;
+    }
+
+    img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    &.widget-none {
+        span {
+            color: $black;
         }
-        img {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            font-family: 'object-fit: contain;'; // IE polyfill
-            transition: 0.4s cubic-bezier(0, 0, 0.26, 1);
-        }
+    }
+
+    span {
+        align-self: center;
     }
 }

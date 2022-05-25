@@ -1,10 +1,11 @@
 // stylelint-disable
+
 .featured-sale-new {
     display: block;
     height: 100%;
     overflow: hidden;
     font-family: $font-family-heading;
-    @include theme() { color: theme-get('white'); }
+    color: $white;
 
     @include img-cover();
 
@@ -34,7 +35,7 @@
         padding: 0;
         font-size: 1.5rem;
         font-weight: normal;
-        @include theme() { color: theme-get('white'); }
+        color: $white;
         text-align: left;
         text-align: center;
         text-transform: uppercase;

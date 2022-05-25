@@ -1,4 +1,5 @@
 .cmp-address-list {
+
     .items {
         position: relative;
 
@@ -8,146 +9,124 @@
             vertical-align: middle;
         }
 
+        //TODO add class to this div and set this rule by the class
+        & > div:first-child {
+            @extend .card;
+            min-height: 115px;
+            margin-bottom: 0;
+        }
+
         &:not(.items-empty) {
             cursor: pointer;
         }
+    }
 
-        .dropdown-menu {
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            border: none;
-            border-top: none;
-            border-top-left-radius: 0; // stylelint-disable-line property-blacklist
-            border-top-right-radius: 0; // stylelint-disable-line property-blacklist
+    .dropdown-menu {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border: 1px solid $gray-300;
+        border-top: none;
+        border-top-left-radius: 0; // stylelint-disable-line property-blacklist
+        border-top-right-radius: 0; // stylelint-disable-line property-blacklist
+    }
 
-            ul {
-                width: 100%;
-                max-height: 500px;
-                padding: 0;
-                margin: 0;
-                overflow-y: auto;
-                list-style: none;
-                box-shadow: $box-shadow;
+    ul {
+        width: 100%;
+        max-height: 500px;
+        padding: 0;
+        margin: 0;
+        overflow-y: auto;
+        list-style: none;
+        box-shadow: $box-shadow;
+    }
 
-                .item {
-                    position: relative;
-                    padding: 0;
-                    border-bottom: 1px solid;
-                    @include theme() { border-bottom-color: theme-get('gray-400'); }
+    .item {
+        position: relative;
+        padding: 0;
+        border-bottom: 1px solid $gray-300;
 
-                    input {
-                        display: none;
-                        &:checked {
+        input { display: none; }
 
-                            & + .item-inner {
-                                border: 2px solid $dark;
-                            }
-                        }
-                    }
+        input:checked {
 
-                    &:last-of-type {
-                        border-bottom: none;
-                    }
-
-                    .item-remove .btn {
-                        @include btn-appearance($color: $transparent, $outline: false);
-                    }
-                }
+            & + .item-inner {
+                color: $black;
+                background-color: #d9edf7;
+                box-shadow: inset 0 0 0 .1rem $primary;
             }
         }
 
-        .item-inner {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            padding: map-get($spacers, 2);
-            margin-bottom: 0;
-            cursor: pointer;
+        &:last-of-type {
+            border-bottom: none;
+        }
+    }
 
-            > div {
-                > p {
-                    &.pt-3 {
-                        padding-top: 0 !important // override utility class
-                    }
-                }
-            }
 
-            @include media-breakpoint-down(xs) {
-                display: block;
-            }
+    .item-inner {
+        display: flex;
+        flex-direction: row;
+        padding: 1em;
+        margin-bottom: 0;
+        cursor: pointer;
 
-            .item-content {
-                display: inline-block;
-                flex: 1 1 auto;
-                margin-bottom: map-get($spacers, 1);
+        @include media-breakpoint-down(xs) {
+            display: block;
+        }
+    }
 
-                strong,
-                span {
-                    display: block;
-                }
-            }
+    .item-controls {
+        display: flex;
 
-            .item-controls {
-                display: flex;
+        .fa {
+            float: none;
+            @include transition(all .2s ease-in-out);
+        }
+        .btn {
+            width: 2.2rem;
+            height: 2.2rem;
+            padding: 0;
+        }
+    }
 
-                .btn {
-                    i.fa-trash-o {
-                        margin: 0;
-                    }
-                }
-            }
+    .item-content {
+        display: inline-block;
+        flex: 1 1 auto;
+        width: 100%;
+
+        strong,
+        span {
+            display: block;
         }
     }
 }
 
-//TODO add class to this div and set this rule by the class
-.widget-account-settings .card,
-.cmp-address-list .items > div:first-child {
-    @extend .card;
-    @include theme() { background-color: theme-get('gray-100'); }
-    border: none;
-    min-height: 200px;
-    margin-bottom: 0;
-    padding-right: calc((#{map-get($spacers, 1)} * 2) + #{$input-btn-height});
-
-    @include media-breakpoint-up(sm) {
-        padding-right: calc((#{map-get($spacers, 2)} * 2) + #{$input-btn-height});
+.checkout {
+    header {
+        h4 {
+            line-height: 2.5rem;
+        }
     }
 }
 
 .add-item {
     position: absolute;
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-items: flex-end;
-    align-items: end;
-    top: map-get($spacers, 1);
-    right: map-get($spacers, 1);
-    bottom: 0;
 
-    @include media-breakpoint-up(sm) {
-        top: map-get($spacers, 2);
-        right: map-get($spacers, 2);
+    @include media-breakpoint-down(xs) {
+        top: 0;
+        right: 0;
+        bottom: 0;
+
+        & button {
+            width: 50px;
+            min-width: auto !important; // stylelint-disable-line declaration-no-important
+            height: 54px;
+        }
     }
 
-    .btn {
-        display: inline-flex !important; // overrides display: block utility-class
-
-        &.btn-only-icon-xs-down {
-            width: $input-btn-height;
-
-            span {
-                display: none; // override utility class
-            }
-            i {
-                margin: 0; // override utility class
-            }
-        }
-
-        .fa-lock {
-            font-size: initial;
-        }
+    @include media-breakpoint-up(sm) {
+        top: 1em;
+        right: 1em;
     }
 }

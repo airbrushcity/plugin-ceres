@@ -4,7 +4,7 @@
     .order-item {
         > div:nth-child(odd) {
             > div.container-clickable {
-                @include theme() { background-color: theme-get('gray-100'); }
+                background-color: $gray-100; // stylelint-disable-line selector-no-qualifying-type
             }
         }
     }
@@ -21,20 +21,14 @@
 
         &.collapsed {
             .fa-chevron-up {
-                &::before {
-                    @include plentyshop-icon('\e907');
-                }
+                top: 2px;
+                transform: scaleY(-1);
             }
         }
         .fa-chevron-up {
             position: absolute;
             left: 1.25rem;
-            top: 50%;
-            transform: translateY(-50%);
-
-            &::before {
-                @include plentyshop-icon('\e91c');
-            }
+            font-size: 1.5rem;
         }
 
         @include media-breakpoint-up(md) {
@@ -43,11 +37,13 @@
             .row div span:first-child { // stylelint-disable-line selector-max-compound-selectors
                 display: none;
             }
-
-            .col-md-2 {
-                display: inline-flex;
-                align-items: center;
-                justify-content: flex-end;
+            .icons {
+                margin-top: -5px;
+                .fa {
+                    margin-bottom: -6px;
+                    font-size: 2rem;
+                    vertical-align: middle;
+                }
             }
         }
 
@@ -63,16 +59,6 @@
                 left: auto;
             }
         }
-
-        .col-md-10 {
-            .row {
-                .col-md-2:nth-of-type(2) {
-                    span:nth-child(2) {
-                        white-space: nowrap;
-                    }
-                }
-            }
-        }
     }
 
     .container-middle {
@@ -82,7 +68,6 @@
                 max-height: 80px;
                 vertical-align: middle;
                 object-fit: contain;
-                font-family: 'object-fit: contain;'; // IE polyfill
             }
             .item-description {
                 text-align: left;
@@ -111,11 +96,6 @@
             }
         }
     }
-
-    .border, .border-top,
-    .border-left, .border-right {
-        border: none !important; // override utility class
-    }
 }
 
 .order-history-list {
@@ -131,7 +111,7 @@
     }
 
     .container-bottom {
-        @include theme() { background-color: theme-get('gray-100'); }
+        background: $gray-100;
 
         .button-spacer {
             margin-top: auto;

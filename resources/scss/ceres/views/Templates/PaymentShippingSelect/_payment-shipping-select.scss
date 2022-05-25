@@ -1,4 +1,5 @@
 .cmp-method-list {
+
     .method-list {
         width: 100%;
         padding: 0;
@@ -24,6 +25,11 @@
             @include transition(box-shadow 2s);
         }
 
+        input:checked + label,
+        input:checked + .label {
+            box-shadow: inset 0 0 0 .1rem $primary;
+        }
+
         label,
         .label {
             display: flex;
@@ -34,23 +40,16 @@
             margin-bottom: 0;
             overflow: hidden;
             cursor: pointer;
-            @include theme() { background-color: theme-get('white'); }
+            background-color: $card-bg;
+            border: 1px solid $gray-300;
             @include border-radius($border-radius);
-            border: 2px solid transparent;
-        }
-
-        input:checked + label,
-        input:checked + .label {
-            border: 2px solid;
-            @include theme() { border-color: theme-get('gray-300'); }
         }
 
         &.has-error label,
-        &.has-error .label,
-        &.has-error input:checked + label,
-        &.has-error input:checked + .label{
-            color: $danger;
-            border-color: $danger;
+        &.has-error .label {
+            color: theme-color-level("danger", 6);
+            background-color: theme-color-level("danger", -10);
+            box-shadow: inset 0 0 0 .1rem theme-color-level("danger", 6);
         }
 
         .content,
@@ -61,7 +60,6 @@
             // fix image proportions for safari of the payment/shipping icons
             > img {
                 object-fit: contain;
-                font-family: 'object-fit: contain;'; // IE polyfill
             }
         }
 

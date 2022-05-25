@@ -10,7 +10,7 @@
         padding: 0 0 .5rem;
         margin: .5rem auto;
         font-size: 2.5rem;
-        @include theme() { color: theme-get('white'); }
+        color: $white;
         letter-spacing: 1.25px;
         border-bottom: 2px solid $white;
     }
@@ -239,7 +239,7 @@
                             margin: 0;
                             font-family: $font-family-heading;
                             font-size: 1.25rem;
-                            @include theme() { color: theme-get('white'); }
+                            color: $white;
                             text-shadow: none;
                             background: rgba($primary, .8);
                             @include transition(all .3s ease);
@@ -315,7 +315,7 @@
                     font-family: $font-family-heading;
                     font-size: 1.25rem;
                     font-weight: normal;
-                    @include theme() { color: theme-get('white'); }
+                    color: $white;
                     text-align: left;
                     background: rgba($primary, .8);
                     box-shadow: none;
@@ -385,7 +385,7 @@
         padding: .2rem 0 0;
         margin: 0;
         font-size: 1.75rem;
-        @include theme() { color: theme-get('white'); }
+        color: $white;
         text-transform: uppercase;
     }
 
@@ -393,7 +393,7 @@
         position: absolute;
         top: 50%;
         right: 1.5rem;
-        @include theme() { color: theme-get('white'); }
+        color: $white;
         transform: translateY(-50%);
 
         &:hover {

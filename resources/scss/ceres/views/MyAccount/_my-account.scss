@@ -1,16 +1,3 @@
-.cmp-address-list {
-    p {
-        // overwrite utility class in template
-        &.small {
-            font-size: $font-size-base;
-        }
-        // overwrite utility class in template
-        &.font-italic {
-            font-style: normal !important; // stylelint-disable-line declaration-no-important
-        }
-    }
-}
-
 .button-spacer {
     margin-top: .5rem;
 }
@@ -82,7 +69,30 @@
 }
 
 .card-body {
-    padding: map-get($spacers, 2);
+    padding: 1rem;
+
+    .add-item {
+        @include media-breakpoint-down(xs) {
+            .item-edit {
+                height: 45%;
+                margin-bottom: 0 !important; // stylelint-disable-line declaration-no-important
+            }
+            .item-edit:nth-of-type(2) {
+                position: absolute;
+                bottom: 0;
+            }
+
+            button {
+                height: 100%;
+            }
+        }
+    }
+}
+
+.widget-account-settings {
+    .card {
+        min-height: 115px;
+    }
 }
 
 .page-item {

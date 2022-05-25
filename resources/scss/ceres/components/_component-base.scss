@@ -34,7 +34,7 @@
         z-index: $zindex-9;
         display: inline-block;
         font-weight: 700;
-        @include theme() { color: theme-get('white'); }
+        color: $white;
         visibility: hidden;
         content: "Loading…";
         opacity: 0;

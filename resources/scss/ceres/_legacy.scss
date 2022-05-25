@@ -68,23 +68,23 @@ $contexts:
 
 .tag {
     @extend .badge;
-    @include theme() {
-        color: theme-get('white');
-    }
+    color: $white;
 }
 
 @each $context in $contexts {
     .tag-#{$context} {
         @extend .badge-#{$context};
-        @include theme() {
-            color: theme-get('white');
-        }
+        color: $white;
     }
 }
 
 .card-block { @extend .card-body; }
 
 .bg-faded { @extend .bg-light; }
+
+.modal-header .close {
+    order: 999;
+}
 
 .prop-inner {
     position: absolute;
@@ -95,13 +95,13 @@ $contexts:
     padding: $grid-gutter-width/2;
 }
 
-@import "../components/featured-category";
-@import "../components/featured-sale-new";
+@import "components/featured-category";
+@import "components/featured-sale-new";
 
-@import "../views/Templates/Hero/component-hero";
-@import "../views/Templates/ItemRating/item-rating-roll";
-@import "../views/Templates/ItemRating/item-rating-section";
+@import "views/Templates/Hero/component-hero";
+@import "views/Templates/ItemRating/item-rating-roll";
+@import "views/Templates/ItemRating/item-rating-section";
 
-@import "../views/Home/home";
-@import "../views/Home/marketing-homepage";
-@import "../views/Templates/ToggleCategoryListView/toggle-list-view";
+@import "views/Home/home";
+@import "views/Home/marketing-homepage";
+@import "views/Templates/ToggleCategoryListView/toggle-list-view";

@@ -9,23 +9,22 @@
         }
     }
 
-    &.widget-fw {
+    .widget-fw {
         position: relative;
         right: unset !important; // stylelint-disable-line declaration-no-important
         left: unset !important; // stylelint-disable-line declaration-no-important
-        width: auto !important; // stylelint-disable-line declaration-no-important
+        width: unset !important; // stylelint-disable-line declaration-no-important
         max-width: unset !important; // stylelint-disable-line declaration-no-important
-        margin: 0 calc(#{$grid-gutter-width} * (-1));
 
-        &.header-fw {
-            margin: 0;
+        &.widget-grid {
+            width: unset !important; // stylelint-disable-line declaration-no-important
         }
     }
 }
 
 @include media-breakpoint-down(sm) {
     .widget {
-        margin-bottom: $grid-gutter-width;
+        margin-bottom: 2rem;
 
         &.widget-grid:not(.widget-two-col) {
             margin-bottom: 0;
@@ -33,36 +32,35 @@
 
         &:not(.widget-two-col) .widget-inner:not(.widget-stacked) {
             .widget:not(.widget-grid) {
-                margin-bottom: $grid-gutter-width;
+                margin-bottom: 2rem;
             }
         }
     }
 
     .widget-grid .widget-inner.col-12.widget-stacked-mobile {
-        padding-bottom: $grid-gutter-width;
+        padding-bottom: 1rem;
     }
 }
 
 @include media-breakpoint-down(xs) {
     .widget {
-        margin-bottom: $grid-gutter-width;
+        margin-bottom: 1rem;
 
         &:not(.widget-two-col) .widget-inner:not(.widget-stacked) {
             .widget:not(.widget-grid) {
-                margin-bottom: $grid-gutter-width;
+                margin-bottom: 1rem;
             }
         }
     }
 }
 
 .header-container {
-    padding: 0;
     > .widget {
         right: 15px;
         left: 15px;
         min-width: 100%;
         max-width: 1200px;
-        @include theme() { background-color: theme-get('gray-100'); }
+        background-color: $gray-100;
 
         &:not(.widget-grid) {
             min-width: inherit;
@@ -72,6 +70,48 @@
 
     .widget-code.is-safe-mode {
         max-height: 120px;
+    }
+}
+
+.header-fw {
+    position: relative;
+    left: calc(-1 * (100vw - 100%) / 2) !important; // stylelint-disable-line function-blacklist, declaration-no-important
+    width: 100vw;
+}
+
+.widget-fw {
+    position: relative;
+    right: 0 !important; // stylelint-disable-line declaration-no-important
+    left: calc(-1 * (100vw - 100%) / 2) !important; // stylelint-disable-line function-blacklist, declaration-no-important
+    width: 100vw !important; // stylelint-disable-line declaration-no-important
+    max-width: none !important; // stylelint-disable-line declaration-no-important
+    margin-right: 0;
+    margin-left: 0;
+
+    &.header-fw {
+        .container-max {
+            max-width: none;
+        }
+    }
+
+    &.top-bar {
+        .container-max {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+
+    &.widget-grid {
+        width: calc(100vw + 30px) !important; // stylelint-disable-line function-blacklist, declaration-no-important
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+
+    .container-max {
+        .container-max {
+            padding-right: 0;
+            padding-left: 0;
+        }
     }
 }
 
@@ -122,13 +162,13 @@ header .widget {
 
 @include media-breakpoint-only(md) {
     .widget-grid .widget-inner.col-md-12.widget-stacked-tablet {
-        padding-bottom: $grid-gutter-width;
+        padding-bottom: 2rem;
     }
 }
 
 @include media-breakpoint-up(lg) {
     .widget-grid .widget-inner.col-lg-12.widget-stacked {
-        padding-bottom: $grid-gutter-width;
+        padding-bottom: 2rem;
     }
 }
 
@@ -150,7 +190,7 @@ header .widget {
 /*
  * INLINE EDITOR CLASSES
  */
-@each $color, $value in $shop-builder-colors {
+@each $color, $value in map-merge($shop-builder-colors, ("dark": $gray-900, "light": $gray-100)) {
     .color-#{$color} {
         @extend .text-#{$color};
     }
@@ -184,13 +224,11 @@ header .widget {
     .widget-alignment {
         display: flex;
         justify-content: center;
-        flex-wrap: wrap;
     }
 }
 .widget-alignment-right {
     .widget-alignment {
         display: flex;
         justify-content: flex-end;
-        flex-wrap: wrap;
     }
 }

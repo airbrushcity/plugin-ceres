@@ -1,5 +1,0 @@
-.dropdown {
-    .dropdown-menu {
-        @include theme() { background-color: theme-get('white'); }
-    }
-}

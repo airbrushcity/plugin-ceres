@@ -1,10 +1,16 @@
 .widget-background {
-    @include theme() { background-color: theme-get('gray-100'); }
 
     > .container-max {
         position: relative;
         padding-right: 0;
         padding-left: 0;
+    }
+
+    &.widget-fw {
+        > .container-max {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
     }
 
     &.align-items-end {
