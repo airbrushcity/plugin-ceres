@@ -4,6 +4,11 @@
 {% set languageUrls = services.url.getLanguageURLs() %}
 {% set defaultCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".css?v=" ~ buildHash %}
 {% set defaultSCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".scss?v=" ~ buildHash %}{% endspaceless %}
+{% set iconCSS = plugin_path("Ceres") ~ "/css/ceres-icons.css" %}
+{# asynchronously load icons.css #}
+<link rel="preload" href="{{ iconCSS }}" as="style" onload="this.onload=null;this.rel='stylesheet';">
+{# fallback for disabled javascript #}
+<noscript><link rel="stylesheet" href="{{ iconCSS }}"></noscript>
 
 <link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">
 {% if canonicalUrl is not null %}<link rel="canonical" href="{{ canonicalUrl  ~ services.url.getCanonicalQueryString() }}">{% endif %}

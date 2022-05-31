@@ -93,7 +93,7 @@ export default {
         initialCategory: Object,
         breakpoints: {
             type: Array,
-            default: () => ["xs", "sm", "md"]
+            default: () => ["xs", "sm", "md", "lg", "xl", "xxl"]
         },
         includeLanguage: Boolean
     },
@@ -330,13 +330,13 @@ export default {
                 $(el).on("menu-activated", (event, params) =>
                 {
                     $(event.target).addClass("menu-active");
-                    $(event.target).addClass(params.back ? "animate-in-from-left" : "animate-in-from-right");
+                    $(event.target).addClass(params.back ? "animate-in-from-right" : "animate-in-from-left");
                 });
                 // add "deactivated" classes when menu is deactivated
                 $(el).on("menu-deactivated", (event, params) =>
                 {
                     $(event.target).removeClass("menu-active");
-                    $(event.target).addClass(params.back ? "animate-out-to-right" : "animate-out-to-left");
+                    $(event.target).addClass(params.back ? "animate-out-to-left" : "animate-out-to-right");
                 });
                 // this removes the animation class automatically after the animation has completed
                 $(el).on("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", () =>

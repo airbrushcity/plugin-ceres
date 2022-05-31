@@ -2970,7 +2970,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     breakpoints: {
       type: Array,
       default: function _default() {
-        return ["xs", "sm", "md"];
+        return ["xs", "sm", "md", "lg", "xl", "xxl"];
       }
     },
     includeLanguage: Boolean
@@ -3166,12 +3166,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         // add "activated" classes when menu is activated
         $(el).on("menu-activated", function (event, params) {
           $(event.target).addClass("menu-active");
-          $(event.target).addClass(params.back ? "animate-in-from-left" : "animate-in-from-right");
+          $(event.target).addClass(params.back ? "animate-in-from-right" : "animate-in-from-left");
         }); // add "deactivated" classes when menu is deactivated
 
         $(el).on("menu-deactivated", function (event, params) {
           $(event.target).removeClass("menu-active");
-          $(event.target).addClass(params.back ? "animate-out-to-right" : "animate-out-to-left");
+          $(event.target).addClass(params.back ? "animate-out-to-left" : "animate-out-to-right");
         }); // this removes the animation class automatically after the animation has completed
 
         $(el).on("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
@@ -38311,7 +38311,7 @@ var render = function() {
                               [
                                 _c("div", { staticClass: "my-4" }, [
                                   _vm._v(
-                                    "\n                                 Hier kommen die PDF Anhaenge rein!\n                                "
+                                    "\n                                 Hier kommen die PDF Anhaenge dann rein!\n                                "
                                   )
                                 ])
                               ]
