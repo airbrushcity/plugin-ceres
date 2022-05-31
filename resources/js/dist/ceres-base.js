@@ -37341,7 +37341,7 @@ var render = function() {
                               [
                                 _c("div", { staticClass: "my-4" }, [
                                   _vm._v(
-                                    "\n                                 Hier kommen die PDF Anhänge rein!\n                                "
+                                    "\n                                 Hier kommen die PDF Anhaenge rein!\n                                "
                                   )
                                 ])
                               ]
