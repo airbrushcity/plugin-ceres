@@ -223,28 +223,13 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-lg-6">
-                                            <div class="shipping-settings">
-                                                <div class="list-title">
-                                                    <strong>{{ trans("Ceres::Template.headerSelectShippingCountry") }}</strong>
-                                                    <hr>
-                                                </div>
-                                                <intersect>
-                                                    <shipping-country-select :disable-input="{{ services.template.isCheckout() | json_encode() }}"></shipping-country-select>
-                                                    <template #loading>
-                                                        <div class="row" style="height:1px;"></div>
-                                                    </template>
-                                                </intersect>
-                                            </div>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                {% include "Ceres::PageDesign.Partials.Header.Navigation" %}
 
                 {% cacheslot breadcrumbs %}
                     {# breadcrumbs are related to every single page so they need to be wrapped in a cache slot #}
