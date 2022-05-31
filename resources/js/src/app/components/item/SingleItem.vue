@@ -4,30 +4,30 @@
             <div class="single container-max page-content">
                 <div class="row position-relative">
 
-                    <div class="col-12 col-md-7 mt-5">
+                    <div class="col-12">
+                        <h1 class="h2 title" data-testing="item-name">
+                            <span>{{ currentVariation | itemName }}</span>
+                        </h1>
+                    </div>
+
+                    <div class="col-12 col-md-4 mt-5">
                         <slot name="image-carousel"></slot>
                     </div>
 
-                    <div class="col-12 col-md-5 mt-md-5">
+                    <div class="col-12 col-md-4 mt-md-5">
                         <div v-stick-in-parent>
-                            <!-- START SINGLEITEM_DETAILS -->
+                            <!-- START SINGLEITEM_Short_DETAILS -->
                             <div class="producertag h6 producer text-muted" v-if="currentVariation.filter.hasManufacturer">
                                 {{ currentVariation.item.manufacturer.externalName }}
                             </div>
+                            <div class="my-4" v-html="currentVariation.texts.technicalData">
+                            </div>
+                        </div>
+                    </div>
 
-                            <h1 class="h2 title" data-testing="item-name">
-                                <span>
-                                    {{ currentVariation | itemName }}
-                                </span>
-                            </h1>
-
-                            <slot name="tag-list"></slot>
-
-                            <p class="single-description"
-                               v-if="isShortDescriptionActive && currentVariation.texts.shortDescription !== ''"
-                               v-html="currentVariation.texts.shortDescription"></p>
-
-                            <hr>
+                    <div class="col-12 col-md-4 mt-md-5">
+                        <div v-stick-in-parent>
+                            <!-- START SINGLEITEM_DETAILS -->
 
                             <div class="mb-5">
                                 <span class="articlenumber small text-muted">
@@ -35,6 +35,18 @@
                                     <span>{{ currentVariation.variation.number }}</span>
                                 </span>
                             </div>
+
+                            
+                            <div v-if="isWishListEnabled" class="row">
+                                <div class="col-12">
+                                    <add-to-wish-list :variation-id="currentVariation.variation.id"></add-to-wish-list>
+                                </div>
+                            </div>
+
+                            <p class="single-description"
+                               v-if="isShortDescriptionActive && currentVariation.texts.shortDescription !== ''"
+                               v-html="currentVariation.texts.shortDescription"></p>
+                            <hr>
 
                             <!-- Variation -->
                             <div class="mb-3" v-if="attributes.length || Object.keys(units).length">
@@ -93,11 +105,6 @@
                                 </div>
                             </div>
 
-                            <div v-if="isWishListEnabled" class="row">
-                                <div class="col-12">
-                                    <add-to-wish-list :variation-id="currentVariation.variation.id"></add-to-wish-list>
-                                </div>
-                            </div>
                             <!-- ./ITEM DETAIL -->
 
                             <slot name="additional-content-after-add-to-basket"></slot>
@@ -124,26 +131,23 @@
                                     <a class="nav-link active" data-toggle="tab" :href="'#details-' + currentVariation.variation.id" role="tab">{{ $translate("Ceres::Template.singleItemDescription") }}</a>
                                 </li>
 
-                                <li class="nav-item" v-if="isTechnicalDataTabActive">
-                                    <a :class="{ 'active': !isDescriptionTabActive && isTechnicalDataTabActive }" class="nav-link" data-toggle="tab" :href="'#data-' + currentVariation.variation.id" role="tab">{{ $translate("Ceres::Template.singleItemTechnicalData") }}</a>
-                                </li>
-
                                 <li class="nav-item">
                                     <a :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive }" class="nav-link" data-toggle="tab" href="#assessments-details" role="tab">{{ $translate("Ceres::Template.singleItemMoreDetails") }}</a>
+                                </li>
+
+                                <li class="nav-item" v-if="isTechnicalDataTabActive">
+                                    <a :class="{ 'active': !isDescriptionTabActive && isTechnicalDataTabActive }" class="nav-link" data-toggle="tab" :href="'#data-' + currentVariation.variation.id" role="tab">{{ $translate("Ceres::Template.singleItemTechnicalData") }}</a>
                                 </li>
 
                                 <slot name="add-detail-tabs"></slot>
                             </ul>
 
                             <div class="tab-content overflow-hidden">
-                                <div class="tab-pane active overflow-auto" :id="'details-' + currentVariation.variation.id" role="tabpanel" v-if="isDescriptionTabActive">
+                                <div class="tab-pane active overflow-auto" :id="'details-' + currentVariation.variation.id" role="tabpanel" v-if="isDescriptionTabActive"> 
+
                                     <div class="my-4" v-html="currentVariation.texts.description">
                                     </div>
-                                </div>
 
-                                <div :class="{ 'active': !isDescriptionTabActive && isTechnicalDataTabActive }" class="tab-pane overflow-auto" :id="'data-' + currentVariation.variation.id" role="tabpanel" v-if="isTechnicalDataTabActive">
-                                    <div class="my-4" v-html="currentVariation.texts.technicalData">
-                                    </div>
                                 </div>
 
                                 <div :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive }" class="tab-pane overflow-auto" id="assessments-details" role="tabpanel">
@@ -215,6 +219,12 @@
                                             </tr>
                                             </tbody>
                                         </table>
+                                    </div>
+                                </div>
+
+                                <div :class="{ 'active': !isDescriptionTabActive && isTechnicalDataTabActive }" class="tab-pane overflow-auto" :id="'data-' + currentVariation.variation.id" role="tabpanel" v-if="isTechnicalDataTabActive">
+                                    <div class="my-4">
+                                     Hier kommen die PDF Anhänge rein!
                                     </div>
                                 </div>
 

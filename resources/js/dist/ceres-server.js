@@ -9292,6 +9292,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -50822,14 +50832,29 @@ var render = function() {
             { staticClass: "single container-max page-content" },
             [
               _c("div", { staticClass: "row position-relative" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c(
+                    "h1",
+                    {
+                      staticClass: "h2 title",
+                      attrs: { "data-testing": "item-name" }
+                    },
+                    [
+                      _c("span", [
+                        _vm._v(_vm._s(_vm._f("itemName")(_vm.currentVariation)))
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "col-12 col-md-7 mt-5" },
+                  { staticClass: "col-12 col-md-4 mt-5" },
                   [_vm._t("image-carousel")],
                   2
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-md-5 mt-md-5" }, [
+                _c("div", { staticClass: "col-12 col-md-4 mt-md-5" }, [
                   _c(
                     "div",
                     {
@@ -50860,41 +50885,30 @@ var render = function() {
                           )
                         : _vm._e(),
                       _vm._v(" "),
-                      _c(
-                        "h1",
+                      _c("div", {
+                        staticClass: "my-4",
+                        domProps: {
+                          innerHTML: _vm._s(
+                            _vm.currentVariation.texts.technicalData
+                          )
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 col-md-4 mt-md-5" }, [
+                  _c(
+                    "div",
+                    {
+                      directives: [
                         {
-                          staticClass: "h2 title",
-                          attrs: { "data-testing": "item-name" }
-                        },
-                        [
-                          _c("span", [
-                            _vm._v(
-                              "\n                                " +
-                                _vm._s(
-                                  _vm._f("itemName")(_vm.currentVariation)
-                                ) +
-                                "\n                            "
-                            )
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm._t("tag-list"),
-                      _vm._v(" "),
-                      _vm.isShortDescriptionActive &&
-                      _vm.currentVariation.texts.shortDescription !== ""
-                        ? _c("p", {
-                            staticClass: "single-description",
-                            domProps: {
-                              innerHTML: _vm._s(
-                                _vm.currentVariation.texts.shortDescription
-                              )
-                            }
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("hr"),
-                      _vm._v(" "),
+                          name: "stick-in-parent",
+                          rawName: "v-stick-in-parent"
+                        }
+                      ]
+                    },
+                    [
                       _c("div", { staticClass: "mb-5" }, [
                         _c(
                           "span",
@@ -50918,6 +50932,38 @@ var render = function() {
                           ]
                         )
                       ]),
+                      _vm._v(" "),
+                      _vm.isWishListEnabled
+                        ? _c("div", { staticClass: "row" }, [
+                            _c(
+                              "div",
+                              { staticClass: "col-12" },
+                              [
+                                _c("add-to-wish-list", {
+                                  attrs: {
+                                    "variation-id":
+                                      _vm.currentVariation.variation.id
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.isShortDescriptionActive &&
+                      _vm.currentVariation.texts.shortDescription !== ""
+                        ? _c("p", {
+                            staticClass: "single-description",
+                            domProps: {
+                              innerHTML: _vm._s(
+                                _vm.currentVariation.texts.shortDescription
+                              )
+                            }
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("hr"),
                       _vm._v(" "),
                       _vm.attributes.length || Object.keys(_vm.units).length
                         ? _c(
@@ -51048,24 +51094,6 @@ var render = function() {
                           2
                         )
                       ]),
-                      _vm._v(" "),
-                      _vm.isWishListEnabled
-                        ? _c("div", { staticClass: "row" }, [
-                            _c(
-                              "div",
-                              { staticClass: "col-12" },
-                              [
-                                _c("add-to-wish-list", {
-                                  attrs: {
-                                    "variation-id":
-                                      _vm.currentVariation.variation.id
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ])
-                        : _vm._e(),
                       _vm._v(" "),
                       _vm._t("additional-content-after-add-to-basket"),
                       _vm._v(" "),
@@ -51199,6 +51227,34 @@ var render = function() {
                             ])
                           : _vm._e(),
                         _vm._v(" "),
+                        _c("li", { staticClass: "nav-item" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-link",
+                              class: {
+                                active:
+                                  !_vm.isDescriptionTabActive &&
+                                  !_vm.isTechnicalDataTabActive
+                              },
+                              attrs: {
+                                "data-toggle": "tab",
+                                href: "#assessments-details",
+                                role: "tab"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.$translate(
+                                    "Ceres::Template.singleItemMoreDetails"
+                                  )
+                                )
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
                         _vm.isTechnicalDataTabActive
                           ? _c("li", { staticClass: "nav-item" }, [
                               _c(
@@ -51231,34 +51287,6 @@ var render = function() {
                             ])
                           : _vm._e(),
                         _vm._v(" "),
-                        _c("li", { staticClass: "nav-item" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "nav-link",
-                              class: {
-                                active:
-                                  !_vm.isDescriptionTabActive &&
-                                  !_vm.isTechnicalDataTabActive
-                              },
-                              attrs: {
-                                "data-toggle": "tab",
-                                href: "#assessments-details",
-                                role: "tab"
-                              }
-                            },
-                            [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.$translate(
-                                    "Ceres::Template.singleItemMoreDetails"
-                                  )
-                                )
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
                         _vm._t("add-detail-tabs")
                       ],
                       2
@@ -51286,35 +51314,6 @@ var render = function() {
                                   domProps: {
                                     innerHTML: _vm._s(
                                       _vm.currentVariation.texts.description
-                                    )
-                                  }
-                                })
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.isTechnicalDataTabActive
-                          ? _c(
-                              "div",
-                              {
-                                staticClass: "tab-pane overflow-auto",
-                                class: {
-                                  active:
-                                    !_vm.isDescriptionTabActive &&
-                                    _vm.isTechnicalDataTabActive
-                                },
-                                attrs: {
-                                  id:
-                                    "data-" + _vm.currentVariation.variation.id,
-                                  role: "tabpanel"
-                                }
-                              },
-                              [
-                                _c("div", {
-                                  staticClass: "my-4",
-                                  domProps: {
-                                    innerHTML: _vm._s(
-                                      _vm.currentVariation.texts.technicalData
                                     )
                                   }
                                 })
@@ -51708,6 +51707,32 @@ var render = function() {
                             ])
                           ]
                         ),
+                        _vm._v(" "),
+                        _vm.isTechnicalDataTabActive
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "tab-pane overflow-auto",
+                                class: {
+                                  active:
+                                    !_vm.isDescriptionTabActive &&
+                                    _vm.isTechnicalDataTabActive
+                                },
+                                attrs: {
+                                  id:
+                                    "data-" + _vm.currentVariation.variation.id,
+                                  role: "tabpanel"
+                                }
+                              },
+                              [
+                                _c("div", { staticClass: "my-4" }, [
+                                  _vm._v(
+                                    "\n                                 Hier kommen die PDF Anhänge rein!\n                                "
+                                  )
+                                ])
+                              ]
+                            )
+                          : _vm._e(),
                         _vm._v(" "),
                         _vm._t("add-detail-tabs-content")
                       ],
