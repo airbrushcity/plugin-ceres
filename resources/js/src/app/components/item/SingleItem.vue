@@ -224,7 +224,7 @@
 
                                 <div :class="{ 'active': !isDescriptionTabActive && isTechnicalDataTabActive }" class="tab-pane overflow-auto" :id="'data-' + currentVariation.variation.id" role="tabpanel" v-if="isTechnicalDataTabActive">
                                     <div class="my-4">
-                                     Hier kommen die PDF Anhaenge rein!
+                                     Hier kommen die PDF Anhaenge dann rein!
                                     </div>
                                 </div>
 
