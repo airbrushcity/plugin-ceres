@@ -2,16 +2,16 @@
 
 <header id="page-header" class="default-header d-print-none">
 
-    <div class="row flex-row-reverse position-relative">
+    <div class="row position-relative">
 
             <div id="page-header-parent" class="col-12 header-container" data-header-offset>
                 <div class="top-bar header-fw">
                     <div class="container-max px-0 pr-lg-3">
                         <div class="row mx-0 position-relative">
                             {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
-                            <div class="top-bar-items w-100">
+                            <div class="top-bar-items col-12">
                                 <div class="controls">
-                                    <ul id="controlsList" class="controls-list mb-0 d-flex list-inline">
+                                    <ul id="controlsList" class="d-flex controls-list mb-0 list-inline w-100">
                                          <li class="list-inline-item d-none d-lg-block">    	
                                             <a class="pr-2" href="/">
                                                 <picture>
@@ -76,14 +76,10 @@
                                     </li>
                     	
                                     <li class="list-inline-item control-user">
-                                        <client-only>
-                                            <user-login-handler>
-                                                <a href="/login" class="nav-link">
-                                                    <i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
-                                                    <span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
-                                                </a>
-                                            </user-login-handler>
-                                        </client-only>
+                                        <a href="/login" class="nav-link">
+                                            <i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
+                                            <span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
+                                        </a>
                                     </li>
                                               
                                     <li class="list-inline-item control-search d-lg-none">
