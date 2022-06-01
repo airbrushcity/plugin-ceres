@@ -94,18 +94,18 @@
                                             <span class="anicon-search-item" aria-hidden="true"></span>
                                         </a>
                                     </li>
-                                    {% if services.url.isRouteEnabled("wish-list") %}
+                                   
                                     <li class="list-inline-item control-wish-list">
-                                    <lazy-hydrate when-idle>
-                                        <wish-list-count>
-                                            <a class="nav-link" aria-label="{{ trans('Ceres::Template.wishList') }}">
-                                                <span class="badge-right mr-1 d-none d-sm-inline">0</span>
+                                        <lazy-hydrate when-idle>
+                                            <wish-list-count>
+                                                <a class="nav-link" aria-label="{{ Twig.print('trans("Ceres::Template.wishList")') }}">
+                                                    <span class="badge-right mr-1 d-none d-sm-inline">0</span>
                                                     <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                            </a>
-                                        </wish-list-count>
-                                    </lazy-hydrate>
+                                                </a>
+                                            </wish-list-count>
+                                        </lazy-hydrate>
                                     </li>
-                                    {% endif %}
+
                                     <li class="list-inline-item control-basket position-relative">
                                         <a v-toggle-basket-preview href="#" class="toggle-basket-preview nav-link" {{ set_testing_attr("data-testing", "basket-preview-button") }}>
                                         {% if config("Ceres.header.basket_values") != "sum" %}
