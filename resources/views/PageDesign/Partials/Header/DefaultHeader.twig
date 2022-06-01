@@ -12,7 +12,7 @@
                             <div class="top-bar-items col-12">
                                 <div class="controls">
                                     <ul id="controlsList" class="d-flex controls-list mb-0 list-inline align-items-baseline">
-                                         <li class="list-inline-item d-none d-lg-block">    	
+                                         <li class="list-inline-item pl-3 pl-lg-0 d-none d-lg-block">    	
                                             <a class="pr-2" href="/">
                                                 <picture>
                                                     <img
@@ -40,23 +40,19 @@
                                                                 <i class="fa fa-search"></i>
                                                             </button>
                                                         </div>
-
-                                                        {% if isPreview %}
-                                                            <template #search-button>
-                                                                <button class="search-submit px-3" type="submit" data-toggle="collapse" href="#search-suggestions_{{ uid }}" role="button">
-                                                                    <i class="fa fa-search"></i>
-                                                                </button>
-                                                            </template>
-                                                        {% endif %}
-
-                                                        {% if isPreview or children is defined and children.suggestions | trim is not empty %}
-                                                            <template #autocomplete-suggestions>
-                                                                <div class="autocomplete-suggestions shadow bg-white w-100{% if isPreview %} collapse position-relative mh-100{% endif %}"
-                                                                    {% if isPreview %} data-builder-child-container="suggestions" id="search-suggestions_{{ uid }}"{% endif %}>
-                                                                    {{ children.suggestions | raw }}
-                                                                </div>
-                                                            </template>
-                                                        {% endif %}
+                                                        
+                                                        <template #search-button>
+                                                            <button class="search-submit px-3" type="submit" data-toggle="collapse" href="#search-suggestions_{{ uid }}" role="button">
+                                                                <i class="fa fa-search"></i>
+                                                            </button>
+                                                        </template>
+                                                       
+                                                        <template #autocomplete-suggestions>
+                                                            <div class="autocomplete-suggestions shadow bg-white w-100 p-3 collapse position-relative mh-100"
+                                                                data-builder-child-container="suggestions" id="search-suggestions_{{ uid }}">
+                                                                {{ children.suggestions | raw }}
+                                                            </div>
+                                                        </template>
                                                     </item-search>
                                                 </lazy-hydrate>
                                             </div>
