@@ -42,14 +42,24 @@
 <!-- SSR:app() -->
 <div id="vue-app" class="app">
     {{ context.renderState() }}
-	<lazy-hydrate when-idle>
-        <notifications template="#vue-notifications" :initial-notifications="{{ notifications | json_encode() }}"></notifications>
-    </lazy-hydrate>
+
     {% include getPartial('header') %}
 
     <div id="page-body" class="main">
         {% block PageBody %}{% endblock %}
+        <lazy-hydrate when-idle>
+            <notifications template="#vue-notifications" :initial-notifications="{{ notifications | json_encode() }}"></notifications>
+        </lazy-hydrate>
     </div>
+
+    {% cacheslot breadcrumbs %}
+    {# breadcrumbs are related to every single page so they need to be wrapped in a cache slot #}
+    {% if not services.template.isHome() and not services.template.isMyAccount() and not services.template.isCheckout() %}
+        <div class="container-max">
+        {% include "Ceres::PageDesign.Partials.Header.Breadcrumb" %}
+        </div>
+    {% endif %}
+    {% endcacheslot %}
 
     {% cacheblock %}
         {% include getPartial('footer') %}

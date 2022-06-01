@@ -42,9 +42,8 @@
 {% if not (image starts with 'https://' or image starts with 'http://' or image starts with 'layout/'or image starts with '/documents/') %}
 	{% set image = plugin_path('Ceres') ~ "/" ~ image %}
 {% endif %}
-{% set iconCSS = plugin_path("Ceres") ~ "/css/ceres-icons.css" %}
 {% set defaultCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".css?v=" ~ buildHash %}{% endspaceless %}
-<link rel="preload" as="style" href="{{ iconCSS }}">
+
 <link rel="preload" as="style" href="{{ defaultCSS }}">
 
 <meta name="robots" content="{% if forceNoIndex %}NOINDEX{% else %}{{ robots }}{% endif %}">

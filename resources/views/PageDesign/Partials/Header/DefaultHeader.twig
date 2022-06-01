@@ -2,7 +2,7 @@
 
 <header id="page-header" class="default-header d-print-none">
 
-    <div class="row flex-row position-relative">
+    <div class="row flex-row-reverse position-relative">
 
             <div id="page-header-parent" class="col-12 header-container" data-header-offset>
                 <div class="top-bar header-fw">
@@ -31,40 +31,36 @@
                                         </li>     
 
                                         <li class="list-inline-item d-none d-lg-block pl-2 control-big">       	
-                                        {{ Twig.if("overrideSearchBar | trim is empty") }}
-                                        <div class="always-visible-search flex-grow-1">
-                                            {% if not isPreview %}<lazy-hydrate when-idle>{% endif %}
-                                                <item-search>
-                                                    <div class="position-relative d-flex flex-grow-1">
-                                                        <input type="search" class="search-input px-3 py-2 flex-grow-1" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm")') }}">
-                                                        <button class="search-submit px-3" type="submit" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}">
-                                                            <i class="fa fa-search"></i>
-                                                        </button>
-                                                    </div>
-
-                                                    {% if isPreview %}
-                                                        <template #search-button>
-                                                            <button class="search-submit px-3" type="submit" {{ WidgetHelper.makeClickable(isPreview) }} data-toggle="collapse" href="#search-suggestions_{{ uid }}" role="button">
+                                            <div class="always-visible-search flex-grow-1">
+                                                <lazy-hydrate when-idle>
+                                                    <item-search>
+                                                        <div class="position-relative d-flex flex-grow-1">
+                                                            <input type="search" class="search-input px-3 py-2 flex-grow-1" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm")') }}">
+                                                            <button class="search-submit px-3" type="submit" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}">
                                                                 <i class="fa fa-search"></i>
                                                             </button>
-                                                        </template>
-                                                    {% endif %}
+                                                        </div>
 
-                                                    {% if isPreview or children is defined and children.suggestions | trim is not empty %}
-                                                        <template #autocomplete-suggestions>
-                                                            <div class="autocomplete-suggestions shadow bg-white w-100{% if isPreview %} collapse position-relative mh-100{% endif %}"
-                                                                {% if isPreview %} data-builder-child-container="suggestions" id="search-suggestions_{{ uid }}"{% endif %}>
-                                                                {{ children.suggestions | raw }}
-                                                            </div>
-                                                        </template>
-                                                    {% endif %}
-                                                </item-search>
-                                            {% if not isPreview %}</lazy-hydrate>{% endif %}
-                                        </div>
-                                    {{ Twig.else() }}
-                                        {{ Twig.print("overrideSearchBar | raw") }}
-                                    {{ Twig.endif() }}	
-                                    </li>     
+                                                        {% if isPreview %}
+                                                            <template #search-button>
+                                                                <button class="search-submit px-3" type="submit" data-toggle="collapse" href="#search-suggestions_{{ uid }}" role="button">
+                                                                    <i class="fa fa-search"></i>
+                                                                </button>
+                                                            </template>
+                                                        {% endif %}
+
+                                                        {% if isPreview or children is defined and children.suggestions | trim is not empty %}
+                                                            <template #autocomplete-suggestions>
+                                                                <div class="autocomplete-suggestions shadow bg-white w-100{% if isPreview %} collapse position-relative mh-100{% endif %}"
+                                                                    {% if isPreview %} data-builder-child-container="suggestions" id="search-suggestions_{{ uid }}"{% endif %}>
+                                                                    {{ children.suggestions | raw }}
+                                                                </div>
+                                                            </template>
+                                                        {% endif %}
+                                                    </item-search>
+                                                </lazy-hydrate>
+                                            </div>
+                                        </li>     
 
                                     <li class="brand-wrapper list-inline-item control-big d-lg-none p-2"> 
                                         <a class="navbar-brand p-0" href="{{ Twig.print('urls.home') }}">
@@ -195,7 +191,7 @@
 
                 </div>
             </div>
-            
+
     </div>
 
 </header>

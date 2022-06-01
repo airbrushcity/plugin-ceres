@@ -2345,12 +2345,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         // add "activated" classes when menu is activated
         $(el).on("menu-activated", function (event, params) {
           $(event.target).addClass("menu-active");
-          $(event.target).addClass(params.back ? "animate-in-from-right" : "animate-in-from-left");
+          $(event.target).addClass(params.back ? "animate-in-from-left" : "animate-in-from-right");
         }); // add "deactivated" classes when menu is deactivated
 
         $(el).on("menu-deactivated", function (event, params) {
           $(event.target).removeClass("menu-active");
-          $(event.target).addClass(params.back ? "animate-out-to-left" : "animate-out-to-right");
+          $(event.target).addClass(params.back ? "animate-out-to-right" : "animate-out-to-left");
         }); // this removes the animation class automatically after the animation has completed
 
         $(el).on("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
@@ -36446,7 +36446,7 @@ var render = function() {
             { staticClass: "single container-max page-content" },
             [
               _c("div", { staticClass: "row position-relative" }, [
-                _c("div", { staticClass: "col-12" }, [
+                _c("div", { staticClass: "col-12 mt-2" }, [
                   _c(
                     "h1",
                     {
@@ -36463,12 +36463,12 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "col-12 col-md-4 mt-5" },
+                  { staticClass: "col-12 col-md-4 mt-2" },
                   [_vm._t("image-carousel")],
                   2
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-md-4 mt-md-5" }, [
+                _c("div", { staticClass: "col-12 col-md-4 mt-md-2" }, [
                   _c(
                     "div",
                     {
@@ -36511,7 +36511,7 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-md-4 mt-md-5" }, [
+                _c("div", { staticClass: "col-12 col-md-4 mt-md-2" }, [
                   _c(
                     "div",
                     {

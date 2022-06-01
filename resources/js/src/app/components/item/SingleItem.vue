@@ -4,17 +4,17 @@
             <div class="single container-max page-content">
                 <div class="row position-relative">
 
-                    <div class="col-12">
+                    <div class="col-12 mt-2">
                         <h1 class="h2 title" data-testing="item-name">
                             <span>{{ currentVariation | itemName }}</span>
                         </h1>
                     </div>
 
-                    <div class="col-12 col-md-4 mt-5">
+                    <div class="col-12 col-md-4 mt-2">
                         <slot name="image-carousel"></slot>
                     </div>
 
-                    <div class="col-12 col-md-4 mt-md-5">
+                    <div class="col-12 col-md-4 mt-md-2">
                         <div v-stick-in-parent>
                             <!-- START SINGLEITEM_Short_DETAILS -->
                             <div class="producertag h6 producer text-muted" v-if="currentVariation.filter.hasManufacturer">
@@ -25,7 +25,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-4 mt-md-5">
+                    <div class="col-12 col-md-4 mt-md-2">
                         <div v-stick-in-parent>
                             <!-- START SINGLEITEM_DETAILS -->
 
