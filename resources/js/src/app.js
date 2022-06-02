@@ -18,7 +18,7 @@ import UserLoginHandler from "./app/components/customer/login/UserLoginHandler.v
 import CategoryItem from "./app/components/itemList/CategoryItem.vue";
 import ItemSearch from "./app/components/itemList/ItemSearch.vue";
 
-import CookieBar from "./app/components/pageDesign/CookieBar.vue";
+// import CookieBar from "./app/components/pageDesign/CookieBar.vue";
 import Carousel from "./app/components/pageDesign/Carousel.vue";
 import Icon from "./app/components/pageDesign/Icon.vue";
 import LanguageDetection from "./app/components/pageDesign/LanguageDetection.vue";
@@ -66,7 +66,7 @@ import "./app/directives/navigation/navigationTouchHandler";
 import "./app/directives/navigation/openMobileNavigation";
 import "./app/directives/pageDesign/scrollToTop";
 import "./app/directives/pageDesign/stickInParent";
-import "./app/directives/navigation/sidenavigationChildrenLoader";
+// import "./app/directives/navigation/sidenavigationChildrenLoader";
 import "./app/directives/pageDesign/tooltip";
 
 
@@ -106,13 +106,13 @@ export function beforeCreate(context)
     // BASE
     Vue.component("add-item-to-basket-overlay", () => import("./app/components/basket/AddItemToBasketOverlay.vue"));
     Vue.component("add-to-basket", () => import("./app/components/basket/AddToBasket.vue"));
-    Vue.component("basket-preview", () => import("./app/components/basket/BasketPreview.vue"));
+    // Vue.component("basket-preview", () => import("./app/components/basket/BasketPreview.vue"));
     Vue.component("basket-totals", () => import("./app/components/basket/BasketTotals.vue"));
     Vue.component("mail-changed-info", () => import("./app/components/basket/MailChangedInfo.vue"));
     Vue.component("coupon", () => import("./app/components/basket/Coupon.vue"));
     Vue.component("basket-list", () => import("./app/components/basket/list/BasketList.vue"));
-    Vue.component("step-by-step-navigation", () => import("./app/components/category/StepByStepNavigation.vue"));
-    Vue.component("google-maps-widget", () => import("./app/components/common/GoogleMaps.vue"));
+    // Vue.component("step-by-step-navigation", () => import("./app/components/category/StepByStepNavigation.vue"));
+    // Vue.component("google-maps-widget", () => import("./app/components/common/GoogleMaps.vue"));
     Vue.component("lazy-img", LazyImg);
     Vue.component("intersect", Intersect);
     Vue.component("tab-list", TabList);
@@ -125,7 +125,7 @@ export function beforeCreate(context)
     Vue.component("forgot-password-modal", () => import("./app/components/customer/login/ForgotPassword.vue"));
     Vue.component("guest-login", () => import("./app/components/customer/login/GuestLogin.vue"));
     Vue.component("login", () => import("./app/components/customer/login/Login.vue"));
-    Vue.component("login-view", () => import("./app/components/customer/login/LoginView.vue"));
+    // Vue.component("login-view", () => import("./app/components/customer/login/LoginView.vue"));
     Vue.component("user-login-handler", UserLoginHandler);
     Vue.component("item-bundle", () => import("./app/components/item/ItemBundle.vue"));
     Vue.component("quantity-input", () => import("./app/components/item/QuantityInput.vue"));
@@ -136,11 +136,11 @@ export function beforeCreate(context)
     Vue.component("item-filter-list", () => import("./app/components/itemList/filter/ItemFilterList.vue"));
     Vue.component("item-filter-tag-list", () => import("./app/components/itemList/filter/ItemFilterTagList.vue"));
     Vue.component("live-shopping-item", () => import("./app/components/liveShopping/LiveShoppingItem.vue"));
-    Vue.component("newsletter-input", () => import("./app/components/newsletter/NewsletterInput.vue"));
-    Vue.component("newsletter-unsubscribe-input", () => import("./app/components/newsletter/NewsletterUnsubscribeInput.vue"));
-    Vue.component("order-return", () => import("./app/components/orderReturn/OrderReturn.vue"));
-    Vue.component("cookie-bar", CookieBar);
-    Vue.component("privacy-settings", () => import("./app/components/pageDesign/PrivacySettings.vue"));
+    // Vue.component("newsletter-input", () => import("./app/components/newsletter/NewsletterInput.vue"));
+    // Vue.component("newsletter-unsubscribe-input", () => import("./app/components/newsletter/NewsletterUnsubscribeInput.vue"));
+    // Vue.component("order-return", () => import("./app/components/orderReturn/OrderReturn.vue"));
+    // Vue.component("cookie-bar", CookieBar);
+    // Vue.component("privacy-settings", () => import("./app/components/pageDesign/PrivacySettings.vue"));
     Vue.component("carousel", Carousel);
     Vue.component("icon", Icon);
     Vue.component("language-detection", LanguageDetection);

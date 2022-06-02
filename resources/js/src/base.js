@@ -35,14 +35,14 @@ window.ceresEnv = getUrlParams()["env"];
 Vue.component("add-item-to-basket-overlay", () => import("./app/components/basket/AddItemToBasketOverlay.vue"));
 
 Vue.component("add-to-basket", () => import("./app/components/basket/AddToBasket.vue"));
-Vue.component("basket-preview", () => import("./app/components/basket/BasketPreview.vue"));
+// Vue.component("basket-preview", () => import("./app/components/basket/BasketPreview.vue"));
 Vue.component("basket-totals", () => import("./app/components/basket/BasketTotals.vue"));
 Vue.component("mail-changed-info", () => import("./app/components/basket/MailChangedInfo.vue"));
 Vue.component("coupon", () => import("./app/components/basket/Coupon.vue"));
 Vue.component("basket-list", () => import("./app/components/basket/list/BasketList.vue"));
 
-Vue.component("step-by-step-navigation", () => import("./app/components/category/StepByStepNavigation.vue"));
-Vue.component("google-maps-widget", () => import("./app/components/common/GoogleMaps.vue"));
+// Vue.component("step-by-step-navigation", () => import("./app/components/category/StepByStepNavigation.vue"));
+// Vue.component("google-maps-widget", () => import("./app/components/common/GoogleMaps.vue"));
 import LazyImg from "./app/components/common/LazyImg.vue";
 Vue.component("lazy-img", LazyImg);
 import Intersect from "./app/components/common/Intersect.vue";
@@ -59,8 +59,8 @@ Vue.component("recaptcha", ReCaptcha);
 Vue.component("registration", () => import("./app/components/customer/Registration.vue"));
 Vue.component("reset-password-form", () => import("./app/components/customer/ResetPasswordForm.vue"));
 Vue.component("forgot-password-modal", () => import("./app/components/customer/login/ForgotPassword.vue"));
-Vue.component("guest-login", () => import("./app/components/customer/login/GuestLogin.vue"));
-Vue.component("login", () => import("./app/components/customer/login/Login.vue"));
+// Vue.component("guest-login", () => import("./app/components/customer/login/GuestLogin.vue"));
+// Vue.component("login", () => import("./app/components/customer/login/Login.vue"));
 // legacy non-shopbuilder component
 Vue.component("login-view", () => import("./app/components/customer/login/LoginView.vue"));
 import UserLoginHandler from "./app/components/customer/login/UserLoginHandler.vue";
@@ -81,13 +81,13 @@ Vue.component("item-filter-tag-list", () => import("./app/components/itemList/fi
 
 Vue.component("live-shopping-item", () => import("./app/components/liveShopping/LiveShoppingItem.vue"));
 
-Vue.component("newsletter-input", () => import("./app/components/newsletter/NewsletterInput.vue"));
-Vue.component("newsletter-unsubscribe-input", () => import("./app/components/newsletter/NewsletterUnsubscribeInput.vue"));
+// Vue.component("newsletter-input", () => import("./app/components/newsletter/NewsletterInput.vue"));
+// Vue.component("newsletter-unsubscribe-input", () => import("./app/components/newsletter/NewsletterUnsubscribeInput.vue"));
 
-Vue.component("order-return", () => import("./app/components/orderReturn/OrderReturn.vue"));
+// Vue.component("order-return", () => import("./app/components/orderReturn/OrderReturn.vue"));
 
-Vue.component("cookie-bar", () => import("./app/components/pageDesign/CookieBar.vue"));
-Vue.component("privacy-settings", () => import("./app/components/pageDesign/PrivacySettings.vue"));
+// Vue.component("cookie-bar", () => import("./app/components/pageDesign/CookieBar.vue"));
+// Vue.component("privacy-settings", () => import("./app/components/pageDesign/PrivacySettings.vue"));
 Vue.component("carousel", () => import("./app/components/pageDesign/Carousel.vue"));
 import Icon from "./app/components/pageDesign/Icon.vue";
 Vue.component("icon", Icon);
@@ -157,7 +157,7 @@ import "./app/directives/navigation/openMobileNavigation";
 
 import "./app/directives/pageDesign/scrollToTop";
 import "./app/directives/pageDesign/stickInParent";
-import "./app/directives/navigation/sidenavigationChildrenLoader";
+// import "./app/directives/navigation/sidenavigationChildrenLoader";
 import "./app/directives/pageDesign/tooltip";
 
 
