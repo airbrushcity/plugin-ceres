@@ -9,115 +9,109 @@
                     <div class="container-max px-0 pr-lg-3">
                         <div class="row mx-0 position-relative">
                             {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
-                            <div class="top-bar-items col-12">
-                                <div class="controls">
-                                    <ul id="controlsList" class="d-flex controls-list mb-0 list-inline align-items-baseline">
-                                         <li class="list-inline-item pl-3 pl-lg-0 d-none d-lg-block">    	
-                                            <a class="pr-2" href="/">
-                                                <picture>
-                                                    <img
-                                                        class="img-fluid logospecial"
-                                                        src="https://image.schmincke-city.de/frontend/schmincke/schmincke-mini.png"
-                                                        alt="{{ trans("Ceres::Template.headerCompanyName") }}"
-                                                    />
-                                                </picture>
-                                            </a>
-                                        </li>    	
 
-                                        <li class="list-inline-item pl-3 pl-lg-0">       	
+                            <div class="top-bar-items w-100">
+                                <div class="controls">
+                                    <ul id="controlsList" class="controls-list mb-0 d-flex list-inline pl-2 pl-sm-1 pl-md-0">
+                                        <li class="list-inline-item d-none d-lg-block">
+                                            <a href="/" class="pr-2">
+                                            <picture>
+                                                <source srcset="https://image.schmincke-city.de/frontend/schmincke/schmincke-mini.png">
+                                                <img src="https://image.schmincke-city.de/frontend/schmincke/schmincke-mini.png" alt="Schmincke City" class="img-fluid logospecial">
+                                            </picture>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
                                             <button v-open-mobile-navigation class="navbar-toggler p-2" type="button">
                                                 &#9776; <span class="d-none d-lg-inline">Alle Kategorien</span>
                                             </button>    	
-                                        </li>     
-
-                                        <li class="list-inline-item d-none d-lg-block pl-2 control-big">       	
+                                        </li>
+                                        <li class="list-inline-item d-none d-lg-block pl-2 control-big">
                                             <div class="always-visible-search flex-grow-1">
-                                                <lazy-hydrate when-idle>
-                                                    <item-search>
-                                                        <div class="position-relative d-flex flex-grow-1">
-                                                            <input type="search" class="search-input px-3 py-2 flex-grow-1" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm")') }}">
-                                                            <button class="search-submit px-3" type="submit" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}">
-                                                                <i class="fa fa-search"></i>
-                                                            </button>
-                                                        </div>
-
-                                                        {% if isPreview %}
-                                                            <template #search-button>
-                                                                <button class="search-submit px-3" type="submit" data-toggle="collapse" href="#search-suggestions_{{ uid }}" role="button">
-                                                                    <i class="fa fa-search"></i>
+                                                <div class="container-max">
+                                                    <div class="position-relative">
+                                                        <lazy-hydrate when-idle>
+                                                            <item-search>
+                                                            <div class="d-flex flex-grow-1 position-relative my-2">
+                                                                <input type="search" placeholder="Suche nach Artikel oder Artikelnummer..."class="search-input flex-grow-1 px-3 py-2" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm")') }}">
+                                                                <button type="submit" aria-label="Suche" class="search-submit px-3" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}">
+                                                                    <i aria-hidden="true" class="fa fa-fw fa-search"></i>
                                                                 </button>
-                                                            </template>
-                                                        {% endif %}
+                                                            </div>
 
-                                                        {% if isPreview or children is defined and children.suggestions | trim is not empty %}
-                                                            <template #autocomplete-suggestions>
-                                                                <div class="autocomplete-suggestions shadow bg-white w-100 p-3 {% if isPreview %} collapse position-relative mh-100{% endif %}"
-                                                                    {% if isPreview %} data-builder-child-container="suggestions" id="search-suggestions_{{ uid }}"{% endif %}>
-                                                                    {{ children.suggestions | raw }}
-                                                                </div>
-                                                            </template>
-                                                        {% endif %}
-                                                    </item-search>
-                                                </lazy-hydrate>
+                                                            {% if isPreview %}
+                                                                <template #search-button>
+                                                                    <button class="search-submit px-3" type="submit" data-toggle="collapse" href="#search-suggestions_{{ uid }}" role="button">
+                                                                        <i class="fa fa-search"></i>
+                                                                    </button>
+                                                                </template>
+                                                            {% endif %}
+
+                                                            {% if isPreview or children is defined and children.suggestions | trim is not empty %}
+                                                                <template #autocomplete-suggestions>
+                                                                    <div class="autocomplete-suggestions shadow bg-white w-100 p-3 {% if isPreview %} collapse position-relative mh-100{% endif %}"
+                                                                        {% if isPreview %} data-builder-child-container="suggestions" id="search-suggestions_{{ uid }}"{% endif %}>
+                                                                        {{ children.suggestions | raw }}
+                                                                    </div>
+                                                                </template>
+                                                            {% endif %}
+                                                            </item-search>
+                                                        </lazy-hydrate>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </li>     
+                                        </li>
+                                        <li class="brand-wrapper list-inline-item control-big d-lg-none p-2">
+                                            <a href="/" class="navbar-brand p-0">
+                                            <picture>
+                                                <source srcset="https://image.schmincke-city.de/frontend/schmincke/schmincke-city-logo-micro.png">
+                                                <img src="https://image.schmincke-city.de/frontend/schmincke/schmincke-city-logo-micro.png" alt="Schmincke City" class="img-fluid">
+                                            </picture>
+                                            </a>
+                                        </li>
 
-                                    <li class="brand-wrapper list-inline-item control-big d-lg-none p-2"> 
-                                        <a class="navbar-brand p-0" href="{{ Twig.print('urls.home') }}">
-                                        <picture>
-                                            <source srcset="https://image.schmincke-city.de/frontend/schmincke/schmincke-city-logo-micro.png"{% if companyLogoUrl matches '/.?(\\.webp)(?:$|\\?)/' %} type="image/webp"{% endif %}>
-                                                <img
-                                                    class="img-fluid"
-                                                    src="https://image.schmincke-city.de/frontend/schmincke/schmincke-city-logo-micro.png"
-                                                    alt="{{ Twig.print('trans("Ceres::Template.headerCompanyName")') }}"
-                                                />
-                                        </picture>
-                                        </a>
-                                    </li>
-                    	
-                                    <li class="list-inline-item control-user">
-                                        <a href="/login" class="nav-link">
-                                            <i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
-                                            <span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
-                                        </a>
-                                    </li>
-                                              
-                                    <li class="list-inline-item control-search d-lg-none">
-                                        <a class="anicon anicon-search-xcross nav-link"
-                                            data-toggle="collapse"
-                                            href="#searchBox"
-                                            aria-expanded="false"
-                                            aria-controls="searchBox"
-                                            data-parent="#controlsList"
-                                            aria-label="{{ trans('Ceres::Template.headerSearch') }}"
-                                            @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
-                                            <span class="anicon-search-item" aria-hidden="true"></span>
-                                        </a>
-                                    </li>
-                                   
-                                    <li class="list-inline-item control-wish-list">
-                                        <lazy-hydrate when-idle>
-                                            <wish-list-count>
-                                                <a class="nav-link" aria-label="{{ Twig.print('trans("Ceres::Template.wishList")') }}">
-                                                    <span class="badge-right mr-1 d-none d-sm-inline">0</span>
-                                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                                </a>
-                                            </wish-list-count>
-                                        </lazy-hydrate>
-                                    </li>
-
-                                    <li class="list-inline-item control-basket position-relative">
-                                        <a v-toggle-basket-preview href="#" class="toggle-basket-preview nav-link" {{ set_testing_attr("data-testing", "basket-preview-button") }}>
-                                        {% if config("Ceres.header.basket_values") != "sum" %}
-                                            <span class="mr-2" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span>
-                                        {% endif %}
-
-                                        <icon icon="shopping-cart" class-loading="fa-refresh" :loading="$store.state.basket.isBasketLoading"></icon>
-                                            {% if config("Ceres.header.basket_values") != "quantity" %}
-                                                <span class="badge p-0 ml-2" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
-                                                <span class="badge p-0 ml-2" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                                        <li class="list-inline-item control-user">
+                                            <a href="/login" aria-label="Anmelden" class="nav-link">
+                                                <i aria-hidden="true" class="fa fa-user mr-0 mr-sm-1"></i> <span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
+                                            </a>
+                                        </li>
+                                        
+                                        <li class="list-inline-item control-search d-lg-none">
+                                            <a class="anicon anicon-search-xcross nav-link"
+                                                data-toggle="collapse"
+                                                href="#searchBox"
+                                                aria-expanded="false"
+                                                aria-controls="searchBox"
+                                                data-parent="#controlsList"
+                                                aria-label="{{ trans('Ceres::Template.headerSearch') }}"
+                                                @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
+                                                <span class="anicon-search-item" aria-hidden="true"></span>
+                                            </a>
+                                        </li>
+  
+                                        <li class="list-inline-item control-wish-list">
+                                            <lazy-hydrate when-idle>
+                                                <wish-list-count>
+                                                    <a class="nav-link" aria-label="{{ Twig.print('trans("Ceres::Template.wishList")') }}">
+                                                        <span class="badge-right mr-1 d-none d-sm-inline">0</span>
+                                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </wish-list-count>
+                                            </lazy-hydrate>
+                                        </li>
+                                        
+                                        <li class="list-inline-item control-basket position-relative">
+                                            <a v-toggle-basket-preview href="#" class="toggle-basket-preview nav-link" {{ set_testing_attr("data-testing", "basket-preview-button") }}>
+                                            {% if config("Ceres.header.basket_values") != "sum" %}
+                                                <span class="mr-2" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span>
                                             {% endif %}
-                                        </a>
+
+                                            <icon icon="shopping-cart" class-loading="fa-refresh" :loading="$store.state.basket.isBasketLoading"></icon>
+                                                {% if config("Ceres.header.basket_values") != "quantity" %}
+                                                    <span class="badge p-0 ml-2" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                                                    <span class="badge p-0 ml-2" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                                                {% endif %}
+                                            </a>
 
                                             <basket-preview v-if="$store.state.lazyComponent.components['basket-preview']" :show-net-prices="{{ showNetPrices | json_encode }}">
                                                 <template #before-basket-item>
@@ -167,6 +161,7 @@
                                     </ul>
                                 </div>
                             </div>
+
                         </div>
                     </div>
 
