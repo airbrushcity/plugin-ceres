@@ -11,9 +11,7 @@
                             <div class="top-bar-items w-100">
                                 <div class="controls">
 
-
                                     <ul id="controlsList" class="controls-list mb-0 d-flex list-inline pl-2 pl-sm-1 pl-md-0">
-
 
 										<li class="list-inline-item d-none d-lg-block">
 											<a href="/" class="pr-2">
@@ -23,8 +21,14 @@
 												</picture>
 											</a>
 										</li>
-										<li class="list-inline-item"><button type="button" class="navbar-toggler p-2"> ☰ <span class="d-none d-lg-inline">Alle Kategorien</span></button></li>
-										<li class="list-inline-item d-none d-lg-block pl-2 control-big">
+                                        
+										<li class="list-inline-item">
+                                            <button v-open-mobile-navigation class="navbar-toggler p-2 pl-sm-3" type="button">
+                                                &#9776; <span class="d-none d-lg-inline">Alle Kategorien</span>
+                                            </button>
+                                        </li>
+										
+                                        <li class="list-inline-item d-none d-lg-block pl-2 control-big">
 											<div class="always-visible-search flex-grow-1">
 												<div class="container-max">
 													<div class="position-relative">
