@@ -6,8 +6,9 @@
 {% set defaultSCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".scss?v=" ~ buildHash %}
 {% endspaceless %}
 
-
 <link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 {% if canonicalUrl is not null %}<link rel="canonical" href="{{ canonicalUrl  ~ services.url.getCanonicalQueryString() }}">{% endif %}
 
 {% if services.url.isCanonical() or request.get('env') == "testing" %}
