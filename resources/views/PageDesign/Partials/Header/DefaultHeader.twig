@@ -29,23 +29,28 @@
                                         </li>
 										
                                         <li class="list-inline-item d-none d-lg-block pl-2 control-big">
-                                            <lazy-hydrate when-idle>
-                                                <item-search>
-                                                <div class="always-visible-search flex-grow-1">
-                                                    <div class="container-max">
-                                                        <div class="position-relative">
-                                                            <div class="d-flex flex-grow-1 position-relative my-2"><input type="search" placeholder="" aria-label="Suchbegriff" value="" class="search-input flex-grow-1 px-3 py-2"> <button type="submit" aria-label="Suche" class="search-submit px-3"><i aria-hidden="true" class="fa fa-fw fa-search"></i></button></div>
+                        
+                                            <div class="always-visible-search flex-grow-1">
+                                                <div class="container-max">
+                                                    <div class="position-relative">
+                                                        <div class="d-flex flex-grow-1 position-relative my-2">
+                                                            <input type="search" placeholder="" aria-label="Suchbegriff" value="" class="search-input flex-grow-1 px-3 py-2"
+                                                            data-toggle="collapse"
+                                                            href="#searchBox"
+                                                            aria-expanded="false"
+                                                            aria-controls="searchBox"
+                                                            data-parent="#controlsList"
+                                                            aria-label="{{ trans('Ceres::Template.headerSearch') }}"
+                                                            @mouseover.once="$store.dispatch('loadComponent', 'item-search')"> 
+
+                                                            <button type="submit" aria-label="Suche" class="search-submit px-3">
+                                                                <i aria-hidden="true" class="fa fa-fw fa-search"></i>
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
 
-                                                <template #autocomplete-suggestions>
-                                                    <div class="autocomplete-suggestions shadow bg-white w-100"
-                                                            {{ children.suggestions | raw }}
-                                                    </div>
-                                                </template>
-                                                </item-search>
-                                            </lazy-hydrate>
 										</li>
 
 										<li class="brand-wrapper list-inline-item control-big d-lg-none p-2">
