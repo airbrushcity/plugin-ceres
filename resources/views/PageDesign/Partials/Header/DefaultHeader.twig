@@ -12,11 +12,38 @@
                                 <div class="controls">
 
 
-
                                     <ul id="controlsList" class="controls-list mb-0 d-flex list-inline pl-2 pl-sm-1 pl-md-0">
 
 
-                                    
+										<li class="list-inline-item d-none d-lg-block">
+											<a href="/" class="pr-2">
+												<picture>
+													<source srcset="https://image.schmincke-city.de/frontend/schmincke/schmincke-mini.png">
+													<img src="https://image.schmincke-city.de/frontend/schmincke/schmincke-mini.png" alt="Schmincke City" class="img-fluid logospecial"> 
+												</picture>
+											</a>
+										</li>
+										<li class="list-inline-item"><button type="button" class="navbar-toggler p-2"> ☰ <span class="d-none d-lg-inline">Alle Kategorien</span></button></li>
+										<li class="list-inline-item d-none d-lg-block pl-2 control-big">
+											<div class="always-visible-search flex-grow-1">
+												<div class="container-max">
+													<div class="position-relative">
+														<div class="d-flex flex-grow-1 position-relative my-2"><input type="search" placeholder="" aria-label="Suchbegriff" value="" class="search-input flex-grow-1 px-3 py-2"> <button type="submit" aria-label="Suche" class="search-submit px-3"><i aria-hidden="true" class="fa fa-fw fa-search"></i></button></div>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li class="brand-wrapper list-inline-item control-big d-lg-none p-2">
+											<a href="/" class="navbar-brand p-0">
+												<picture>
+													<source srcset="https://image.schmincke-city.de/frontend/schmincke/schmincke-city-logo-micro.png">
+													<img src="https://image.schmincke-city.de/frontend/schmincke/schmincke-city-logo-micro.png" alt="Schmincke City" class="img-fluid"> 
+												</picture>
+											</a>
+										</li>
+
+
+
                                         <li class="list-inline-item control-user">
                                             <client-only>
                                                 <user-login-handler>
@@ -31,31 +58,7 @@
                                                 </user-login-handler>
                                             </client-only>
                                         </li>
-                                        <li class="list-inline-item dropdown control-languages">
-                                            <a class="nav-link"
-                                               data-toggle="collapse"
-                                               href="#countrySettings"
-                                               aria-expanded="false"
-                                               aria-controls="countrySettings"
-                                               data-parent="#controlsList"
-                                               aria-label="{{ trans('Ceres::Template.headerCountry') }}">
-                                                <i class="flag-icon flag-icon-{{ lang }}"></i>
-                                            </a>
-                                        </li>
 
-                                        {% if enableCurrencySelect == "true" %}
-                                            <li class="list-inline-item dropdown control-languages">
-                                                <a class="nav-link"
-                                                   data-toggle="collapse"
-                                                   href="#currencySelect"
-                                                   aria-expanded="false"
-                                                   aria-controls="currencySelect"
-                                                   data-parent="#controlsList"
-                                                   aria-label="{{ trans('Ceres::Template.headerCurrency') }}">
-                                                    <span>{{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
-                                                </a>
-                                            </li>
-                                        {% endif %}
                                         <li class="list-inline-item control-search">
                                             <a class="anicon anicon-search-xcross nav-link"
                                                 data-toggle="collapse"
@@ -158,91 +161,11 @@
                                 {% else %}
                                     {{ overrideSearchBar | raw }}
                                 {% endif %}
-                            </div>
-
-                            {% if enableCurrencySelect == "true" %}
-                                <div id="currencySelect" class="cmp cmp-currency-select collapse">
-                                    <div class="container-max">
-                                        <div class="row py-3">
-                                            <div class="currency-list col-12">
-                                                <div class="list-title">
-                                                    <strong>{{ trans("Ceres::Template.headerCurrency") }}</strong>
-                                                    <hr>
-                                                </div>
-                                                <ul class="row text-center text-sm-left">
-                                                    {% for currency in services.checkout.getCurrencyList() if currency.name in activeCurrencies or activeCurrencies[0] == 'all' or currency.name == services.checkout.getCurrencyData().name %}
-                                                        <li class="col-2 px-0{% if currency.name == services.checkout.getCurrencyData().name %} active{% endif %}">
-                                                            <a class="nav-link" href="{{ queryString({"currency": currency.name}) }}" rel="nofollow">
-                                                                {% if currencyFormatSelect == 'all' %}
-                                                                    {{ currency.name }} <br class="d-block d-sm-none" />({{ currency.symbol }})
-                                                                {% else %}
-                                                                    {{ currency[currencyFormatSelect] }}
-                                                                {% endif %}
-                                                            </a>
-                                                        </li>
-                                                    {% endfor %}
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endif %}
-
-                            <div id="countrySettings" class="cmp cmp-country-settings collapse">
-                                <div class="container-max">
-                                    <div class="row py-3">
-                                        <div class="col-12 col-lg-6">
-
-                                            <div class="language-settings">
-                                                <div class="list-title">
-                                                    <strong>{{ trans("Ceres::Template.headerSelectLanguage") }}</strong>
-                                                    <hr>
-                                                </div>
-
-                                                {% set languageList = services.webstoreConfigurationRepository.getActiveLanguageList() %}
-                                                {% set languageUrls = services.url.getLanguageURLs() %}
-                                                <ul class="row">
-                                                    {% for language in languageList %}
-                                                        {% set languageISO = services.localizationRepository.getLanguageCode(language) %}
-                                                        <li class="col-6 col-sm-4 px-0{% if lang == language %} active{% endif %}">
-                                                            <a class="nav-link" href="{% if languageUrls[languageISO] is defined %}{{ languageUrls[languageISO] ~ queryString() }}{% elseif language != defaultLanguage %}/{{ language }}{{ urls.trailingSlashSuffix }}{% else %}/{% endif %}" data-update-url>
-                                                                <i class="flag-icon flag-icon-{{ language }}"></i>
-                                                                {{ trans("Ceres::Template.header" ~ language | capitalize) }}
-                                                            </a>
-                                                        </li>
-                                                    {% endfor %}
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6">
-                                            <div class="shipping-settings">
-                                                <div class="list-title">
-                                                    <strong>{{ trans("Ceres::Template.headerSelectShippingCountry") }}</strong>
-                                                    <hr>
-                                                </div>
-                                                <intersect>
-                                                    <shipping-country-select :disable-input="{{ services.template.isCheckout() | json_encode() }}"></shipping-country-select>
-                                                    <template #loading>
-                                                        <div class="row" style="height:1px;"></div>
-                                                    </template>
-                                                </intersect>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div>      
                         </div>
                     </div>
+
                 </div>
-
-                {% include "Ceres::PageDesign.Partials.Header.Navigation" %}
-
-                {% cacheslot breadcrumbs %}
-                    {# breadcrumbs are related to every single page so they need to be wrapped in a cache slot #}
-                    {% if not services.template.isHome() and not services.template.isMyAccount() and not services.template.isCheckout() %}
-                        {% include "Ceres::PageDesign.Partials.Header.Breadcrumb" %}
-                    {% endif %}
-                {% endcacheslot %}
             </div>
         </div>
     </div>
