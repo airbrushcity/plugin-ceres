@@ -32,32 +32,14 @@
                              
 
                                             <div class="always-visible-search flex-grow-1">
-                                                <div class="container-max">
-                                                    <div class="position-relative">
-                                                    <lazy-hydrate when-idle>
-                                                        <item-search>
-                                                            <div class="position-relative d-flex flex-grow-1 my-2">
-                                                                <input type="search" class="search-input px-3 py-2 flex-grow-1" aria-label="Suche Gross">
-                                                                <button class="search-submit px-3" type="submit" aria-label="Suchbutton">
-                                                                    <i class="fa fa-search"></i>
-                                                                </button>
-                                                            </div>
-
-                                                            <template #search-button>
-                                                                <button class="search-submit px-3" type="submit" data-toggle="collapse" href="#search-suggestions_{{ uid }}" role="button">
-                                                                <i class="fa fa-search"></i>
-                                                                </button>
-                                                            </template>
-                                                                                
-                                                            <template #autocomplete-suggestions>
-                                                                <div class="autocomplete-suggestions shadow bg-white w-100"
-                                                                {{ children.suggestions | raw }}
-                                                                </div>
-                                                            </template>                   
-                                                        </item-search>
-                                                    </lazy-hydrate>
-                                                    </div>
-                                                </div>
+                                                {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
+                                                {% if overrideSearchBar | trim is empty %}
+                                                    <lazy-load component="item-search">
+                                                        <item-search></item-search>
+                                                    </lazy-load>
+                                                {% else %}
+                                                    {{ overrideSearchBar | raw }}
+                                                {% endif %}
                                             </div>
 
 										</li>
