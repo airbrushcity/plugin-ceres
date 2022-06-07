@@ -31,11 +31,7 @@
                                         <li class="list-inline-item d-none d-lg-block pl-2 control-big">    
 
                                             <div class="always-visible-search flex-grow-1">
-                                                    <lazy-hydrate when-idle>
-                                                        <item-search>
-                                                                    
-                                                        </item-search>
-                                                    </lazy-hydrate>  
+                                                    $store.dispatch('loadComponent', 'item-search')
                                                 </div> 
                                             </div>
 
@@ -65,7 +61,7 @@
                                                     aria-expanded="false"
                                                     aria-controls="searchBox"
                                                     data-parent="#controlsList"
-                                                    aria-label="{{ trans('Ceres::Template.headerSearch2') }}"
+                                                    aria-label="{{ trans('Ceres::Template.headerSearch') }}"
                                                     @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
                                                     <span class="anicon-search-item" aria-hidden="true"></span>
                                                 </a>
