@@ -58,6 +58,7 @@
                                         
                                        
                                         <li class="list-inline-item control-search d-lg-none">
+                                            <div v-if="mobile-view">
                                                 <a class="anicon anicon-search-xcross nav-link"
                                                     data-toggle="collapse"
                                                     href="#searchBox"
@@ -68,6 +69,9 @@
                                                     @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
                                                     <span class="anicon-search-item" aria-hidden="true"></span>
                                                 </a>
+                                            </div>
+                                            <div else>
+                                            </div>
                                         </li>
                                      
 
@@ -151,13 +155,15 @@
                     
                     <div class="container-max px-0 px-lg-3">
                         <div class="row mx-0 flex-row-reverse position-relative">
-                          
                             <div id="searchBox" class="cmp cmp-search-box collapse">
-                                <lazy-load component="item-search">
-                                    <item-search></item-search>
-                                </lazy-load>
-                            </div>      
-                           
+                                <div v-if="mobile-view">
+                                    <lazy-load component="item-search">
+                                        <item-search></item-search>
+                                    </lazy-load>
+                                </div>      
+                                <div else>
+                                </div>
+                           </div>
                         </div>
                     </div>
                     
