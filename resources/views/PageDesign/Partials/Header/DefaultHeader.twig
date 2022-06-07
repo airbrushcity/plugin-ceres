@@ -31,8 +31,12 @@
                                         <li class="list-inline-item d-none d-lg-block pl-2 control-big">    
 
                                             <div class="always-visible-search flex-grow-1">
-                                                    $store.dispatch('loadComponent', 'item-search')
-                                                </div> 
+                                                <div class="d-flex flex-grow-1 position-relative my-2">
+                                                    <input type="search" placeholder="" aria-label="Suchbegriff" value="" class="search-input flex-grow-1 px-3 py-2"> 
+                                                    <button type="submit" aria-label="Suche" class="search-submit px-3">
+                                                        <i aria-hidden="true" class="fa fa-fw fa-search"></i>
+                                                    </button>
+                                                /div>
                                             </div>
 
 										</li>
