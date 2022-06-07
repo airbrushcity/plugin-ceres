@@ -31,7 +31,7 @@
                                        
                                         <li class="list-inline-item d-none d-lg-block pl-2 control-big">    
                                             <div class="always-visible-search flex-grow-1">
-                                                {{ if("overrideSearchBar | trim is empty") }}
+                                                {{ if overrideSearchBar | trim is empty }}
                                                 <div class="always-visible-search flex-grow-1">
                                                     {% if not isPreview %}<lazy-hydrate when-idle>{% endif %}
                                                         <item-search>
@@ -61,9 +61,9 @@
                                                         </item-search>
                                                     {% if not isPreview %}</lazy-hydrate>{% endif %}
                                                 </div>
-                                            {{ else() }}
-                                                {{ Twig.print("overrideSearchBar | raw") }}
-                                            {{ endif() }}
+                                            {{ else }}
+                                                {{ overrideSearchBar | raw }}
+                                            {{ endif }}
                                             </div>
 										</li>
                                    
