@@ -32,7 +32,7 @@
                              
 
                                             <div class="always-visible-search flex-grow-1">
-                                                    <intersect>
+                                                    <lazy-hydrate when-idle>
                                                         <item-search>
                                                             <div class="position-relative d-flex flex-grow-1 my-2">
                                                                 <input type="search" class="search-input px-3 py-2 flex-grow-1" aria-label="Suche Gross">
@@ -53,7 +53,7 @@
                                                                 </div>
                                                             </template>                   
                                                         </item-search>
-                                                    </intersect>   
+                                                    </lazy-hydrate>   
                                             </div>
 
 										</li>
@@ -171,9 +171,7 @@
                             <div id="searchBox" class="cmp cmp-search-box collapse">
                                 {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
                                 {% if overrideSearchBar | trim is empty %}
-                                    <lazy-load component="item-search">
-                                        <item-search></item-search>
-                                    </lazy-load>
+                                    {{ overrideSearchBar | raw }}
                                 {% else %}
                                     {{ overrideSearchBar | raw }}
                                 {% endif %}
