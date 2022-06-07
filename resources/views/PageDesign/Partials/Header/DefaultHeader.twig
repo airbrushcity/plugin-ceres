@@ -24,7 +24,7 @@
                                         
 										<li class="list-inline-item">
                                             <button v-open-mobile-navigation class="navbar-toggler p-2" type="button">
-                                                &#9776; <span class="d-none d-lg-inline">Alle Kategorien</span>
+                                                &#9776; <span class="d-none d-xl-inline">Alle Kategorien</span>
                                             </button>
                                         </li>
 										
@@ -34,17 +34,32 @@
                                             <div class="always-visible-search flex-grow-1">
                                                 <div class="container-max">
                                                     <div class="position-relative">
-                                                        <div class="d-flex flex-grow-1 position-relative my-2">
-                                                            <input type="search" placeholder="" aria-label="Suchbegriff" value="" class="search-input flex-grow-1 px-3 py-2"> 
-                                                            <button type="submit" aria-label="Suche" class="search-submit px-3">
-                                                                <i aria-hidden="true" class="fa fa-fw fa-search"></i>
-                                                            </button>
-                                                        </div>
+                                                    <lazy-hydrate when-idle>
+                                                        <item-search>
+                                                            <div class="position-relative d-flex flex-grow-1 my-2">
+                                                                <input type="search" class="search-input px-3 py-2 flex-grow-1" aria-label="Suche Gross">
+                                                                <button class="search-submit px-3" type="submit" aria-label="Suchbutton">
+                                                                    <i class="fa fa-search"></i>
+                                                                </button>
+                                                            </div>
+
+                                                            <template #search-button>
+                                                                <button class="search-submit px-3" type="submit" data-toggle="collapse" href="#search-suggestions_{{ uid }}" role="button">
+                                                                <i class="fa fa-search"></i>
+                                                                </button>
+                                                            </template>
+                                                                                
+                                                            <template #autocomplete-suggestions>
+                                                                <div class="autocomplete-suggestions shadow bg-white w-100"
+                                                                {{ children.suggestions | raw }}
+                                                                </div>
+                                                            </template>                   
+                                                        </item-search>
+                                                    </lazy-hydrate>
                                                     </div>
                                                 </div>
                                             </div>
 
-                         
 										</li>
 
 										<li class="brand-wrapper list-inline-item control-big d-lg-none p-2">
