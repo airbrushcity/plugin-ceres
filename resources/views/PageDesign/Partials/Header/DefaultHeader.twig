@@ -31,21 +31,11 @@
 
                                         <li class="list-inline-item d-none d-lg-block pl-2 control-big">    
                                             <div class="always-visible-search flex-grow-1">
-                                            {% set searchStyle = "permanent" %}
-                                            {% if searchStyle == "permanent" %}
+                                            
                                                 <div class="always-visible-search flex-grow-1">
-                                                    <lazy-hydrate when-idle>
-                                                        <item-search>
-                                                            <div class="position-relative d-flex flex-grow-1">
-                                                                <input type="search" class="search-input px-3 py-2 flex-grow-1" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm")') }}">
-                                                                <button class="search-submit px-3" type="submit" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}">
-                                                                    <i class="fa fa-search"></i>
-                                                                </button>
-                                                            </div>
-                                                        </item-search>
-                                                    </lazy-hydrate>
+                                                   {% $store.dispatch('loadComponent', 'item-search') %}
                                                 </div>
-                                            {{ endif }}
+                                            
                                             </div>
 										</li>
                                    
@@ -66,7 +56,7 @@
                                             </a>
                                         </li>
                                         
-                                        {% if searchStyle == "onDemand" %}
+                                       
                                         <li class="list-inline-item control-search d-lg-none">
                                                 <a class="anicon anicon-search-xcross nav-link"
                                                     data-toggle="collapse"
@@ -79,7 +69,7 @@
                                                     <span class="anicon-search-item" aria-hidden="true"></span>
                                                 </a>
                                         </li>
-                                        {% endif %}
+                                     
 
                                         {% if services.url.isRouteEnabled("wish-list") %}
                                             <li class="list-inline-item control-wish-list">
@@ -161,13 +151,13 @@
                     
                     <div class="container-max px-0 px-lg-3">
                         <div class="row mx-0 flex-row-reverse position-relative">
-                            {% if searchStyle == "onDemand" %}
+                          
                             <div id="searchBox" class="cmp cmp-search-box collapse">
-                                    <lazy-load component="item-search">
-                                        <item-search></item-search>
-                                    </lazy-load>
+                                <lazy-load component="item-search">
+                                    <item-search></item-search>
+                                </lazy-load>
                             </div>      
-                            {% endif %}
+                           
                         </div>
                     </div>
                     
