@@ -77,7 +77,7 @@
                                         </li>
                                         
                                         <li class="list-inline-item control-search d-lg-none">
-                                        <div v-else>
+                                        <div v-else-if>
                                             <a class="anicon anicon-search-xcross nav-link"
                                                 data-toggle="collapse"
                                                 href="#searchBox"
@@ -175,7 +175,7 @@
                             <div id="searchBox" class="cmp cmp-search-box collapse">
                                 {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
                                 {% if overrideSearchBar | trim is empty %}
-                                    <div v-else>
+                                    <div v-else-if>
                                         <lazy-load component="item-search">
                                             <item-search></item-search>
                                         </lazy-load>
