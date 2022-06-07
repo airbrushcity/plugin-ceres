@@ -32,6 +32,7 @@
                              
 
                                             <div class="always-visible-search flex-grow-1">
+                                                <div v-if="!mobile">
                                                     <lazy-hydrate when-idle>
                                                         <item-search>
                                                             <div class="position-relative d-flex flex-grow-1 my-2">
@@ -53,7 +54,8 @@
                                                                 </div>
                                                             </template>                   
                                                         </item-search>
-                                                    </lazy-hydrate>   
+                                                    </lazy-hydrate>  
+                                                </div> 
                                             </div>
 
 										</li>
@@ -73,8 +75,9 @@
                                                 <span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
                                             </a>
                                         </li>
-
+                                        
                                         <li class="list-inline-item control-search d-lg-none">
+                                        <div v-else>
                                             <a class="anicon anicon-search-xcross nav-link"
                                                 data-toggle="collapse"
                                                 href="#searchBox"
@@ -85,6 +88,7 @@
                                                 @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
                                                 <span class="anicon-search-item" aria-hidden="true"></span>
                                             </a>
+                                        </div>
                                         </li>
                                         {% if services.url.isRouteEnabled("wish-list") %}
                                             <li class="list-inline-item control-wish-list">
@@ -171,7 +175,11 @@
                             <div id="searchBox" class="cmp cmp-search-box collapse">
                                 {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
                                 {% if overrideSearchBar | trim is empty %}
-                                    {{ overrideSearchBar | raw }}
+                                    <div v-else>
+                                        <lazy-load component="item-search">
+                                            <item-search></item-search>
+                                        </lazy-load>
+                                    </div>
                                 {% else %}
                                     {{ overrideSearchBar | raw }}
                                 {% endif %}
