@@ -31,8 +31,8 @@
 
                                         <li class="list-inline-item d-none d-lg-block pl-2 control-big">    
                                             <div class="always-visible-search flex-grow-1">
-                                             {% if searchStyle == "permanent" %}
-                                                {{ if overrideSearchBar | trim is empty }}
+                                            {% set searchStyle = "permanent" %}
+                                            {% if searchStyle == "permanent" %}
                                                 <div class="always-visible-search flex-grow-1">
                                                     <lazy-hydrate when-idle>
                                                         <item-search>
@@ -45,9 +45,6 @@
                                                         </item-search>
                                                     </lazy-hydrate>
                                                 </div>
-                                                {{ else }}
-                                                    {{ overrideSearchBar | raw }}
-                                                {{ endif }}
                                             {{ endif }}
                                             </div>
 										</li>
@@ -166,14 +163,9 @@
                         <div class="row mx-0 flex-row-reverse position-relative">
                             {% if searchStyle == "onDemand" %}
                             <div id="searchBox" class="cmp cmp-search-box collapse">
-                                {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
-                                {% if overrideSearchBar | trim is empty %}
                                     <lazy-load component="item-search">
                                         <item-search></item-search>
                                     </lazy-load>
-                                {% else %}
-                                    {{ overrideSearchBar | raw }}
-                                {% endif %}
                             </div>      
                             {% endif %}
                         </div>
