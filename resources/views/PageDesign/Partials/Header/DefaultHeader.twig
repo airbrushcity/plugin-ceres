@@ -32,8 +32,6 @@
                              
 
                                             <div class="always-visible-search flex-grow-1">
-                                                {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
-                                                {% if overrideSearchBar | trim is empty %}
                                                     <lazy-hydrate when-idle>">
                                                         <item-search>
                                                             <div class="position-relative d-flex flex-grow-1 my-2">
@@ -50,9 +48,6 @@
                                                             </template>
                                                         </item-search>
                                                     </lazy-hydrate>
-                                                {% else %}
-                                                    {{ overrideSearchBar | raw }}
-                                                {% endif %}
                                             </div>
 
 										</li>
