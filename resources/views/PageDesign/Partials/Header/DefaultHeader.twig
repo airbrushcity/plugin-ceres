@@ -28,9 +28,10 @@
                                             </button>
                                         </li>
 										
-                                       
+
                                         <li class="list-inline-item d-none d-lg-block pl-2 control-big">    
                                             <div class="always-visible-search flex-grow-1">
+                                             {% if searchStyle == "permanent" %}
                                                 {{ if overrideSearchBar | trim is empty }}
                                                 <div class="always-visible-search flex-grow-1">
                                                     <lazy-hydrate when-idle>
@@ -44,8 +45,9 @@
                                                         </item-search>
                                                     </lazy-hydrate>
                                                 </div>
-                                            {{ else }}
-                                                {{ overrideSearchBar | raw }}
+                                                {{ else }}
+                                                    {{ overrideSearchBar | raw }}
+                                                {{ endif }}
                                             {{ endif }}
                                             </div>
 										</li>
