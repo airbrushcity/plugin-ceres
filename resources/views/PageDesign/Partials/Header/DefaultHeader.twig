@@ -29,15 +29,13 @@
                                         </li>
 										
                                         <li class="list-inline-item d-none d-lg-block pl-2 control-big">    
-                             
 
                                             <div class="always-visible-search flex-grow-1">
-                                                <div v-if="!mobile">
                                                     <lazy-hydrate when-idle>
                                                         <item-search>
                                                             <div class="position-relative d-flex flex-grow-1 my-2">
-                                                                <input type="search" class="search-input px-3 py-2 flex-grow-1" aria-label="Suche Gross">
-                                                                <button class="search-submit px-3" type="submit" aria-label="Suchbutton">
+                                                                <input type="search" class="search-input px-3 py-2 flex-grow-1" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm")') }}">
+                                                                <button class="search-submit px-3" type="submit" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}">
                                                                     <i class="fa fa-search"></i>
                                                                 </button>
                                                             </div>
@@ -77,18 +75,18 @@
                                         </li>
                                         
                                         <li class="list-inline-item control-search d-lg-none">
-                                        <div v-else-if>
-                                            <a class="anicon anicon-search-xcross nav-link"
-                                                data-toggle="collapse"
-                                                href="#searchBox"
-                                                aria-expanded="false"
-                                                aria-controls="searchBox"
-                                                data-parent="#controlsList"
-                                                aria-label="{{ trans('Ceres::Template.headerSearch') }}"
-                                                @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
-                                                <span class="anicon-search-item" aria-hidden="true"></span>
-                                            </a>
-                                        </div>
+                                            
+                                                <a class="anicon anicon-search-xcross nav-link"
+                                                    data-toggle="collapse"
+                                                    href="#searchBox"
+                                                    aria-expanded="false"
+                                                    aria-controls="searchBox"
+                                                    data-parent="#controlsList"
+                                                    aria-label="{{ trans('Ceres::Template.headerSearch2') }}"
+                                                    @mouseover.once="$store.dispatch('loadComponent', 'item-search2')">
+                                                    <span class="anicon-search-item" aria-hidden="true"></span>
+                                                </a>
+                                           
                                         </li>
                                         {% if services.url.isRouteEnabled("wish-list") %}
                                             <li class="list-inline-item control-wish-list">
@@ -175,11 +173,9 @@
                             <div id="searchBox" class="cmp cmp-search-box collapse">
                                 {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
                                 {% if overrideSearchBar | trim is empty %}
-                                    <div v-else-if>
-                                        <lazy-load component="item-search">
-                                            <item-search></item-search>
-                                        </lazy-load>
-                                    </div>
+                                    <lazy-load component="item-search2">
+                                        <item-search2></item-search2>
+                                    </lazy-load>
                                 {% else %}
                                     {{ overrideSearchBar | raw }}
                                 {% endif %}
