@@ -1,5 +1,5 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
-{% set searchStyle = "onDemand" %}
+
 <header id="page-header" class="default-header d-print-none">
     <div class="container-max">
         <div class="row flex-row-reverse position-relative">
@@ -41,20 +41,6 @@
                                                                     <i class="fa fa-search"></i>
                                                                 </button>
                                                             </div>
-
-                                                            
-                                                                <template #search-button>
-                                                                    <button class="search-submit px-3" type="submit"  data-toggle="collapse" href="#search-suggestions_{{ uid }}" role="button">
-                                                                        <i class="fa fa-search"></i>
-                                                                    </button>
-                                                                </template>
-                                                           
-                                                                <template #autocomplete-suggestions>
-                                                                    <div class="autocomplete-suggestions shadow bg-white w-100">
-                                                                        {{ children.suggestions | raw }}
-                                                                    </div>
-                                                                </template>
-                                                        
                                                         </item-search>
                                                     </lazy-hydrate>
                                                 </div>
@@ -81,6 +67,7 @@
                                         
                                        
                                         <li class="list-inline-item control-search d-lg-none">
+                                            {% set searchStyle = "onDemand" %}
                                             {% if searchStyle == "onDemand" %}
                                                 <a class="anicon anicon-search-xcross nav-link"
                                                     data-toggle="collapse"
@@ -176,26 +163,23 @@
                     
                     <div class="container-max px-0 px-lg-3">
                         <div class="row mx-0 flex-row-reverse position-relative">
+
                             {% if searchStyle == "onDemand" %}
                             <div id="searchBox" class="cmp cmp-search-box collapse{% if isPreview %} position-relative{% endif %}">
-                                {% if not isPreview %}<lazy-load component="item-search">{% endif %}
+                                <lazy-load component="item-search">
                                     <item-search>
-                                        {% if isPreview or children is defined and children.suggestions | trim is not empty %}
-                                            <template #autocomplete-suggestions>
-                                                <div class="autocomplete-suggestions shadow bg-white w-100{% if isPreview %} position-relative mh-100{% endif %}"
-                                                    {% if isPreview %} data-builder-child-container="suggestions"{% endif %}>
-                                                    {{ children.suggestions | raw }}
-                                                </div>
-                                            </template>
-                                        {% endif %}
+                                        <template #autocomplete-suggestions>
+                                            <div class="autocomplete-suggestions shadow bg-white w-100">
+                                                {{ children.suggestions | raw }}
+                                            </div>
+                                        </template>
                                     </item-search>
-                                {% if not isPreview %}</lazy-load>{% endif %}
-
+                               </lazy-load>
                            </div>
                            {% endif %} 
+
                         </div>
                     </div>
-                    
 
                 </div>
             </div>
