@@ -1,5 +1,5 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
-
+{% searchStyle == "onDemand" %}
 <header id="page-header" class="default-header d-print-none">
     <div class="container-max">
         <div class="row flex-row-reverse position-relative">
@@ -58,7 +58,7 @@
                                         
                                        
                                         <li class="list-inline-item control-search d-lg-none">
-                                            
+                                            {% if searchStyle == "onDemand" %}
                                                 <a class="anicon anicon-search-xcross nav-link"
                                                     data-toggle="collapse"
                                                     href="#searchBox"
@@ -69,6 +69,7 @@
                                                     @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
                                                     <span class="anicon-search-item" aria-hidden="true"></span>
                                                 </a>
+                                            {% endif %}
                                         </li>
                                      
                                         {% if services.url.isRouteEnabled("wish-list") %}
