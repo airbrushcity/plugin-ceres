@@ -58,7 +58,7 @@
                                         
                                        
                                         <li class="list-inline-item control-search d-lg-none">
-                                            <div v-if="mobile-view">
+                                            
                                                 <a class="anicon anicon-search-xcross nav-link"
                                                     data-toggle="collapse"
                                                     href="#searchBox"
@@ -69,12 +69,8 @@
                                                     @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
                                                     <span class="anicon-search-item" aria-hidden="true"></span>
                                                 </a>
-                                            </div>
-                                            <div else>
-                                            </div>
                                         </li>
                                      
-
                                         {% if services.url.isRouteEnabled("wish-list") %}
                                             <li class="list-inline-item control-wish-list">
                                                 <lazy-hydrate when-idle>
@@ -87,6 +83,7 @@
                                                 </lazy-hydrate>
                                             </li>
                                         {% endif %}
+                                        
                                         <li class="list-inline-item control-basket position-relative">
                                             <a v-toggle-basket-preview href="#" class="toggle-basket-preview nav-link" {{ set_testing_attr("data-testing", "basket-preview-button") }}>
                                                 {% if config("Ceres.header.basket_values") != "sum" %}
@@ -155,15 +152,23 @@
                     
                     <div class="container-max px-0 px-lg-3">
                         <div class="row mx-0 flex-row-reverse position-relative">
-                            <div id="searchBox" class="cmp cmp-search-box collapse">
-                                <div v-if="mobile-view">
-                                    <lazy-load component="item-search">
-                                        <item-search></item-search>
-                                    </lazy-load>
-                                </div>      
-                                <div else>
-                                </div>
+                            {% if searchStyle == "onDemand" %}
+                            <div id="searchBox" class="cmp cmp-search-box collapse{% if isPreview %} position-relative{% endif %}">
+                                {% if not isPreview %}<lazy-load component="item-search">{% endif %}
+                                    <item-search>
+                                        {% if isPreview or children is defined and children.suggestions | trim is not empty %}
+                                            <template #autocomplete-suggestions>
+                                                <div class="autocomplete-suggestions shadow bg-white w-100{% if isPreview %} position-relative mh-100{% endif %}"
+                                                    {% if isPreview %} data-builder-child-container="suggestions"{% endif %}>
+                                                    {{ children.suggestions | raw }}
+                                                </div>
+                                            </template>
+                                        {% endif %}
+                                    </item-search>
+                                {% if not isPreview %}</lazy-load>{% endif %}
+
                            </div>
+                           {% endif %} 
                         </div>
                     </div>
                     
