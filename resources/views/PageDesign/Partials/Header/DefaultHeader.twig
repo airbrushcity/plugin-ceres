@@ -1,5 +1,5 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
-
+{% set searchStyle = "onDemand" %}
 <header id="page-header" class="default-header d-print-none">
     <div class="container-max">
         <div class="row flex-row-reverse position-relative">
@@ -67,7 +67,7 @@
                                         
                                        
                                         <li class="list-inline-item control-search d-lg-none">
-                                            {% set searchStyle = "onDemand" %}
+                                            
                                             {% if searchStyle == "onDemand" %}
                                                 <a class="anicon anicon-search-xcross nav-link"
                                                     data-toggle="collapse"
@@ -168,11 +168,7 @@
                             <div id="searchBox" class="cmp cmp-search-box collapse{% if isPreview %} position-relative{% endif %}">
                                 <lazy-load component="item-search">
                                     <item-search>
-                                        <template #autocomplete-suggestions>
-                                            <div class="autocomplete-suggestions shadow bg-white w-100">
-                                                {{ children.suggestions | raw }}
-                                            </div>
-                                        </template>
+                                        
                                     </item-search>
                                </lazy-load>
                            </div>
