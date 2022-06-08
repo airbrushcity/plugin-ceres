@@ -28,6 +28,12 @@
                                             </button>
                                         </li>
 										
+                                        <li class="list-inline-item control-language d-lg-none">
+                                            <a href="#" class="anicon nav-link">
+                                                <i class="fa fa-language"></i>
+                                            </a>
+                                        </li>
+
 
                                         <li class="list-inline-item d-none d-lg-block pl-2 control-big">    
                                             <div class="always-visible-search flex-grow-1">
@@ -47,6 +53,28 @@
                                             
                                             </div>
 										</li>
+
+                                        <li class="list-inline-item d-none d-lg-block">
+                                            <a href="#" class="anicon nav-link">
+                                                <i class="fa fa-language"></i>
+                                            </a>
+                                        </li>
+
+                                        <li class="list-inline-item control-search d-lg-none">
+                                            
+                                            {% if searchStyle == "onDemand" %}
+                                                <a class="anicon anicon-search-xcross nav-link"
+                                                    data-toggle="collapse"
+                                                    href="#searchBox"
+                                                    aria-expanded="false"
+                                                    aria-controls="searchBox"
+                                                    data-parent="#controlsList"
+                                                    aria-label="{{ trans('Ceres::Template.headerSearch') }}"
+                                                    @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
+                                                    <span class="anicon-search-item" aria-hidden="true"></span>
+                                                </a>
+                                            {% endif %}
+                                        </li>
                                    
 
 										<li class="brand-wrapper list-inline-item control-big d-lg-none p-2">
@@ -65,22 +93,7 @@
                                             </a>
                                         </li>
                                         
-                                       
-                                        <li class="list-inline-item control-search d-lg-none">
-                                            
-                                            {% if searchStyle == "onDemand" %}
-                                                <a class="anicon anicon-search-xcross nav-link"
-                                                    data-toggle="collapse"
-                                                    href="#searchBox"
-                                                    aria-expanded="false"
-                                                    aria-controls="searchBox"
-                                                    data-parent="#controlsList"
-                                                    aria-label="{{ trans('Ceres::Template.headerSearch') }}"
-                                                    @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
-                                                    <span class="anicon-search-item" aria-hidden="true"></span>
-                                                </a>
-                                            {% endif %}
-                                        </li>
+                            
                                      
                                         {% if services.url.isRouteEnabled("wish-list") %}
                                             <li class="list-inline-item control-wish-list">
