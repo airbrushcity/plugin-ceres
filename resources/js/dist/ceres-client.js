@@ -1229,20 +1229,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -37439,343 +37425,227 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-12 col-md-4 mt-md-2" }, [
-                  _c(
-                    "div",
-                    {
-                      directives: [
-                        {
-                          name: "stick-in-parent",
-                          rawName: "v-stick-in-parent"
-                        }
-                      ]
-                    },
-                    [
-                      _vm.currentVariation.filter.hasManufacturer
-                        ? _c(
-                            "div",
-                            {
-                              staticClass: "producertag h6 producer text-muted"
-                            },
-                            [
-                              _vm._v(
-                                "\n                            Marke: " +
-                                  _vm._s(
-                                    _vm.currentVariation.item.manufacturer
-                                      .externalName
-                                  ) +
-                                  "\n                        "
-                              )
-                            ]
+                  _vm.currentVariation.filter.hasManufacturer
+                    ? _c(
+                        "div",
+                        { staticClass: "producertag h6 producer text-muted" },
+                        [
+                          _vm._v(
+                            "\n                            Marke: " +
+                              _vm._s(
+                                _vm.currentVariation.item.manufacturer
+                                  .externalName
+                              ) +
+                              "\n                        "
                           )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "my-2" }, [
-                        _vm.isShortDescriptionActive &&
-                        _vm.currentVariation.texts.shortDescription !== ""
-                          ? _c("p", {
-                              staticClass: "single-description",
-                              domProps: {
-                                innerHTML: _vm._s(
-                                  _vm.currentVariation.texts.shortDescription
-                                )
-                              }
-                            })
-                          : _vm._e()
-                      ]),
-                      _vm._v(" "),
-                      _c("div", {
-                        staticClass: "my-2",
-                        domProps: {
-                          innerHTML: _vm._s(
-                            _vm.currentVariation.texts.technicalData
-                          )
-                        }
-                      })
-                    ]
-                  )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "my-2" }, [
+                    _vm.isShortDescriptionActive &&
+                    _vm.currentVariation.texts.shortDescription !== ""
+                      ? _c("p", {
+                          staticClass: "single-description",
+                          domProps: {
+                            innerHTML: _vm._s(
+                              _vm.currentVariation.texts.shortDescription
+                            )
+                          }
+                        })
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "my-2",
+                    domProps: {
+                      innerHTML: _vm._s(
+                        _vm.currentVariation.texts.technicalData
+                      )
+                    }
+                  })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-md-4 mt-md-2" }, [
-                  _c(
-                    "div",
-                    {
-                      directives: [
-                        {
-                          name: "stick-in-parent",
-                          rawName: "v-stick-in-parent"
-                        }
-                      ]
-                    },
-                    [
-                      _c("div", { staticClass: "row mb-2" }, [
-                        _c("div", { staticClass: "col-6" }, [
-                          _c(
-                            "span",
-                            { staticClass: "articlenumber small text-muted" },
-                            [
-                              _c("b", [
-                                _vm._v(
-                                  _vm._s(
-                                    _vm.$translate(
-                                      "Ceres::Template.singleItemNumber"
-                                    )
-                                  ) + " "
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("span", [
-                                _vm._v(_vm._s(_vm.currentVariation.item.id))
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "col-6" }, [
-                          _vm.isWishListEnabled
-                            ? _c(
-                                "div",
-                                [
-                                  _c("add-to-wish-list", {
-                                    attrs: {
-                                      "variation-id":
-                                        _vm.currentVariation.variation.id
-                                    }
-                                  })
-                                ],
-                                1
+                _c(
+                  "div",
+                  { staticClass: "col-12 col-md-4 mt-md-2" },
+                  [
+                    _c("div", { staticClass: "row mb-2" }, [
+                      _c("div", { staticClass: "col-6 pt-1" }, [
+                        _c(
+                          "span",
+                          { staticClass: "articlenumber small text-muted" },
+                          [
+                            _c("span", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.$translate(
+                                    "Ceres::Template.singleItemNumber"
+                                  )
+                                ) + " "
                               )
-                            : _vm._e()
-                        ])
+                            ]),
+                            _vm._v(" "),
+                            _c("b", [
+                              _vm._v(_vm._s(_vm.currentVariation.item.id))
+                            ])
+                          ]
+                        )
                       ]),
                       _vm._v(" "),
-                      _vm.attributes.length || Object.keys(_vm.units).length
-                        ? _c(
-                            "div",
-                            { staticClass: "mb-3" },
-                            [_c("variation-select")],
-                            1
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.currentVariation.variation.bundleType === "bundle"
-                        ? _c("item-bundle", {
-                            attrs: {
-                              "bundle-type":
-                                _vm.currentVariation.variation.bundleType,
-                              "bundle-components":
-                                _vm.currentVariation.bundleComponents
-                            }
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm._t("before-price"),
-                      _vm._v(" "),
-                      _vm.currentVariation.filter.isSalable &&
-                      _vm.variationGroupedProperties.length
-                        ? _c("div", [_c("order-property-list")], 1)
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("graduated-prices"),
-                      _vm._v(" "),
-                      _c("item-price", {
-                        attrs: {
-                          "show-cross-price": _vm.isRecommendedPriceActive
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm._t("after-price"),
-                      _vm._v(" "),
-                      _c("item-availability"),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "my-3" }, [
-                        _c(
-                          "div",
-                          { staticClass: "w-100" },
-                          [_vm._t("before-add-to-basket")],
-                          2
-                        ),
-                        _vm._v(" "),
-                        _vm.currentVariation.item.itemType === "set"
+                      _c("div", { staticClass: "col-6" }, [
+                        _vm.isWishListEnabled
                           ? _c(
                               "div",
-                              { staticClass: "alert alert-info w-100" },
                               [
-                                _vm._v(
-                                  "\n                                " +
-                                    _vm._s(
-                                      _vm.$translate(
-                                        "Ceres::Template.singleItemSetInfo"
-                                      )
-                                    ) +
-                                    "\n                            "
-                                )
-                              ]
-                            )
-                          : _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "col-12 col-sm-7 col-md-12 col-lg-8 my-3"
-                              },
-                              [
-                                _c("add-to-basket", {
+                                _c("add-to-wish-list", {
                                   attrs: {
                                     "variation-id":
-                                      _vm.currentVariation.variation.id,
-                                    "is-salable":
-                                      !!_vm.currentVariation.filter &&
-                                      _vm.currentVariation.filter.isSalable,
-                                    "has-children":
-                                      !!_vm.currentVariation.filter &&
-                                      _vm.currentVariation.filter
-                                        .hasActiveChildren,
-                                    "interval-quantity":
-                                      _vm.currentVariation.variation
-                                        .intervalOrderQuantity || 1,
-                                    "minimum-quantity":
-                                      _vm.currentVariation.variation
-                                        .minimumOrderQuantity,
-                                    "maximum-quantity":
-                                      !!_vm.currentVariation.variation
-                                        .maximumOrderQuantity &&
-                                      _vm.currentVariation.variation
-                                        .maximumOrderQuantity > 0
-                                        ? _vm.currentVariation.variation
-                                            .maximumOrderQuantity
-                                        : null,
-                                    "order-properties": _vm.currentVariation.properties.filter(
-                                      function(prop) {
-                                        return prop.property.isOderProperty
-                                      }
-                                    ),
-                                    "has-order-properties":
-                                      _vm.currentVariation.hasOrderProperties,
-                                    "has-required-order-property":
-                                      _vm.currentVariation
-                                        .hasRequiredOrderProperty,
-                                    "use-large-scale": false,
-                                    "show-quantity": true,
-                                    "item-url": _vm._f("itemURL")(
-                                      _vm.currentVariation
-                                    ),
-                                    "is-variation-selected":
-                                      _vm.isVariationSelected &&
-                                      _vm.currentVariation.filter.isSalable,
-                                    "has-price": _vm._f("hasItemDefaultPrice")(
-                                      _vm.currentVariation
-                                    )
+                                      _vm.currentVariation.variation.id
                                   }
                                 })
                               ],
                               1
-                            ),
-                        _vm._v(" "),
-                        _c(
+                            )
+                          : _vm._e()
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm.attributes.length || Object.keys(_vm.units).length
+                      ? _c(
                           "div",
-                          { staticClass: "w-100" },
-                          [_vm._t("after-add-to-basket")],
-                          2
+                          { staticClass: "mb-3" },
+                          [_c("variation-select")],
+                          1
                         )
-                      ]),
-                      _vm._v(" "),
-                      _vm._t("additional-content-after-add-to-basket"),
-                      _vm._v(" "),
-                      _c("hr"),
-                      _vm._v(" "),
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.currentVariation.variation.bundleType === "bundle"
+                      ? _c("item-bundle", {
+                          attrs: {
+                            "bundle-type":
+                              _vm.currentVariation.variation.bundleType,
+                            "bundle-components":
+                              _vm.currentVariation.bundleComponents
+                          }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm._t("before-price"),
+                    _vm._v(" "),
+                    _vm.currentVariation.filter.isSalable &&
+                    _vm.variationGroupedProperties.length
+                      ? _c("div", [_c("order-property-list")], 1)
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("graduated-prices"),
+                    _vm._v(" "),
+                    _c("item-price", {
+                      attrs: {
+                        "show-cross-price": _vm.isRecommendedPriceActive
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm._t("after-price"),
+                    _vm._v(" "),
+                    _c("item-availability"),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "my-3" }, [
                       _c(
-                        "span",
-                        { staticClass: "vat small text-muted" },
-                        [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(
-                                _vm.$translate(
-                                  "Ceres::Template.singleItemFootnote1"
-                                )
-                              ) +
-                              " "
-                          ),
-                          _vm.showNetPrices
-                            ? [
-                                _vm._v(
-                                  _vm._s(
-                                    _vm.$translate(
-                                      "Ceres::Template.singleItemExclVAT"
-                                    )
-                                  )
-                                )
-                              ]
-                            : [
-                                _vm._v(
-                                  _vm._s(
-                                    _vm.$translate(
-                                      "Ceres::Template.singleItemInclVAT"
-                                    )
-                                  )
-                                )
-                              ],
-                          _vm._v(
-                            " " +
-                              _vm._s(
-                                _vm.$translate(
-                                  "Ceres::Template.singleItemExclusive"
-                                )
-                              ) +
-                              "\n                        "
-                          ),
-                          _vm.hasShippingCostsCategoryId
-                            ? _c(
-                                "a",
-                                {
-                                  attrs: {
-                                    "data-toggle": "modal",
-                                    href: "#shippingscosts",
-                                    title: _vm.$translate(
-                                      "Ceres::Template.singleItemShippingCosts"
-                                    )
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.$translate(
-                                        "Ceres::Template.singleItemShippingCosts"
-                                      )
-                                    )
-                                  )
-                                ]
-                              )
-                            : _c(
-                                "a",
-                                {
-                                  attrs: {
-                                    title: _vm.$translate(
-                                      "Ceres::Template.singleItemShippingCosts"
-                                    )
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.$translate(
-                                        "Ceres::Template.singleItemShippingCosts"
-                                      )
-                                    )
-                                  )
-                                ]
-                              )
-                        ],
+                        "div",
+                        { staticClass: "w-100" },
+                        [_vm._t("before-add-to-basket")],
                         2
                       ),
                       _vm._v(" "),
-                      _vm._t("additional-content-after-vat")
-                    ],
-                    2
-                  )
-                ]),
+                      _vm.currentVariation.item.itemType === "set"
+                        ? _c("div", { staticClass: "alert alert-info w-100" }, [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(
+                                  _vm.$translate(
+                                    "Ceres::Template.singleItemSetInfo"
+                                  )
+                                ) +
+                                "\n                            "
+                            )
+                          ])
+                        : _c(
+                            "div",
+                            {
+                              staticClass:
+                                "col-12 col-sm-7 col-md-12 col-lg-8 my-3"
+                            },
+                            [
+                              _c("add-to-basket", {
+                                attrs: {
+                                  "variation-id":
+                                    _vm.currentVariation.variation.id,
+                                  "is-salable":
+                                    !!_vm.currentVariation.filter &&
+                                    _vm.currentVariation.filter.isSalable,
+                                  "has-children":
+                                    !!_vm.currentVariation.filter &&
+                                    _vm.currentVariation.filter
+                                      .hasActiveChildren,
+                                  "interval-quantity":
+                                    _vm.currentVariation.variation
+                                      .intervalOrderQuantity || 1,
+                                  "minimum-quantity":
+                                    _vm.currentVariation.variation
+                                      .minimumOrderQuantity,
+                                  "maximum-quantity":
+                                    !!_vm.currentVariation.variation
+                                      .maximumOrderQuantity &&
+                                    _vm.currentVariation.variation
+                                      .maximumOrderQuantity > 0
+                                      ? _vm.currentVariation.variation
+                                          .maximumOrderQuantity
+                                      : null,
+                                  "order-properties": _vm.currentVariation.properties.filter(
+                                    function(prop) {
+                                      return prop.property.isOderProperty
+                                    }
+                                  ),
+                                  "has-order-properties":
+                                    _vm.currentVariation.hasOrderProperties,
+                                  "has-required-order-property":
+                                    _vm.currentVariation
+                                      .hasRequiredOrderProperty,
+                                  "use-large-scale": false,
+                                  "show-quantity": true,
+                                  "item-url": _vm._f("itemURL")(
+                                    _vm.currentVariation
+                                  ),
+                                  "is-variation-selected":
+                                    _vm.isVariationSelected &&
+                                    _vm.currentVariation.filter.isSalable,
+                                  "has-price": _vm._f("hasItemDefaultPrice")(
+                                    _vm.currentVariation
+                                  )
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "w-100" },
+                        [_vm._t("after-add-to-basket")],
+                        2
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._t("additional-content-after-add-to-basket"),
+                    _vm._v(" "),
+                    _vm._t("additional-content-after-vat")
+                  ],
+                  2
+                ),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-md-7" }, [
-                  _c("div", { staticClass: "my-5" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c("div", { staticClass: "my-2" }, [
                     _c(
                       "ul",
                       {

@@ -15,8 +15,6 @@
                     </div>
 
                     <div class="col-12 col-md-4 mt-md-2">
-                        <div v-stick-in-parent>
-                            <!-- START SINGLEITEM_Short_DETAILS -->
                             <div class="producertag h6 producer text-muted" v-if="currentVariation.filter.hasManufacturer">
                                 Marke: {{ currentVariation.item.manufacturer.externalName }}
                             </div>
@@ -27,18 +25,15 @@
                             </div>
                             <div class="my-2" v-html="currentVariation.texts.technicalData">
                             </div>
-                        </div>
                     </div>
 
                     <div class="col-12 col-md-4 mt-md-2">
-                        <div v-stick-in-parent>
-                            <!-- START SINGLEITEM_DETAILS -->
-
+                        
                             <div class="row mb-2">
-                                <div class="col-6">
+                                <div class="col-6 pt-1">
                                     <span class="articlenumber small text-muted">
-                                        <b>{{ $translate("Ceres::Template.singleItemNumber") }} </b>
-                                        <span>{{ currentVariation.item.id }}</span>
+                                        <span>{{ $translate("Ceres::Template.singleItemNumber") }} </span>
+                                        <b>{{ currentVariation.item.id }}</b>
                                     </span>
                                 </div>
                                 <div class="col-6">
@@ -109,23 +104,14 @@
 
                             <slot name="additional-content-after-add-to-basket"></slot>
 
-                            <hr>
-
-                            <span class="vat small text-muted">
-                                {{ $translate("Ceres::Template.singleItemFootnote1") }} <template v-if="showNetPrices">{{ $translate("Ceres::Template.singleItemExclVAT") }}</template><template v-else>{{ $translate("Ceres::Template.singleItemInclVAT") }}</template> {{ $translate("Ceres::Template.singleItemExclusive") }}
-                            <a v-if="hasShippingCostsCategoryId" data-toggle="modal" href="#shippingscosts" :title="$translate('Ceres::Template.singleItemShippingCosts')">{{ $translate("Ceres::Template.singleItemShippingCosts") }}</a>
-                            <a v-else :title="$translate('Ceres::Template.singleItemShippingCosts')">{{ $translate("Ceres::Template.singleItemShippingCosts") }}</a>
-
-                            </span>
-
                             <slot name="additional-content-after-vat"></slot>
                             <!-- END SINGLEITEM_DETAILS -->
-                        </div>
+                      
                     </div>
 
-                    <div class="col-12 col-md-7">
+                    <div class="col-12">
                         <!-- ITEM DESCRIPTION -->
-                        <div class="my-5">
+                        <div class="my-2">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item" v-if="isDescriptionTabActive">
                                     <a class="nav-link active" data-toggle="tab" :href="'#details-' + currentVariation.variation.id" role="tab">{{ $translate("Ceres::Template.singleItemDescription") }}</a>

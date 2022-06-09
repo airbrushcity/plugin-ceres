@@ -6,9 +6,8 @@
         :is-background-image="true"
         role="img">
         <div class="container-max">
-            <div>
-                <div class="parallax-text-container">
-                    <h1 class="h2 pt-4 category-title">{{ category.details[0].name | raw }}</h1>
+            <div class="row">
+                <div class="col-12">
                     {% if categoryDescriptionTop == "description1" or categoryDescriptionTop == "both" %}
                         <div class="category-description mb-3">{{ category.details[0].description | raw }}</div>
                     {% endif %}
