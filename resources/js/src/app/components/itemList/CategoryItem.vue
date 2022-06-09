@@ -94,9 +94,9 @@
                     </div>
 
                     <div class="category-unit-price small" v-if="!(item.unit.unitOfMeasurement === 'C62' && item.unit.content === 1)">
-                        <span>{{ item.unit.content }}</span>
+                        <span>Je {{ item.unit.content }}</span>
                         <span>&nbsp;{{ item.unit.names.name }}</span>
-                        <span v-if="item.variation.mayShowUnitPrice">&nbsp;| {{ basePrice }}</span>
+                        <span v-if="item.variation.mayShowUnitPrice">({{ basePrice }})</span>
                     </div>
 
                     <add-to-basket

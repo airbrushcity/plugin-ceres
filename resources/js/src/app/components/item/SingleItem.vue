@@ -18,9 +18,14 @@
                         <div v-stick-in-parent>
                             <!-- START SINGLEITEM_Short_DETAILS -->
                             <div class="producertag h6 producer text-muted" v-if="currentVariation.filter.hasManufacturer">
-                                {{ currentVariation.item.manufacturer.externalName }}
+                                Marke: {{ currentVariation.item.manufacturer.externalName }}
                             </div>
-                            <div class="my-4" v-html="currentVariation.texts.technicalData">
+                            <div class="my-2">
+                            <p class="single-description"
+                               v-if="isShortDescriptionActive && currentVariation.texts.shortDescription !== ''"
+                               v-html="currentVariation.texts.shortDescription"></p>
+                            </div>
+                            <div class="my-2" v-html="currentVariation.texts.technicalData">
                             </div>
                         </div>
                     </div>
@@ -29,24 +34,19 @@
                         <div v-stick-in-parent>
                             <!-- START SINGLEITEM_DETAILS -->
 
-                            <div class="mb-5">
-                                <span class="articlenumber small text-muted">
-                                    <b>{{ $translate("Ceres::Template.singleItemNumber") }} </b>
-                                    <span>{{ currentVariation.variation.number }}</span>
-                                </span>
-                            </div>
-
-                            
-                            <div v-if="isWishListEnabled" class="row">
-                                <div class="col-12">
-                                    <add-to-wish-list :variation-id="currentVariation.variation.id"></add-to-wish-list>
+                            <div class="row mb-2">
+                                <div class="col-6">
+                                    <span class="articlenumber small text-muted">
+                                        <b>{{ $translate("Ceres::Template.singleItemNumber") }} </b>
+                                        <span>{{ currentVariation.item.id }}</span>
+                                    </span>
+                                </div>
+                                <div class="col-6">
+                                    <div v-if="isWishListEnabled">
+                                        <add-to-wish-list :variation-id="currentVariation.variation.id"></add-to-wish-list>
+                                    </div>
                                 </div>
                             </div>
-
-                            <p class="single-description"
-                               v-if="isShortDescriptionActive && currentVariation.texts.shortDescription !== ''"
-                               v-html="currentVariation.texts.shortDescription"></p>
-                            <hr>
 
                             <!-- Variation -->
                             <div class="mb-3" v-if="attributes.length || Object.keys(units).length">

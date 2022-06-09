@@ -49624,22 +49624,20 @@ var render = function() {
             ) +
             "</div></div>"
           : "<!---->") +
-        " " +
+        "\n    Je 300g (1 kg = 223 €) \n\n     " +
         (_vm.currentVariation.unit
           ? "<div" +
-            _vm._ssrClass("base-price text-muted my-3", {
+            _vm._ssrClass("base-price text-muted my-3 row", {
               "is-single-piece":
                 _vm.currentVariation.unit &&
                 _vm.currentVariation.unit.content === 1 &&
                 _vm.currentVariation.unit.unitOfMeasurement === "C62"
             }) +
-            "><div>" +
+            '><div class="col-6"><span>' +
             _vm._ssrEscape(
-              "\n            " +
-                _vm._s(_vm.$translate("Ceres::Template.singleItemContent")) +
-                "\n            "
+              _vm._s(_vm.$translate("Ceres::Template.singleItemContent")) + " "
             ) +
-            "<span>" +
+            "</span> <span>" +
             _vm._ssrEscape(
               _vm._s(
                 _vm._f("numberFormat")(_vm.currentVariation.unit.content)
@@ -49649,17 +49647,9 @@ var render = function() {
             _vm._ssrEscape(_vm._s(_vm.currentVariation.unit.names.name)) +
             "</span></div> " +
             (_vm.currentVariation.variation.mayShowUnitPrice
-              ? "<div>" +
+              ? '<div class="col-6"><span class="base-price-value">' +
                 _vm._ssrEscape(
-                  "\n            " +
-                    _vm._s(
-                      _vm.$translate("Ceres::Template.singleItemUnitPrice")
-                    ) +
-                    "\n            "
-                ) +
-                '<span class="base-price-value">' +
-                _vm._ssrEscape(
-                  "\n                " +
+                  "\n                (" +
                     _vm._s(
                       _vm._f("specialOffer")(
                         _vm.variationGraduatedPrice.basePrice,
@@ -49667,7 +49657,7 @@ var render = function() {
                         "basePrice"
                       )
                     ) +
-                    "\n            "
+                    ")\n            "
                 ) +
                 "</span></div>"
               : "<!---->") +
@@ -50874,7 +50864,7 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\n                            " +
+                                "\n                            Marke: " +
                                   _vm._s(
                                     _vm.currentVariation.item.manufacturer
                                       .externalName
@@ -50885,8 +50875,22 @@ var render = function() {
                           )
                         : _vm._e(),
                       _vm._v(" "),
+                      _c("div", { staticClass: "my-2" }, [
+                        _vm.isShortDescriptionActive &&
+                        _vm.currentVariation.texts.shortDescription !== ""
+                          ? _c("p", {
+                              staticClass: "single-description",
+                              domProps: {
+                                innerHTML: _vm._s(
+                                  _vm.currentVariation.texts.shortDescription
+                                )
+                              }
+                            })
+                          : _vm._e()
+                      ]),
+                      _vm._v(" "),
                       _c("div", {
-                        staticClass: "my-4",
+                        staticClass: "my-2",
                         domProps: {
                           innerHTML: _vm._s(
                             _vm.currentVariation.texts.technicalData
@@ -50909,61 +50913,46 @@ var render = function() {
                       ]
                     },
                     [
-                      _c("div", { staticClass: "mb-5" }, [
-                        _c(
-                          "span",
-                          { staticClass: "articlenumber small text-muted" },
-                          [
-                            _c("b", [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.$translate(
-                                    "Ceres::Template.singleItemNumber"
-                                  )
-                                ) + " "
+                      _c("div", { staticClass: "row mb-2" }, [
+                        _c("div", { staticClass: "col-6" }, [
+                          _c(
+                            "span",
+                            { staticClass: "articlenumber small text-muted" },
+                            [
+                              _c("b", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.$translate(
+                                      "Ceres::Template.singleItemNumber"
+                                    )
+                                  ) + " "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("span", [
+                                _vm._v(_vm._s(_vm.currentVariation.item.id))
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-6" }, [
+                          _vm.isWishListEnabled
+                            ? _c(
+                                "div",
+                                [
+                                  _c("add-to-wish-list", {
+                                    attrs: {
+                                      "variation-id":
+                                        _vm.currentVariation.variation.id
+                                    }
+                                  })
+                                ],
+                                1
                               )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [
-                              _vm._v(
-                                _vm._s(_vm.currentVariation.variation.number)
-                              )
-                            ])
-                          ]
-                        )
+                            : _vm._e()
+                        ])
                       ]),
-                      _vm._v(" "),
-                      _vm.isWishListEnabled
-                        ? _c("div", { staticClass: "row" }, [
-                            _c(
-                              "div",
-                              { staticClass: "col-12" },
-                              [
-                                _c("add-to-wish-list", {
-                                  attrs: {
-                                    "variation-id":
-                                      _vm.currentVariation.variation.id
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.isShortDescriptionActive &&
-                      _vm.currentVariation.texts.shortDescription !== ""
-                        ? _c("p", {
-                            staticClass: "single-description",
-                            domProps: {
-                              innerHTML: _vm._s(
-                                _vm.currentVariation.texts.shortDescription
-                              )
-                            }
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("hr"),
                       _vm._v(" "),
                       _vm.attributes.length || Object.keys(_vm.units).length
                         ? _c(
@@ -52701,14 +52690,18 @@ var render = function() {
                   _vm.item.unit.content === 1
                 )
                   ? _c("div", { staticClass: "category-unit-price small" }, [
-                      _c("span", [_vm._v(_vm._s(_vm.item.unit.content))]),
+                      _c("span", [
+                        _vm._v("Je " + _vm._s(_vm.item.unit.content))
+                      ]),
                       _vm._v(" "),
                       _c("span", [
                         _vm._v(" " + _vm._s(_vm.item.unit.names.name))
                       ]),
                       _vm._v(" "),
                       _vm.item.variation.mayShowUnitPrice
-                        ? _c("span", [_vm._v(" | " + _vm._s(_vm.basePrice))])
+                        ? _c("span", [
+                            _vm._v("(" + _vm._s(_vm.basePrice) + ")")
+                          ])
                         : _vm._e()
                     ])
                   : _vm._e(),

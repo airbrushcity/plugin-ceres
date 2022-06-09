@@ -321,12 +321,13 @@ var render = function() {
           })
         ])
       : _vm._e(),
+    _vm._v("\n    Je 300g (1 kg = 223 €) \n\n    "),
     _vm._v(" "),
     _vm.currentVariation.unit
       ? _c(
           "div",
           {
-            staticClass: "base-price text-muted my-3",
+            staticClass: "base-price text-muted my-3 row",
             class: {
               "is-single-piece":
                 _vm.currentVariation.unit &&
@@ -335,12 +336,14 @@ var render = function() {
             }
           },
           [
-            _c("div", [
-              _vm._v(
-                "\n            " +
+            _c("div", { staticClass: "col-6" }, [
+              _c("span", [
+                _vm._v(
                   _vm._s(_vm.$translate("Ceres::Template.singleItemContent")) +
-                  "\n            "
-              ),
+                    " "
+                )
+              ]),
+              _vm._v(" "),
               _c("span", [
                 _vm._v(
                   _vm._s(
@@ -353,17 +356,10 @@ var render = function() {
             ]),
             _vm._v(" "),
             _vm.currentVariation.variation.mayShowUnitPrice
-              ? _c("div", [
-                  _vm._v(
-                    "\n            " +
-                      _vm._s(
-                        _vm.$translate("Ceres::Template.singleItemUnitPrice")
-                      ) +
-                      "\n            "
-                  ),
+              ? _c("div", { staticClass: "col-6" }, [
                   _c("span", { staticClass: "base-price-value" }, [
                     _vm._v(
-                      "\n                " +
+                      "\n                (" +
                         _vm._s(
                           _vm._f("specialOffer")(
                             _vm.variationGraduatedPrice.basePrice,
@@ -371,7 +367,7 @@ var render = function() {
                             "basePrice"
                           )
                         ) +
-                        "\n            "
+                        ")\n            "
                     )
                   ])
                 ])

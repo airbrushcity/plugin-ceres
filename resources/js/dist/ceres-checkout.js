@@ -45401,7 +45401,7 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\n                            " +
+                                "\n                            Marke: " +
                                   _vm._s(
                                     _vm.currentVariation.item.manufacturer
                                       .externalName
@@ -45412,8 +45412,22 @@ var render = function() {
                           )
                         : _vm._e(),
                       _vm._v(" "),
+                      _c("div", { staticClass: "my-2" }, [
+                        _vm.isShortDescriptionActive &&
+                        _vm.currentVariation.texts.shortDescription !== ""
+                          ? _c("p", {
+                              staticClass: "single-description",
+                              domProps: {
+                                innerHTML: _vm._s(
+                                  _vm.currentVariation.texts.shortDescription
+                                )
+                              }
+                            })
+                          : _vm._e()
+                      ]),
+                      _vm._v(" "),
                       _c("div", {
-                        staticClass: "my-4",
+                        staticClass: "my-2",
                         domProps: {
                           innerHTML: _vm._s(
                             _vm.currentVariation.texts.technicalData
@@ -45436,61 +45450,46 @@ var render = function() {
                       ]
                     },
                     [
-                      _c("div", { staticClass: "mb-5" }, [
-                        _c(
-                          "span",
-                          { staticClass: "articlenumber small text-muted" },
-                          [
-                            _c("b", [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.$translate(
-                                    "Ceres::Template.singleItemNumber"
-                                  )
-                                ) + " "
+                      _c("div", { staticClass: "row mb-2" }, [
+                        _c("div", { staticClass: "col-6" }, [
+                          _c(
+                            "span",
+                            { staticClass: "articlenumber small text-muted" },
+                            [
+                              _c("b", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.$translate(
+                                      "Ceres::Template.singleItemNumber"
+                                    )
+                                  ) + " "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("span", [
+                                _vm._v(_vm._s(_vm.currentVariation.item.id))
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-6" }, [
+                          _vm.isWishListEnabled
+                            ? _c(
+                                "div",
+                                [
+                                  _c("add-to-wish-list", {
+                                    attrs: {
+                                      "variation-id":
+                                        _vm.currentVariation.variation.id
+                                    }
+                                  })
+                                ],
+                                1
                               )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [
-                              _vm._v(
-                                _vm._s(_vm.currentVariation.variation.number)
-                              )
-                            ])
-                          ]
-                        )
+                            : _vm._e()
+                        ])
                       ]),
-                      _vm._v(" "),
-                      _vm.isWishListEnabled
-                        ? _c("div", { staticClass: "row" }, [
-                            _c(
-                              "div",
-                              { staticClass: "col-12" },
-                              [
-                                _c("add-to-wish-list", {
-                                  attrs: {
-                                    "variation-id":
-                                      _vm.currentVariation.variation.id
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.isShortDescriptionActive &&
-                      _vm.currentVariation.texts.shortDescription !== ""
-                        ? _c("p", {
-                            staticClass: "single-description",
-                            domProps: {
-                              innerHTML: _vm._s(
-                                _vm.currentVariation.texts.shortDescription
-                              )
-                            }
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("hr"),
                       _vm._v(" "),
                       _vm.attributes.length || Object.keys(_vm.units).length
                         ? _c(
