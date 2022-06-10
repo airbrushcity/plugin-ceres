@@ -1,15 +1,14 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 {% set searchStyle = "onDemand" %}
 <header id="page-header" class="default-header d-print-none">
+<div id="page-header-parent" class="header-container top-bar" data-header-offset>
+<div class="container-max">
 
     <div class="row position-relative">
-        <div id="page-header-parent" class="col-12 header-container" data-header-offset>
-        {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
-            <div class="container-max top-bar">
-                <div class="w-100 top-bar-items mx-0 position-relative">
-                    <div class="controls px-0 pr-lg-3">
+    <div class="col-12 w-100 top-bar-items mx-0 position-relative">
+        <div class="controls px-0 pr-lg-3">
 
-                        <ul id="controlsList" class="controls-list mb-0 d-flex list-inline mx-3">
+            <ul id="controlsList" class="controls-list mb-0 d-flex list-inline mx-3">
 
                             <li class="list-inline-item d-none d-lg-block">
                                 <a href="/" class="pr-2">
@@ -157,24 +156,24 @@
                                                     </template>
                                 </basket-preview>
                             </li>
-                        </ul>
+            </ul>
 
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
+    </div>
 
-    <div class="container-max px-0 px-lg-3">
-        <div class="row mx-0 flex-row-reverse position-relative">
-            {% if searchStyle == "onDemand" %}
+    
+    <div class="row mx-0 flex-row-reverse position-relative">
+        {% if searchStyle == "onDemand" %}
                 <div id="searchBox" class="cmp cmp-search-box collapse{% if isPreview %} position-relative{% endif %}">
                 <lazy-load component="item-search">
                     <item-search></item-search>
                 </lazy-load>
                 </div>
-            {% endif %} 
-        </div>
+        {% endif %} 
     </div>
+   
 
+</div>
+</div>
 </header>
