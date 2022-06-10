@@ -1,14 +1,15 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 {% set searchStyle = "onDemand" %}
 <header id="page-header" class="default-header d-print-none">
-<div id="page-header-parent" class="header-container top-bar" data-header-offset>
-<div class="container-max">
 
-    <div class="row position-relative">
-    <div class="col-12 w-100 top-bar-items mx-0 position-relative">
-        <div class="controls px-0 pr-lg-3">
+<div id="page-header-parent" class="header-container" data-header-offset>
 
-            <ul id="controlsList" class="controls-list mb-0 d-flex list-inline mx-3">
+    <div class="container-max">
+        <div class="row top-bar">
+            <div class="col-12 w-100 top-bar-items">
+                <div class="controls mx-0 px-0 pr-lg-3">
+
+                    <ul id="controlsList" class="controls-list mb-0 d-flex list-inline mx-3">
 
                             <li class="list-inline-item d-none d-lg-block">
                                 <a href="/" class="pr-2">
@@ -156,13 +157,14 @@
                                                     </template>
                                 </basket-preview>
                             </li>
-            </ul>
+                    </ul>
 
+                </div>
+            </div>
         </div>
     </div>
-    </div>
 
-    
+    <div class="container-max">
     <div class="row mx-0 flex-row-reverse position-relative">
         {% if searchStyle == "onDemand" %}
                 <div id="searchBox" class="cmp cmp-search-box collapse{% if isPreview %} position-relative{% endif %}">
@@ -172,8 +174,7 @@
                 </div>
         {% endif %} 
     </div>
-   
+    </div>
 
-</div>
 </div>
 </header>
