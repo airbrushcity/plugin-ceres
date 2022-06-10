@@ -1,12 +1,11 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 {% set searchStyle = "onDemand" %}
-<header id="page-header" class="default-header d-print-none">
+<header id="page-header" class="default-header row d-print-none">
 
-<div id="page-header-parent" class="header-container" data-header-offset>
+<div id="page-header-parent" class="header-container col-12" data-header-offset>
 
-    <div class="container-max">
-        <div class="row top-bar">
-            <div class="col-12 w-100 top-bar-items">
+    <div class="top-bar row">
+            <div class="top-bar-items col-12 w-100">
                 <div class="controls mx-0 px-0 pr-lg-3">
 
                     <ul id="controlsList" class="controls-list mb-0 d-flex list-inline mx-3">
@@ -162,9 +161,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 
-    <div class="container-max">
+    
     <div class="row mx-0 flex-row-reverse position-relative">
         {% if searchStyle == "onDemand" %}
                 <div id="searchBox" class="cmp cmp-search-box collapse{% if isPreview %} position-relative{% endif %}">
@@ -173,7 +172,6 @@
                 </lazy-load>
                 </div>
         {% endif %} 
-    </div>
     </div>
 
 </div>
