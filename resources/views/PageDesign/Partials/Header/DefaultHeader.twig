@@ -1,199 +1,180 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 {% set searchStyle = "onDemand" %}
 <header id="page-header" class="default-header d-print-none">
-    <div class="container-max">
-        <div class="row flex-row-reverse position-relative">
-            <div id="page-header-parent" class="col-12 header-container" data-header-offset>
-                <div class="top-bar header-fw">
-                    <div class="container-max px-0 pr-lg-3">
-                        <div class="row mx-0 position-relative">
-                            {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
-                            <div class="w-100 top-bar-items">
-                                <div class="controls">
 
-                                    <ul id="controlsList" class="controls-list mb-0 d-flex list-inline mx-3">
+    <div class="row position-relative">
+        <div id="page-header-parent" class="col-12 header-container" data-header-offset>
+        {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
+            <div class="container-max top-bar">
+                <div class="w-100 top-bar-items mx-0 position-relative">
+                    <div class="controls px-0 pr-lg-3">
 
-										<li class="list-inline-item d-none d-lg-block">
-											<a href="/" class="pr-2">
-												<picture>
-													<source srcset="https://image.schmincke-city.de/frontend/schmincke/schmincke-mini.png">
-													<img src="https://image.schmincke-city.de/frontend/schmincke/schmincke-mini.png" alt="Schmincke City" class="img-fluid logospecial"> 
-												</picture>
-											</a>
-										</li>
-                                        
-										<li class="list-inline-item">
-                                            <button v-open-mobile-navigation class="navbar-toggler p-2" type="button">
-                                                &#9776; <span class="d-none d-xl-inline">Alle Kategorien</span>
+                        <ul id="controlsList" class="controls-list mb-0 d-flex list-inline mx-3">
+
+                            <li class="list-inline-item d-none d-lg-block">
+                                <a href="/" class="pr-2">
+                                    <picture>
+                                        <source srcset="https://image.schmincke-city.de/frontend/schmincke/schmincke-mini.png">
+                                            <img src="https://image.schmincke-city.de/frontend/schmincke/schmincke-mini.png" alt="Schmincke City" class="img-fluid logospecial"> 
+                                    </picture>
+                                </a>
+                            </li>
+                                            
+                            <li class="list-inline-item">
+                                <button v-open-mobile-navigation class="navbar-toggler p-2" type="button">
+                                    &#9776; <span class="d-none d-xl-inline">Alle Kategorien</span>
+                                </button>
+                            </li>
+                                            
+                            <li class="list-inline-item control-info d-lg-none">          
+                                <a href="#" class="anicon nav-link">
+                                    <i class="fa fa-info"></i>
+                                </a>               
+                            </li>
+
+                            <li class="list-inline-item d-none d-lg-block pl-2 control-big">    
+                                <div class="always-visible-search flex-grow-1">
+                                    <div class="always-visible-search flex-grow-1">
+                                        <lazy-hydrate when-idle>
+                                        <item-search>
+                                        <div class="position-relative d-flex flex-grow-1">
+                                            <input type="search" placeholder=" Suche nach Artikel Name oder Artikel Nummer... " class="search-input px-3 py-2 flex-grow-1" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm")') }}">
+                                            <button class="search-submit px-3" type="submit" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}">
+                                                <i class="fa fa-search"></i>
                                             </button>
-                                        </li>
-										
-                                        <li class="list-inline-item control-info d-lg-none">
-                                            
-                                                <a href="#" class="anicon nav-link">
-                                                    <i class="fa fa-info"></i>
-                                                </a>
-                                            
-                                        </li>
-
-
-                                        <li class="list-inline-item d-none d-lg-block pl-2 control-big">    
-                                            <div class="always-visible-search flex-grow-1">
-                                            
-                                                <div class="always-visible-search flex-grow-1">
-                                                   <lazy-hydrate when-idle>
-                                                        <item-search>
-                                                            <div class="position-relative d-flex flex-grow-1">
-                                                                <input type="search" placeholder=" Suche nach Artikel Name oder Artikel Nummer... " class="search-input px-3 py-2 flex-grow-1" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm")') }}">
-                                                                <button class="search-submit px-3" type="submit" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}">
-                                                                    <i class="fa fa-search"></i>
-                                                                </button>
-                                                            </div>
-                                                        </item-search>
-                                                    </lazy-hydrate>
-                                                </div>
-                                            
-                                            </div>
-										</li>
-
-                                        <li class="list-inline-item control-user d-none d-lg-flex">
-                                            <a href="#" class="nav-link">
-                                                <i class="fa fa-info"></i>
-                                            </a>
-                                        </li>
-
-                                        <li class="list-inline-item control-search d-lg-none">
-                                            
-                                            {% if searchStyle == "onDemand" %}
-                                                <a class="anicon anicon-search-xcross nav-link"
-                                                    data-toggle="collapse"
-                                                    href="#searchBox"
-                                                    aria-expanded="false"
-                                                    aria-controls="searchBox"
-                                                    data-parent="#controlsList"
-                                                    aria-label="{{ trans('Ceres::Template.headerSearch') }}"
-                                                    @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
-                                                    <span class="anicon-search-item" aria-hidden="true"></span>
-                                                </a>
-                                            {% endif %}
-                                        </li>
-                                   
-
-										<li class="brand-wrapper list-inline-item control-big d-lg-none p-2">
-											<a href="/" class="navbar-brand p-0 mx-auto">
-												<picture>
-													<source srcset="https://image.schmincke-city.de/frontend/schmincke/schmincke-city-logo-micro.png">
-													<img src="https://image.schmincke-city.de/frontend/schmincke/schmincke-city-logo-micro.png" alt="Schmincke City" class="img-fluid"> 
-												</picture>
-											</a>
-										</li>
-
-                                        <li class="list-inline-item control-user">
-                                            <a href="/login" class="nav-link" aria-label="{{ trans('Ceres::Template.login') }}">
-                                                <i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
-                                                <span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
-                                            </a>
-                                        </li>
-                                        
-                            
-                                     
-                                        {% if services.url.isRouteEnabled("wish-list") %}
-                                            <li class="list-inline-item control-wish-list">
-                                                <lazy-hydrate when-idle>
-                                                    <wish-list-count>
-                                                        <a class="nav-link" aria-label="{{ trans('Ceres::Template.wishList') }}">
-                                                            <span class="badge-right mr-1 d-none d-sm-inline">0</span>
-                                                            <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                                        </a>
-                                                    </wish-list-count>
-                                                </lazy-hydrate>
-                                            </li>
-                                        {% endif %}
-                                        
-                                        <li class="list-inline-item control-basket position-relative">
-                                            <a v-toggle-basket-preview href="#" class="toggle-basket-preview nav-link" {{ set_testing_attr("data-testing", "basket-preview-button") }}>
-                                                {% if config("Ceres.header.basket_values") != "sum" %}
-                                                    <span class="mr-2" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span>
-                                                {% endif %}
-
-                                                <icon icon="shopping-cart" class-loading="fa-refresh" :loading="$store.state.basket.isBasketLoading"></icon>
-                                                {% if config("Ceres.header.basket_values") != "quantity" %}
-                                                    <span class="badge p-0 ml-2 d-none d-md-block" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
-                                                    <span class="badge p-0 ml-2 d-none d-md-block" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
-                                                {% endif %}
-                                            </a>
-
-                                            <basket-preview v-if="$store.state.lazyComponent.components['basket-preview']" :show-net-prices="{{ showNetPrices | json_encode }}">
-                                                <template #before-basket-item>
-                                                    {{ LayoutContainer.show("Ceres::BasketList.BeforeItem") }}
-                                                </template>
-                                                <template #after-basket-item>
-                                                    {{ LayoutContainer.show("Ceres::BasketList.AfterItem") }}
-                                                </template>
-                                                <template #before-basket-totals>
-                                                    {{ LayoutContainer.show("Ceres::BasketPreview.BeforeBasketTotals") }}
-                                                </template>
-                                                <template #before-item-sum>
-                                                    {{ LayoutContainer.show("Ceres::BasketTotals.BeforeItemSum") }}
-                                                </template>
-                                                <template #after-item-sum>
-                                                    {{ LayoutContainer.show("Ceres::BasketTotals.AfterItemSum") }}
-                                                </template>
-                                                <template #before-shipping-costs>
-                                                    {{ LayoutContainer.show("Ceres::BasketTotals.BeforeShippingCosts") }}
-                                                </template>
-                                                <template #after-shipping-costs>
-                                                    {{ LayoutContainer.show("Ceres::BasketTotals.AfterShippingCosts") }}
-                                                </template>
-                                                <template #before-total-sum>
-                                                    {{ LayoutContainer.show("Ceres::BasketTotals.BeforeTotalSum") }}
-                                                </template>
-                                                <template #before-vat>
-                                                    {{ LayoutContainer.show("Ceres::BasketTotals.BeforeVat") }}
-                                                </template>
-                                                <template #after-vat>
-                                                    {{ LayoutContainer.show("Ceres::BasketTotals.AfterVat") }}
-                                                </template>
-                                                <template #after-total-sum>
-                                                    {{ LayoutContainer.show("Ceres::BasketTotals.AfterTotalSum") }}
-                                                </template>
-                                                <template #after-basket-totals>
-                                                    {{ LayoutContainer.show("Ceres::BasketPreview.AfterBasketTotals") }}
-                                                </template>
-                                                <template #before-checkout-button>
-                                                    {{ LayoutContainer.show("Ceres::BasketPreview.BeforeCheckoutButton") }}
-                                                </template>
-                                                <template #after-checkout-button>
-                                                    {{ LayoutContainer.show("Ceres::BasketPreview.AfterCheckoutButton") }}
-                                                </template>
-                                            </basket-preview>
-                                        </li>
-                                    </ul>
-
+                                        </div>
+                                        </item-search>
+                                        </lazy-hydrate>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </li>
 
-                    
-                    <div class="container-max px-0 px-lg-3">
-                        <div class="row mx-0 flex-row-reverse position-relative">
+                            <li class="list-inline-item control-user d-none d-lg-flex">
+                                <a href="#" class="nav-link">
+                                    <i class="fa fa-info"></i>
+                                </a>
+                            </li>
 
+                            <li class="list-inline-item control-search d-lg-none">
                             {% if searchStyle == "onDemand" %}
-                            <div id="searchBox" class="cmp cmp-search-box collapse{% if isPreview %} position-relative{% endif %}">
-                                <lazy-load component="item-search">
-                                    <item-search>
-                                        
-                                    </item-search>
-                               </lazy-load>
-                           </div>
-                           {% endif %} 
+                                <a class="anicon anicon-search-xcross nav-link"
+                                    data-toggle="collapse"
+                                    href="#searchBox"
+                                    aria-expanded="false"
+                                    aria-controls="searchBox"
+                                    data-parent="#controlsList"
+                                    aria-label="{{ trans('Ceres::Template.headerSearch') }}"
+                                    @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
+                                    <span class="anicon-search-item" aria-hidden="true"></span>
+                                </a>
+                            {% endif %}
+                            </li>
+                                    
+                            <li class="brand-wrapper list-inline-item control-big d-lg-none p-2">
+                                <a href="/" class="navbar-brand p-0 mx-auto">
+                                    <picture>
+                                        <source srcset="https://image.schmincke-city.de/frontend/schmincke/schmincke-city-logo-micro.png">
+                                        <img src="https://image.schmincke-city.de/frontend/schmincke/schmincke-city-logo-micro.png" alt="Schmincke City" class="img-fluid"> 
+                                    </picture>
+                                </a>
+                            </li>
 
-                        </div>
+                            <li class="list-inline-item control-user">
+                                <a href="/login" class="nav-link" aria-label="{{ trans('Ceres::Template.login') }}">
+                                    <i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
+                                    <span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
+                                </a>
+                            </li>
+                                            
+                            {% if services.url.isRouteEnabled("wish-list") %}
+                            <li class="list-inline-item control-wish-list">
+                            <lazy-hydrate when-idle>
+                            <wish-list-count>
+                                <a class="nav-link" aria-label="{{ trans('Ceres::Template.wishList') }}">
+                                    <span class="badge-right mr-1 d-none d-sm-inline">0</span>
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                </a>
+                            </wish-list-count>
+                            </lazy-hydrate>
+                            </li>
+                            {% endif %}
+                                            
+                            <li class="list-inline-item control-basket position-relative">
+                                <a v-toggle-basket-preview href="#" class="toggle-basket-preview nav-link" {{ set_testing_attr("data-testing", "basket-preview-button") }}>
+                                    {% if config("Ceres.header.basket_values") != "sum" %}
+                                    <span class="mr-2" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span>
+                                    {% endif %}
+
+                                    <icon icon="shopping-cart" class-loading="fa-refresh" :loading="$store.state.basket.isBasketLoading"></icon>
+                                    {% if config("Ceres.header.basket_values") != "quantity" %}
+                                    <span class="badge p-0 ml-2 d-none d-md-block" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                                    <span class="badge p-0 ml-2 d-none d-md-block" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                                    {% endif %}
+                                    </a>
+
+                                    <basket-preview v-if="$store.state.lazyComponent.components['basket-preview']" :show-net-prices="{{ showNetPrices | json_encode }}">
+                                                    <template #before-basket-item>
+                                                        {{ LayoutContainer.show("Ceres::BasketList.BeforeItem") }}
+                                                    </template>
+                                                    <template #after-basket-item>
+                                                        {{ LayoutContainer.show("Ceres::BasketList.AfterItem") }}
+                                                    </template>
+                                                    <template #before-basket-totals>
+                                                        {{ LayoutContainer.show("Ceres::BasketPreview.BeforeBasketTotals") }}
+                                                    </template>
+                                                    <template #before-item-sum>
+                                                        {{ LayoutContainer.show("Ceres::BasketTotals.BeforeItemSum") }}
+                                                    </template>
+                                                    <template #after-item-sum>
+                                                        {{ LayoutContainer.show("Ceres::BasketTotals.AfterItemSum") }}
+                                                    </template>
+                                                    <template #before-shipping-costs>
+                                                        {{ LayoutContainer.show("Ceres::BasketTotals.BeforeShippingCosts") }}
+                                                    </template>
+                                                    <template #after-shipping-costs>
+                                                        {{ LayoutContainer.show("Ceres::BasketTotals.AfterShippingCosts") }}
+                                                    </template>
+                                                    <template #before-total-sum>
+                                                        {{ LayoutContainer.show("Ceres::BasketTotals.BeforeTotalSum") }}
+                                                    </template>
+                                                    <template #before-vat>
+                                                        {{ LayoutContainer.show("Ceres::BasketTotals.BeforeVat") }}
+                                                    </template>
+                                                    <template #after-vat>
+                                                        {{ LayoutContainer.show("Ceres::BasketTotals.AfterVat") }}
+                                                    </template>
+                                                    <template #after-total-sum>
+                                                        {{ LayoutContainer.show("Ceres::BasketTotals.AfterTotalSum") }}
+                                                    </template>
+                                                    <template #after-basket-totals>
+                                                        {{ LayoutContainer.show("Ceres::BasketPreview.AfterBasketTotals") }}
+                                                    </template>
+                                                    <template #before-checkout-button>
+                                                        {{ LayoutContainer.show("Ceres::BasketPreview.BeforeCheckoutButton") }}
+                                                    </template>
+                                                    <template #after-checkout-button>
+                                                        {{ LayoutContainer.show("Ceres::BasketPreview.AfterCheckoutButton") }}
+                                                    </template>
+                                </basket-preview>
+                            </li>
+                        </ul>
+
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="container-max px-0 px-lg-3">
+        <div class="row mx-0 flex-row-reverse position-relative">
+            {% if searchStyle == "onDemand" %}
+                <div id="searchBox" class="cmp cmp-search-box collapse{% if isPreview %} position-relative{% endif %}">
+                <lazy-load component="item-search">
+                    <item-search></item-search>
+                </lazy-load>
+                </div>
+            {% endif %} 
+        </div>
+    </div>
+
 </header>
