@@ -1,7 +1,6 @@
 <template>
-    <div class="container-max" :class="{'p-0' : $ceres.isShopBuilder}"> 
         <div class="position-relative">
-            <div class="d-flex flex-grow-1 position-relative my-2">
+            <div class="d-flex flex-grow-1 position-relative">
                 <input type="search" class="search-input flex-grow-1 px-3 py-2" ref="searchInput" v-model="searchString" @input="onValueChanged($event.target.value)"
                     @keyup.enter="search()" @focus="isSearchFocused = true" @blur="onBlurSearchField($event)" :autofocus="isShopBuilder" :placeholder="$translate('Ceres::Template.headerSearchPlaceholder')" :aria-label="$translate('Ceres::Template.headerSearchTerm')">
 
@@ -25,7 +24,6 @@
                 </div>
             </template>
         </div>
-    </div>
 </template>
 
 <script>

@@ -1938,8 +1938,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 
@@ -38809,150 +38807,134 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "container-max",
-      class: { "p-0": _vm.$ceres.isShopBuilder }
-    },
+    { staticClass: "position-relative" },
     [
       _c(
         "div",
-        { staticClass: "position-relative" },
+        { staticClass: "d-flex flex-grow-1 position-relative" },
         [
-          _c(
-            "div",
-            { staticClass: "d-flex flex-grow-1 position-relative my-2" },
-            [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.searchString,
-                    expression: "searchString"
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.searchString,
+                expression: "searchString"
+              }
+            ],
+            ref: "searchInput",
+            staticClass: "search-input flex-grow-1 px-3 py-2",
+            attrs: {
+              type: "search",
+              autofocus: _vm.isShopBuilder,
+              placeholder: _vm.$translate(
+                "Ceres::Template.headerSearchPlaceholder"
+              ),
+              "aria-label": _vm.$translate("Ceres::Template.headerSearchTerm")
+            },
+            domProps: { value: _vm.searchString },
+            on: {
+              input: [
+                function($event) {
+                  if ($event.target.composing) {
+                    return
                   }
-                ],
-                ref: "searchInput",
-                staticClass: "search-input flex-grow-1 px-3 py-2",
-                attrs: {
-                  type: "search",
-                  autofocus: _vm.isShopBuilder,
-                  placeholder: _vm.$translate(
-                    "Ceres::Template.headerSearchPlaceholder"
-                  ),
-                  "aria-label": _vm.$translate(
-                    "Ceres::Template.headerSearchTerm"
-                  )
+                  _vm.searchString = $event.target.value
                 },
-                domProps: { value: _vm.searchString },
+                function($event) {
+                  return _vm.onValueChanged($event.target.value)
+                }
+              ],
+              keyup: function($event) {
+                if (
+                  !$event.type.indexOf("key") &&
+                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                ) {
+                  return null
+                }
+                return _vm.search()
+              },
+              focus: function($event) {
+                _vm.isSearchFocused = true
+              },
+              blur: function($event) {
+                return _vm.onBlurSearchField($event)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm._t("search-button", [
+            _c(
+              "button",
+              {
+                staticClass: "search-submit px-3",
+                attrs: {
+                  type: "submit",
+                  "aria-label": _vm.$translate("Ceres::Template.headerSearch")
+                },
                 on: {
-                  input: [
-                    function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.searchString = $event.target.value
-                    },
-                    function($event) {
-                      return _vm.onValueChanged($event.target.value)
-                    }
-                  ],
-                  keyup: function($event) {
-                    if (
-                      !$event.type.indexOf("key") &&
-                      _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                    ) {
-                      return null
-                    }
+                  click: function($event) {
                     return _vm.search()
-                  },
-                  focus: function($event) {
-                    _vm.isSearchFocused = true
-                  },
-                  blur: function($event) {
-                    return _vm.onBlurSearchField($event)
                   }
                 }
-              }),
-              _vm._v(" "),
-              _vm._t("search-button", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "search-submit px-3",
-                    attrs: {
-                      type: "submit",
-                      "aria-label": _vm.$translate(
-                        "Ceres::Template.headerSearch"
-                      )
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.search()
-                      }
-                    }
-                  },
-                  [
-                    _c("icon", {
-                      staticClass: "fa-fw",
-                      attrs: {
-                        icon: "search",
-                        loading: _vm.autocompleteIsLoading
-                      }
-                    })
-                  ],
-                  1
-                )
-              ])
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _vm.isSearchFocused
-            ? [
-                _c(
-                  "div",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value:
-                          (_vm.searchString.length >= _vm.searchMinLength &&
-                            _vm.hasInitialInput) ||
-                          _vm.$ceres.isShopBuilder,
-                        expression:
-                          "(searchString.length >= searchMinLength && hasInitialInput) || $ceres.isShopBuilder"
-                      }
-                    ]
-                  },
-                  [
-                    _vm._t("autocomplete-suggestions", [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "autocomplete-suggestions shadow bg-white w-100"
-                        },
-                        [
-                          _c("search-suggestion-item", {
-                            attrs: {
-                              "show-images": _vm.showItemImages,
-                              "suggestion-type": "item"
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ])
-                  ],
-                  2
-                )
-              ]
-            : _vm._e()
+              },
+              [
+                _c("icon", {
+                  staticClass: "fa-fw",
+                  attrs: { icon: "search", loading: _vm.autocompleteIsLoading }
+                })
+              ],
+              1
+            )
+          ])
         ],
         2
-      )
-    ]
+      ),
+      _vm._v(" "),
+      _vm.isSearchFocused
+        ? [
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value:
+                      (_vm.searchString.length >= _vm.searchMinLength &&
+                        _vm.hasInitialInput) ||
+                      _vm.$ceres.isShopBuilder,
+                    expression:
+                      "(searchString.length >= searchMinLength && hasInitialInput) || $ceres.isShopBuilder"
+                  }
+                ]
+              },
+              [
+                _vm._t("autocomplete-suggestions", [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "autocomplete-suggestions shadow bg-white w-100"
+                    },
+                    [
+                      _c("search-suggestion-item", {
+                        attrs: {
+                          "show-images": _vm.showItemImages,
+                          "suggestion-type": "item"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ],
+              2
+            )
+          ]
+        : _vm._e()
+    ],
+    2
   )
 }
 var staticRenderFns = []

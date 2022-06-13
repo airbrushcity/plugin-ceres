@@ -10962,8 +10962,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 
@@ -52712,108 +52710,94 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "container-max",
-      class: { "p-0": _vm.$ceres.isShopBuilder }
-    },
+    { staticClass: "position-relative" },
     [
       _vm._ssrNode(
-        '<div class="position-relative">',
+        '<div class="d-flex flex-grow-1 position-relative">',
         "</div>",
         [
           _vm._ssrNode(
-            '<div class="d-flex flex-grow-1 position-relative my-2">',
-            "</div>",
-            [
-              _vm._ssrNode(
-                '<input type="search"' +
-                  _vm._ssrAttr("autofocus", _vm.isShopBuilder) +
-                  _vm._ssrAttr(
-                    "placeholder",
-                    _vm.$translate("Ceres::Template.headerSearchPlaceholder")
-                  ) +
-                  _vm._ssrAttr(
-                    "aria-label",
-                    _vm.$translate("Ceres::Template.headerSearchTerm")
-                  ) +
-                  _vm._ssrAttr("value", _vm.searchString) +
-                  ' class="search-input flex-grow-1 px-3 py-2"> '
-              ),
-              _vm._t("search-button", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "search-submit px-3",
-                    attrs: {
-                      type: "submit",
-                      "aria-label": _vm.$translate(
-                        "Ceres::Template.headerSearch"
-                      )
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.search()
-                      }
-                    }
-                  },
-                  [
-                    _c("icon", {
-                      staticClass: "fa-fw",
-                      attrs: {
-                        icon: "search",
-                        loading: _vm.autocompleteIsLoading
-                      }
-                    })
-                  ],
-                  1
-                )
-              ])
-            ],
-            2
+            '<input type="search"' +
+              _vm._ssrAttr("autofocus", _vm.isShopBuilder) +
+              _vm._ssrAttr(
+                "placeholder",
+                _vm.$translate("Ceres::Template.headerSearchPlaceholder")
+              ) +
+              _vm._ssrAttr(
+                "aria-label",
+                _vm.$translate("Ceres::Template.headerSearchTerm")
+              ) +
+              _vm._ssrAttr("value", _vm.searchString) +
+              ' class="search-input flex-grow-1 px-3 py-2"> '
           ),
-          _vm._ssrNode(" "),
-          _vm.isSearchFocused
-            ? [
-                _vm._ssrNode(
-                  "<div" +
-                    _vm._ssrStyle(null, null, {
-                      display:
-                        (_vm.searchString.length >= _vm.searchMinLength &&
-                          _vm.hasInitialInput) ||
-                        _vm.$ceres.isShopBuilder
-                          ? ""
-                          : "none"
-                    }) +
-                    ">",
-                  "</div>",
-                  [
-                    _vm._t("autocomplete-suggestions", [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "autocomplete-suggestions shadow bg-white w-100"
-                        },
-                        [
-                          _c("search-suggestion-item", {
-                            attrs: {
-                              "show-images": _vm.showItemImages,
-                              "suggestion-type": "item"
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ])
-                  ],
-                  2
-                )
-              ]
-            : _vm._e()
+          _vm._t("search-button", [
+            _c(
+              "button",
+              {
+                staticClass: "search-submit px-3",
+                attrs: {
+                  type: "submit",
+                  "aria-label": _vm.$translate("Ceres::Template.headerSearch")
+                },
+                on: {
+                  click: function($event) {
+                    return _vm.search()
+                  }
+                }
+              },
+              [
+                _c("icon", {
+                  staticClass: "fa-fw",
+                  attrs: { icon: "search", loading: _vm.autocompleteIsLoading }
+                })
+              ],
+              1
+            )
+          ])
         ],
         2
-      )
-    ]
+      ),
+      _vm._ssrNode(" "),
+      _vm.isSearchFocused
+        ? [
+            _vm._ssrNode(
+              "<div" +
+                _vm._ssrStyle(null, null, {
+                  display:
+                    (_vm.searchString.length >= _vm.searchMinLength &&
+                      _vm.hasInitialInput) ||
+                    _vm.$ceres.isShopBuilder
+                      ? ""
+                      : "none"
+                }) +
+                ">",
+              "</div>",
+              [
+                _vm._t("autocomplete-suggestions", [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "autocomplete-suggestions shadow bg-white w-100"
+                    },
+                    [
+                      _c("search-suggestion-item", {
+                        attrs: {
+                          "show-images": _vm.showItemImages,
+                          "suggestion-type": "item"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ],
+              2
+            )
+          ]
+        : _vm._e()
+    ],
+    2
   )
 }
 var staticRenderFns = []
