@@ -131,13 +131,13 @@
                             <div class="tab-content overflow-hidden">
                                 <div class="tab-pane active overflow-auto" :id="'details-' + currentVariation.variation.id" role="tabpanel" v-if="isDescriptionTabActive"> 
 
-                                    <div class="my-4" v-html="currentVariation.texts.description">
+                                    <div class="my-2 p-2" v-html="currentVariation.texts.description">
                                     </div>
 
                                 </div>
 
                                 <div :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive }" class="tab-pane overflow-auto" id="assessments-details" role="tabpanel">
-                                    <div class="my-4">
+                                    <div class="my-2">
                                         <table class="table table-striped table-hover table-sm">
                                             <tbody>
                                             <tr v-if="itemConfig.includes('item.id') || itemConfig.includes('all')">
@@ -209,7 +209,7 @@
                                 </div>
 
                                 <div :class="{ 'active': !isDescriptionTabActive && isTechnicalDataTabActive }" class="tab-pane overflow-auto" :id="'data-' + currentVariation.variation.id" role="tabpanel" v-if="isTechnicalDataTabActive">
-                                    <div class="my-4">
+                                    <div class="my-2">
                                      Hier kommen die PDF Anhaenge dann rein!
                                     </div>
                                 </div>

@@ -104,16 +104,18 @@
 {% endblock %}
 
 {% block PageBody %}
-    {{ set_item_data_base(item.documents[0].data) }}
-
-    {% set shopBuilderTemplate = "" %}
-    {% set currentCategory = services.category.getCurrentCategory() %}
-
-    {% if currentCategory is defined %}
-        {% set shopBuilderTemplate = shop_builder_category_template(currentCategory.id, isItemSet ? "itemset" : "singleitem") %}
-    {% endif %}
-
-{% include "Ceres::Item.SingleItemView" %}
+<div>
+{{ set_item_data_base(item.documents[0].data) }}
+{% set shopBuilderTemplate = "" %}
+{% set currentCategory = services.category.getCurrentCategory() %}
+{% if currentCategory is defined %}
+{% set shopBuilderTemplate = shop_builder_category_template(currentCategory.id, isItemSet ? "itemset" : "singleitem") %}
+{% endif %}
 {{ shopBuilderTemplate | raw }}
-
+</div>
+{% include "Ceres::Item.SingleItemView" %}
+<div>
+{% set shopBuilderTemplate = shop_builder_category_template(currentCategory.id, isItemSet ? "itemset" : "singleitem", "bottom-article") %}
+{{ shopBuilderTemplate | raw }}
+</div>
 {% endblock %}

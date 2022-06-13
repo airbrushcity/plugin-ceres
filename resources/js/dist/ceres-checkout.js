@@ -45706,7 +45706,7 @@ var render = function() {
                               },
                               [
                                 _c("div", {
-                                  staticClass: "my-4",
+                                  staticClass: "my-2 p-2",
                                   domProps: {
                                     innerHTML: _vm._s(
                                       _vm.currentVariation.texts.description
@@ -45732,7 +45732,7 @@ var render = function() {
                             }
                           },
                           [
-                            _c("div", { staticClass: "my-4" }, [
+                            _c("div", { staticClass: "my-2" }, [
                               _c(
                                 "table",
                                 {
@@ -46121,7 +46121,7 @@ var render = function() {
                                 }
                               },
                               [
-                                _c("div", { staticClass: "my-4" }, [
+                                _c("div", { staticClass: "my-2" }, [
                                   _vm._v(
                                     "\n                                 Hier kommen die PDF Anhaenge dann rein!\n                                "
                                   )
