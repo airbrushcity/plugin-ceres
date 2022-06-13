@@ -140,12 +140,10 @@
                                 </item-search>
                             {% if not isPreview %}</lazy-hydrate>{% endif %}
                         </div>
-                    {{ Twig.else() }}
-                        {{ Twig.print("overrideSearchBar | raw") }}
-                    {{ Twig.endif() }}
-                    </li>
-
-
+                        {{ Twig.else() }}
+                            {{ Twig.print("overrideSearchBar | raw") }}
+                        {{ Twig.endif() }}
+                        </li>
 
                         {% if enableLogin or enableRegistration %}
                             <li class="list-inline-item control-user">
