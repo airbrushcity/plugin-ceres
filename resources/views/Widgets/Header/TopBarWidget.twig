@@ -47,44 +47,6 @@
             {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::Header.LeftSide"])) }}
             <div class="w-100 top-bar-items {% if searchStyle == "permanent" %}search-permanent d-flex flex-grow-1 flex-column-reverse flex-md-row{% endif %}">
 
-
-                {% if searchStyle == "permanent" %}
-                    {{ Twig.if("overrideSearchBar | trim is empty") }}
-                        <div class="always-visible-search flex-grow-1">
-                            {% if not isPreview %}<lazy-hydrate when-idle>{% endif %}
-                                <item-search>
-                                    <div class="position-relative d-flex flex-grow-1">
-                                        <input type="search" class="search-input px-3 py-2 flex-grow-1" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm")') }}">
-                                        <button class="search-submit px-3" type="submit" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </div>
-
-                                    {% if isPreview %}
-                                        <template #search-button>
-                                            <button class="search-submit px-3" type="submit" {{ WidgetHelper.makeClickable(isPreview) }} data-toggle="collapse" href="#search-suggestions_{{ uid }}" role="button">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </template>
-                                    {% endif %}
-
-                                    {% if isPreview or children is defined and children.suggestions | trim is not empty %}
-                                        <template #autocomplete-suggestions>
-                                            <div class="autocomplete-suggestions shadow bg-white w-100{% if isPreview %} collapse position-relative mh-100{% endif %}"
-                                                {% if isPreview %} data-builder-child-container="suggestions" id="search-suggestions_{{ uid }}"{% endif %}>
-                                                {{ children.suggestions | raw }}
-                                            </div>
-                                        </template>
-                                    {% endif %}
-                                </item-search>
-                            {% if not isPreview %}</lazy-hydrate>{% endif %}
-                        </div>
-                    {{ Twig.else() }}
-                        {{ Twig.print("overrideSearchBar | raw") }}
-                    {{ Twig.endif() }}
-                {% endif %}
-
-
                 <div class="controls">
                     <ul id="controlsList" class="controls-list mb-0 d-flex list-inline mx-3">
 
@@ -143,6 +105,12 @@
                         {{ Twig.else() }}
                             {{ Twig.print("overrideSearchBar | raw") }}
                         {{ Twig.endif() }}
+                        </li>
+
+                        <li class="list-inline-item control-user d-none d-lg-flex">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-info"></i>
+                            </a>
                         </li>
 
                         {% if enableLogin or enableRegistration %}
@@ -310,92 +278,6 @@
                     {{ Twig.else() }}
                         {{ Twig.print("overrideSearchBar | raw") }}
                     {{ Twig.endif() }}
-                </div>
-            {% endif %}
-
-            {% if enableCurrencySelect and not isPreview %}
-                <div id="currencySelect" class="cmp cmp-currency-select collapse">
-                    <div class="container-max">
-                        <div class="row py-3">
-                            <div class="currency-list col-12">
-                                <div class="list-title">
-                                    <strong>{{ Twig.print('trans("Ceres::Template.headerCurrency")') }}</strong>
-                                    <hr>
-                                </div>
-                                <ul class="row text-center text-sm-left">
-                                    {{ Twig.set("activeCurrency", Twig.call("services.checkout.getCurrencyData")) }}
-                                    {{ Twig.for("currency", Twig.call("services.checkout.getCurrencyList")) }}
-                                    {{ Twig.if("currency.name in activeCurrencies or \"all\" in activeCurrencies or currency.name == activeCurrency.name") }}
-                                        <li class="col-2 px-0{{ Twig.if("currency.name == activeCurrency.name") }} active{{ Twig.endif() }}">
-                                            <a class="nav-link" data-testing="{{ Twig.print("currency.name") }}" href="{{ Twig.print("queryString({currency: currency.name})") }}" rel="nofollow">
-                                                {{ Twig.if("currencyFormatSelect == 'all'") }}
-                                                    {{ Twig.print("currency.name") }} <br class="d-block d-sm-none" />({{ Twig.print("currency.symbol") }})
-                                                {{ Twig.else() }}
-                                                    {{ Twig.print("currency[currencyFormatSelect]") }}
-                                                {{ Twig.endif }}
-                                            </a>
-                                        </li>
-                                    {{ Twig.endif() }}
-                                    {{ Twig.endfor() }}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
-
-            {% if enableLanguageSelect or enableShippingCountrySelect %}
-                <div id="countrySettings" class="cmp cmp-country-settings collapse">
-                    <div class="container-max">
-                        <div class="row py-3">
-                            {% if enableLanguageSelect and not isPreview %}
-                                <div class="col-12 {% if enableShippingCountrySelect %}col-lg-6{% else %}col-lg-12{% endif %}">
-                                    <div class="language-settings">
-                                        <div class="list-title">
-                                            <strong>{{ Twig.print('trans("Ceres::Template.headerSelectLanguage")') }}</strong>
-                                            <hr>
-                                        </div>
-                                        {{ Twig.set("languageList", Twig.call("services.webstoreConfigurationRepository.getActiveLanguageList")) }}
-                                        {{ Twig.set("languageUrls", Twig.call("services.url.getLanguageURLs")) }}
-                                        <ul class="row">
-                                            {{ Twig.for("language", "languageList") }}
-                                                {{ Twig.set("languageISO", "services.localizationRepository.getLanguageCode(language)") }}
-                                                <li class="col-6 col-sm-4 px-0{{ Twig.if("lang == language") }} active{{ Twig.endif() }}">
-                                                    {{ Twig.set("url", "'/'") }}
-                                                    {{ Twig.if("languageUrls[languageISO] is defined") }}
-                                                        {{ Twig.set("url", "languageUrls[languageISO] ~ queryString") }}
-                                                    {{ Twig.elseif("language != defaultLanguage") }}
-                                                        {{ Twig.set("url", "'/' ~ language ~ urls.trailingSlashSuffix") }}
-                                                    {{ Twig.endif() }}
-                                                    <a class="nav-link" href="{{ Twig.print("url") }}"
-                                                        data-testing="lang-select-{{ Twig.print("language") }}" data-update-url>
-                                                        <i class="flag-icon flag-icon-{{ Twig.print("language") }}"></i>
-                                                        {{ Twig.print('trans("Ceres::Template.header" ~ language | capitalize)') }}
-                                                    </a>
-                                                </li>
-                                            {{ Twig.endfor() }}
-                                        </ul>
-                                    </div>
-                                </div>
-                            {% endif %}
-                            {% if enableShippingCountrySelect %}
-                                <div class="col-12 {% if enableLanguageSelect %}col-lg-6{% else %}col-lg-12{% endif %}">
-                                    <div class="shipping-settings">
-                                        <div class="list-title">
-                                            <strong>{{ Twig.print('trans("Ceres::Template.headerSelectShippingCountry")') }}</strong>
-                                            <hr>
-                                        </div>
-                                        <intersect>
-                                            <shipping-country-select :disable-input="{{ Twig.print(Twig.call('services.template.isCheckout') ~ ' | json_encode') }}"></shipping-country-select>
-                                            <template #loading>
-                                                <div class="row" style="height:1px;"></div>
-                                            </template>
-                                        </intersect>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        </div>
-                    </div>
                 </div>
             {% endif %}
         </div>
