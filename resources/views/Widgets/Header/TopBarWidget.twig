@@ -66,14 +66,14 @@
                         </li>
 
                         <li class="list-inline-item control-info d-lg-none">          
-                            <a href="#" class="anicon nav-link">
+                            <a href="#footer" class="anicon nav-link">
                                 <i class="fa fa-info"></i>
                             </a>               
                         </li>
 
                         <li class="list-inline-item d-none d-lg-block pl-2 control-big">    
                         {{ Twig.if("overrideSearchBar | trim is empty") }}
-                        <div class="always-visible-search flex-grow-1 my-2">
+                        <div class="always-visible-search flex-grow-1 my-2 pt-1">
                             {% if not isPreview %}<lazy-hydrate when-idle>{% endif %}
                                 <item-search>
                                     <div class="position-relative d-flex flex-grow-1">
@@ -134,73 +134,32 @@
                         </li>
 
                         <li class="list-inline-item control-user d-none d-lg-flex">
-                            <a href="#" class="nav-link">
+                            <a href="#footer" class="nav-link">
                                 <i class="fa fa-info"></i>
                             </a>
                         </li>
 
-                        {% if enableLogin or enableRegistration %}
-                            <li class="list-inline-item control-user">
-                                <client-only>
-                                    <user-login-handler
-                                        :show-login="{{ enableLogin | json_encode }}"
-                                        :show-registration="{{ enableRegistration | json_encode }}">
-                                        {% if enableLogin %}
-                                        <a href="/login" class="nav-link" aria-label="{{ Twig.print('trans("Ceres::Template.login")') }}">
-                                            <i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
-                                            <span class="d-none d-sm-inline">{{ Twig.print('trans("Ceres::Template.login")') }}</span>
-                                        </a>
-                                        {% endif %}
-                                    </user-login-handler>
-                                </client-only>
-                            </li>
-                        {% endif %}
-
-                        {% if enableLanguageSelect or enableShippingCountrySelect %}
-                            <li class="list-inline-item dropdown control-languages">
-                                <a class="nav-link"
-                                   data-toggle="collapse"
-                                   data-testing="language-select"
-                                   href="#countrySettings"
-                                   aria-expanded="false"
-                                   aria-controls="countrySettings"
-                                   data-parent="#controlsList"
-                                   aria-label="{{ Twig.print('trans("Ceres::Template.headerCountry")') }}">
-                                    <i class="flag-icon flag-icon-{{ Twig.print('lang') }}"></i>
-                                </a>
-                            </li>
-                        {% endif %}
-
-                        {% if enableCurrencySelect %}
-                            <li class="list-inline-item dropdown control-languages">
-                                <a class="nav-link"
-                                   data-toggle="collapse"
-                                   href="#currencySelect"
-                                   aria-expanded="false"
-                                   aria-controls="currencySelect"
-                                   data-parent="#controlsList"
-                                   data-testing="currency-select"
-                                   aria-label="{{ Twig.print('trans("Ceres::Template.headerCurrency")') }}">
-                                    <span>{{ Twig.print("currencyData") }}</span>
-                                </a>
-                            </li>
-                        {% endif %}
-
-                        {% if enableWishList %}
-                            {{ Twig.if("services.url.isRouteEnabled(\"wish-list\")") }}
-                            <li class="list-inline-item control-wish-list">
-                                <lazy-hydrate when-idle>
-                                    <wish-list-count>
-                                        <a class="nav-link" aria-label="{{ Twig.print('trans("Ceres::Template.wishList")') }}">
-                                            <span class="badge-right mr-1 d-none d-sm-inline">0</span>
-                                            <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                        </a>
-                                    </wish-list-count>
-                                </lazy-hydrate>
-                            </li>
-                            {{ Twig.endif() }}
-                        {% endif %}
-
+                    
+                        <li class="list-inline-item control-user">
+                            <a href="/login" class="nav-link" aria-label="{{ Twig.print('trans("Ceres::Template.login")') }}">
+                                <i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
+                                <span class="d-none d-sm-inline">{{ Twig.print('trans("Ceres::Template.login")') }}</span>
+                            </a>
+                        </li>
+                       
+                        {{ Twig.if("services.url.isRouteEnabled(\"wish-list\")") }}
+                        <li class="list-inline-item control-wish-list">
+                            <lazy-hydrate when-idle>
+                                <wish-list-count>
+                                    <a class="nav-link" aria-label="{{ Twig.print('trans("Ceres::Template.wishList")') }}">
+                                        <span class="badge-right mr-1 d-none d-sm-inline">0</span>
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    </a>
+                                </wish-list-count>
+                            </lazy-hydrate>
+                        </li>
+                        {{ Twig.endif() }}
+                     
                         {% if enableBasketPreview %}
                             <li class="list-inline-item control-basket position-relative">
                                 <a v-toggle-basket-preview href="#" class="toggle-basket-preview nav-link" {{ Twig.print('set_testing_attr("data-testing", "basket-preview-button")') }}>

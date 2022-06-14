@@ -5,9 +5,9 @@
                 <div class="row position-relative">
 
                     <div class="col-12 mt-3">
-                        <h1 class="h2 title" data-testing="item-name">
+                        <h2 class="h2 title" data-testing="item-name">
                             <span>{{ currentVariation | itemName }}</span>
-                        </h1>
+                        </h2>
                     </div>
 
                     <div class="col-12 col-md-4 mt-2">
