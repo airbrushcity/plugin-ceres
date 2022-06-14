@@ -37410,7 +37410,7 @@ var render = function() {
               _c("div", { staticClass: "row position-relative" }, [
                 _c("div", { staticClass: "col-12 mt-3" }, [
                   _c(
-                    "h1",
+                    "h2",
                     {
                       staticClass: "h2 title",
                       attrs: { "data-testing": "item-name" }
