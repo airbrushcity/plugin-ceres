@@ -1229,6 +1229,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -37529,6 +37537,24 @@ var render = function() {
                         })
                       : _vm._e(),
                     _vm._v(" "),
+                    _c("item-availability"),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "my-2" }, [
+                      _c("h6", [
+                        _vm._v(
+                          "Versandgewicht: " +
+                            _vm._s(_vm.currentVariation.variation.weightG) +
+                            " Gramm."
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c("h6", [
+                        _vm._v("(Auslandsversand Lieferzeit 3 bis 14 Tage)")
+                      ])
+                    ]),
+                    _vm._v(" "),
                     _vm._t("before-price"),
                     _vm._v(" "),
                     _vm.currentVariation.filter.isSalable &&
@@ -37545,8 +37571,6 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _vm._t("after-price"),
-                    _vm._v(" "),
-                    _c("item-availability"),
                     _vm._v(" "),
                     _c("div", { staticClass: "my-3" }, [
                       _c(
@@ -38209,7 +38233,17 @@ var render = function() {
     2
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h6", [
+      _c("strong", [_vm._v("Deutschland:")]),
+      _vm._v(" Standard DHL Lieferzeit 1 bis 3 Tage.")
+    ])
+  }
+]
 render._withStripped = true
 
 
