@@ -53,6 +53,15 @@
                             <item-bundle v-if="currentVariation.variation.bundleType === 'bundle'" :bundle-type="currentVariation.variation.bundleType" :bundle-components="currentVariation.bundleComponents"></item-bundle>
                             <!-- /Item Bundle -->
 
+                            
+                            <item-availability></item-availability>
+
+                            <div class="my-2">
+                            <h6>Versandgewicht: {{ currentVariation.variation.weightG }} Gramm.</h6>
+                            <h6><strong>Deutschland:</strong> Standard DHL Lieferzeit 1 bis 3 Tage.</h6>
+                            <h6>(Auslandsversand Lieferzeit 3 bis 14 Tage)</h6>
+                            </div>
+
                             <slot name="before-price"></slot>
 
                             <div v-if="currentVariation.filter.isSalable && variationGroupedProperties.length">
@@ -65,7 +74,6 @@
 
                             <slot name="after-price"></slot>
 
-                            <item-availability></item-availability>
 
                             <div class="my-3">
                                 <div class="w-100">
