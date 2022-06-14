@@ -36438,7 +36438,7 @@ var render = function() {
             { staticClass: "single container-max page-content" },
             [
               _c("div", { staticClass: "row position-relative" }, [
-                _c("div", { staticClass: "col-12 mt-2" }, [
+                _c("div", { staticClass: "col-12 mt-3" }, [
                   _c(
                     "h1",
                     {
@@ -36550,7 +36550,7 @@ var render = function() {
                     _vm.attributes.length || Object.keys(_vm.units).length
                       ? _c(
                           "div",
-                          { staticClass: "mb-3" },
+                          { staticClass: "mb-0" },
                           [_c("variation-select")],
                           1
                         )
@@ -36626,7 +36626,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "col-12 col-sm-7 col-md-12 col-lg-8 my-3"
+                                "col-12 col-sm-7 col-md-12 col-lg-8 my-3 pl-0"
                             },
                             [
                               _c("add-to-basket", {

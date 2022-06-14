@@ -49607,7 +49607,7 @@ var render = function() {
         (_vm.currentVariation.prices.default.lowestPrice.value &&
         _vm.showCrossPrice &&
         _vm.hasCrossPrice
-          ? '<div class="lowest-price text-muted mb-3"><div>' +
+          ? '<div class="d-none lowest-price text-muted mb-3"><div>' +
             _vm._s(
               _vm.$translate("Ceres::Template.singleItemLowestPrice", {
                 price: _vm.currentVariation.prices.default.lowestPrice.formatted
@@ -49618,7 +49618,7 @@ var render = function() {
         " " +
         (_vm.currentVariation.unit
           ? "<div" +
-            _vm._ssrClass("base-price text-muted my-3 p-0", {
+            _vm._ssrClass("base-price text-muted my-1 p-0", {
               "is-single-piece":
                 _vm.currentVariation.unit.unitOfMeasurement === "C62"
             }) +
@@ -50811,7 +50811,7 @@ var render = function() {
             { staticClass: "single container-max page-content" },
             [
               _c("div", { staticClass: "row position-relative" }, [
-                _c("div", { staticClass: "col-12 mt-2" }, [
+                _c("div", { staticClass: "col-12 mt-3" }, [
                   _c(
                     "h1",
                     {
@@ -50923,7 +50923,7 @@ var render = function() {
                     _vm.attributes.length || Object.keys(_vm.units).length
                       ? _c(
                           "div",
-                          { staticClass: "mb-3" },
+                          { staticClass: "mb-0" },
                           [_c("variation-select")],
                           1
                         )
@@ -51002,7 +51002,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "col-12 col-sm-7 col-md-12 col-lg-8 my-3"
+                                "col-12 col-sm-7 col-md-12 col-lg-8 my-3 pl-0"
                             },
                             [
                               _c("add-to-basket", {

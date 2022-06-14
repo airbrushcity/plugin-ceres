@@ -4,7 +4,7 @@
             <div class="single container-max page-content">
                 <div class="row position-relative">
 
-                    <div class="col-12 mt-2">
+                    <div class="col-12 mt-3">
                         <h1 class="h2 title" data-testing="item-name">
                             <span>{{ currentVariation | itemName }}</span>
                         </h1>
@@ -44,7 +44,7 @@
                             </div>
 
                             <!-- Variation -->
-                            <div class="mb-3" v-if="attributes.length || Object.keys(units).length">
+                            <div class="mb-0" v-if="attributes.length || Object.keys(units).length">
                                 <variation-select></variation-select>
                             </div>
                             <!-- /Variation -->
@@ -83,7 +83,7 @@
                                 <div v-if="currentVariation.item.itemType === 'set'" class="alert alert-info w-100">
                                     {{ $translate("Ceres::Template.singleItemSetInfo") }}
                                 </div>
-                                <div v-else class="col-12 col-sm-7 col-md-12 col-lg-8 my-3">
+                                <div v-else class="col-12 col-sm-7 col-md-12 col-lg-8 my-3 pl-0">
                                     <add-to-basket
                                         :variation-id="currentVariation.variation.id"
                                         :is-salable="!!currentVariation.filter && currentVariation.filter.isSalable"

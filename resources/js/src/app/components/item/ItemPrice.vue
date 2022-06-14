@@ -38,13 +38,13 @@
         </ul>
 
         <!-- lowest price, according to § 11 PAngV -->
-        <div class="lowest-price text-muted mb-3" v-if="currentVariation.prices.default.lowestPrice.value && showCrossPrice && hasCrossPrice">
+        <div class="d-none lowest-price text-muted mb-3" v-if="currentVariation.prices.default.lowestPrice.value && showCrossPrice && hasCrossPrice">
             <div v-html="$translate('Ceres::Template.singleItemLowestPrice', {'price': currentVariation.prices.default.lowestPrice.formatted})">
             </div>
         </div>
        
         <!-- class .is-single-piece is added for customers to hide the unit if it is C62 -->
-        <div class="base-price text-muted my-3 p-0"
+        <div class="base-price text-muted my-1 p-0"
             v-if="currentVariation.unit"
             :class="{ 'is-single-piece': currentVariation.unit.unitOfMeasurement === 'C62' }">
             <div class="d-inline">
