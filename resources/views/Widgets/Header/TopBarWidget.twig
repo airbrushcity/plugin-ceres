@@ -107,6 +107,23 @@
                         {{ Twig.endif() }}
                         </li>
 
+                        {% if searchStyle == "onDemand" %}
+                            <li class="list-inline-item control-search d-lg-none">
+                                <a class="anicon anicon-search-xcross nav-link"
+                                    {{ WidgetHelper.makeClickable(isPreview) }}
+                                    data-toggle="collapse"
+                                    href="#searchBox"
+                                    aria-expanded="false"
+                                    aria-controls="searchBox"
+                                    data-testing="searchbox-select"
+                                    data-parent="#controlsList"
+                                    aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}"
+                                    @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
+                                    <span class="anicon-search-item" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                        {% endif %}
+
                         <li class="brand-wrapper list-inline-item control-big d-lg-none p-2">
                             <a href="/" class="navbar-brand p-0 mx-auto">
                                 <picture>
@@ -165,23 +182,6 @@
                                    data-testing="currency-select"
                                    aria-label="{{ Twig.print('trans("Ceres::Template.headerCurrency")') }}">
                                     <span>{{ Twig.print("currencyData") }}</span>
-                                </a>
-                            </li>
-                        {% endif %}
-
-                        {% if searchStyle == "onDemand" %}
-                            <li class="list-inline-item control-search d-lg-none">
-                                <a class="anicon anicon-search-xcross nav-link"
-                                    {{ WidgetHelper.makeClickable(isPreview) }}
-                                    data-toggle="collapse"
-                                    href="#searchBox"
-                                    aria-expanded="false"
-                                    aria-controls="searchBox"
-                                    data-testing="searchbox-select"
-                                    data-parent="#controlsList"
-                                    aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}"
-                                    @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
-                                    <span class="anicon-search-item" aria-hidden="true"></span>
                                 </a>
                             </li>
                         {% endif %}
