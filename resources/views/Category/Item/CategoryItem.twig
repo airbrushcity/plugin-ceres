@@ -54,7 +54,7 @@
                 </div>
             {% endif %}
 
-            <div class="list-controls mb-5">
+            <div class="d-md-none list-controls mb-5">
                 <div class="list-controls-inner p-2">
                     <div class="row">
                         <div class="col-12">
@@ -86,7 +86,7 @@
             </div>
 
             {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
-                <div class="list-controls mb-5 row">
+                <div class="d-md-none list-controls mb-5 row">
                     <div class="col-12">
                         <div class="float-right">
                             {% include "Ceres::Category.Item.Partials.Pagination" %}
@@ -109,6 +109,48 @@
                 {% endif %}
 
                 <div class="col-12 col-lg-{% if category is defined and ceresConfig.header.showNavBars in ["side", "both"] %}9{% else %}12{% endif %}">
+
+                    <div class="d-none d-md-block list-controls mb-5">
+                        <div class="list-controls-inner p-2">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="list-wrapper">
+                                        {% include "Ceres::Category.Item.Partials.ItemSorting" with { 'sortingData': searchOptions.sorting, 'selectedSorting': itemSorting } %}
+
+                                        {% include "Ceres::Category.Item.Partials.ItemsPerPage" with { 'itemsPerPage': searchOptions.itemsPerPage, 'selectedValue': itemsPerPage } %}
+
+                                        {% if overrideSearchFilters | trim is empty %}
+                                            <item-filter-list :facet-data="{{ facets | json_encode }}">
+                                                {% if facets | length > 0 %}
+                                                    <a class="btn btn-link filter-toggle">
+                                                        <i class="fa fa-sliders default-float" aria-hidden="true"></i> {{ trans("Ceres::Template.itemFilter") }}
+                                                    </a>
+                                                {% endif %}
+                                            </item-filter-list>
+                                        {% else %}
+                                            {{ overrideSearchFilters }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# TAGS #}
+                        <lazy-hydrate when-idle>
+                            <item-filter-tag-list :facet-data="{{ facets | json_encode }}"></item-filter-tag-list>
+                        </lazy-hydrate>
+                    </div>
+
+                    {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
+                        <div class="d-none d-md-block list-controls mb-5 row">
+                            <div class="col-12">
+                                <div class="float-right">
+                                    {% include "Ceres::Category.Item.Partials.Pagination" %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
                     {% if itemList is not empty %}
                         <ul class="product-list row grid">
                             {% for item in itemList %}
