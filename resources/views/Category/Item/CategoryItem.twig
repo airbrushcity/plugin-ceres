@@ -59,21 +59,17 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="list-wrapper">
+
+                            {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
+                                {% include "Ceres::Category.Item.Partials.Pagination" %}
+                            {% endif %}
+
+
                                 {% include "Ceres::Category.Item.Partials.ItemSorting" with { 'sortingData': searchOptions.sorting, 'selectedSorting': itemSorting } %}
 
                                 {% include "Ceres::Category.Item.Partials.ItemsPerPage" with { 'itemsPerPage': searchOptions.itemsPerPage, 'selectedValue': itemsPerPage } %}
 
-                                {% if overrideSearchFilters | trim is empty %}
-                                    <item-filter-list :facet-data="{{ facets | json_encode }}">
-                                        {% if facets | length > 0 %}
-                                            <a class="btn btn-link filter-toggle">
-                                                <i class="fa fa-sliders default-float" aria-hidden="true"></i> {{ trans("Ceres::Template.itemFilter") }}
-                                            </a>
-                                        {% endif %}
-                                    </item-filter-list>
-                                {% else %}
-                                    {{ overrideSearchFilters }}
-                                {% endif %}
+                                
                             </div>
                         </div>
                     </div>
@@ -85,21 +81,26 @@
                 </lazy-hydrate>
             </div>
 
-            {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
-                <div class="list-controls mb-5 row">
-                    <div class="col-12">
-                        <div class="float-right">
-                            {% include "Ceres::Category.Item.Partials.Pagination" %}
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
 
             <div class="row">
 
                 {% if category is defined and ceresConfig.header.showNavBars in ["side", "both"] %}
                     <div class="col-3 d-none d-lg-block">
                         <div class="sidebar-categories">
+
+                            {% if overrideSearchFilters | trim is empty %}
+                                    <item-filter-list :facet-data="{{ facets | json_encode }}">
+                                        {% if facets | length > 0 %}
+                                            <a class="btn btn-link filter-toggle">
+                                                <i class="fa fa-sliders default-float" aria-hidden="true"></i> {{ trans("Ceres::Template.itemFilter") }}
+                                            </a>
+                                        {% endif %}
+                                    </item-filter-list>
+                                {% else %}
+                                    {{ overrideSearchFilters }}
+                                {% endif %}
+
+
                             <div class="category-title">{{ trans("Ceres::Template.itemCategories") }}</div>
                             {{ include('Ceres::PageDesign.Partials.Header.SideNavigation.twig') }}
                         </div>
