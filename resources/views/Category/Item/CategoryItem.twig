@@ -75,42 +75,22 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="list-wrapper">
+                                        {% include "Ceres::Category.Item.Partials.ItemSorting" with { 'sortingData': searchOptions.sorting, 'selectedSorting': itemSorting } %}
 
-                                        <div class="row">
-                                            <div class="col-12 col-md-6">
-                                                <div class="float-left">
-                                                    {% include "Ceres::Category.Item.Partials.ItemSorting" with { 'sortingData': searchOptions.sorting, 'selectedSorting': itemSorting } %}
-
-                                                    {% include "Ceres::Category.Item.Partials.ItemsPerPage" with { 'itemsPerPage': searchOptions.itemsPerPage, 'selectedValue': itemsPerPage } %}
-                                                </div>
-
-                                                <div class="d-md-none">
-                                                    {% if overrideSearchFilters | trim is empty %}
-                                                        <item-filter-list :facet-data="{{ facets | json_encode }}">
-                                                            {% if facets | length > 0 %}
-                                                                <a class="btn btn-link filter-toggle">
-                                                                    <i class="fa fa-sliders default-float" aria-hidden="true"></i> {{ trans("Ceres::Template.itemFilter") }}
-                                                                </a>
-                                                            {% endif %}
-                                                        </item-filter-list>
-                                                    {% else %}
-                                                        {{ overrideSearchFilters }}
-                                                    {% endif %}
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12 col-md-6 float-right">
-                                            {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
-                                                <div class="list-controls mb-5 row">
-                                                    <div class="col-12">
-                                                        <div class="float-right">
-                                                            {% include "Ceres::Category.Item.Partials.Pagination" %}
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                        {% include "Ceres::Category.Item.Partials.ItemsPerPage" with { 'itemsPerPage': searchOptions.itemsPerPage, 'selectedValue': itemsPerPage } %}
+    
+                                        <div class="d-md-none">
+                                            {% if overrideSearchFilters | trim is empty %}
+                                            <item-filter-list :facet-data="{{ facets | json_encode }}">
+                                                {% if facets | length > 0 %}
+                                                    <a class="btn btn-link filter-toggle">
+                                                        <i class="fa fa-sliders default-float" aria-hidden="true"></i> {{ trans("Ceres::Template.itemFilter") }}
+                                                    </a>
                                             {% endif %}
-                                            </div>
-
+                                            </item-filter-list>
+                                            {% else %}
+                                                {{ overrideSearchFilters }}
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -123,7 +103,15 @@
                         </lazy-hydrate>
                     </div>
 
-
+                    {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
+                    <div class="list-controls mb-1 row">
+                        <div class="col-12">
+                            <div class="float-right">
+                                {% include "Ceres::Category.Item.Partials.Pagination" %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
 
                     {% if itemList is not empty %}
                         <ul class="product-list row grid">
