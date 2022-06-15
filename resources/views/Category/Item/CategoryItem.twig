@@ -54,17 +54,22 @@
                 </div>
             {% endif %}
 
-            <div class="list-controls mb-5">
+            <div class="list-controls mb-2">
                 <div class="list-controls-inner p-2">
                     <div class="row">
-                        <div class="col-12">
-                            <div class="list-wrapper">
-                                <div class="float-left">
-                                    <div class="list-controls">
-                                        {% include "Ceres::Category.Item.Partials.Pagination" %}
+                        <div class="list-wrapper">
+                            <div class="col-6">
+                            {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
+                                <div class="list-controls mb-5 row">
+                                    <div class="col-12">
+                                        <div class="float-right">
+                                            {% include "Ceres::Category.Item.Partials.Pagination" %}
+                                        </div>
                                     </div>
                                 </div>
-
+                            {% endif %}
+                            </div>
+                            <div class="col-6">
                                 <div class="float-right">
                                     {% include "Ceres::Category.Item.Partials.ItemSorting" with { 'sortingData': searchOptions.sorting, 'selectedSorting': itemSorting } %}
                                     {% include "Ceres::Category.Item.Partials.ItemsPerPage" with { 'itemsPerPage': searchOptions.itemsPerPage, 'selectedValue': itemsPerPage } %}
@@ -73,11 +78,6 @@
                         </div>
                     </div>
                 </div>
-
-                {# TAGS #}
-                <lazy-hydrate when-idle>
-                    <item-filter-tag-list :facet-data="{{ facets | json_encode }}"></item-filter-tag-list>
-                </lazy-hydrate>
             </div>
 
 
@@ -86,7 +86,6 @@
                 {% if category is defined and ceresConfig.header.showNavBars in ["side", "both"] %}
                     <div class="col-3 d-none d-lg-block">
                         <div class="sidebar-categories">
-
                             {% if overrideSearchFilters | trim is empty %}
                                     <item-filter-list :facet-data="{{ facets | json_encode }}">
                                         {% if facets | length > 0 %}
@@ -96,12 +95,12 @@
                                         {% endif %}
                                     </item-filter-list>
                                 {% else %}
-                                    {{ overrideSearchFilters }}
-                                {% endif %}
-
-
-                            <div class="category-title">{{ trans("Ceres::Template.itemCategories") }}</div>
-                            {{ include('Ceres::PageDesign.Partials.Header.SideNavigation.twig') }}
+                                {{ overrideSearchFilters }}
+                            {% endif %}
+                            {# TAGS #}
+                            <lazy-hydrate when-idle>
+                                <item-filter-tag-list :facet-data="{{ facets | json_encode }}"></item-filter-tag-list>
+                            </lazy-hydrate>
                         </div>
 
                         {{ LayoutContainer.show("Ceres::CategoryItem.SideNavBarBottom") }}
