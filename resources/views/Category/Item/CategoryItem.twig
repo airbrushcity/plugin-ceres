@@ -49,21 +49,21 @@
                 {% if category is defined and ceresConfig.header.showNavBars in ["side", "both"] %}
                     <div class="col-3 d-none d-lg-block">
                         <div class="sidebar-categories">
+
                         {% if shopBuilderTemplate | trim is not empty or isShopBuilder %}
+                            {% set currentCategory = services.category.getCurrentCategory() %}
+                            {% set shopBuilderTemplate = shop_builder_category_template(category.id, listType, "linke-spalte") %}
                             <div class="row">
                                 <div class="col-12">
-                                {% set currentCategory = services.category.getCurrentCategory() %}
-                                {% set shopBuilderTemplate = shop_builder_category_template(category.id, listType, "linke-spalte") %}
                                     {{ shopBuilderTemplate | raw }}
                                 </div>
                             </div>
                         {% endif %}
-
+                        
                         </div>
 
                         {{ LayoutContainer.show("Ceres::CategoryItem.SideNavBarBottom") }}
                     </div>
-
                 {% endif %}
 
                 <div class="col-12 col-lg-{% if category is defined and ceresConfig.header.showNavBars in ["side", "both"] %}9{% else %}12{% endif %}">
