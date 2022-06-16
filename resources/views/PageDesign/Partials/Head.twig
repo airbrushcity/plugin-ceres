@@ -26,6 +26,7 @@
 <link rel="alternate" hreflang="{{language}}" href="{{url}}"/>
 {% endfor %}
 {% endif %}
+{# add load fonts #}
 <style data-font="Custom-Font">
 {# add icons loading #}
 .icons-loading .fa { visibility: hidden !important; }
@@ -65,6 +66,7 @@
         font-style: italic;
     }
     {% endif %}
+{# End of fonts loading #}
 </style>
 {# fallback for disabled javascript #}
 <noscript><link rel="stylesheet" href="{{ iconCSS }}"></noscript>
