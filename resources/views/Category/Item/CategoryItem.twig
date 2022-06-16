@@ -6,8 +6,19 @@
 
 {% block PageBody %}
     {% set listType = isSearch ? "itemsearch" : "categoryitem" %}
-    
-    <div class="p-3">
+    {% set shopBuilderTemplate = shop_builder_category_template(category.id, listType) %}
+
+    {% if shopBuilderTemplate | trim is not empty or isShopBuilder %}
+
+        <div class="categoriegrid pt-0 page-content container-max">
+            <div class="row">
+                <div class="col-12">
+                    {{ shopBuilderTemplate | raw }}
+                </div>
+            </div>
+        </div>
+
+    {% else %}
 
         {% if category is defined and ceresConfig.item.showCategoryImage %}
             {% include "Ceres::Category.Item.Partials.CategoryParallaxImage" with { 'category': category } %}
@@ -43,80 +54,62 @@
                 </div>
             {% endif %}
 
+            <div class="list-controls mb-5">
+                <div class="list-controls-inner p-2">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="list-wrapper">
+                                {% include "Ceres::Category.Item.Partials.ItemSorting" with { 'sortingData': searchOptions.sorting, 'selectedSorting': itemSorting } %}
+
+                                {% include "Ceres::Category.Item.Partials.ItemsPerPage" with { 'itemsPerPage': searchOptions.itemsPerPage, 'selectedValue': itemsPerPage } %}
+
+                                {% if overrideSearchFilters | trim is empty %}
+                                    <item-filter-list :facet-data="{{ facets | json_encode }}">
+                                        {% if facets | length > 0 %}
+                                            <a class="btn btn-link filter-toggle">
+                                                <i class="fa fa-sliders default-float" aria-hidden="true"></i> {{ trans("Ceres::Template.itemFilter") }}
+                                            </a>
+                                        {% endif %}
+                                    </item-filter-list>
+                                {% else %}
+                                    {{ overrideSearchFilters }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {# TAGS #}
+                <lazy-hydrate when-idle>
+                    <item-filter-tag-list :facet-data="{{ facets | json_encode }}"></item-filter-tag-list>
+                </lazy-hydrate>
+            </div>
+
+            {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
+                <div class="list-controls mb-5 row">
+                    <div class="col-12">
+                        <div class="float-right">
+                            {% include "Ceres::Category.Item.Partials.Pagination" %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
 
             <div class="row">
 
                 {% if category is defined and ceresConfig.header.showNavBars in ["side", "both"] %}
                     <div class="col-3 d-none d-lg-block">
                         <div class="sidebar-categories">
-
-                        {% if shopBuilderTemplate | trim is not empty or isShopBuilder %}
-                            {% set currentCategory = services.category.getCurrentCategory() %}
-                            {% set shopBuilderTemplate = shop_builder_category_template(category.id, listType, "linke-spalte") %}
-                            <div class="row">
-                                <div class="col-12">
-                                    {{ shopBuilderTemplate | raw }}
-                                </div>
-                            </div>
-                        {% endif %}
-                        
+                            <div class="category-title">{{ trans("Ceres::Template.itemCategories") }}</div>
+                            {{ include('Ceres::PageDesign.Partials.Header.SideNavigation.twig') }}
                         </div>
 
                         {{ LayoutContainer.show("Ceres::CategoryItem.SideNavBarBottom") }}
                     </div>
+
                 {% endif %}
 
                 <div class="col-12 col-lg-{% if category is defined and ceresConfig.header.showNavBars in ["side", "both"] %}9{% else %}12{% endif %}">
-
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <div class="list-controls mb-0">
-                                <div class="list-controls-inner p-2">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="list-wrapper">
-                                                {% include "Ceres::Category.Item.Partials.ItemSorting" with { 'sortingData': searchOptions.sorting, 'selectedSorting': itemSorting } %}
-
-                                                {% include "Ceres::Category.Item.Partials.ItemsPerPage" with { 'itemsPerPage': searchOptions.itemsPerPage, 'selectedValue': itemsPerPage } %}
-            
-                                                <div class="d-md-none">
-                                                    {% if overrideSearchFilters | trim is empty %}
-                                                    <item-filter-list :facet-data="{{ facets | json_encode }}">
-                                                        {% if facets | length > 0 %}
-                                                            <a class="btn btn-link filter-toggle">
-                                                                <i class="fa fa-sliders default-float" aria-hidden="true"></i> {{ trans("Ceres::Template.itemFilter") }}
-                                                            </a>
-                                                    {% endif %}
-                                                    </item-filter-list>
-                                                    {% else %}
-                                                        {{ overrideSearchFilters }}
-                                                    {% endif %}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {# TAGS #}
-                                <lazy-hydrate when-idle>
-                                    <item-filter-tag-list :facet-data="{{ facets | json_encode }}"></item-filter-tag-list>
-                                </lazy-hydrate>
-                            </div>
-                        </div>
-                    
-                        <div class="col-12 col-md-6">
-                            {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
-                            <div class="list-controls mb-0 pt-md-3 row">
-                                <div class="col-12">
-                                    <div class="float-right">
-                                        {% include "Ceres::Category.Item.Partials.Pagination" %}
-                                    </div>
-                                </div>
-                            </div>
-                            {% endif %}
-                        </div>
-                    </div>
-
                     {% if itemList is not empty %}
                         <ul class="product-list row grid">
                             {% for item in itemList %}
@@ -163,24 +156,23 @@
                 </div>
             {% endif %}
         </div>
-    
-    </div>
+    {% endif %}
 
 {% endblock %}
 
+{% block PartialHead2 %}
+{% set canonicalUrl = services.url.getCanonicalURL(null, true) %}
+{% if currentPage == 2 %}
+<link rel="prev" href="{{ canonicalUrl ~ queryString({'page': null}) }}" />
+{% elseif currentPage > 2 %}
+<link rel="prev" href="{{ canonicalUrl ~ queryString({'page': currentPage - 1}) }}" />
+{% endif %}
+{% if currentPage + 1 <= pageMax %}
+<link rel="next" href="{{ canonicalUrl ~ queryString({'page': currentPage + 1}) }}" />
+{% endif %}
+{% endblock %}
+
 {% block PartialHead %}
-    {% set canonicalUrl = services.url.getCanonicalURL(null, true) %}
-
-    {% if currentPage == 2 %}
-        <link rel="prev" href="{{ canonicalUrl ~ queryString({'page': null}) }}" />
-    {% elseif currentPage > 2 %}
-        <link rel="prev" href="{{ canonicalUrl ~ queryString({'page': currentPage - 1}) }}" />
-    {% endif %}
-
-    {% if currentPage + 1 <= pageMax %}
-        <link rel="next" href="{{ canonicalUrl ~ queryString({'page': currentPage + 1}) }}" />
-    {% endif %}
-
     {% if category is null %}
         {% if '&' in queryString() %}
             {% set robotsValue = 'NOINDEX' %}
