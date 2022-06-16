@@ -28,9 +28,8 @@
 {% endif %}
 {# add load fonts #}
 <style data-font="Custom-Font">
-{# add icons loading #}
-.icons-loading .fa { visibility: hidden !important; }
-    {% if customFont.regular %}
+
+{% if customFont.regular %}
     {{ add_asset(customFont.regular, 'font', 'preload', {'crossorigin': true}) }}
     @font-face {
         font-family: "Custom-Font";
@@ -65,8 +64,10 @@
         font-weight: bold;
         font-style: italic;
     }
-    {% endif %}
-{# End of fonts loading #}
+{% endif %}
+
+.icons-loading .fa { visibility: hidden !important; }
+
 </style>
 {# fallback for disabled javascript #}
 <noscript><link rel="stylesheet" href="{{ iconCSS }}"></noscript>
