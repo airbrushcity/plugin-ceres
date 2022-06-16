@@ -1,11 +1,9 @@
-{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 {% spaceless %}
-
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 {% set iconCSS = plugin_path("Ceres") ~ "/css/ceres-icons.css" %}
 {# asynchronously load icons.css #}
 {% set defaultCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".css?v=" ~ buildHash %}
 {% set defaultSCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".scss?v=" ~ buildHash %}
-
 {% set canonicalUrl = services.url.getCanonicalURL() %}
 {% set languageUrls = services.url.getLanguageURLs() %}
 {% set customFont =
@@ -28,7 +26,6 @@
 {% endif %}
 
 <style>.icons-loading .fa { visibility: hidden !important; }</style>
-
 {% if customFont.regular %}
 <style data-font="Custom-Font">
     {{ add_asset(customFont.regular, 'font', 'preload', {'crossorigin': true}) }}
@@ -67,7 +64,6 @@
     }
 </style>
 {% endif %}
-
 {# fallback for disabled javascript #}
 <noscript><link rel="stylesheet" href="{{ iconCSS }}"></noscript>
 {% if LayoutContainer.show("Ceres::Template.StyleOverwrite") | trim is empty %}
