@@ -64,6 +64,7 @@
     }
 </style>
 {% endif %}
+
 {# fallback for disabled javascript #}
 <noscript><link rel="stylesheet" href="{{ iconCSS }}"></noscript>
 {% if LayoutContainer.show("Ceres::Template.StyleOverwrite") | trim is empty %}
@@ -72,10 +73,11 @@
 {% if isShopBuilder %}
 <link rel="stylesheet" href="{{ plugin_path("Ceres") }}/css/ceres-shopbuilder.css?v={{ buildHash }}">
 {% endif %}
-{# add preload polyfill #}
+{% spaceless %}
 {{ LayoutContainer.show("Ceres::Template.StyleOverwrite") }}
 {{ LayoutContainer.show("Ceres::Template.Style") }}
 {{ get_shop_builder_styles() }}
+{% endspaceless %}
 
 <script>
 /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */

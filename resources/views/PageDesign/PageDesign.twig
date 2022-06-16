@@ -17,7 +17,8 @@
 <html lang="{{ lang }}" data-framework="vue" prefix="og: http://ogp.me/ns#" class="icons-loading">
 <head>
 {% block PartialHead %}{% embed getPartial('page-metadata') %}{% endembed %}{% endblock %}
-{% block PartialHead2 %}{% endblock %}
+{% block PartialHead2 %}
+{% endblock %}
 {% include getPartial('head') %}
 {% for styleTemplate in get_additional_styles() %}
 {% include styleTemplate.path ignore missing with styleTemplate.params %}
