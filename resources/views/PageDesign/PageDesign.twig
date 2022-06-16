@@ -14,50 +14,34 @@
 {% set defaultLanguage = webstoreConfig.defaultLanguage %}
 
 {% endspaceless %}<!DOCTYPE html>
-
 <html lang="{{ lang }}" data-framework="vue" prefix="og: http://ogp.me/ns#" class="icons-loading">
-
 <head>
-    {{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningHeadTag") }}
-
-    {% include getPartial('head') %}
-
-    {% block PartialHead %}
-        {% embed getPartial('page-metadata') %}{% endembed %}
-    {% endblock %}
-
-    {% block PartialHead2 %}
-    {% endblock %}
-
-    {% for styleTemplate in get_additional_styles() %}
-        {% include styleTemplate.path ignore missing with styleTemplate.params %}
-    {% endfor %}
-
-    {% if assetName == 'ceres-checkout' %}
-        {{ LayoutContainer.show("Ceres::Checkout.Styles") }}
-    {% endif %}
-    {% if isItem %}
-        {{ LayoutContainer.show("Ceres::SingleItem.Styles") }}
-    {% endif %}
-
-
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="plentymarkets" />
+<meta name="format-detection" content="telephone=no"> {# avoid DOM manipulation by Safari #}
+{{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningHeadTag") }}
+{% include getPartial('head') %}
+{% block PartialHead %}
+{% embed getPartial('page-metadata') %}{% endembed %}
+{% endblock %}
+{% block PartialHead2 %}
+{% endblock %}
+{% for styleTemplate in get_additional_styles() %}
+{% include styleTemplate.path ignore missing with styleTemplate.params %}
+{% endfor %}
+{% if assetName == 'ceres-checkout' %}
+{{ LayoutContainer.show("Ceres::Checkout.Styles") }}
+{% endif %}
+{% if isItem %}
+{{ LayoutContainer.show("Ceres::SingleItem.Styles") }}
+{% endif %}
 </head>
 
 <body class="{{ bodyClasses | join(' ') }} {% if request.get('openBasketPreview') == 1 %} basket-open{% endif %}">
-
 {{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningBodyTag") }}
-
-<script>
-    if('ontouchstart' in document.documentElement)
-    {
-        document.body.classList.add("touch");
-    }
-    else
-    {
-        document.body.classList.add("no-touch");
-    }
-</script>
-
+<script>if('ontouchstart' in document.documentElement){document.body.classList.add("touch");}else{document.body.classList.add("no-touch");}</script>
 <!-- SSR:app() -->
 <div id="vue-app" class="app">
     {{ context.renderState() }}
