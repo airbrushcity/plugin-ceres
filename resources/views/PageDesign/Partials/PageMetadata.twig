@@ -1,5 +1,5 @@
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 {% spaceless %}
-
 {% set defaultFavicon = '/tpl/favicon_' ~ webstoreConfig.webstoreId ~ '.ico' %}
 {% set iconCSS = plugin_path("Ceres") ~ "/css/ceres-icons.css" %}
 {# asynchronously load icons.css #}
@@ -59,7 +59,6 @@
 {% if not (image starts with 'https://' or image starts with 'http://' or image starts with 'layout/'or image starts with '/documents/') %}
     {% set image = plugin_path('Ceres') ~ "/" ~ image %}
 {% endif %}
-
 
 {% endspaceless %}
 <link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">
