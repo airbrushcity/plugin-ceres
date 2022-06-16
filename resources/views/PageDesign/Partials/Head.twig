@@ -26,9 +26,9 @@
 <link rel="alternate" hreflang="{{language}}" href="{{url}}"/>
 {% endfor %}
 {% endif %}
-{# add load fonts #}
-<style data-font="Custom-Font">
 
+{# add load fonts #}{% spaceless %}
+<style data-font="Custom-Font">
 {% if customFont.regular %}
     {{ add_asset(customFont.regular, 'font', 'preload', {'crossorigin': true}) }}
     @font-face {
@@ -67,8 +67,7 @@
 {% endif %}
 
 .icons-loading .fa { visibility: hidden !important; }
-
-</style>
+</style>{% endspaceless %}
 {# fallback for disabled javascript #}
 <noscript><link rel="stylesheet" href="{{ iconCSS }}"></noscript>
 {% if LayoutContainer.show("Ceres::Template.StyleOverwrite") | trim is empty %}
