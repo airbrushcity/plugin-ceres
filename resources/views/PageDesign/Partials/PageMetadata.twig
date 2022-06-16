@@ -61,9 +61,10 @@
 {% endif %}
 {% endspaceless %}
 
-<link rel="preload" as="style" href="{{ defaultCSS }}">
-<meta name="robots" content="{% if forceNoIndex %}NOINDEX{% else %}{{ robots }}{% endif %}">
 <meta charset="utf-8">
+<meta name="robots" content="{% if forceNoIndex %}NOINDEX{% else %}{{ robots }}{% endif %}">
+<link rel="preload" href="{{ iconCSS }}" as="style" onload="this.onload=null;this.rel='stylesheet';">
+<link rel="preload" as="style" href="{{ defaultCSS }}">
 
 <title>{{ title | trim | raw }}</title>
 {% if description | trim is not empty %}
@@ -99,4 +100,3 @@
 </script>
 
 <link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">
-<link rel="preload" href="{{ iconCSS }}" as="style" onload="this.onload=null;this.rel='stylesheet';">

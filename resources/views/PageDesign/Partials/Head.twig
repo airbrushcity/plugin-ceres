@@ -27,9 +27,10 @@
 {% endfor %}
 {% endif %}
 
-{# add load fonts #}
-<style data-font="Custom-Font">
+<style>.icons-loading .fa { visibility: hidden !important; }</style>
+
 {% if customFont.regular %}
+<style data-font="Custom-Font">
     {{ add_asset(customFont.regular, 'font', 'preload', {'crossorigin': true}) }}
     @font-face {
         font-family: "Custom-Font";
@@ -64,9 +65,9 @@
         font-weight: bold;
         font-style: italic;
     }
-{% endif %}
-.icons-loading .fa { visibility: hidden !important; }
 </style>
+{% endif %}
+
 {# fallback for disabled javascript #}
 <noscript><link rel="stylesheet" href="{{ iconCSS }}"></noscript>
 {% if LayoutContainer.show("Ceres::Template.StyleOverwrite") | trim is empty %}
