@@ -1,5 +1,5 @@
-{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 {% spaceless %}
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 {% set defaultFavicon = '/tpl/favicon_' ~ webstoreConfig.webstoreId ~ '.ico' %}
 {% set iconCSS = plugin_path("Ceres") ~ "/css/ceres-icons.css" %}
 {# asynchronously load icons.css #}
@@ -59,14 +59,9 @@
 {% if not (image starts with 'https://' or image starts with 'http://' or image starts with 'layout/'or image starts with '/documents/') %}
     {% set image = plugin_path('Ceres') ~ "/" ~ image %}
 {% endif %}
-
-{% endspaceless %}
-
-{# add favicon #}
+{% endspaceless %}{# add favicon #}
 <link rel="preload" href="{{ iconCSS }}" as="style" onload="this.onload=null;this.rel='stylesheet';">
 <link rel="preload" as="style" href="{{ defaultCSS }}">
-<link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">
-
 <title>{{ title | trim | raw }}</title>
 {% if description | trim is not empty %}
 <meta name="description" content="{{ description | trim }}">
@@ -99,3 +94,5 @@
 }
 {% endblock %}
 </script>
+
+<link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">

@@ -17,7 +17,6 @@
     }
 %}
 {% endspaceless %}
-
 {% if canonicalUrl is not null %}
 <link rel="canonical" href="{{ canonicalUrl  ~ services.url.getCanonicalQueryString() }}">
 {% endif %}
@@ -65,10 +64,8 @@
         font-style: italic;
     }
 {% endif %}
-
 .icons-loading .fa { visibility: hidden !important; }
 </style>
-
 {# fallback for disabled javascript #}
 <noscript><link rel="stylesheet" href="{{ iconCSS }}"></noscript>
 {% if LayoutContainer.show("Ceres::Template.StyleOverwrite") | trim is empty %}

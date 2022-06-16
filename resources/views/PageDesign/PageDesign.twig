@@ -18,13 +18,10 @@
 <head>
 <meta charset="utf-8">
 {{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningHeadTag") }}
-{% block PartialHead %}
-{% embed getPartial('page-metadata') %}{% endembed %}
-{% endblock %}
+{% block PartialHead %}{% embed getPartial('page-metadata') %}{% endembed %}{% endblock %}
 {% include getPartial('head') %}
 {% block PartialHead2 %}
 {% endblock %}
-
 {% for styleTemplate in get_additional_styles() %}
 {% include styleTemplate.path ignore missing with styleTemplate.params %}
 {% endfor %}
