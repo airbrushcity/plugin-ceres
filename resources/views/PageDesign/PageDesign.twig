@@ -17,15 +17,11 @@
 <html lang="{{ lang }}" data-framework="vue" prefix="og: http://ogp.me/ns#" class="icons-loading">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="format-detection" content="telephone=no"> {# avoid DOM manipulation by Safari #}
 {{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningHeadTag") }}
 {% block PartialHead %}
 {% embed getPartial('page-metadata') %}{% endembed %}
 {% endblock %}
 {% include getPartial('head') %}
-
 {% block PartialHead2 %}
 {% endblock %}
 

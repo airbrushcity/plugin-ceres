@@ -63,18 +63,21 @@
 {% endspaceless %}
 
 {# add favicon #}
-<link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">
 <link rel="preload" href="{{ iconCSS }}" as="style" onload="this.onload=null;this.rel='stylesheet';">
 <link rel="preload" as="style" href="{{ defaultCSS }}">
-<meta name="robots" content="{% if forceNoIndex %}NOINDEX{% else %}{{ robots }}{% endif %}">
+<link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">
+
+<title>{{ title | trim | raw }}</title>
 {% if description | trim is not empty %}
 <meta name="description" content="{{ description | trim }}">
 {% endif %}
 {% if keywords | trim is not empty %}
 <meta name="keywords" content="{{ keywords | trim }}">
 {% endif %}
-<title>{{ title | trim | raw }}</title>
-
+<meta name="robots" content="{% if forceNoIndex %}NOINDEX{% else %}{{ robots }}{% endif %}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no"> {# avoid DOM manipulation by Safari #}
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta property="og:title" content="{{ title | trim | raw }}"/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="{{ url | trim }}"/>
