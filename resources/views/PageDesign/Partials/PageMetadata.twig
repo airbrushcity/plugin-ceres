@@ -58,9 +58,9 @@
 
 {% if not (image starts with 'https://' or image starts with 'http://' or image starts with 'layout/'or image starts with '/documents/') %}
     {% set image = plugin_path('Ceres') ~ "/" ~ image %}
-{% endif %}
-{% endspaceless %}
+{% endif %}{% endspaceless %}
 
+<link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">
 <link rel="preload" href="{{ iconCSS }}" as="style" onload="this.onload=null;this.rel='stylesheet';">
 <link rel="preload" as="style" href="{{ defaultCSS }}">
 
@@ -80,7 +80,6 @@
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="{{ url | trim }}"/>
 <meta property="og:image" content="{{ image | trim }}"/>
-
 <script type="application/ld+json">
 {% block schemaOrg %}
 {
@@ -97,5 +96,3 @@
 }
 {% endblock %}
 </script>
-
-<link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">
