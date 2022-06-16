@@ -1,8 +1,6 @@
 {% spaceless %}
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 {% set defaultFavicon = '/tpl/favicon_' ~ webstoreConfig.webstoreId ~ '.ico' %}
-{% set iconCSS = plugin_path("Ceres") ~ "/css/ceres-icons.css" %}
-{# asynchronously load icons.css #}
 {% set defaultCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".css?v=" ~ buildHash %}
 {% set defaultSCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".scss?v=" ~ buildHash %}
 
@@ -63,7 +61,6 @@
 
 <meta charset="utf-8">
 <meta name="robots" content="{% if forceNoIndex %}NOINDEX{% else %}{{ robots }}{% endif %}">
-<link rel="preload" href="{{ iconCSS }}" as="style" onload="this.onload=null;this.rel='stylesheet';">
 <link rel="preload" as="style" href="{{ defaultCSS }}">
 
 <title>{{ title | trim | raw }}</title>
