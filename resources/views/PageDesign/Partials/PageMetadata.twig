@@ -58,10 +58,10 @@
 
 {% if not (image starts with 'https://' or image starts with 'http://' or image starts with 'layout/'or image starts with '/documents/') %}
     {% set image = plugin_path('Ceres') ~ "/" ~ image %}
-{% endif %}{% endspaceless %}<link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">
+{% endif %}{% endspaceless %}
+<link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">
 <link rel="preload" href="{{ iconCSS }}" as="style" onload="this.onload=null;this.rel='stylesheet';">
 <link rel="preload" as="style" href="{{ defaultCSS }}">
-
 <title>{{ title | trim | raw }}</title>
 {% if description | trim is not empty %}
 <meta name="description" content="{{ description | trim }}">
@@ -69,7 +69,6 @@
 {% if keywords | trim is not empty %}
 <meta name="keywords" content="{{ keywords | trim }}">
 {% endif %}
-
 <meta name="robots" content="{% if forceNoIndex %}NOINDEX{% else %}{{ robots }}{% endif %}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="format-detection" content="telephone=no"> {# avoid DOM manipulation by Safari #}
