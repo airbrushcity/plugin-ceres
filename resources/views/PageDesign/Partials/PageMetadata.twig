@@ -1,13 +1,21 @@
-{% set details = null %}
-{% if category is defined and category is not null %}
-    {% set details = category.details[0] %}
-{% endif %}
+{% spaceless %}
 
+{% set defaultFavicon = '/tpl/favicon_' ~ webstoreConfig.webstoreId ~ '.ico' %}
+{% set iconCSS = plugin_path("Ceres") ~ "/css/ceres-icons.css" %}
+{# asynchronously load icons.css #}
+{% set defaultCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".css?v=" ~ buildHash %}
+{% set defaultSCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".scss?v=" ~ buildHash %}
+
+{% set details = null %}
 {% set robots = '' %}
 {% set description = '' %}
 {% set keywords = '' %}
 {% set image = '' %}
 {% set title = '' %}
+
+{% if category is defined and category is not null %}
+    {% set details = category.details[0] %}
+{% endif %}
 
 {% if block('robots') is defined %}
     {% set robots = block('robots') | default('NOINDEX, NOFOLLOW') %}
@@ -52,13 +60,20 @@
     {% set image = plugin_path('Ceres') ~ "/" ~ image %}
 {% endif %}
 
+
+{% endspaceless %}
+<link rel="icon" type="img/ico" href="{{ webstoreConfig.faviconPath | default(ceresConfig.global.favicon) | default(defaultFavicon) }}">
+<link rel="preload" href="{{ iconCSS }}" as="style" onload="this.onload=null;this.rel='stylesheet';">
+<link rel="preload" as="style" href="{{ defaultCSS }}">
 <meta name="robots" content="{% if forceNoIndex %}NOINDEX{% else %}{{ robots }}{% endif %}">
 {% if description | trim is not empty %}
-    <meta name="description" content="{{ description | trim }}">
+<meta name="description" content="{{ description | trim }}">
 {% endif %}
 {% if keywords | trim is not empty %}
-    <meta name="keywords" content="{{ keywords | trim }}">
+<meta name="keywords" content="{{ keywords | trim }}">
 {% endif %}
+<title>{{ title | trim | raw }}</title>
+
 <meta property="og:title" content="{{ title | trim | raw }}"/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="{{ url | trim }}"/>
@@ -80,5 +95,3 @@
 }
 {% endblock %}
 </script>
-
-<title>{{ title | trim | raw }}</title>
