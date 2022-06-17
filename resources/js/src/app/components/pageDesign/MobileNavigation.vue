@@ -1,8 +1,7 @@
 <template>
-    <div class="mobile-navigation-wrapper h-100 empty" :class="{ 'open': isMobileNavigationOpen }">
-        <div class="position-relative h-100">
-            <div class="mobile-navigation d-flex flex-column flex-nowrap bg-white shadow w-100">
-                <div v-show="isNavigationInitialized">
+    <div class="mobile-navigation" :class="{ 'open': isMobileNavigationOpen }">
+        <div v-show="isNavigationInitialized">
+                    
                     <ul class="breadcrumb d-block px-3 py-0">
                         <li class="btn-close" @click="closeNavigation()"></li>
 
@@ -63,9 +62,8 @@
                             </li>
                         </template>
                     </ul>
-                </div>
-            </div>
         </div>
+
 
         <template v-if="!isNavigationInitialized">
             <ul class="breadcrumb">
@@ -78,8 +76,6 @@
 
             <loading-animation></loading-animation>
         </template>
-
-        <div class="mobile-navigation-overlay"></div>
     </div>
 </template>
 

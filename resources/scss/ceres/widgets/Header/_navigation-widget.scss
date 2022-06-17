@@ -88,7 +88,7 @@
 
 // When mobile navigation is open
 body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
-    position: fixed;
+    position: relative;
     overflow-y: hidden;
 }
 
@@ -250,57 +250,29 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
     }
 }
 
-.mobile-navigation-wrapper {
+.mobile-navigation {
+    width:30rem;
     position: fixed;
     top: 0;
-    right: 0;
+    right: auto;
+    bottom: 0;
     left: 0;
-    z-index: $zindex-modal + 1;
-    display: block;
-    transform: translateX(-100%);
+    z-index: 99999;
+    overflow-y: auto;
+    font-size: 1.2em;
+    @include theme() { color: theme-get('top-bar-color'); }
+    @include theme() { background-color: theme-get('navbar-bg-color'); }
     opacity: .6;
-    @include transition(all .3s ease-in-out);
+    @include transition(all .3s ease);
+    transform: translateX(-100%);
     -webkit-overflow-scrolling: touch;
     padding: 0 map-get($spacers, 2);
-
-
-    @include media-breakpoint-up(lg) {
-        right: auto;
-        width: $aside-columns-width;
-    }
 
     &.open {
         opacity: 1;
         transform: translateX(0);
     }
 
-    .mobile-navigation-overlay {
-        position: fixed;
-        top: 0;
-        right: -100vw;
-        bottom: -100vh;
-        left: -100vw;
-        z-index: -1;
-        display: none;
-        content: "";
-        background-color: rgba(0, 0, 0, .5);
-
-        .open & {
-            display: block;
-        }
-    }
-}
-
-
-.mobile-navigation {
-    position: absolute;
-    height: 100%;
-    max-height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    font-size: 1.2em;
-    @include theme() { color: theme-get('top-bar-color'); }
-    @include theme() { background-color: theme-get('navbar-bg-color'); }
     .sk-fading-circle .sk-circle::before,
     .loading-animation > div {
         // ToDo: @vwiebe fix color-contrast
@@ -420,15 +392,6 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
         @include theme() { background-color: theme-get('black'); }
         border-radius: 3px; // stylelint-disable-line property-blacklist
         animation: mobile-nav-placeholder .8s infinite ease-in-out;
-    }
-}
-
-.open {
-    overflow: hidden;
-    [data-header-offset] {
-        > * {
-            z-index: auto !important; // stylelint-disable-line declaration-no-important
-        }
     }
 }
 

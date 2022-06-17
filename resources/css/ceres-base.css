@@ -18134,7 +18134,7 @@ html.safari .widget-grid .widget-inner-stacked .widget-inner {
 }
 
 body.menu-is-visible {
-  position: fixed;
+  position: relative;
   overflow-y: hidden;
 }
 
@@ -18305,58 +18305,22 @@ body.menu-is-visible {
   cursor: pointer;
 }
 
-.mobile-navigation-wrapper {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 10001;
-  display: block;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
-  opacity: 0.6;
-  transition: all 0.3s ease-in-out;
-  -webkit-overflow-scrolling: touch;
-  padding: 0 12px;
-}
-@media (prefers-reduced-motion: reduce) {
-  .mobile-navigation-wrapper {
-    transition: none;
-  }
-}
-@media (min-width: 992px) {
-  .mobile-navigation-wrapper {
-    right: auto;
-    width: 30rem;
-  }
-}
-.mobile-navigation-wrapper.open {
-  opacity: 1;
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
-}
-.mobile-navigation-wrapper .mobile-navigation-overlay {
-  position: fixed;
-  top: 0;
-  right: -100vw;
-  bottom: -100vh;
-  left: -100vw;
-  z-index: -1;
-  display: none;
-  content: "";
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.open .mobile-navigation-wrapper .mobile-navigation-overlay {
-  display: block;
-}
-
 .mobile-navigation {
-  position: absolute;
-  height: 100%;
-  max-height: 100%;
-  overflow-x: hidden;
+  width: 30rem;
+  position: fixed;
+  top: 0;
+  right: auto;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
   overflow-y: auto;
   font-size: 1.2em;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-overflow-scrolling: touch;
+  padding: 0 12px;
 }
 .mobile-navigation {
   color: #3e4346;
@@ -18369,6 +18333,16 @@ body.menu-is-visible {
 }
 .dark-theme .mobile-navigation {
   background-color: #111313;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-navigation {
+    transition: none;
+  }
+}
+.mobile-navigation.open {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 .mobile-navigation .sk-fading-circle .sk-circle::before,
 .mobile-navigation .loading-animation > div {
@@ -18520,13 +18494,6 @@ body.menu-is-visible {
   -webkit-animation: mobile-nav-placeholder 0.8s infinite ease-in-out;
           animation: mobile-nav-placeholder 0.8s infinite ease-in-out;
 }
-.open {
-  overflow: hidden;
-}
-.open [data-header-offset] > * {
-  z-index: auto !important;
-}
-
 @-webkit-keyframes mobile-nav-placeholder {
   0% {
     opacity: 0.1;
@@ -18538,7 +18505,6 @@ body.menu-is-visible {
     opacity: 0.1;
   }
 }
-
 @keyframes mobile-nav-placeholder {
   0% {
     opacity: 0.1;

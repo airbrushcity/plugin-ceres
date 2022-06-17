@@ -10787,6 +10787,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -13827,10 +13832,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
 //
 //
 //
@@ -52471,31 +52472,6 @@ var render = function() {
                           ])
                         : _vm._e(),
                       _vm._v(" "),
-                      !(
-                        _vm.item.unit.unitOfMeasurement === "C62" &&
-                        _vm.item.unit.content === 1
-                      )
-                        ? _c(
-                            "div",
-                            { staticClass: "category-unit-price small" },
-                            [
-                              _c("span", [
-                                _vm._v("Je " + _vm._s(_vm.item.unit.content))
-                              ]),
-                              _vm._v(" "),
-                              _c("span", [
-                                _vm._v(_vm._s(_vm.item.unit.names.name))
-                              ]),
-                              _vm._v(" "),
-                              _vm.item.variation.mayShowUnitPrice
-                                ? _c("span", [
-                                    _vm._v("(" + _vm._s(_vm.basePrice) + ")")
-                                  ])
-                                : _vm._e()
-                            ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
                       _c(
                         "div",
                         { staticClass: "price" },
@@ -52603,6 +52579,27 @@ var render = function() {
                     ])
                   : _vm._e(),
                 _vm._v(" "),
+                !(
+                  _vm.item.unit.unitOfMeasurement === "C62" &&
+                  _vm.item.unit.content === 1
+                )
+                  ? _c("div", { staticClass: "category-unit-price small" }, [
+                      _c("span", [
+                        _vm._v("Je " + _vm._s(_vm.item.unit.content))
+                      ]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(" " + _vm._s(_vm.item.unit.names.name))
+                      ]),
+                      _vm._v(" "),
+                      _vm.item.variation.mayShowUnitPrice
+                        ? _c("span", [
+                            _vm._v("(" + _vm._s(_vm.basePrice) + ")")
+                          ])
+                        : _vm._e()
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
                 _c("add-to-basket", {
                   attrs: {
                     "variation-id": _vm.item.variation.id,
@@ -52639,7 +52636,73 @@ var render = function() {
                       _vm.itemGraduatedPricesalableVariationCount,
                     "item-type": _vm.item.item.itemType
                   }
-                })
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "vat small text-muted" }, [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.$translate("Ceres::Template.itemFootnote")) +
+                      " "
+                  ),
+                  _vm.showNetPrices
+                    ? _c("span", [
+                        _vm._v(
+                          _vm._s(_vm.$translate("Ceres::Template.itemExclVAT"))
+                        )
+                      ])
+                    : _c("span", [
+                        _vm._v(
+                          _vm._s(_vm.$translate("Ceres::Template.itemInclVAT"))
+                        )
+                      ]),
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.$translate("Ceres::Template.itemExclusive")) +
+                      "\n                    "
+                  ),
+                  _vm.$ceres.config.global.shippingCostsCategoryId > 0
+                    ? _c(
+                        "a",
+                        {
+                          staticClass: "text-appearance",
+                          attrs: {
+                            "data-toggle": "modal",
+                            href: "#shippingscosts",
+                            title: _vm.$translate(
+                              "Ceres::Template.itemShippingCosts"
+                            )
+                          }
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              _vm.$translate(
+                                "Ceres::Template.itemShippingCosts"
+                              )
+                            )
+                          )
+                        ]
+                      )
+                    : _c(
+                        "a",
+                        {
+                          attrs: {
+                            title: _vm.$translate(
+                              "Ceres::Template.itemShippingCosts"
+                            )
+                          }
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              _vm.$translate(
+                                "Ceres::Template.itemShippingCosts"
+                              )
+                            )
+                          )
+                        ]
+                      )
+                ])
               ],
               2
             )
@@ -54957,179 +55020,165 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "mobile-navigation-wrapper h-100 empty",
+      staticClass: "mobile-navigation",
       class: { open: _vm.isMobileNavigationOpen }
     },
     [
-      _vm._ssrNode('<div class="position-relative h-100">', "</div>", [
-        _vm._ssrNode(
-          '<div class="mobile-navigation d-flex flex-column flex-nowrap bg-white shadow w-100">',
-          "</div>",
-          [
-            _vm._ssrNode(
-              "<div" +
-                _vm._ssrStyle(null, null, {
-                  display: _vm.isNavigationInitialized ? "" : "none"
-                }) +
-                ">",
-              "</div>",
-              [
-                _vm._ssrNode(
-                  '<ul class="breadcrumb d-block px-3 py-0"><li class="btn-close"></li> <li class="breadcrumb-item"><i aria-hidden="true" class="fa fa-home"></i></li> ' +
-                    _vm._ssrList(_vm.breadcrumbs, function(breadcrumb) {
-                      return (
-                        '<li class="breadcrumb-item">' +
-                        _vm._ssrEscape(
-                          "\n                        " +
-                            _vm._s(breadcrumb.name) +
-                            "\n                    "
-                        ) +
-                        "</li>"
-                      )
-                    }) +
-                    "</ul> "
-                ),
-                _c(
-                  "ul",
-                  {
-                    directives: [{ name: "menu", rawName: "v-menu" }],
-                    staticClass: "mainmenu w-100 p-0 m-0 menu-active",
-                    attrs: { id: "menu-1" }
-                  },
-                  [
-                    _vm._ssrNode(
-                      (_vm.dataContainer1.parent
-                        ? '<li class="ddown"><span class="nav-direction btn-up"><i aria-hidden="true" class="fa fa-lg fa-level-up"></i></span></li>'
-                        : "<!---->") +
-                        " " +
-                        _vm._ssrList(_vm.dataContainer1.categories, function(
-                          category
-                        ) {
-                          return (
-                            '<li class="ddown"><a' +
-                            _vm._ssrAttr(
-                              "href",
-                              _vm.getCategoryUrl(category.url)
-                            ) +
-                            ">" +
-                            _vm._ssrEscape(_vm._s(category.details[0].name)) +
-                            "</a> " +
-                            (category.childCount
-                              ? '<span class="nav-direction"><i aria-hidden="true" class="fa fa-lg fa-caret-right"></i></span>'
-                              : "<!---->") +
-                            "</li>"
-                          )
-                        }) +
-                        " " +
-                        (_vm.dataContainer1.categories[0]
-                          ? _vm._ssrList(
-                              _vm.dataContainer1.categories[0].siblingCount -
-                                _vm.dataContainer1.categories.length,
-                              function(number) {
-                                return (
-                                  '<li class="ddown"><span class="nav-placeholder m-3"' +
-                                  _vm._ssrStyle(
-                                    null,
-                                    { width: Math.random() * 20 + 60 + "%" },
-                                    null
-                                  ) +
-                                  "></span></li>"
-                                )
-                              }
-                            )
-                          : _vm.dataContainer1.parent
-                          ? _vm._ssrList(
-                              _vm.dataContainer1.parent.childCount,
-                              function(number) {
-                                return (
-                                  '<li class="ddown"><span class="nav-placeholder m-3"' +
-                                  _vm._ssrStyle(
-                                    null,
-                                    { width: Math.random() * 20 + 60 + "%" },
-                                    null
-                                  ) +
-                                  "></span></li>"
-                                )
-                              }
-                            )
-                          : "<!---->")
-                    )
-                  ]
-                ),
-                _vm._ssrNode(" "),
-                _c(
-                  "ul",
-                  {
-                    directives: [{ name: "menu", rawName: "v-menu" }],
-                    staticClass: "mainmenu w-100 p-0 m-0",
-                    attrs: { id: "menu-2" }
-                  },
-                  [
-                    _vm._ssrNode(
-                      (_vm.dataContainer2.parent
-                        ? '<li class="ddown"><span class="nav-direction btn-up"><i aria-hidden="true" class="fa fa-lg fa-level-up"></i></span></li>'
-                        : "<!---->") +
-                        " " +
-                        _vm._ssrList(_vm.dataContainer2.categories, function(
-                          category
-                        ) {
-                          return (
-                            '<li class="ddown"><a' +
-                            _vm._ssrAttr(
-                              "href",
-                              _vm.getCategoryUrl(category.url)
-                            ) +
-                            ">" +
-                            _vm._ssrEscape(_vm._s(category.details[0].name)) +
-                            "</a> " +
-                            (category.childCount
-                              ? '<span class="nav-direction"><i aria-hidden="true" class="fa fa-lg fa-caret-right"></i></span>'
-                              : "<!---->") +
-                            "</li>"
-                          )
-                        }) +
-                        " " +
-                        (_vm.dataContainer2.categories[0]
-                          ? _vm._ssrList(
-                              _vm.dataContainer2.categories[0].siblingCount -
-                                _vm.dataContainer2.categories.length,
-                              function(number) {
-                                return (
-                                  '<li class="ddown"><span class="nav-placeholder m-3"' +
-                                  _vm._ssrStyle(
-                                    null,
-                                    { width: Math.random() * 20 + 60 + "%" },
-                                    null
-                                  ) +
-                                  "></span></li>"
-                                )
-                              }
-                            )
-                          : _vm.dataContainer2.parent
-                          ? _vm._ssrList(
-                              _vm.dataContainer2.parent.childCount,
-                              function(number) {
-                                return (
-                                  '<li class="ddown"><span class="nav-placeholder m-3"' +
-                                  _vm._ssrStyle(
-                                    null,
-                                    { width: Math.random() * 20 + 60 + "%" },
-                                    null
-                                  ) +
-                                  "></span></li>"
-                                )
-                              }
-                            )
-                          : "<!---->")
-                    )
-                  ]
+      _vm._ssrNode(
+        "<div" +
+          _vm._ssrStyle(null, null, {
+            display: _vm.isNavigationInitialized ? "" : "none"
+          }) +
+          ">",
+        "</div>",
+        [
+          _vm._ssrNode(
+            '<ul class="breadcrumb d-block px-3 py-0"><li class="btn-close"></li> <li class="breadcrumb-item"><i aria-hidden="true" class="fa fa-home"></i></li> ' +
+              _vm._ssrList(_vm.breadcrumbs, function(breadcrumb) {
+                return (
+                  '<li class="breadcrumb-item">' +
+                  _vm._ssrEscape(
+                    "\n                        " +
+                      _vm._s(breadcrumb.name) +
+                      "\n                    "
+                  ) +
+                  "</li>"
                 )
-              ],
-              2
-            )
-          ]
-        )
-      ]),
+              }) +
+              "</ul> "
+          ),
+          _c(
+            "ul",
+            {
+              directives: [{ name: "menu", rawName: "v-menu" }],
+              staticClass: "mainmenu w-100 p-0 m-0 menu-active",
+              attrs: { id: "menu-1" }
+            },
+            [
+              _vm._ssrNode(
+                (_vm.dataContainer1.parent
+                  ? '<li class="ddown"><span class="nav-direction btn-up"><i aria-hidden="true" class="fa fa-lg fa-level-up"></i></span></li>'
+                  : "<!---->") +
+                  " " +
+                  _vm._ssrList(_vm.dataContainer1.categories, function(
+                    category
+                  ) {
+                    return (
+                      '<li class="ddown"><a' +
+                      _vm._ssrAttr("href", _vm.getCategoryUrl(category.url)) +
+                      ">" +
+                      _vm._ssrEscape(_vm._s(category.details[0].name)) +
+                      "</a> " +
+                      (category.childCount
+                        ? '<span class="nav-direction"><i aria-hidden="true" class="fa fa-lg fa-caret-right"></i></span>'
+                        : "<!---->") +
+                      "</li>"
+                    )
+                  }) +
+                  " " +
+                  (_vm.dataContainer1.categories[0]
+                    ? _vm._ssrList(
+                        _vm.dataContainer1.categories[0].siblingCount -
+                          _vm.dataContainer1.categories.length,
+                        function(number) {
+                          return (
+                            '<li class="ddown"><span class="nav-placeholder m-3"' +
+                            _vm._ssrStyle(
+                              null,
+                              { width: Math.random() * 20 + 60 + "%" },
+                              null
+                            ) +
+                            "></span></li>"
+                          )
+                        }
+                      )
+                    : _vm.dataContainer1.parent
+                    ? _vm._ssrList(
+                        _vm.dataContainer1.parent.childCount,
+                        function(number) {
+                          return (
+                            '<li class="ddown"><span class="nav-placeholder m-3"' +
+                            _vm._ssrStyle(
+                              null,
+                              { width: Math.random() * 20 + 60 + "%" },
+                              null
+                            ) +
+                            "></span></li>"
+                          )
+                        }
+                      )
+                    : "<!---->")
+              )
+            ]
+          ),
+          _vm._ssrNode(" "),
+          _c(
+            "ul",
+            {
+              directives: [{ name: "menu", rawName: "v-menu" }],
+              staticClass: "mainmenu w-100 p-0 m-0",
+              attrs: { id: "menu-2" }
+            },
+            [
+              _vm._ssrNode(
+                (_vm.dataContainer2.parent
+                  ? '<li class="ddown"><span class="nav-direction btn-up"><i aria-hidden="true" class="fa fa-lg fa-level-up"></i></span></li>'
+                  : "<!---->") +
+                  " " +
+                  _vm._ssrList(_vm.dataContainer2.categories, function(
+                    category
+                  ) {
+                    return (
+                      '<li class="ddown"><a' +
+                      _vm._ssrAttr("href", _vm.getCategoryUrl(category.url)) +
+                      ">" +
+                      _vm._ssrEscape(_vm._s(category.details[0].name)) +
+                      "</a> " +
+                      (category.childCount
+                        ? '<span class="nav-direction"><i aria-hidden="true" class="fa fa-lg fa-caret-right"></i></span>'
+                        : "<!---->") +
+                      "</li>"
+                    )
+                  }) +
+                  " " +
+                  (_vm.dataContainer2.categories[0]
+                    ? _vm._ssrList(
+                        _vm.dataContainer2.categories[0].siblingCount -
+                          _vm.dataContainer2.categories.length,
+                        function(number) {
+                          return (
+                            '<li class="ddown"><span class="nav-placeholder m-3"' +
+                            _vm._ssrStyle(
+                              null,
+                              { width: Math.random() * 20 + 60 + "%" },
+                              null
+                            ) +
+                            "></span></li>"
+                          )
+                        }
+                      )
+                    : _vm.dataContainer2.parent
+                    ? _vm._ssrList(
+                        _vm.dataContainer2.parent.childCount,
+                        function(number) {
+                          return (
+                            '<li class="ddown"><span class="nav-placeholder m-3"' +
+                            _vm._ssrStyle(
+                              null,
+                              { width: Math.random() * 20 + 60 + "%" },
+                              null
+                            ) +
+                            "></span></li>"
+                          )
+                        }
+                      )
+                    : "<!---->")
+              )
+            ]
+          )
+        ],
+        2
+      ),
       _vm._ssrNode(" "),
       !_vm.isNavigationInitialized
         ? [
@@ -55138,8 +55187,7 @@ var render = function() {
             ),
             _c("loading-animation")
           ]
-        : _vm._e(),
-      _vm._ssrNode(' <div class="mobile-navigation-overlay"></div>')
+        : _vm._e()
     ],
     2
   )
