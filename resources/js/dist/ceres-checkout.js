@@ -4649,6 +4649,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -4859,12 +4861,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         // add "activated" classes when menu is activated
         $(el).on("menu-activated", function (event, params) {
           $(event.target).addClass("menu-active");
-          $(event.target).addClass(params.back ? "animate-in-from-left" : "animate-in-from-left");
+          $(event.target).addClass(params.back ? "animate-in-from-left" : "animate-in-from-right");
         }); // add "deactivated" classes when menu is deactivated
 
         $(el).on("menu-deactivated", function (event, params) {
           $(event.target).removeClass("menu-active");
-          $(event.target).addClass(params.back ? "animate-out-to-left" : "animate-out-to-left");
+          $(event.target).addClass(params.back ? "animate-out-to-right" : "animate-out-to-left");
         }); // this removes the animation class automatically after the animation has completed
 
         $(el).on("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
@@ -47138,253 +47140,255 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "mobile-navigation",
+      staticClass: "mobile-navigation h-100 empty",
       class: { open: _vm.isMobileNavigationOpen }
     },
     [
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.isNavigationInitialized,
-              expression: "isNavigationInitialized"
-            }
-          ]
-        },
-        [
-          _c(
-            "ul",
-            { staticClass: "breadcrumb d-block px-3 py-0" },
-            [
-              _c("li", {
-                staticClass: "btn-close",
-                on: {
-                  click: function($event) {
-                    return _vm.closeNavigation()
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "li",
-                {
-                  staticClass: "breadcrumb-item",
+      _c("div", { staticClass: "position-relative h-100" }, [
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.isNavigationInitialized,
+                expression: "isNavigationInitialized"
+              }
+            ]
+          },
+          [
+            _c(
+              "ul",
+              { staticClass: "breadcrumb d-block px-3 py-0" },
+              [
+                _c("li", {
+                  staticClass: "btn-close",
                   on: {
                     click: function($event) {
-                      return _vm.slideTo(null, true)
+                      return _vm.closeNavigation()
                     }
                   }
-                },
-                [
-                  _c("i", {
-                    staticClass: "fa fa-home",
-                    attrs: { "aria-hidden": "true" }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _vm._l(_vm.breadcrumbs, function(breadcrumb) {
-                return _c(
+                }),
+                _vm._v(" "),
+                _c(
                   "li",
                   {
                     staticClass: "breadcrumb-item",
                     on: {
                       click: function($event) {
-                        return _vm.slideTo(breadcrumb.parent, true)
+                        return _vm.slideTo(null, true)
                       }
                     }
                   },
                   [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(breadcrumb.name) +
-                        "\n            "
-                    )
+                    _c("i", {
+                      staticClass: "fa fa-home",
+                      attrs: { "aria-hidden": "true" }
+                    })
                   ]
-                )
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c(
-            "ul",
-            {
-              directives: [{ name: "menu", rawName: "v-menu" }],
-              staticClass: "mainmenu w-100 p-0 m-0 menu-active",
-              attrs: { id: "menu-1" }
-            },
-            [
-              _vm.dataContainer1.parent
-                ? _c(
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.breadcrumbs, function(breadcrumb) {
+                  return _c(
                     "li",
                     {
-                      staticClass: "ddown",
+                      staticClass: "breadcrumb-item",
                       on: {
                         click: function($event) {
-                          return _vm.slideTo(
-                            (_vm.dataContainer1.parent &&
-                              _vm.dataContainer1.parent.parent) ||
-                              null,
-                            true
-                          )
+                          return _vm.slideTo(breadcrumb.parent, true)
                         }
                       }
                     },
-                    [_vm._m(0)]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm._l(_vm.dataContainer1.categories, function(category) {
-                return _c("li", { staticClass: "ddown" }, [
-                  _c(
-                    "a",
-                    { attrs: { href: _vm.getCategoryUrl(category.url) } },
-                    [_vm._v(_vm._s(category.details[0].name))]
-                  ),
-                  _vm._v(" "),
-                  category.childCount
-                    ? _c(
-                        "span",
-                        {
-                          staticClass: "nav-direction",
-                          on: {
-                            click: function($event) {
-                              return _vm.slideTo(category)
-                            }
-                          }
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fa fa-lg fa-caret-right",
-                            attrs: { "aria-hidden": "true" }
-                          })
-                        ]
+                    [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(breadcrumb.name) +
+                          "\n                "
                       )
-                    : _vm._e()
-                ])
-              }),
-              _vm._v(" "),
-              _vm.dataContainer1.categories[0]
-                ? _vm._l(
-                    _vm.dataContainer1.categories[0].siblingCount -
-                      _vm.dataContainer1.categories.length,
-                    function(number) {
+                    ]
+                  )
+                })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                directives: [{ name: "menu", rawName: "v-menu" }],
+                staticClass: "mainmenu w-100 p-0 m-0 menu-active",
+                attrs: { id: "menu-1" }
+              },
+              [
+                _vm.dataContainer1.parent
+                  ? _c(
+                      "li",
+                      {
+                        staticClass: "ddown",
+                        on: {
+                          click: function($event) {
+                            return _vm.slideTo(
+                              (_vm.dataContainer1.parent &&
+                                _vm.dataContainer1.parent.parent) ||
+                                null,
+                              true
+                            )
+                          }
+                        }
+                      },
+                      [_vm._m(0)]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm._l(_vm.dataContainer1.categories, function(category) {
+                  return _c("li", { staticClass: "ddown" }, [
+                    _c(
+                      "a",
+                      { attrs: { href: _vm.getCategoryUrl(category.url) } },
+                      [_vm._v(_vm._s(category.details[0].name))]
+                    ),
+                    _vm._v(" "),
+                    category.childCount
+                      ? _c(
+                          "span",
+                          {
+                            staticClass: "nav-direction",
+                            on: {
+                              click: function($event) {
+                                return _vm.slideTo(category)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fa fa-lg fa-caret-right",
+                              attrs: { "aria-hidden": "true" }
+                            })
+                          ]
+                        )
+                      : _vm._e()
+                  ])
+                }),
+                _vm._v(" "),
+                _vm.dataContainer1.categories[0]
+                  ? _vm._l(
+                      _vm.dataContainer1.categories[0].siblingCount -
+                        _vm.dataContainer1.categories.length,
+                      function(number) {
+                        return _c("li", { staticClass: "ddown" }, [
+                          _c("span", {
+                            staticClass: "nav-placeholder m-3",
+                            style: { width: Math.random() * 20 + 60 + "%" }
+                          })
+                        ])
+                      }
+                    )
+                  : _vm.dataContainer1.parent
+                  ? _vm._l(_vm.dataContainer1.parent.childCount, function(
+                      number
+                    ) {
                       return _c("li", { staticClass: "ddown" }, [
                         _c("span", {
                           staticClass: "nav-placeholder m-3",
                           style: { width: Math.random() * 20 + 60 + "%" }
                         })
                       ])
-                    }
-                  )
-                : _vm.dataContainer1.parent
-                ? _vm._l(_vm.dataContainer1.parent.childCount, function(
-                    number
-                  ) {
-                    return _c("li", { staticClass: "ddown" }, [
-                      _c("span", {
-                        staticClass: "nav-placeholder m-3",
-                        style: { width: Math.random() * 20 + 60 + "%" }
-                      })
-                    ])
-                  })
-                : _vm._e()
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c(
-            "ul",
-            {
-              directives: [{ name: "menu", rawName: "v-menu" }],
-              staticClass: "mainmenu w-100 p-0 m-0",
-              attrs: { id: "menu-2" }
-            },
-            [
-              _vm.dataContainer2.parent
-                ? _c(
-                    "li",
-                    {
-                      staticClass: "ddown",
-                      on: {
-                        click: function($event) {
-                          return _vm.slideTo(
-                            (_vm.dataContainer2.parent &&
-                              _vm.dataContainer2.parent.parent) ||
-                              null,
-                            true
-                          )
-                        }
-                      }
-                    },
-                    [_vm._m(1)]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm._l(_vm.dataContainer2.categories, function(category) {
-                return _c("li", { staticClass: "ddown" }, [
-                  _c(
-                    "a",
-                    { attrs: { href: _vm.getCategoryUrl(category.url) } },
-                    [_vm._v(_vm._s(category.details[0].name))]
-                  ),
-                  _vm._v(" "),
-                  category.childCount
-                    ? _c(
-                        "span",
-                        {
-                          staticClass: "nav-direction",
-                          on: {
-                            click: function($event) {
-                              return _vm.slideTo(category)
-                            }
+                    })
+                  : _vm._e()
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                directives: [{ name: "menu", rawName: "v-menu" }],
+                staticClass: "mainmenu w-100 p-0 m-0",
+                attrs: { id: "menu-2" }
+              },
+              [
+                _vm.dataContainer2.parent
+                  ? _c(
+                      "li",
+                      {
+                        staticClass: "ddown",
+                        on: {
+                          click: function($event) {
+                            return _vm.slideTo(
+                              (_vm.dataContainer2.parent &&
+                                _vm.dataContainer2.parent.parent) ||
+                                null,
+                              true
+                            )
                           }
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fa fa-lg fa-caret-right",
-                            attrs: { "aria-hidden": "true" }
+                        }
+                      },
+                      [_vm._m(1)]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm._l(_vm.dataContainer2.categories, function(category) {
+                  return _c("li", { staticClass: "ddown" }, [
+                    _c(
+                      "a",
+                      { attrs: { href: _vm.getCategoryUrl(category.url) } },
+                      [_vm._v(_vm._s(category.details[0].name))]
+                    ),
+                    _vm._v(" "),
+                    category.childCount
+                      ? _c(
+                          "span",
+                          {
+                            staticClass: "nav-direction",
+                            on: {
+                              click: function($event) {
+                                return _vm.slideTo(category)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "fa fa-lg fa-caret-right",
+                              attrs: { "aria-hidden": "true" }
+                            })
+                          ]
+                        )
+                      : _vm._e()
+                  ])
+                }),
+                _vm._v(" "),
+                _vm.dataContainer2.categories[0]
+                  ? _vm._l(
+                      _vm.dataContainer2.categories[0].siblingCount -
+                        _vm.dataContainer2.categories.length,
+                      function(number) {
+                        return _c("li", { staticClass: "ddown" }, [
+                          _c("span", {
+                            staticClass: "nav-placeholder m-3",
+                            style: { width: Math.random() * 20 + 60 + "%" }
                           })
-                        ]
-                      )
-                    : _vm._e()
-                ])
-              }),
-              _vm._v(" "),
-              _vm.dataContainer2.categories[0]
-                ? _vm._l(
-                    _vm.dataContainer2.categories[0].siblingCount -
-                      _vm.dataContainer2.categories.length,
-                    function(number) {
+                        ])
+                      }
+                    )
+                  : _vm.dataContainer2.parent
+                  ? _vm._l(_vm.dataContainer2.parent.childCount, function(
+                      number
+                    ) {
                       return _c("li", { staticClass: "ddown" }, [
                         _c("span", {
                           staticClass: "nav-placeholder m-3",
                           style: { width: Math.random() * 20 + 60 + "%" }
                         })
                       ])
-                    }
-                  )
-                : _vm.dataContainer2.parent
-                ? _vm._l(_vm.dataContainer2.parent.childCount, function(
-                    number
-                  ) {
-                    return _c("li", { staticClass: "ddown" }, [
-                      _c("span", {
-                        staticClass: "nav-placeholder m-3",
-                        style: { width: Math.random() * 20 + 60 + "%" }
-                      })
-                    ])
-                  })
-                : _vm._e()
-            ],
-            2
-          )
-        ]
-      ),
+                    })
+                  : _vm._e()
+              ],
+              2
+            )
+          ]
+        )
+      ]),
       _vm._v(" "),
       !_vm.isNavigationInitialized
         ? [

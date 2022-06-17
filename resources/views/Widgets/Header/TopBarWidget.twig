@@ -147,7 +147,6 @@
                             </a>
                         </li>
                        
-                        {{ Twig.if("services.url.isRouteEnabled(\"wish-list\")") }}
                         <li class="list-inline-item control-wish-list">
                             <lazy-hydrate when-idle>
                                 <wish-list-count>
@@ -158,7 +157,6 @@
                                 </wish-list-count>
                             </lazy-hydrate>
                         </li>
-                        {{ Twig.endif() }}
                      
                         {% if enableBasketPreview %}
                             <li class="list-inline-item control-basket position-relative">

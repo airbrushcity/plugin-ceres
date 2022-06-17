@@ -45,19 +45,8 @@
         {% block PageBody %}{% endblock %}
     </div>
 
-    {% cacheblock %}
-        <div class="row">
-            <div class="col-12">
-                <div class="container-mwst text-center">
-                    <span class="text-mwst">* Alle Preise inkl. Mwst <a href="/zahlung-und-versand" class="mwst-link">zuzüglich Versandkosten</a></span>
-                </div>
-            </div>
-        </div>
-        {% include getPartial('footer') %}
-        {% block PartialFooter %}{% endblock %}
-    {% endcacheblock %}
-
     <div>
+    {% spaceless %}
         {% set lang = services.localizationRepository.getLanguage() %}
         {% if category.linklist == "Y" %}
             {% set initialCategory = { id: category.id } %}
@@ -71,10 +60,25 @@
         {% elseif services.template.isCurrentTemplate('tpl.home.category') %}
             {% set initialCategory = null %}
         {% endif %}
+    {% endspaceless %}
+
         <lazy-hydrate when-idle>
             <mobile-navigation :initial-category="{{ initialCategory | json_encode }}" :include-language="{{ urls.includeLanguage | json_encode }}"></mobile-navigation>
         </lazy-hydrate>
+        
     </div>
+
+    {% cacheblock %}
+        <div class="row">
+            <div class="col-12">
+                <div class="container-mwst text-center">
+                    <span class="text-mwst">* Alle Preise inkl. Mwst <a href="/zahlung-und-versand" class="mwst-link">zuzüglich Versandkosten</a></span>
+                </div>
+            </div>
+        </div>
+        {% include getPartial('footer') %}
+        {% block PartialFooter %}{% endblock %}
+    {% endcacheblock %}
 
     <!-- BASKET MODAL -->
     <lazy-load component="add-item-to-basket-overlay">
