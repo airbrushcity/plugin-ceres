@@ -57,7 +57,24 @@
         {% block PartialFooter %}{% endblock %}
     {% endcacheblock %}
 
+    <div>
+        {% set lang = services.localizationRepository.getLanguage() %}
+        {% if category.linklist == "Y" %}
+            {% set initialCategory = { id: category.id } %}
+        {% else %}
+            {% set initialCategory = category %}
+        {% endif %}
 
+        {# set the initialCategory to the default category of the current item #}
+        {% if services.template.isItem() == "1" and defaultCategory is not null %}
+            {% set initialCategory = defaultCategory %}
+        {% elseif services.template.isCurrentTemplate('tpl.home.category') %}
+            {% set initialCategory = null %}
+        {% endif %}
+        <lazy-hydrate when-idle>
+            <mobile-navigation :initial-category="{{ initialCategory | json_encode }}" :include-language="{{ urls.includeLanguage | json_encode }}"></mobile-navigation>
+        </lazy-hydrate>
+    </div>
 
     <!-- BASKET MODAL -->
     <lazy-load component="add-item-to-basket-overlay">
