@@ -136,6 +136,7 @@
                         <li class="list-inline-item control-user d-none d-lg-flex">
                             <a href="#footer" class="nav-link">
                                 <i class="fa fa-info"></i>
+                                <span class="d-none d-lg-block">Service</span>
                             </a>
                         </li>
 
@@ -144,12 +145,12 @@
                         {{ Twig.if("services.authentication.isLoggedIn() == true") }}
                             <a href="/my-account" class="nav-link" aria-label="{{ trans('Ceres::Template.myAccount') }}">
                                 <i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
-                                <span class="d-none d-sm-inline">{{ trans('Ceres::Template.myAccount') }}</span>
+                                <span class="d-none d-lg-block">{{ trans('Ceres::Template.myAccount') }}</span>
                             </a>                    
                         {{ Twig.else() }}
                             <a href="/login" class="nav-link" aria-label="{{ trans('Ceres::Template.login') }}">
                                 <i class="fa fa-user-plus mr-0 mr-sm-1" aria-hidden="true"></i>
-                                <span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
+                                <span class="d-none d-lg-block">{{ trans("Ceres::Template.login") }}</span>
                             </a>                   
                         {{ Twig.endif() }}
                         </li>
