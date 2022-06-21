@@ -89,9 +89,9 @@
 {{ Twig.endif() }}
 
 {{ Twig.if("imageUrl | trim is not empty") }}
-    {{ Twig.set("replaceImageUrl" = "imageUrl") }}
+    {{ Twig.set("replaceImageUrl", "imageUrl") }}
     
-    {{ Twig.set("imageUrl" = "replaceImageUrl")  }}
+    {{ Twig.set("imageUrl", "replaceImageUrl")  }}
 {{ Twig.endif() }}
 
 <div class="widget widget-image-box widget-image-box-{{ style }} widget-{{ appearance | default('primary') }}
