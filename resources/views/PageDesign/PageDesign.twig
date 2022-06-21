@@ -71,6 +71,14 @@
     </div>
 
     {% cacheblock %}
+        <div class="row">
+            <div class="col-12">
+                <div class="container-mwst text-center">
+                    <span class="text-mwst">* Alle Preise inkl. Mwst <a href="/zahlung-und-versand" class="mwst-link">zuzüglich Versandkosten</a></span>
+                </div>
+            </div>
+        </div>
+        
         {% include getPartial('footer') %}
         {% block PartialFooter %}{% endblock %}
     {% endcacheblock %}
