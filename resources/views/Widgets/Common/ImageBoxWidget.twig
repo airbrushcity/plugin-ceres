@@ -89,7 +89,8 @@
 {{ Twig.endif() }}
 
 {{ Twig.if("imageUrl | trim is not empty") }}
-    {{ Twig.set("replaceImageUrl" = "imageUrl" | replace({'cdn02.plentymarkets.com/zi6ae0fjhcun': 'image.schmincke-city.de'}) ) }}
+    {{ Twig.set("replaceImageUrl" = "imageUrl") }}
+    {{ Twig("replaceImageUrl" | replace({'cdn02.plentymarkets.com/zi6ae0fjhcun': 'image.schmincke-city.de'}) )}}
     {{ Twig.set("imageUrl" = "replaceImageUrl")  }}
 {{ Twig.endif() }}
 
