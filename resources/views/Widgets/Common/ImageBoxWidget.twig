@@ -106,6 +106,9 @@
             {{ Twig.print("add_asset(imageUrl,'image')") }}
         {% endif %}
 
+        {{ Twig.set("replaceImageUrl" = "imageUrl" |replace({'cdn02.plentymarkets.com/zi6ae0fjhcun': 'image.schmincke-city.de' ) }}
+        {{ Twig.set("imageUrl" = "replaceImageUrl")  }}
+
         {% if widget.settings.lazyLoading.mobile %}
             <lazy-img
                 picture-class="img-{{ imageSize }}"
