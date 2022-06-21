@@ -17,7 +17,6 @@
                 </div>
             </div>
         </div>
-
     {% else %}
 
         {% if category is defined and ceresConfig.item.showCategoryImage %}
@@ -159,6 +158,8 @@
     {% endif %}
 
 {% endblock %}
+
+{% include getPartial('footer-text') %}
 
 {% block PartialHead2 %}
 {% set canonicalUrl = services.url.getCanonicalURL(null, true) %}
