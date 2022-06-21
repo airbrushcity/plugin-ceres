@@ -100,7 +100,7 @@ class ItemCategoryPreset implements ContentPreset
             ->withSetting("layout", "fiveToSeven")
             ->withSetting("layoutTablet", "stackedTablet")
             ->withSetting("layoutMobile", "stackedMobile")
-            ->withSetting("customClass", "mt-3 mb-3");
+            ->withSetting("customClass", "mt-5 mb-3");
     }
     private function createCodeWidgets()
     {
