@@ -1,6 +1,52 @@
 {
     "formatVersion": 1,
     "menu": {
+	
+		"Config.SpecialTab": {
+            "label": "Config.SpecialEinstellungen",
+            "formFields": {
+                "Settings.GoogleTrackingVariable": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Google Tag Variable",
+                    "options": {
+                        "defaultValue": "GT..."
+                    }
+                },
+                "Settings.CdnPluginUrl": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "CDN Plugin URL",
+                    "options": {
+                        "defaultValue": "https://image.airbrush-city.de/plugin/54/front"
+                    }
+                },
+                "Settings.CdnImageUrl": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "CDN Image URL",
+                    "options": {
+                        "defaultValue": "https://image.airbrush-city.de/frontend"
+                    }
+                },
+                "Settings.ConsentmanagerID": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Consentmanager ID",
+                    "options": {
+                        "defaultValue": "1234..."
+                    }
+                },
+				"Settings.KaeufersiegelUrl": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Käufersiegel Link",
+                    "options": {
+                        "defaultValue": "https://www.kaeufersiegel.de/zertifikat/?uuid=dbc73e39-c253-11e4-bc3a-14dae9b38da3-5787469945"
+                    }
+                }
+            }
+		},
         "Config.GlobalTab": {
             "label": "Config.globalTab",
             "formFields": {

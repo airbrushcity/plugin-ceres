@@ -134,6 +134,61 @@
     <div class="footer container-max d-print-none">
         <div class="row">
             <div class="col clearfix">
+			
+				<div id="footer" class="container-footer">
+					<div class="row">
+						<div class="col-12 col-md-3">
+							<div class="p-2">
+								<p class="h4 text-center">Kundenservice</p>
+								<ul class="">
+									<li class=""><a href="/batterieentsorgung">Batterieentsorgung</a></li>
+									<li class=""><a href="/kontakt">Kontakt</a></li>
+									<li class=""><a href="zahlung-und-versand">Zahlung und Versand</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-12 col-md-3">
+							<div class="text-center p-2">
+								<p class="h4">Versandpartner</p>
+								<img src="https://image.airbrush-city.de/frontend/airbrush/versandpartner.jpg" alt="Versandpartner" width="300" height="152" class="img-fluid">
+							</div>
+						</div>
+						
+						<div class="col-12 col-md-3">
+							<div class="text-center p-2">
+								<p class="h4">Zahlungsarten</p>
+								<img src="https://image.airbrush-city.de/frontend/airbrush/zahlungsarten.jpg" alt="Zahlungsarten" width="300" height="152" class="img-fluid">
+							</div>
+						</div>
+						
+						<div class="col-12 col-md-3">
+							<div class="text-center p-2">
+								<p class="h4">Geprüfter Shop</p>
+								{% set kaeufersiegelUrl = config("Ceres.Settings.CdnPluginUrl") %}
+								<a href="{{ kaeufersiegelUrl }}" target="_blank">
+									<img src="https://image.airbrush-city.de/frontend/airbrush/sicherheit.png" alt="Zahlungsarten" width="300" height="152" class="img-fluid">
+								</a>
+							</div>
+						</div>
+						
+					</div>
+
+					<div class="row">
+						<div class="col-12">
+							<hr>
+							<ul class="d-flex justify-content-around">
+								<li class="list-inline-item"><a href="/gtc">AGB</a></li>
+								<li class="list-inline-item"><a href="/cancellation-rights">Widerrufsrecht</a></li>
+								<li class="list-inline-item"><a href="/privacy-policy">Datenschutz</a></li>
+								<li class="list-inline-item"><a href="/legal-disclosure">Impressum</a></li>
+							</ul>        
+						   <hr> 
+						</div>
+					</div>
+
+				</div>			
+			
                 {{ footerContainer | raw }}
             </div>
         </div>
