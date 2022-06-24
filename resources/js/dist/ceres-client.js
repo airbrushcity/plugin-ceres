@@ -38697,7 +38697,13 @@ var render = function() {
                 )
                   ? _c("div", { staticClass: "category-unit-price small" }, [
                       _c("span", [
-                        _vm._v("Je " + _vm._s(_vm.item.unit.content))
+                        _vm._v(
+                          _vm._s(
+                            _vm.$translate("Ceres::Template.singleItemContent")
+                          ) +
+                            " " +
+                            _vm._s(_vm.item.unit.content)
+                        )
                       ]),
                       _vm._v(" "),
                       _c("span", [_vm._v(_vm._s(_vm.item.unit.names.name))]),
