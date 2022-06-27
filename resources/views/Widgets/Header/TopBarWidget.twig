@@ -24,11 +24,11 @@
 {{ Twig.set("overrideSearchBar", Twig.call("LayoutContainer.show", ["Ceres::Search.SearchBar"])) }}
 {{ Twig.set("visibleFields", "ceresConfig.basket.previewData") }}
 
-{{ Twig.set("webshopName", Twig.call("config", ["Ceres.special.WebshopName"])) }}
-{{ Twig.set("logoUrl", Twig.call("config", ["Ceres.special.LogoUrl"])) }}
-{{ Twig.set("logoUrlWebp", Twig.call("config", ["Ceres.special.LogoUrlWebp"])) }}
-{{ Twig.set("mobileLogoUrl", Twig.call("config", ["Ceres.special.MobileLogoUrl"])) }}
-{{ Twig.set("mobileLogoUrlWebp", Twig.call("config", ["Ceres.special.MobileLogoUrlWebp"])) }}
+{{ Twig.set("webshopName", Twig.call("config", ["Ceres.special.webshopName"])) }}
+{{ Twig.set("logoUrl", Twig.call("config", ["Ceres.special.logoUrl"])) }}
+{{ Twig.set("logoUrlWebp", Twig.call("config", ["Ceres.special.logoUrlWebp"])) }}
+{{ Twig.set("mobileLogoUrl", Twig.call("config", ["Ceres.special.mobileLogoUrl"])) }}
+{{ Twig.set("mobileLogoUrlWebp", Twig.call("config", ["Ceres.special.mobileLogoUrlWebp"])) }}
 
 <div class="top-bar header-fw{% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if not isFixed %} unfixed{% endif %}">
     <div class="container-max px-0 pr-lg-3">
