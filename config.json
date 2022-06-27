@@ -8,7 +8,7 @@
                 "Settings.GoogleTrackingVariable": {
                     "type": "inputText",
                     "required": false,
-                    "label": "Google Tag Variable",
+                    "label": "Config.GoogleTagVariable",
                     "options": {
                         "defaultValue": "GTM-WQV6M2P"
                     }
@@ -16,7 +16,7 @@
                 "Settings.WebshopName": {
                     "type": "inputText",
                     "required": false,
-                    "label": "Webshop Name",
+                    "label": "Config.WebshopName",
                     "options": {
                         "defaultValue": "Airbrush City"
                     }
@@ -24,7 +24,7 @@
                 "Settings.CdnPluginUrl": {
                     "type": "inputText",
                     "required": false,
-                    "label": "CDN Plugin URL",
+                    "label": "Config.CDNPluginURL",
                     "options": {
                         "defaultValue": "https://image.airbrush-city.de/plugin/54/front"
                     }
@@ -32,7 +32,7 @@
                 "Settings.CdnImageUrl": {
                     "type": "inputText",
                     "required": false,
-                    "label": "CDN Image URL",
+                    "label": "Config.CDNImageURL",
                     "options": {
                         "defaultValue": "https://image.airbrush-city.de/frontend"
                     }
@@ -40,7 +40,7 @@
                 "Settings.WebshopName": {
                     "type": "inputText",
                     "required": false,
-                    "label": "Webshop Name",
+                    "label": "Config.WebshopName",
                     "options": {
                         "defaultValue": "Airbrush City"
                     }
@@ -48,7 +48,7 @@
                 "Settings.LogoUrl": {
                     "type": "inputText",
                     "required": false,
-                    "label": "Logo URL",
+                    "label": "Config.LogoURL",
                     "options": {
                         "defaultValue": "https://image.airbrush-city.de/frontend/design/airbrush/airbrush-logo.png"
                     }
@@ -56,7 +56,7 @@
                 "Settings.LogoUrlWebp": {
                     "type": "inputText",
                     "required": false,
-                    "label": "Logo URL Webp",
+                    "label": "Config.LogoURLWebp",
                     "options": {
                         "defaultValue": "https://image.airbrush-city.de/frontend/design/airbrush/airbrush-logo.webp"
                     }
@@ -64,7 +64,7 @@
                 "Settings.FaviconUrl": {
                     "type": "inputText",
                     "required": false,
-                    "label": "Favicon URL",
+                    "label": "Config.FaviconURL",
                     "options": {
                         "defaultValue": "https://image.airbrush-city.de/frontend/airbrush/favicon_0.ico"
                     }
@@ -72,7 +72,7 @@
                 "Settings.MobileLogoUrl": {
                     "type": "inputText",
                     "required": false,
-                    "label": "Mobile Logo URL",
+                    "label": "Config.MobileLogoURL",
                     "options": {
                         "defaultValue": "https://image.airbrush-city.de/frontend/design/airbrush/logo-footer.png"
                     }
@@ -80,7 +80,7 @@
                 "Settings.MobileLogoUrlWebp": {
                     "type": "inputText",
                     "required": false,
-                    "label": "Mobile Logo URL",
+                    "label": "Config.MobileLogoURL",
                     "options": {
                         "defaultValue": "https://image.airbrush-city.de/frontend/design/airbrush/logo-footer.webp"
                     }
@@ -88,7 +88,7 @@
 				"Settings.KaeufersiegelUrl": {
                     "type": "inputText",
                     "required": false,
-                    "label": "Käufersiegel Link",
+                    "label": "Config.KäufersiegelLink",
                     "options": {
                         "defaultValue": "https://www.kaeufersiegel.de/zertifikat/?uuid=db6fb8a9-c253-11e4-bc3a-14dae9b38da3-9050155849"
                     }

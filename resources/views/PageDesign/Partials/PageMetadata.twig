@@ -3,7 +3,7 @@
 {% set defaultFavicon = '/tpl/favicon_' ~ webstoreConfig.webstoreId ~ '.ico' %}
 {% set defaultCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".css?v=" ~ buildHash %}
 {% set defaultSCSS = plugin_path("Ceres") ~ "/css/" ~ assetName ~ ".scss?v=" ~ buildHash %}
-{% set faviconUrl = config("Ceres.Settings.Special.FaviconUrl")
+{% set faviconUrl = config("Ceres.Settings.FaviconUrl")
 
 {% set details = null %}
 {% set robots = '' %}
