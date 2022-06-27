@@ -5,7 +5,7 @@
 		"Config.SpecialTab": {
             "label": "Config.specialTab",
             "formFields": {
-                "Settings.GoogleTrackingVariable": {
+                "Special.GoogleTrackingVariable": {
                     "type": "inputText",
                     "required": false,
                     "label": "Config.GoogleTagVariable",
@@ -13,7 +13,7 @@
                         "defaultValue": "GTM-WQV6M2P"
                     }
                 },
-                "Settings.WebshopName": {
+                "Special.WebshopName": {
                     "type": "inputText",
                     "required": false,
                     "label": "Config.WebshopName",
@@ -21,7 +21,7 @@
                         "defaultValue": "Airbrush City"
                     }
                 },
-                "Settings.CdnPluginUrl": {
+                "Special.CdnPluginUrl": {
                     "type": "inputText",
                     "required": false,
                     "label": "Config.CDNPluginURL",
@@ -29,7 +29,7 @@
                         "defaultValue": "https://image.airbrush-city.de/plugin/54/front"
                     }
                 },
-                "Settings.CdnImageUrl": {
+                "Special.CdnImageUrl": {
                     "type": "inputText",
                     "required": false,
                     "label": "Config.CDNImageURL",
@@ -37,7 +37,7 @@
                         "defaultValue": "https://image.airbrush-city.de/frontend"
                     }
                 },
-                "Settings.WebshopName": {
+                "Special.WebshopName": {
                     "type": "inputText",
                     "required": false,
                     "label": "Config.WebshopName",
@@ -45,7 +45,7 @@
                         "defaultValue": "Airbrush City"
                     }
                 },
-                "Settings.LogoUrl": {
+                "Special.LogoUrl": {
                     "type": "inputText",
                     "required": false,
                     "label": "Config.LogoURL",
@@ -53,7 +53,7 @@
                         "defaultValue": "https://image.airbrush-city.de/frontend/design/airbrush/airbrush-logo.png"
                     }
                 },
-                "Settings.LogoUrlWebp": {
+                "Special.LogoUrlWebp": {
                     "type": "inputText",
                     "required": false,
                     "label": "Config.LogoURLWebp",
@@ -61,7 +61,7 @@
                         "defaultValue": "https://image.airbrush-city.de/frontend/design/airbrush/airbrush-logo.webp"
                     }
                 },
-                "Settings.FaviconUrl": {
+                "Special.FaviconUrl": {
                     "type": "inputText",
                     "required": false,
                     "label": "Config.FaviconURL",
@@ -69,7 +69,7 @@
                         "defaultValue": "https://image.airbrush-city.de/frontend/airbrush/favicon_0.ico"
                     }
                 },
-                "Settings.MobileLogoUrl": {
+                "Special.MobileLogoUrl": {
                     "type": "inputText",
                     "required": false,
                     "label": "Config.MobileLogoURL",
@@ -77,7 +77,7 @@
                         "defaultValue": "https://image.airbrush-city.de/frontend/design/airbrush/logo-footer.png"
                     }
                 },
-                "Settings.MobileLogoUrlWebp": {
+                "Special.MobileLogoUrlWebp": {
                     "type": "inputText",
                     "required": false,
                     "label": "Config.MobileLogoURL",
@@ -85,7 +85,7 @@
                         "defaultValue": "https://image.airbrush-city.de/frontend/design/airbrush/logo-footer.webp"
                     }
                 },
-				"Settings.KaeufersiegelUrl": {
+				"Special.KaeufersiegelUrl": {
                     "type": "inputText",
                     "required": false,
                     "label": "Config.KäufersiegelLink",
