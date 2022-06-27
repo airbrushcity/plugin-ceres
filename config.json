@@ -3,7 +3,7 @@
     "menu": {
 	
 		"Config.SpecialTab": {
-            "label": "Config.Special",
+            "label": "Config.specialTab",
             "formFields": {
                 "Settings.GoogleTrackingVariable": {
                     "type": "inputText",
