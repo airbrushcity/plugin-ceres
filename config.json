@@ -3,14 +3,22 @@
     "menu": {
 	
 		"Config.SpecialTab": {
-            "label": "Config.SpecialEinstellungen",
+            "label": "Config.Special",
             "formFields": {
                 "Settings.GoogleTrackingVariable": {
                     "type": "inputText",
                     "required": false,
                     "label": "Google Tag Variable",
                     "options": {
-                        "defaultValue": "GT..."
+                        "defaultValue": "GTM-WQV6M2P"
+                    }
+                },
+                "Settings.WebshopName": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Webshop Name",
+                    "options": {
+                        "defaultValue": "Airbrush City"
                     }
                 },
                 "Settings.CdnPluginUrl": {
@@ -29,12 +37,28 @@
                         "defaultValue": "https://image.airbrush-city.de/frontend"
                     }
                 },
-                "Settings.ConsentmanagerID": {
+                "Settings.LogoUrl": {
                     "type": "inputText",
                     "required": false,
-                    "label": "Consentmanager ID",
+                    "label": "Logo URL",
                     "options": {
-                        "defaultValue": "1234..."
+                        "defaultValue": "https://image.airbrush-city.de/frontend/design/airbrush/airbrush-logo.png"
+                    }
+                },
+                "Settings.FaviconUrl": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Favicon URL",
+                    "options": {
+                        "defaultValue": "https://image.airbrush-city.de/frontend/airbrush/favicon_0.ico"
+                    }
+                },
+                "Settings.MobileLogoUrl": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Mobile Logo URL",
+                    "options": {
+                        "defaultValue": "https://image.airbrush-city.de/frontend/design/airbrush/logo-footer.png"
                     }
                 },
 				"Settings.KaeufersiegelUrl": {
@@ -42,7 +66,7 @@
                     "required": false,
                     "label": "Käufersiegel Link",
                     "options": {
-                        "defaultValue": "https://www.kaeufersiegel.de/zertifikat/?uuid=dbc73e39-c253-11e4-bc3a-14dae9b38da3-5787469945"
+                        "defaultValue": "https://www.kaeufersiegel.de/zertifikat/?uuid=db6fb8a9-c253-11e4-bc3a-14dae9b38da3-9050155849"
                     }
                 }
             }

@@ -23,6 +23,11 @@
 {{ Twig.set("defaultLanguage", "webstoreConfig.defaultLanguage" ) }}
 {{ Twig.set("overrideSearchBar", Twig.call("LayoutContainer.show", ["Ceres::Search.SearchBar"])) }}
 {{ Twig.set("visibleFields", "ceresConfig.basket.previewData") }}
+{{ Twig.set("LogoUrl", "ceresConfig.special.LogoUrl") }}
+{{ Twig.set("LogoUrlWebp", "ceresConfig.special.LogoUrlWebp") }}
+{{ Twig.set("MobileLogoUrl", "ceresConfig.special.MobileLogoUrl") }}
+{{ Twig.set("MobileLogoUrlWebp", "ceresConfig.special.MobileLogoUrlWebp") }}
+{{ Twig.set("WebshopName", "ceresConfig.special.WebshopName") }}
 
 <div class="top-bar header-fw{% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if not isFixed %} unfixed{% endif %}">
     <div class="container-max px-0 pr-lg-3">
@@ -53,8 +58,8 @@
                          <li class="list-inline-item d-none d-lg-block">
                             <a href="/" class="pr-2">
                                 <picture>
-                                <source srcset="https://image.schmincke-city.de/frontend/schmincke/schmincke-mini.png">
-                                    <img src="https://image.schmincke-city.de/frontend/schmincke/schmincke-mini.png" alt="Schmincke City" class="img-fluid logospecial"> 
+                                <source srcset="{{ LogoUrlWebp }}">
+                                    <img src="{{ LogoUrl }}" alt="{{ WebshopName }}" class="img-fluid logospecial"> 
                                 </picture>
                             </a>
                         </li>
@@ -127,8 +132,8 @@
                         <li class="brand-wrapper list-inline-item control-big d-lg-none p-2">
                             <a href="/" class="navbar-brand p-0 mx-auto">
                                 <picture>
-                                    <source srcset="https://image.schmincke-city.de/frontend/schmincke/schmincke-city-logo-micro.png">
-                                    <img src="https://image.schmincke-city.de/frontend/schmincke/schmincke-city-logo-micro.png" alt="Schmincke City" class="img-fluid"> 
+                                    <source srcset="{{ MobileLogoUrlWebp }}">
+                                    <img src="{{ MobileLogoUrl }}" alt="{{ WebshopName }}" class="img-fluid"> 
                                 </picture>
                             </a>
                         </li>
