@@ -23,11 +23,11 @@
 {{ Twig.set("defaultLanguage", "webstoreConfig.defaultLanguage" ) }}
 {{ Twig.set("overrideSearchBar", Twig.call("LayoutContainer.show", ["Ceres::Search.SearchBar"])) }}
 {{ Twig.set("visibleFields", "ceresConfig.basket.previewData") }}
-{{ Twig.set("LogoUrl", "ceresConfig.special.LogoUrl") }}
-{{ Twig.set("LogoUrlWebp", "ceresConfig.special.LogoUrlWebp") }}
-{{ Twig.set("MobileLogoUrl", "ceresConfig.special.MobileLogoUrl") }}
-{{ Twig.set("MobileLogoUrlWebp", "ceresConfig.special.MobileLogoUrlWebp") }}
-{{ Twig.set("WebshopName", "ceresConfig.special.WebshopName") }}
+{{ Twig.set("logoUrl", "ceresConfig.special.LogoUrl") }}
+{{ Twig.set("logoUrlWebp", "ceresConfig.special.LogoUrlWebp") }}
+{{ Twig.set("mobileLogoUrl", "ceresConfig.special.MobileLogoUrl") }}
+{{ Twig.set("mobileLogoUrlWebp", "ceresConfig.special.MobileLogoUrlWebp") }}
+{{ Twig.set("webshopName", "ceresConfig.special.WebshopName") }}
 
 <div class="top-bar header-fw{% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if not isFixed %} unfixed{% endif %}">
     <div class="container-max px-0 pr-lg-3">
@@ -58,8 +58,8 @@
                          <li class="list-inline-item d-none d-lg-block">
                             <a href="/" class="pr-2">
                                 <picture>
-                                <source srcset="{{ LogoUrlWebp }}">
-                                    <img src="{{ LogoUrl }}" alt="{{ WebshopName }}" class="img-fluid logospecial"> 
+                                <source srcset="{{ Twig.print("logoUrlWebp") }}">
+                                    <img src="{{ Twig.print("logoUrl") }}" alt="{{ Twig.print("webshopName") }}" class="img-fluid logospecial"> 
                                 </picture>
                             </a>
                         </li>
@@ -132,8 +132,8 @@
                         <li class="brand-wrapper list-inline-item control-big d-lg-none p-2">
                             <a href="/" class="navbar-brand p-0 mx-auto">
                                 <picture>
-                                    <source srcset="{{ MobileLogoUrlWebp }}">
-                                    <img src="{{ MobileLogoUrl }}" alt="{{ WebshopName }}" class="img-fluid"> 
+                                    <source srcset="{{ Twig.print("mobileLogoUrlWebp") }}">
+                                    <img src="{{ Twig.print("mobileLogoUrl") }}" alt="{{ Twig.print("webshopName") }}" class="img-fluid"> 
                                 </picture>
                             </a>
                         </li>
@@ -143,7 +143,6 @@
                                 <i class="fa fa-info"></i>
                             </a>
                         </li>
-
                     
                         <li class="list-inline-item control-user">
                         {{ Twig.if("services.authentication.isLoggedIn() == true") }}
