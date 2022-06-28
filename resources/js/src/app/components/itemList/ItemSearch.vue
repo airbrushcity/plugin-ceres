@@ -1,11 +1,11 @@
 <template>
         <div class="position-relative">
             <div class="d-flex flex-grow-1 position-relative">
-                <input type="search" class="search-input flex-grow-1 px-2" ref="searchInput" v-model="searchString" @input="onValueChanged($event.target.value)"
+                <input type="search" class="search-input flex-grow-1 py-1 px-1 ml-1 bg-white" ref="searchInput" v-model="searchString" @input="onValueChanged($event.target.value)"
                     @keyup.enter="search()" @focus="isSearchFocused = true" @blur="onBlurSearchField($event)" :autofocus="isShopBuilder" :placeholder="$translate('Ceres::Template.headerSearchPlaceholder')" :aria-label="$translate('Ceres::Template.headerSearchTerm')">
 
                 <slot name="search-button">
-                    <button class="my-search-button px-2" type="submit" @click="search()" :aria-label="$translate('Ceres::Template.headerSearch')">
+                    <button class="my-search-button px-2 mr-1" type="submit" @click="search()" :aria-label="$translate('Ceres::Template.headerSearch')">
                         <icon class="fa-fw" icon="search" :loading="autocompleteIsLoading"></icon>
                     </button>
                 </slot>
