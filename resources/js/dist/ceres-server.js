@@ -52775,13 +52775,13 @@ var render = function() {
                 _vm.$translate("Ceres::Template.headerSearchTerm")
               ) +
               _vm._ssrAttr("value", _vm.searchString) +
-              ' class="search-input flex-grow-1 px-3 py-2"> '
+              ' class="search-input flex-grow-1 px-2"> '
           ),
           _vm._t("search-button", [
             _c(
               "button",
               {
-                staticClass: "search-submit px-3",
+                staticClass: "my-search-button px-2",
                 attrs: {
                   type: "submit",
                   "aria-label": _vm.$translate("Ceres::Template.headerSearch")
