@@ -77,9 +77,10 @@
                             </a>               
                         </li>
 
-                        <li class="list-inline-item d-none d-lg-block pl-2 control-big h-100">    
+                        <li class="list-inline-item d-none d-lg-block pl-2 flex-grow-1">    
                         {{ Twig.if("overrideSearchBar | trim is empty") }}
-                        <div class="always-visible-search my-auto align-items-center flex-grow-1 rounded-pill bg-white p-1">
+                        <div class="my-searchbox align-items-center">
+                            <div class="always-visible-search rounded-pill bg-white p-1 flex-grow-1">
                             {% if not isPreview %}<lazy-hydrate when-idle>{% endif %}
                                 <item-search>
                                     <div class="position-relative d-flex flex-grow-1">
@@ -107,6 +108,7 @@
                                     {% endif %}
                                 </item-search>
                             {% if not isPreview %}</lazy-hydrate>{% endif %}
+                            </div>
                         </div>
                         {{ Twig.else() }}
                             {{ Twig.print("overrideSearchBar | raw") }}
