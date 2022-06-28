@@ -38879,7 +38879,7 @@ var render = function() {
               }
             ],
             ref: "searchInput",
-            staticClass: "search-input flex-grow-1 py-1 px-1 ml-1 bg-white",
+            staticClass: "search-input flex-grow-1 py-0 px-1 ml-1 bg-white",
             attrs: {
               type: "search",
               autofocus: _vm.isShopBuilder,

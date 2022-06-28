@@ -52775,7 +52775,7 @@ var render = function() {
                 _vm.$translate("Ceres::Template.headerSearchTerm")
               ) +
               _vm._ssrAttr("value", _vm.searchString) +
-              ' class="search-input flex-grow-1 py-1 px-1 ml-1 bg-white"> '
+              ' class="search-input flex-grow-1 py-0 px-1 ml-1 bg-white"> '
           ),
           _vm._t("search-button", [
             _c(

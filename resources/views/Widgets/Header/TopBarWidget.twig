@@ -80,11 +80,11 @@
                         <li class="list-inline-item d-none d-lg-block pl-2 flex-grow-1">    
                         {{ Twig.if("overrideSearchBar | trim is empty") }}
                         <div class="h-100 d-flex align-items-center">
-                            <div class="always-visible-search rounded-pill bg-white p-1 flex-grow-1 border border-dark">
+                            <div class="always-visible-search rounded-pill bg-white p-1 flex-grow-1">
                             {% if not isPreview %}<lazy-hydrate when-idle>{% endif %}
                                 <item-search>
                                     <div class="position-relative d-flex flex-grow-1">
-                                        <input type="search" class="search-input flex-grow-1 py-1 px-1 ml-1 bg-white" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm")') }}">
+                                        <input type="search" class="search-input flex-grow-1 py-0 px-1 ml-1 bg-white" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm")') }}">
                                         <button class="my-search-button px-2" type="submit" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}">
                                             <i class="fa fa-search"></i>
                                         </button>
