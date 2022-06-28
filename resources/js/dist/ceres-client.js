@@ -38879,7 +38879,7 @@ var render = function() {
               }
             ],
             ref: "searchInput",
-            staticClass: "search-input flex-grow-1 px-2",
+            staticClass: "search-input flex-grow-1 py-1 px-1 ml-1 bg-white",
             attrs: {
               type: "search",
               autofocus: _vm.isShopBuilder,
@@ -38923,7 +38923,7 @@ var render = function() {
             _c(
               "button",
               {
-                staticClass: "my-search-button px-2",
+                staticClass: "my-search-button px-2 mr-1",
                 attrs: {
                   type: "submit",
                   "aria-label": _vm.$translate("Ceres::Template.headerSearch")
