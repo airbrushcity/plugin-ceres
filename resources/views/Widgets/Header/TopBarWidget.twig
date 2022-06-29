@@ -80,7 +80,7 @@
                         <li class="list-inline-item d-none d-lg-block pl-2 flex-grow-1">    
                         {{ Twig.if("overrideSearchBar | trim is empty") }}
                         <div class="h-100 d-flex align-items-center">
-                            <div class="always-visible-search rounded-pill bg-white p-1 flex-grow-1">
+                            <div class="always-visible-search rounded-pill bg-white flex-grow-1">
                             {% if not isPreview %}<lazy-hydrate when-idle>{% endif %}
                                 <item-search>
                                     <div class="position-relative d-flex flex-grow-1">

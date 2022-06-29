@@ -46,7 +46,7 @@ body {
 	box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   
 	.controls-list {
-	  min-height: 36px !important;
+	  min-height: 48px !important;
 	  max-height: 80px !important;
   
 	  .list-inline-item {
@@ -64,6 +64,10 @@ body {
 		}
 	  }
 	}
+  }
+
+  .control-big {
+	flex: 1 0 auto;
   }
   
   .top-bar-items {
@@ -229,7 +233,7 @@ body {
   }
   
   .brand-wrapper .navbar-brand img {
-	max-height: 40px !important;
+	max-height: 52px !important;
   }
   
   .my-search-button {
@@ -237,7 +241,23 @@ body {
   }
   
   .search-input {
-	font-size: 1rem !important;
+	font-size:  0.875rem !important;
+  }
+
+  input:not([type="checkbox"]):not([type="radio"]) {
+	font-size: 0.875rem;
+  }
+  
+  textarea {
+	font-size: 0.875rem;
+  
+	&.form-control {
+	  font-size: 0.875rem;
+	}
+  }
+  
+  .input-unit-preview, .custom-select, select.form-control {
+	font-size: 0.875rem;
   }
   
   .top-bar {
@@ -246,6 +266,7 @@ body {
   
   .always-visible-search {
 	border-color: #eee8aa !important;
+	padding:2px;
   }
   
   .anicon > .anicon-search-item {
