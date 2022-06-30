@@ -11,7 +11,7 @@
     {% elseif shopBuilderTemplate | trim is not empty %}
         <div class="container-max page-content checkout">
             <div class="row">
-                <div class="col">
+                <div class="col p-2">
                     <checkout
                         v-cloak
                         :initial-checkout="{{ checkout | json_encode() }}"

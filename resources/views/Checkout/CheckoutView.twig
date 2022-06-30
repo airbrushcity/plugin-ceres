@@ -44,7 +44,7 @@
         {% set overrideCheckout = LayoutContainer.show("Ceres::Checkout") %}
         {% if overrideCheckout | trim is empty %}
             <div class="row mt-3">
-                <div class="col-12">
+                <div class="col-12 p-2">
                     {% set overrideCheckoutHeadline = LayoutContainer.show("Ceres::Checkout.Headline") %}
                     {% if overrideCheckoutHeadline | trim is empty %}
                         <h1 class="h2">
