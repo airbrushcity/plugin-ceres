@@ -352,7 +352,7 @@ export default {
 
         isPdfTabActive()
         {
-            return get(this.$store.state, `items[${this.itemId}].variationGroupedProperties.id[1].data.length`);
+            return !!this.$store.getters[`${this.itemId}/variationGroupedProperties[1].length`];
         },
 
         variationGroupedProperties()

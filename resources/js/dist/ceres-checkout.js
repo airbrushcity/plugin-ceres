@@ -3568,7 +3568,7 @@ __webpack_require__.r(__webpack_exports__);
       return Object(_helper_get__WEBPACK_IMPORTED_MODULE_7__["get"])(this.$store.state, "items[".concat(this.itemId, "].variationGroupedProperties.variationProperty.id[169]"));
     },
     isPdfTabActive: function isPdfTabActive() {
-      return Object(_helper_get__WEBPACK_IMPORTED_MODULE_7__["get"])(this.$store.state, "items[".concat(this.itemId, "].variationGroupedProperties.id[1].data.length"));
+      return !!this.$store.getters["".concat(this.itemId, "/variationGroupedProperties[1].length")];
     },
     variationGroupedProperties: function variationGroupedProperties() {
       return this.$store.getters["".concat(this.itemId, "/variationGroupedProperties")];
