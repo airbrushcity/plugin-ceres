@@ -1282,6 +1282,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1340,7 +1351,7 @@ __webpack_require__.r(__webpack_exports__);
       return (App.config.item.itemData.includes("item.technical_data") || App.config.item.itemData.includes("all")) && !!this.currentVariation.texts.technicalData.length;
     },
     isVideoTabActive: function isVideoTabActive() {
-      return 169;
+      return 1;
     },
     isPdfTabActive: function isPdfTabActive() {
       return 1;
@@ -37899,6 +37910,7 @@ var render = function() {
                                   active:
                                     !_vm.isDescriptionTabActive &&
                                     !_vm.isVideoTabActive &&
+                                    !_vm.isPdfTabActive &&
                                     _vm.isTechnicalDataTabActive
                                 },
                                 attrs: {
@@ -38294,6 +38306,7 @@ var render = function() {
                                   active:
                                     !_vm.isDescriptionTabActive &&
                                     !_vm.isTechnicalDataTabActive &&
+                                    !_vm.isPdfTabActive &&
                                     _vm.isVideoTabActive
                                 },
                                 attrs: {
@@ -38311,85 +38324,68 @@ var render = function() {
                                     _vm.$store.getters.currentItemVariation
                                       .variationProperties.length > 0
                                       ? [
-                                          _c(
-                                            "div",
-                                            [
-                                              _vm._l(
-                                                _vm.$store.getters
-                                                  .currentItemVariation
-                                                  .variationProperties,
-                                                function(
-                                                  variationPropertyGroups,
-                                                  index
-                                                ) {
-                                                  return [
-                                                    _vm._l(
-                                                      variationPropertyGroups.properties,
-                                                      function(
-                                                        variationProperty,
-                                                        index
-                                                      ) {
-                                                        return [
-                                                          variationProperty.id ===
-                                                          169
-                                                            ? [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "row"
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "div",
-                                                                      {
-                                                                        staticClass:
-                                                                          "col m-3 embed-responsive embed-responsive-16by9"
-                                                                      },
-                                                                      [
-                                                                        _c(
-                                                                          "iframe",
-                                                                          {
-                                                                            staticClass:
-                                                                              "embed-responsive-item",
-                                                                            attrs: {
-                                                                              src:
-                                                                                "https://www.youtube-nocookie.com/embed/" +
-                                                                                "{{ variationProperty.values.value | raw }}",
-                                                                              rel:
-                                                                                "0",
-                                                                              allowfullscreen:
-                                                                                ""
+                                          _vm._l(
+                                            _vm.$store.getters
+                                              .currentItemVariation
+                                              .variationProperties,
+                                            function(group) {
+                                              return [
+                                                _vm._l(
+                                                  group.properties,
+                                                  function(property) {
+                                                    return [
+                                                      property.values.value
+                                                        .length > 0
+                                                        ? _vm._l(
+                                                            property.values
+                                                              .value,
+                                                            function(
+                                                              variationPropertyValue
+                                                            ) {
+                                                              return _c("div", [
+                                                                _vm
+                                                                  .variationProperty
+                                                                  .id === 169
+                                                                  ? _c("div", [
+                                                                      _c(
+                                                                        "div",
+                                                                        {
+                                                                          staticClass:
+                                                                            "col m-3 embed-responsive embed-responsive-16by9"
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "iframe",
+                                                                            {
+                                                                              staticClass:
+                                                                                "embed-responsive-item",
+                                                                              attrs: {
+                                                                                src:
+                                                                                  "https://www.youtube-nocookie.com/embed/" +
+                                                                                  _vm
+                                                                                    .variationProperty
+                                                                                    .values
+                                                                                    .value,
+                                                                                rel:
+                                                                                  "0",
+                                                                                allowfullscreen:
+                                                                                  ""
+                                                                              }
                                                                             }
-                                                                          }
-                                                                        )
-                                                                      ]
-                                                                    )
-                                                                  ]
-                                                                )
-                                                              ]
-                                                            : [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "p-3"
-                                                                  },
-                                                                  [
-                                                                    _vm._v(
-                                                                      "Zu diesem Produkt haben wir leider noch kein vom Hersteller freigegebenes Video."
-                                                                    )
-                                                                  ]
-                                                                )
-                                                              ]
-                                                        ]
-                                                      }
-                                                    )
-                                                  ]
-                                                }
-                                              )
-                                            ],
-                                            2
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ])
+                                                                  : _vm._e()
+                                                              ])
+                                                            }
+                                                          )
+                                                        : _vm._e()
+                                                    ]
+                                                  }
+                                                )
+                                              ]
+                                            }
                                           )
                                         ]
                                       : _vm._e()
@@ -38409,7 +38405,8 @@ var render = function() {
                                   active:
                                     !_vm.isDescriptionTabActive &&
                                     !_vm.isVideoTabActive &&
-                                    !_vm.isTechnicalDataTabActive
+                                    !_vm.isTechnicalDataTabActive &&
+                                    _vm.isPdfTabActive
                                 },
                                 attrs: {
                                   id: "assessments-details",
@@ -38446,14 +38443,84 @@ var render = function() {
                                                                   variationPropertyValue
                                                                 ) {
                                                                   return _c(
-                                                                    "p",
-                                                                    {
-                                                                      domProps: {
-                                                                        innerHTML: _vm._s(
-                                                                          variationPropertyValue
-                                                                        )
-                                                                      }
-                                                                    }
+                                                                    "div",
+                                                                    [
+                                                                      _vm
+                                                                        .variationProperty
+                                                                        .id ===
+                                                                      4
+                                                                        ? _c(
+                                                                            "p",
+                                                                            [
+                                                                              _c(
+                                                                                "span",
+                                                                                [
+                                                                                  _c(
+                                                                                    "a",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        href:
+                                                                                          _vm.cdnUrl +
+                                                                                          "/frontend/anhang/sicherheitsdatenblatt/" +
+                                                                                          _vm
+                                                                                            .variationProperty
+                                                                                            .values
+                                                                                            .value,
+                                                                                        target:
+                                                                                          "_blank"
+                                                                                      }
+                                                                                    },
+                                                                                    [
+                                                                                      _vm._v(
+                                                                                        " - Sicherheitsdatenblatt - "
+                                                                                      )
+                                                                                    ]
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        : _vm._e(),
+                                                                      _vm._v(
+                                                                        " "
+                                                                      ),
+                                                                      _vm
+                                                                        .variationProperty
+                                                                        .id ===
+                                                                      5
+                                                                        ? _c(
+                                                                            "p",
+                                                                            [
+                                                                              _c(
+                                                                                "span",
+                                                                                [
+                                                                                  _c(
+                                                                                    "a",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        href:
+                                                                                          _vm.cdnUrl +
+                                                                                          "/frontend/anhang/merkblatt/" +
+                                                                                          _vm
+                                                                                            .variationProperty
+                                                                                            .values
+                                                                                            .value,
+                                                                                        target:
+                                                                                          "_blank"
+                                                                                      }
+                                                                                    },
+                                                                                    [
+                                                                                      _vm._v(
+                                                                                        " - Technisches Merkblatt - "
+                                                                                      )
+                                                                                    ]
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        : _vm._e()
+                                                                    ]
                                                                   )
                                                                 }
                                                               )
