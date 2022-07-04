@@ -1323,6 +1323,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -36820,7 +36835,7 @@ var render = function() {
                                     role: "tab"
                                   }
                                 },
-                                [_vm._v("Youtube")]
+                                [_vm._v("Produkt Video")]
                               )
                             ])
                           : _vm._e(),
@@ -37303,11 +37318,91 @@ var render = function() {
                                 }
                               },
                               [
-                                _c("div", { staticClass: "my-2" }, [
-                                  _vm._v(
-                                    "\n                                       Video\n\n                                    "
-                                  )
-                                ])
+                                _c(
+                                  "div",
+                                  { staticClass: "my-2" },
+                                  [
+                                    _vm.$store.getters.currentItemVariation
+                                      .variationProperties &&
+                                    _vm.$store.getters.currentItemVariation
+                                      .variationProperties.length > 0
+                                      ? [
+                                          _c(
+                                            "div",
+                                            [
+                                              _vm._l(
+                                                _vm.$store.getters
+                                                  .currentItemVariation
+                                                  .variationProperties,
+                                                function(
+                                                  variationPropertyGroups,
+                                                  index
+                                                ) {
+                                                  return [
+                                                    _vm._l(
+                                                      variationPropertyGroups.properties,
+                                                      function(
+                                                        variationProperty,
+                                                        index
+                                                      ) {
+                                                        return [
+                                                          variationProperty.id ==
+                                                          169 > 0
+                                                            ? _c("div", [
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "row"
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "div",
+                                                                      {
+                                                                        staticClass:
+                                                                          "col m-3 embed-responsive embed-responsive-16by9"
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "iframe",
+                                                                          {
+                                                                            staticClass:
+                                                                              "embed-responsive-item",
+                                                                            attrs: {
+                                                                              src:
+                                                                                "https://www.youtube-nocookie.com/embed/" +
+                                                                                "{{ variationProperty.values.value | raw }}",
+                                                                              rel:
+                                                                                "0",
+                                                                              allowfullscreen:
+                                                                                ""
+                                                                            }
+                                                                          }
+                                                                        )
+                                                                      ]
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            : _c("div", [
+                                                                _vm._v(
+                                                                  "\n                                                        Zu diesem Produkt haben wir leider noch kein vom Hersteller freigegebenes Video.\n                                                    "
+                                                                )
+                                                              ])
+                                                        ]
+                                                      }
+                                                    )
+                                                  ]
+                                                }
+                                              )
+                                            ],
+                                            2
+                                          )
+                                        ]
+                                      : _vm._e()
+                                  ],
+                                  2
+                                )
                               ]
                             )
                           : _vm._e(),

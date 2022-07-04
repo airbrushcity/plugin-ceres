@@ -132,7 +132,7 @@
 
 
                                 <li class="nav-item" v-if="isVideoTabActive">
-                                    <a :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && !isPdfTabActive && isVideoTabActive }" class="nav-link" data-toggle="tab" href="#youtube-videos" role="tab">Youtube</a>
+                                    <a :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && !isPdfTabActive && isVideoTabActive }" class="nav-link" data-toggle="tab" href="#youtube-videos" role="tab">Produkt Video</a>
                                 </li>
 
 								<li class="nav-item" v-if="isPdfTabActive">
@@ -227,10 +227,25 @@
 
                                 <div :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && isVideoTabActive }" class="tab-pane overflow-auto" id="youtube-videos" role="tabpanel" v-if="isVideoTabActive">
                                     <div class="my-2">
-
-                                        <!-- Hier kommen die Videos dann rein! -->
-                                       Video
-
+                                        <!-- Hier kommt das Video! -->
+                                        <template v-if="$store.getters.currentItemVariation.variationProperties && $store.getters.currentItemVariation.variationProperties.length > 0">
+                                            <div>
+                                            <template v-for="(variationPropertyGroups, index) in $store.getters.currentItemVariation.variationProperties">
+                                                <template v-for="(variationProperty, index) in variationPropertyGroups.properties">
+                                                    <div v-if="variationProperty.id == 169 > 0">												
+                                                        <div class="row">
+                                                            <div class="col m-3 embed-responsive embed-responsive-16by9">
+                                                                <iframe class="embed-responsive-item" :src="'https://www.youtube-nocookie.com/embed/' + '{{ variationProperty.values.value | raw }}'" rel=0 allowfullscreen></iframe>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div v-else>
+                                                        Zu diesem Produkt haben wir leider noch kein vom Hersteller freigegebenes Video.
+                                                    </div>
+                                                </template>
+                                            </template>
+                                            </div>
+                                        </template>
                                     </div>
                                 </div>
 
