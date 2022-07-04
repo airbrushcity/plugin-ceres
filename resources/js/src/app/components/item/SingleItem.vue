@@ -131,11 +131,11 @@
                                 </li>
 
 
-                                <li class="nav-item">
+                                <li class="nav-item" v-if="isVideoTabActive">
                                     <a :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && !isPdfTabActive && isVideoTabActive }" class="nav-link" data-toggle="tab" href="#youtube-videos" role="tab">Youtube</a>
                                 </li>
 
-								<li class="nav-item">
+								<li class="nav-item" v-if="isPdfTabActive">
                                     <a :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && !isVideoTabActive && isPdfTabActive }" class="nav-link" data-toggle="tab" href="#assessments-details" role="tab">{{ $translate("Ceres::Template.singleItemMoreDetails") }}</a>
                                 </li>
 

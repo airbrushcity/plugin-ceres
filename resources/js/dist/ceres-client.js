@@ -37777,57 +37777,61 @@ var render = function() {
                             ])
                           : _vm._e(),
                         _vm._v(" "),
-                        _c("li", { staticClass: "nav-item" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "nav-link",
-                              class: {
-                                active:
-                                  !_vm.isDescriptionTabActive &&
-                                  !_vm.isTechnicalDataTabActive &&
-                                  !_vm.isPdfTabActive &&
-                                  _vm.isVideoTabActive
-                              },
-                              attrs: {
-                                "data-toggle": "tab",
-                                href: "#youtube-videos",
-                                role: "tab"
-                              }
-                            },
-                            [_vm._v("Youtube")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "nav-item" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "nav-link",
-                              class: {
-                                active:
-                                  !_vm.isDescriptionTabActive &&
-                                  !_vm.isTechnicalDataTabActive &&
-                                  !_vm.isVideoTabActive &&
-                                  _vm.isPdfTabActive
-                              },
-                              attrs: {
-                                "data-toggle": "tab",
-                                href: "#assessments-details",
-                                role: "tab"
-                              }
-                            },
-                            [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.$translate(
-                                    "Ceres::Template.singleItemMoreDetails"
-                                  )
-                                )
+                        _vm.isVideoTabActive
+                          ? _c("li", { staticClass: "nav-item" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "nav-link",
+                                  class: {
+                                    active:
+                                      !_vm.isDescriptionTabActive &&
+                                      !_vm.isTechnicalDataTabActive &&
+                                      !_vm.isPdfTabActive &&
+                                      _vm.isVideoTabActive
+                                  },
+                                  attrs: {
+                                    "data-toggle": "tab",
+                                    href: "#youtube-videos",
+                                    role: "tab"
+                                  }
+                                },
+                                [_vm._v("Youtube")]
                               )
-                            ]
-                          )
-                        ]),
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.isPdfTabActive
+                          ? _c("li", { staticClass: "nav-item" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "nav-link",
+                                  class: {
+                                    active:
+                                      !_vm.isDescriptionTabActive &&
+                                      !_vm.isTechnicalDataTabActive &&
+                                      !_vm.isVideoTabActive &&
+                                      _vm.isPdfTabActive
+                                  },
+                                  attrs: {
+                                    "data-toggle": "tab",
+                                    href: "#assessments-details",
+                                    role: "tab"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.$translate(
+                                        "Ceres::Template.singleItemMoreDetails"
+                                      )
+                                    )
+                                  )
+                                ]
+                              )
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
                         _vm._t("add-detail-tabs")
                       ],
