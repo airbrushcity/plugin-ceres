@@ -306,7 +306,7 @@ export default {
 
     data: function() {
             return {
-                cdnUrl: 'https://image.airbrush-city.de/'
+                cdnUrl: '$ceres.config.special.cdnImageUrl'
         };            
     },
 
@@ -347,11 +347,12 @@ export default {
         isVideoTabActive()
         {
             return get(this.$store.state, `items[${this.itemId}].variationGroupedProperties.variationProperty.id[169]`);
+
         },
 
         isPdfTabActive()
         {
-            return get(this.$store.state, `items[${this.itemId}].variationGroupedProperties.id[1]`);
+            return get(this.$store.state, `items[${this.itemId}].variationGroupedProperties.id[1].data.length`);
         },
 
         variationGroupedProperties()
