@@ -121,16 +121,22 @@
                         <!-- ITEM DESCRIPTION -->
                         <div class="my-2">
                             <ul class="nav nav-tabs" role="tablist">
+							
                                 <li class="nav-item" v-if="isDescriptionTabActive">
                                     <a class="nav-link active" data-toggle="tab" :href="'#details-' + currentVariation.variation.id" role="tab">{{ $translate("Ceres::Template.singleItemDescription") }}</a>
                                 </li>
-
-                                <li class="nav-item">
-                                    <a :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive }" class="nav-link" data-toggle="tab" href="#assessments-details" role="tab">{{ $translate("Ceres::Template.singleItemMoreDetails") }}</a>
+								
+								<li class="nav-item" v-if="isTechnicalDataTabActive">
+                                    <a :class="{ 'active': !isDescriptionTabActive && !isVideoTabActive && !isPdfTabActive && isTechnicalDataTabActive }" class="nav-link" data-toggle="tab" :href="'#data-' + currentVariation.variation.id" role="tab">{{ $translate("Ceres::Template.singleItemTechnicalData") }}</a>
                                 </li>
 
-                                <li class="nav-item" v-if="isTechnicalDataTabActive">
-                                    <a :class="{ 'active': !isDescriptionTabActive && isTechnicalDataTabActive }" class="nav-link" data-toggle="tab" :href="'#data-' + currentVariation.variation.id" role="tab">{{ $translate("Ceres::Template.singleItemTechnicalData") }}</a>
+
+                                <li class="nav-item">
+                                    <a :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && !isPdfTabActive && isVideoTabActive }" class="nav-link" data-toggle="tab" href="#youtube-videos" role="tab">Youtube</a>
+                                </li>
+
+								<li class="nav-item">
+                                    <a :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && !isVideoTabActive && isPdfTabActive }" class="nav-link" data-toggle="tab" href="#assessments-details" role="tab">{{ $translate("Ceres::Template.singleItemMoreDetails") }}</a>
                                 </li>
 
                                 <slot name="add-detail-tabs"></slot>
@@ -144,8 +150,10 @@
 
                                 </div>
 
-                                <div :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive }" class="tab-pane overflow-auto" id="assessments-details" role="tabpanel">
+
+                                <div :class="{ 'active': !isDescriptionTabActive && !isVideoTabActive && isTechnicalDataTabActive }" class="tab-pane overflow-auto" :id="'data-' + currentVariation.variation.id" role="tabpanel" v-if="isTechnicalDataTabActive">
                                     <div class="my-2">
+
                                         <table class="table table-striped table-hover table-sm">
                                             <tbody>
                                             <tr v-if="itemConfig.includes('item.id') || itemConfig.includes('all')">
@@ -213,12 +221,54 @@
                                             </tr>
                                             </tbody>
                                         </table>
+
                                     </div>
                                 </div>
 
-                                <div :class="{ 'active': !isDescriptionTabActive && isTechnicalDataTabActive }" class="tab-pane overflow-auto" :id="'data-' + currentVariation.variation.id" role="tabpanel" v-if="isTechnicalDataTabActive">
+                                <div :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && isVideoTabActive }" class="tab-pane overflow-auto" id="youtube-videos" role="tabpanel" v-if="isVideoTabActive">
                                     <div class="my-2">
-                                     Hier kommen die PDF Anhaenge dann rein!
+
+                                        <!-- Hier kommen die Videos dann rein! -->
+                                        <div>
+                                            <template v-if="variationGroupedProperties.variationProperty.id[169].length > 0">
+                                                <div v-if="currentVariation.length > 0">
+                                                   <div v-for="variationGroups in currentVariation">
+                                                        <div v-for="variationProperty in variationGroups.properties">
+                                                            <div v-if="variationProperty.id === 169">
+															
+                                                                <div class="row">
+                                                                    <div class="col m-3 embed-responsive embed-responsive-16by9">
+                                                                        <iframe class="embed-responsive-item" :src="'https://www.youtube-nocookie.com/embed/' + '{{ variationProperty.values.value | raw }}'" rel=0 allowfullscreen></iframe>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </template>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div :class="{ 'active': !isDescriptionTabActive && !isVideoTabActive && !isTechnicalDataTabActive }" class="tab-pane overflow-auto" id="assessments-details" role="tabpanel" v-if="isPdfTabActive">
+                                    <div class="my-2">
+                                        
+                                        <!-- Hier kommen die PDF Anhänge -->
+                                        <div>
+                                            <template v-if="variationGroupedProperties.id[1].length > 0">
+                                                <div v-for="variationProperty in variationGroups.properties">
+                                                    <p v-if="variationProperty.id === 4">
+                                                        <span><a :href="'{{ cdnUrl }}' + '/frontend/anhang/sicherheitsdatenblatt/' + '{{ variationProperty.values.value | raw }}'" target="_blank"> - Sicherheitsdatenblatt - </a></span>	
+                                                    </p>
+                                                    <p v-if="variationProperty.id === 5">
+                                                        <span><a :href="'{{ cdnUrl }}'  + '/frontend/anhang/merkblatt/' + '{{ variationProperty.values.value | raw }}'" target="_blank"> - Technisches Merkblatt - </a> </span>
+                                                    </p>
+                                                </div>
+                                            </template>
+                                        </div>
+
                                     </div>
                                 </div>
 
@@ -282,6 +332,10 @@ export default {
         }
     },
 
+    data: {
+        cdnUrl: 'https://image.airbrush-city.de/'
+    },
+
     computed:
     {
         itemConfig()
@@ -314,6 +368,16 @@ export default {
         {
             return (App.config.item.itemData.includes("item.technical_data") || App.config.item.itemData.includes("all"))
                 && !!this.currentVariation.texts.technicalData.length;
+        },
+
+        isVideoTabActive()
+        {
+            return get(this.$store.state, `items[${this.itemId}].variationGroupedProperties.variationProperty.id[169]`);
+        },
+
+        isPdfTabActive()
+        {
+            return get(this.$store.state, `items[${this.itemId}].variationGroupedProperties.id[1]`);
         },
 
         variationGroupedProperties()
