@@ -1259,34 +1259,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -38304,79 +38276,8 @@ var render = function() {
                               },
                               [
                                 _c("div", { staticClass: "my-2" }, [
-                                  _c(
-                                    "div",
-                                    [
-                                      _vm.variationGroupedProperties
-                                        .variationProperty.id[169].length > 0
-                                        ? [
-                                            _vm.currentVariation.length > 0
-                                              ? _c(
-                                                  "div",
-                                                  _vm._l(
-                                                    _vm.currentVariation,
-                                                    function(variationGroups) {
-                                                      return _c(
-                                                        "div",
-                                                        _vm._l(
-                                                          variationGroups.properties,
-                                                          function(
-                                                            variationProperty
-                                                          ) {
-                                                            return _c("div", [
-                                                              variationProperty.id ===
-                                                              169
-                                                                ? _c("div", [
-                                                                    _c(
-                                                                      "div",
-                                                                      {
-                                                                        staticClass:
-                                                                          "row"
-                                                                      },
-                                                                      [
-                                                                        _c(
-                                                                          "div",
-                                                                          {
-                                                                            staticClass:
-                                                                              "col m-3 embed-responsive embed-responsive-16by9"
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "iframe",
-                                                                              {
-                                                                                staticClass:
-                                                                                  "embed-responsive-item",
-                                                                                attrs: {
-                                                                                  src:
-                                                                                    "https://www.youtube-nocookie.com/embed/" +
-                                                                                    "{{ variationProperty.values.value | raw }}",
-                                                                                  rel:
-                                                                                    "0",
-                                                                                  allowfullscreen:
-                                                                                    ""
-                                                                                }
-                                                                              }
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      ]
-                                                                    )
-                                                                  ])
-                                                                : _vm._e()
-                                                            ])
-                                                          }
-                                                        ),
-                                                        0
-                                                      )
-                                                    }
-                                                  ),
-                                                  0
-                                                )
-                                              : _vm._e()
-                                          ]
-                                        : _vm._e()
-                                    ],
-                                    2
+                                  _vm._v(
+                                    "\n                                       Video\n\n                                    "
                                   )
                                 ])
                               ]
@@ -38401,68 +38302,8 @@ var render = function() {
                               },
                               [
                                 _c("div", { staticClass: "my-2" }, [
-                                  _c(
-                                    "div",
-                                    [
-                                      _vm.variationGroupedProperties.id[1]
-                                        .length > 0
-                                        ? _vm._l(
-                                            _vm.variationGroups.properties,
-                                            function(variationProperty) {
-                                              return _c("div", [
-                                                variationProperty.id === 4
-                                                  ? _c("p", [
-                                                      _c("span", [
-                                                        _c(
-                                                          "a",
-                                                          {
-                                                            attrs: {
-                                                              href:
-                                                                "{{ cdnUrl }}" +
-                                                                "/frontend/anhang/sicherheitsdatenblatt/" +
-                                                                "{{ variationProperty.values.value | raw }}",
-                                                              target: "_blank"
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              " - Sicherheitsdatenblatt - "
-                                                            )
-                                                          ]
-                                                        )
-                                                      ])
-                                                    ])
-                                                  : _vm._e(),
-                                                _vm._v(" "),
-                                                variationProperty.id === 5
-                                                  ? _c("p", [
-                                                      _c("span", [
-                                                        _c(
-                                                          "a",
-                                                          {
-                                                            attrs: {
-                                                              href:
-                                                                "{{ cdnUrl }}" +
-                                                                "/frontend/anhang/merkblatt/" +
-                                                                "{{ variationProperty.values.value | raw }}",
-                                                              target: "_blank"
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              " - Technisches Merkblatt - "
-                                                            )
-                                                          ]
-                                                        )
-                                                      ])
-                                                    ])
-                                                  : _vm._e()
-                                              ])
-                                            }
-                                          )
-                                        : _vm._e()
-                                    ],
-                                    2
+                                  _vm._v(
+                                    "\n                                        PDF Anhang\n\n\n                                    "
                                   )
                                 ])
                               ]

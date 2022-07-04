@@ -229,25 +229,7 @@
                                     <div class="my-2">
 
                                         <!-- Hier kommen die Videos dann rein! -->
-                                        <div>
-                                            <template v-if="variationGroupedProperties.variationProperty.id[169].length > 0">
-                                                <div v-if="currentVariation.length > 0">
-                                                   <div v-for="variationGroups in currentVariation">
-                                                        <div v-for="variationProperty in variationGroups.properties">
-                                                            <div v-if="variationProperty.id === 169">
-															
-                                                                <div class="row">
-                                                                    <div class="col m-3 embed-responsive embed-responsive-16by9">
-                                                                        <iframe class="embed-responsive-item" :src="'https://www.youtube-nocookie.com/embed/' + '{{ variationProperty.values.value | raw }}'" rel=0 allowfullscreen></iframe>
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </template>
-                                        </div>
+                                       Video
 
                                     </div>
                                 </div>
@@ -256,18 +238,8 @@
                                     <div class="my-2">
                                         
                                         <!-- Hier kommen die PDF Anhänge -->
-                                        <div>
-                                            <template v-if="variationGroupedProperties.id[1].length > 0">
-                                                <div v-for="variationProperty in variationGroups.properties">
-                                                    <p v-if="variationProperty.id === 4">
-                                                        <span><a :href="'{{ cdnUrl }}' + '/frontend/anhang/sicherheitsdatenblatt/' + '{{ variationProperty.values.value | raw }}'" target="_blank"> - Sicherheitsdatenblatt - </a></span>	
-                                                    </p>
-                                                    <p v-if="variationProperty.id === 5">
-                                                        <span><a :href="'{{ cdnUrl }}'  + '/frontend/anhang/merkblatt/' + '{{ variationProperty.values.value | raw }}'" target="_blank"> - Technisches Merkblatt - </a> </span>
-                                                    </p>
-                                                </div>
-                                            </template>
-                                        </div>
+                                        PDF Anhang
+
 
                                     </div>
                                 </div>
