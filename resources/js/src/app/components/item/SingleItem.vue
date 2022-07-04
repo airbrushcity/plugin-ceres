@@ -346,12 +346,12 @@ export default {
 
         isVideoTabActive()
         {
-            return get(this.$store.state, `items[${this.itemId}].variationProperty[169]`).length;
+            return 169;
         },
 
         isPdfTabActive()
         {
-            return this.$store.getters[`${this.itemId}/variationGroupedProperties`].length;
+            return 1;
         },
 
         variationGroupedProperties()

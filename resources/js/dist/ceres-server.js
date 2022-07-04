@@ -9375,10 +9375,10 @@ __webpack_require__.r(__webpack_exports__);
       return (App.config.item.itemData.includes("item.technical_data") || App.config.item.itemData.includes("all")) && !!this.currentVariation.texts.technicalData.length;
     },
     isVideoTabActive: function isVideoTabActive() {
-      return Object(_helper_get__WEBPACK_IMPORTED_MODULE_7__["get"])(this.$store.state, "items[".concat(this.itemId, "].variationProperty[169]")).length;
+      return 169;
     },
     isPdfTabActive: function isPdfTabActive() {
-      return this.$store.getters["".concat(this.itemId, "/variationGroupedProperties")].length;
+      return 1;
     },
     variationGroupedProperties: function variationGroupedProperties() {
       return this.$store.getters["".concat(this.itemId, "/variationGroupedProperties")];
