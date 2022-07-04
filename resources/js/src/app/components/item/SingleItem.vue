@@ -232,16 +232,16 @@
                                             <div>
                                             <template v-for="(variationPropertyGroups, index) in $store.getters.currentItemVariation.variationProperties">
                                                 <template v-for="(variationProperty, index) in variationPropertyGroups.properties">
-                                                    <div v-if="variationProperty.id == 169 > 0">												
+                                                    <template v-if="variationProperty.id === 169">												
                                                         <div class="row">
                                                             <div class="col m-3 embed-responsive embed-responsive-16by9">
                                                                 <iframe class="embed-responsive-item" :src="'https://www.youtube-nocookie.com/embed/' + '{{ variationProperty.values.value | raw }}'" rel=0 allowfullscreen></iframe>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div v-else>
-                                                        Zu diesem Produkt haben wir leider noch kein vom Hersteller freigegebenes Video.
-                                                    </div>
+                                                    </template>
+                                                    <template v-else>
+                                                        <div class="p-3">Zu diesem Produkt haben wir leider noch kein vom Hersteller freigegebenes Video.</div>
+                                                    </template>
                                                 </template>
                                             </template>
                                             </div>
@@ -251,11 +251,19 @@
 
                                 <div :class="{ 'active': !isDescriptionTabActive && !isVideoTabActive && !isTechnicalDataTabActive }" class="tab-pane overflow-auto" id="assessments-details" role="tabpanel" v-if="isPdfTabActive">
                                     <div class="my-2">
-                                        
                                         <!-- Hier kommen die PDF Anhänge -->
-                                        PDF Anhang
-
-
+                                        <template v-if="$store.getters.currentItemVariation.variationProperties && $store.getters.currentItemVariation.variationProperties.length > 0">
+                                            <template v-for="group in $store.getters.currentItemVariation.variationProperties" v-if="group.id === 1">
+                                                <template v-for="property in group.properties">
+                                                    <template v-if="property.values.value.length > 0">
+                                                        <p v-for="variationPropertyValue in property.values.value" v-html="variationPropertyValue"></p>
+                                                    </template>
+                                                    <template v-else>
+                                                        <div class="p-3">Zu diesem Artikel gibt es keinen PDF Anhang.</div>
+                                                    </template>
+                                                </template>
+                                            </template> 
+                                        </template>
                                     </div>
                                 </div>
 

@@ -3522,6 +3522,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -46259,9 +46267,9 @@ var render = function() {
                                                         index
                                                       ) {
                                                         return [
-                                                          variationProperty.id ==
-                                                          169 > 0
-                                                            ? _c("div", [
+                                                          variationProperty.id ===
+                                                          169
+                                                            ? [
                                                                 _c(
                                                                   "div",
                                                                   {
@@ -46296,12 +46304,21 @@ var render = function() {
                                                                     )
                                                                   ]
                                                                 )
-                                                              ])
-                                                            : _c("div", [
-                                                                _vm._v(
-                                                                  "\n                                                        Zu diesem Produkt haben wir leider noch kein vom Hersteller freigegebenes Video.\n                                                    "
+                                                              ]
+                                                            : [
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "p-3"
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "Zu diesem Produkt haben wir leider noch kein vom Hersteller freigegebenes Video."
+                                                                    )
+                                                                  ]
                                                                 )
-                                                              ])
+                                                              ]
                                                         ]
                                                       }
                                                     )
@@ -46337,11 +46354,72 @@ var render = function() {
                                 }
                               },
                               [
-                                _c("div", { staticClass: "my-2" }, [
-                                  _vm._v(
-                                    "\n                                        PDF Anhang\n\n\n                                    "
-                                  )
-                                ])
+                                _c(
+                                  "div",
+                                  { staticClass: "my-2" },
+                                  [
+                                    _vm.$store.getters.currentItemVariation
+                                      .variationProperties &&
+                                    _vm.$store.getters.currentItemVariation
+                                      .variationProperties.length > 0
+                                      ? [
+                                          _vm._l(
+                                            _vm.$store.getters
+                                              .currentItemVariation
+                                              .variationProperties,
+                                            function(group) {
+                                              return group.id === 1
+                                                ? [
+                                                    _vm._l(
+                                                      group.properties,
+                                                      function(property) {
+                                                        return [
+                                                          property.values.value
+                                                            .length > 0
+                                                            ? _vm._l(
+                                                                property.values
+                                                                  .value,
+                                                                function(
+                                                                  variationPropertyValue
+                                                                ) {
+                                                                  return _c(
+                                                                    "p",
+                                                                    {
+                                                                      domProps: {
+                                                                        innerHTML: _vm._s(
+                                                                          variationPropertyValue
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  )
+                                                                }
+                                                              )
+                                                            : [
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "p-3"
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "Zu diesem Artikel gibt es keinen PDF Anhang."
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ]
+                                                        ]
+                                                      }
+                                                    )
+                                                  ]
+                                                : _vm._e()
+                                            }
+                                          )
+                                        ]
+                                      : _vm._e()
+                                  ],
+                                  2
+                                )
                               ]
                             )
                           : _vm._e(),
