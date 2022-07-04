@@ -332,8 +332,10 @@ export default {
         }
     },
 
-    data: {
-        cdnUrl: 'https://image.airbrush-city.de/'
+    data: function() {
+            return {
+                cdnUrl: 'https://image.airbrush-city.de/'
+        };            
     },
 
     computed:

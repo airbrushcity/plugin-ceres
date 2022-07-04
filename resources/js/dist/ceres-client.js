@@ -1320,8 +1320,10 @@ __webpack_require__.r(__webpack_exports__);
       itemId: this.$props.itemId
     };
   },
-  data: {
-    cdnUrl: 'https://image.airbrush-city.de/'
+  data: function data() {
+    return {
+      cdnUrl: 'https://image.airbrush-city.de/'
+    };
   },
   computed: {
     itemConfig: function itemConfig() {
