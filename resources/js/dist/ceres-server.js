@@ -9409,7 +9409,7 @@ __webpack_require__.r(__webpack_exports__);
       return (App.config.item.itemData.includes("item.technical_data") || App.config.item.itemData.includes("all")) && !!this.currentVariation.texts.technicalData.length;
     },
     isVideoTabActive: function isVideoTabActive() {
-      return this.property.propertyId === 169 && this.property.property.value;
+      return 1;
     },
     isPdfTabActive: function isPdfTabActive() {
       return 1;
@@ -51725,58 +51725,70 @@ var render = function() {
                                   "div",
                                   { staticClass: "my-2" },
                                   [
-                                    _vm._l(
-                                      _vm.$store.getters.currentItemVariation
-                                        .variationProperties,
-                                      function(group) {
-                                        return [
-                                          _vm._l(group.properties, function(
-                                            property
-                                          ) {
-                                            return [
-                                              property.id === 169 &&
-                                              property.values.value > 0
-                                                ? [
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "col m-3 embed-responsive embed-responsive-16by9"
-                                                      },
-                                                      [
-                                                        _c("iframe", {
-                                                          staticClass:
-                                                            "embed-responsive-item",
-                                                          attrs: {
-                                                            src:
-                                                              "https://www.youtube-nocookie.com/embed/" +
-                                                              property.values
-                                                                .value,
-                                                            rel: "0",
-                                                            allowfullscreen: ""
-                                                          }
-                                                        })
-                                                      ]
-                                                    )
-                                                  ]
-                                                : [
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass: "col m-3"
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "\n                                                        Zu diesem Produkt haben wir noch kein vom Hersteller freigegebenes Video.\n                                                    "
-                                                        )
-                                                      ]
-                                                    )
-                                                  ]
-                                            ]
-                                          })
+                                    _vm.$store.getters.currentItemVariation
+                                      .variationProperties &&
+                                    _vm.$store.getters.currentItemVariation
+                                      .variationProperties.length > 0
+                                      ? [
+                                          _vm._l(
+                                            _vm.$store.getters
+                                              .currentItemVariation
+                                              .variationProperties,
+                                            function(group) {
+                                              return [
+                                                _vm._l(
+                                                  group.properties,
+                                                  function(property) {
+                                                    return [
+                                                      property.id === 169 &&
+                                                      property.values.value > 0
+                                                        ? [
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "col m-3 embed-responsive embed-responsive-16by9"
+                                                              },
+                                                              [
+                                                                _c("iframe", {
+                                                                  staticClass:
+                                                                    "embed-responsive-item",
+                                                                  attrs: {
+                                                                    src:
+                                                                      "https://www.youtube-nocookie.com/embed/" +
+                                                                      property
+                                                                        .values
+                                                                        .value,
+                                                                    rel: "0",
+                                                                    allowfullscreen:
+                                                                      ""
+                                                                  }
+                                                                })
+                                                              ]
+                                                            )
+                                                          ]
+                                                        : [
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "col m-3"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\n                                                            Zu diesem Produkt haben wir noch kein vom Hersteller freigegebenes Video.\n                                                        "
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                    ]
+                                                  }
+                                                )
+                                              ]
+                                            }
+                                          )
                                         ]
-                                      }
-                                    )
+                                      : _vm._e()
                                   ],
                                   2
                                 )
