@@ -257,7 +257,7 @@
                                             <template v-for="(variationPropertyGroups, index) in $store.getters.currentItemVariation.variationProperties">
                                                 <template v-for="(variationProperty, index) in variationPropertyGroups.properties" v-if="variationPropertyGroups.id === 1">
                                                     <div>
-                                                        <a :href="property.values.value | propertyFileUrl" v-html="variationProperty.names.name" target="_blank" ></a> 
+                                                        <a :href="variationProperty.values.value | propertyFileUrl" v-html="variationProperty.names.name" target="_blank"></a> 
                                                     </div>
                                                 </template>
                                             </template>

@@ -46373,7 +46373,7 @@ var render = function() {
                                                                 href: _vm._f(
                                                                   "propertyFileUrl"
                                                                 )(
-                                                                  _vm.property
+                                                                  variationProperty
                                                                     .values
                                                                     .value
                                                                 ),
