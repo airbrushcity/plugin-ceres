@@ -233,7 +233,7 @@
                                             <template v-for="(variationPropertyGroups, index) in $store.getters.currentItemVariation.variationProperties">
                                                 <template v-for="(variationProperty, index) in variationPropertyGroups.properties">
 
-                                                    <template v-if="variationProperty.id == 169 && variationProperty.values.value > 0">
+                                                    <template v-if="variationProperty.id === 169">
                                                         <div class="col m-3 embed-responsive embed-responsive-16by9">
                                                             <iframe class="embed-responsive-item"  :src="'https://www.youtube-nocookie.com/embed/' + variationProperty.values.value" rel=0 allowfullscreen></iframe>
                                                         </div>
@@ -255,7 +255,7 @@
                                             <template v-for="(variationPropertyGroups, index) in $store.getters.currentItemVariation.variationProperties">
                                                 <template v-for="(variationProperty, index) in variationPropertyGroups.properties" v-if="variationPropertyGroups.id === 1">
                                                     <div>
-                                                        <a :href="variationProperty.names.name | propertyFileUrl" target="_blank" v-html="variationProperty.names.name"></a> 
+                                                        <a :href="variationProperty.names.name | propertyFileUrl + variationProperty.values.value" target="_blank" v-html="variationProperty.names.name"></a> 
                                                     </div>
                                                 </template>
                                             </template>

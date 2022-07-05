@@ -37351,10 +37351,8 @@ var render = function() {
                                                     index
                                                   ) {
                                                     return [
-                                                      variationProperty.id ==
-                                                        169 &&
-                                                      variationProperty.values
-                                                        .value > 0
+                                                      variationProperty.id ===
+                                                      169
                                                         ? [
                                                             _c(
                                                               "div",
@@ -37445,7 +37443,7 @@ var render = function() {
                                                             _c("a", {
                                                               attrs: {
                                                                 href: _vm._f(
-                                                                  "propertyFileUrl"
+                                                                  "propertyFileUrl + variationProperty.values.value"
                                                                 )(
                                                                   variationProperty
                                                                     .names.name
