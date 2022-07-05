@@ -233,10 +233,10 @@
                                                 <template v-for="property in group.properties">
                                                     <template v-if="property.values.value.length > 0">
 
-                                                        <div v-for="variationPropertyValue in property.values.value">
-                                                            <div v-if="variationProperty.id === 169">
+                                                        <div v-for="property in property.values.value">
+                                                            <div v-if="property.id === 169">
                                                                 <div class="col m-3 embed-responsive embed-responsive-16by9">
-                                                                    <iframe class="embed-responsive-item"  :src="'https://www.youtube-nocookie.com/embed/' + variationProperty.values.value" rel=0 allowfullscreen></iframe>
+                                                                    <iframe class="embed-responsive-item"  :src="'https://www.youtube-nocookie.com/embed/' + property.values.value" rel=0 allowfullscreen></iframe>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -259,12 +259,12 @@
                                                 <template v-for="property in group.properties">
                                                     <template v-if="property.values.value.length > 0">
 
-                                                        <div v-for="variationPropertyValue in property.values.value">
-                                                            <p v-if="variationProperty.id === 4">
-                                                                <span><a :href="cdnUrl + '/frontend/anhang/sicherheitsdatenblatt/' + variationProperty.values.value" target="_blank"> - Sicherheitsdatenblatt - </a></span>	
+                                                        <div v-for="property in property.values.value">
+                                                            <p v-if="property.id === 4">
+                                                                <span><a :href="cdnUrl + '/frontend/anhang/sicherheitsdatenblatt/' + property.values.value" target="_blank"> - Sicherheitsdatenblatt - </a></span>	
                                                             </p>
-                                                            <p v-if="variationProperty.id === 5">
-                                                                <span><a :href="cdnUrl + '/frontend/anhang/merkblatt/' + variationProperty.values.value" target="_blank"> - Technisches Merkblatt - </a> </span>
+                                                            <p v-if="property.id === 5">
+                                                                <span><a :href="cdnUrl + '/frontend/anhang/merkblatt/' + property.values.value" target="_blank"> - Technisches Merkblatt - </a> </span>
                                                             </p>
                                                         </div>
 

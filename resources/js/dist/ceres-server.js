@@ -51745,13 +51745,10 @@ var render = function() {
                                                         ? _vm._l(
                                                             property.values
                                                               .value,
-                                                            function(
-                                                              variationPropertyValue
-                                                            ) {
+                                                            function(property) {
                                                               return _c("div", [
-                                                                _vm
-                                                                  .variationProperty
-                                                                  .id === 169
+                                                                property.id ===
+                                                                169
                                                                   ? _c("div", [
                                                                       _c(
                                                                         "div",
@@ -51768,8 +51765,7 @@ var render = function() {
                                                                               attrs: {
                                                                                 src:
                                                                                   "https://www.youtube-nocookie.com/embed/" +
-                                                                                  _vm
-                                                                                    .variationProperty
+                                                                                  property
                                                                                     .values
                                                                                     .value,
                                                                                 rel:
@@ -51846,14 +51842,12 @@ var render = function() {
                                                                 property.values
                                                                   .value,
                                                                 function(
-                                                                  variationPropertyValue
+                                                                  property
                                                                 ) {
                                                                   return _c(
                                                                     "div",
                                                                     [
-                                                                      _vm
-                                                                        .variationProperty
-                                                                        .id ===
+                                                                      property.id ===
                                                                       4
                                                                         ? _c(
                                                                             "p",
@@ -51868,8 +51862,7 @@ var render = function() {
                                                                                         href:
                                                                                           _vm.cdnUrl +
                                                                                           "/frontend/anhang/sicherheitsdatenblatt/" +
-                                                                                          _vm
-                                                                                            .variationProperty
+                                                                                          property
                                                                                             .values
                                                                                             .value,
                                                                                         target:
@@ -51890,9 +51883,7 @@ var render = function() {
                                                                       _vm._v(
                                                                         " "
                                                                       ),
-                                                                      _vm
-                                                                        .variationProperty
-                                                                        .id ===
+                                                                      property.id ===
                                                                       5
                                                                         ? _c(
                                                                             "p",
@@ -51907,8 +51898,7 @@ var render = function() {
                                                                                         href:
                                                                                           _vm.cdnUrl +
                                                                                           "/frontend/anhang/merkblatt/" +
-                                                                                          _vm
-                                                                                            .variationProperty
+                                                                                          property
                                                                                             .values
                                                                                             .value,
                                                                                         target:
