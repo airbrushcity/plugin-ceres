@@ -51840,10 +51840,11 @@ var render = function() {
                                                             _c("a", {
                                                               attrs: {
                                                                 href: _vm._f(
-                                                                  "propertyFileUrl + '/' + variationProperty.values.value"
+                                                                  "propertyFileUrl"
                                                                 )(
-                                                                  variationProperty
-                                                                    .names.name
+                                                                  _vm.property
+                                                                    .values
+                                                                    .value
                                                                 ),
                                                                 target: "_blank"
                                                               },
