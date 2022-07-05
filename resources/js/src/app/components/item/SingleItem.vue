@@ -228,25 +228,21 @@
                                 <div :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && !isPdfTabActive && isVideoTabActive }" class="tab-pane overflow-auto" id="youtube-videos" role="tabpanel" v-if="isVideoTabActive">
                                     <div class="my-2">
                                         <!-- Hier kommt das Video! -->
-                                        <template v-if="$store.getters.currentItemVariation.variationProperties && $store.getters.currentItemVariation.variationProperties.length > 0">
-                                            <template v-for="group in $store.getters.currentItemVariation.variationProperties">
-                                                <template v-for="property in group.properties">
-                                                    <template v-if="property.values.value.length > 0">
 
-                                                        <div v-for="property in property.values.value">
-                                                            <div v-if="property.id === 169">
-                                                                <div class="col m-3 embed-responsive embed-responsive-16by9">
-                                                                    <iframe class="embed-responsive-item"  :src="'https://www.youtube-nocookie.com/embed/' + property.values.value" rel=0 allowfullscreen></iframe>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </template>
-
+                                        <template v-for="group in $store.getters.currentItemVariation.variationProperties">
+                                            <template v-for="property in group.properties">
+                                                <template v-if="property.id === 169 && property.values.value > 0">
+                                                    <div class="col m-3 embed-responsive embed-responsive-16by9">
+                                                        <iframe class="embed-responsive-item"  :src="'https://www.youtube-nocookie.com/embed/' + property.values.value" rel=0 allowfullscreen></iframe>
+                                                    </div>
                                                 </template>
-                                            </template> 
+                                                <template v-else>
+                                                    <div class="col m-3">
+                                                        Zu diesem Produkt haben wir noch kein vom Hersteller freigegebenes Video.
+                                                    </div>
+                                                </template>
+                                            </template>
                                         </template>
-                                    
 
                                     </div>
                                 </div>
@@ -302,6 +298,11 @@ export default {
     name: "single-item",
 
     props: {
+        property:
+        {
+            required: true,
+            type: Object
+        },
         pleaseSelectOptionVariationId: {
             type: Number,
             default: 0
@@ -380,7 +381,7 @@ export default {
 
         isVideoTabActive()
         {
-            return 1;
+             return this.property.propertyId === 169 && this.property.property.value;
         },
 
         isPdfTabActive()
