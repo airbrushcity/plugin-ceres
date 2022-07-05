@@ -46264,7 +46264,8 @@ var render = function() {
                                                     index
                                                   ) {
                                                     return [
-                                                      _vm.propertyId === 169 &&
+                                                      variationProperty.id ===
+                                                        169 &&
                                                       variationProperty.values
                                                         .value > 0
                                                         ? [
