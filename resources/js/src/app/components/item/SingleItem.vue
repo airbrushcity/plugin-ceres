@@ -367,8 +367,10 @@ export default {
     },
 
     data: function() {
+
+
             return {
-                cdnUrl: '$ceres.config.special.cdnImageUrl'
+                cdnUrl: 'https://image.airbrush-city.de'
         };            
     },
 

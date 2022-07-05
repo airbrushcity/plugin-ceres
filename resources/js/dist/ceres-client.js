@@ -1356,7 +1356,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      cdnUrl: '$ceres.config.special.cdnImageUrl'
+      cdnUrl: 'https://image.airbrush-city.de'
     };
   },
   computed: {
