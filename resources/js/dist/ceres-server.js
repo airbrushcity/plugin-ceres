@@ -9338,6 +9338,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -51740,23 +51742,36 @@ var render = function() {
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "col m-3 embed-responsive embed-responsive-16by9"
+                                                                  "row"
                                                               },
                                                               [
-                                                                _c("iframe", {
-                                                                  staticClass:
-                                                                    "embed-responsive-item",
-                                                                  attrs: {
-                                                                    src:
-                                                                      "https://www.youtube-nocookie.com/embed/" +
-                                                                      variationProperty
-                                                                        .values
-                                                                        .value,
-                                                                    rel: "0",
-                                                                    allowfullscreen:
-                                                                      ""
-                                                                  }
-                                                                })
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "col m-3 embed-responsive embed-responsive-16by9"
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "iframe",
+                                                                      {
+                                                                        staticClass:
+                                                                          "embed-responsive-item",
+                                                                        attrs: {
+                                                                          src:
+                                                                            "https://www.youtube-nocookie.com/embed/" +
+                                                                            variationProperty
+                                                                              .values
+                                                                              .value,
+                                                                          rel:
+                                                                            "0",
+                                                                          allowfullscreen:
+                                                                            ""
+                                                                        }
+                                                                      }
+                                                                    )
+                                                                  ]
+                                                                )
                                                               ]
                                                             )
                                                           ]
@@ -51825,7 +51840,7 @@ var render = function() {
                                                             _c("a", {
                                                               attrs: {
                                                                 href: _vm._f(
-                                                                  "propertyFileUrl + variationProperty.values.value"
+                                                                  "propertyFileUrl + '/' + variationProperty.values.value"
                                                                 )(
                                                                   variationProperty
                                                                     .names.name
