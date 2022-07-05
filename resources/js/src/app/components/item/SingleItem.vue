@@ -228,49 +228,40 @@
                                 <div :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && !isPdfTabActive && isVideoTabActive }" class="tab-pane overflow-auto" id="youtube-videos" role="tabpanel" v-if="isVideoTabActive">
                                     <div class="my-2">
                                         <!-- Hier kommt das Video! -->
+
                                         <template v-if="$store.getters.currentItemVariation.variationProperties && $store.getters.currentItemVariation.variationProperties.length > 0">
-                                            <template v-for="group in $store.getters.currentItemVariation.variationProperties">
-                                                <template v-for="property in group.properties">
-                                                    <template v-if="property.id === 169 && property.values.value > 0">
+                                            <template v-for="(variationPropertyGroups, index) in $store.getters.currentItemVariation.variationProperties">
+                                                <template v-for="(variationProperty, index) in variationPropertyGroups.properties">
+
+                                                    <template v-if="propertyId === 169 && variationProperty.values.value > 0">
                                                         <div class="col m-3 embed-responsive embed-responsive-16by9">
-                                                            <iframe class="embed-responsive-item"  :src="'https://www.youtube-nocookie.com/embed/' + property.values.value" rel=0 allowfullscreen></iframe>
+                                                            <iframe class="embed-responsive-item"  :src="'https://www.youtube-nocookie.com/embed/' + variationProperty.values.value" rel=0 allowfullscreen></iframe>
                                                         </div>
                                                     </template>
-                                                    <template v-else>
-                                                        <div class="col m-3">
-                                                            Zu diesem Produkt haben wir noch kein vom Hersteller freigegebenes Video.
-                                                        </div>
-                                                    </template>
+
                                                 </template>
                                             </template>
                                         </template>
+
                                     </div>
                                 </div>
 
                                 <div :class="{ 'active': !isDescriptionTabActive && !isVideoTabActive && !isTechnicalDataTabActive && isPdfTabActive}" class="tab-pane overflow-auto" id="assessments-details" role="tabpanel" v-if="isPdfTabActive">
                                     <div class="my-2">
                                         <!-- Hier kommen die PDF Anhänge -->
+
+
                                         <template v-if="$store.getters.currentItemVariation.variationProperties && $store.getters.currentItemVariation.variationProperties.length > 0">
-                                            <template v-for="group in $store.getters.currentItemVariation.variationProperties" v-if="group.id === 1">
-                                                <template v-for="property in group.properties">
-                                                    <template v-if="property.values.value.length > 0">
-
-                                                        <div v-for="property in property.values.value">
-                                                            <p v-if="property.id === 4">
-                                                                <span><a :href="cdnUrl + '/frontend/anhang/sicherheitsdatenblatt/' + property.values.value" target="_blank"> - Sicherheitsdatenblatt - </a></span>	
-                                                            </p>
-                                                            <p v-if="property.id === 5">
-                                                                <span><a :href="cdnUrl + '/frontend/anhang/merkblatt/' + property.values.value" target="_blank"> - Technisches Merkblatt - </a> </span>
-                                                            </p>
-                                                        </div>
-
-                                                    </template>
-                                                    <template v-else>
-                                                        <div class="p-3">Zu diesem Artikel gibt es keinen PDF Anhang.</div>
-                                                    </template>
+                                            <template v-for="(variationPropertyGroups, index) in $store.getters.currentItemVariation.variationProperties">
+                                                <template v-for="(variationProperty, index) in variationPropertyGroups.properties" v-if="variationPropertyGroups.id === 1">
+                                                    <div>
+                                                        <a :href="variationProperty.values.value" target="_blank" v-html="variationProperty.names.name"></a> 
+                                                    </div>
                                                 </template>
-                                            </template> 
+                                            </template>
                                         </template>
+
+
                                     </div>
                                 </div>
 
@@ -298,11 +289,6 @@ export default {
     name: "single-item",
 
     props: {
-        property:
-        {
-            required: true,
-            type: Object
-        },
         pleaseSelectOptionVariationId: {
             type: Number,
             default: 0
@@ -381,12 +367,12 @@ export default {
 
         isVideoTabActive()
         {
-             return 1;
+            return this.$store.getters.currentItemVariation.variationProperties && this.$store.getters.currentItemVariation.variationProperties.length;
         },
 
         isPdfTabActive()
         {
-            return 1;
+            return this.$store.getters.currentItemVariation.variationProperties && this.$store.getters.currentItemVariation.variationProperties.length;
         },
 
         variationGroupedProperties()

@@ -1280,24 +1280,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "single-item",
   props: {
-    property: {
-      required: true,
-      type: Object
-    },
     pleaseSelectOptionVariationId: {
       type: Number,
       default: 0
@@ -1351,10 +1338,10 @@ __webpack_require__.r(__webpack_exports__);
       return (App.config.item.itemData.includes("item.technical_data") || App.config.item.itemData.includes("all")) && !!this.currentVariation.texts.technicalData.length;
     },
     isVideoTabActive: function isVideoTabActive() {
-      return 1;
+      return this.$store.getters.currentItemVariation.variationProperties && this.$store.getters.currentItemVariation.variationProperties.length;
     },
     isPdfTabActive: function isPdfTabActive() {
-      return 1;
+      return this.$store.getters.currentItemVariation.variationProperties && this.$store.getters.currentItemVariation.variationProperties.length;
     },
     variationGroupedProperties: function variationGroupedProperties() {
       return this.$store.getters["".concat(this.itemId, "/variationGroupedProperties")];
@@ -38328,14 +38315,21 @@ var render = function() {
                                             _vm.$store.getters
                                               .currentItemVariation
                                               .variationProperties,
-                                            function(group) {
+                                            function(
+                                              variationPropertyGroups,
+                                              index
+                                            ) {
                                               return [
                                                 _vm._l(
-                                                  group.properties,
-                                                  function(property) {
+                                                  variationPropertyGroups.properties,
+                                                  function(
+                                                    variationProperty,
+                                                    index
+                                                  ) {
                                                     return [
-                                                      property.id === 169 &&
-                                                      property.values.value > 0
+                                                      _vm.propertyId === 169 &&
+                                                      variationProperty.values
+                                                        .value > 0
                                                         ? [
                                                             _c(
                                                               "div",
@@ -38350,7 +38344,7 @@ var render = function() {
                                                                   attrs: {
                                                                     src:
                                                                       "https://www.youtube-nocookie.com/embed/" +
-                                                                      property
+                                                                      variationProperty
                                                                         .values
                                                                         .value,
                                                                     rel: "0",
@@ -38361,20 +38355,7 @@ var render = function() {
                                                               ]
                                                             )
                                                           ]
-                                                        : [
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "col m-3"
-                                                              },
-                                                              [
-                                                                _vm._v(
-                                                                  "\n                                                            Zu diesem Produkt haben wir noch kein vom Hersteller freigegebenes Video.\n                                                        "
-                                                                )
-                                                              ]
-                                                            )
-                                                          ]
+                                                        : _vm._e()
                                                     ]
                                                   }
                                                 )
@@ -38421,116 +38402,42 @@ var render = function() {
                                             _vm.$store.getters
                                               .currentItemVariation
                                               .variationProperties,
-                                            function(group) {
-                                              return group.id === 1
-                                                ? [
-                                                    _vm._l(
-                                                      group.properties,
-                                                      function(property) {
-                                                        return [
-                                                          property.values.value
-                                                            .length > 0
-                                                            ? _vm._l(
-                                                                property.values
-                                                                  .value,
-                                                                function(
-                                                                  property
-                                                                ) {
-                                                                  return _c(
-                                                                    "div",
-                                                                    [
-                                                                      property.id ===
-                                                                      4
-                                                                        ? _c(
-                                                                            "p",
-                                                                            [
-                                                                              _c(
-                                                                                "span",
-                                                                                [
-                                                                                  _c(
-                                                                                    "a",
-                                                                                    {
-                                                                                      attrs: {
-                                                                                        href:
-                                                                                          _vm.cdnUrl +
-                                                                                          "/frontend/anhang/sicherheitsdatenblatt/" +
-                                                                                          property
-                                                                                            .values
-                                                                                            .value,
-                                                                                        target:
-                                                                                          "_blank"
-                                                                                      }
-                                                                                    },
-                                                                                    [
-                                                                                      _vm._v(
-                                                                                        " - Sicherheitsdatenblatt - "
-                                                                                      )
-                                                                                    ]
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        : _vm._e(),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      property.id ===
-                                                                      5
-                                                                        ? _c(
-                                                                            "p",
-                                                                            [
-                                                                              _c(
-                                                                                "span",
-                                                                                [
-                                                                                  _c(
-                                                                                    "a",
-                                                                                    {
-                                                                                      attrs: {
-                                                                                        href:
-                                                                                          _vm.cdnUrl +
-                                                                                          "/frontend/anhang/merkblatt/" +
-                                                                                          property
-                                                                                            .values
-                                                                                            .value,
-                                                                                        target:
-                                                                                          "_blank"
-                                                                                      }
-                                                                                    },
-                                                                                    [
-                                                                                      _vm._v(
-                                                                                        " - Technisches Merkblatt - "
-                                                                                      )
-                                                                                    ]
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        : _vm._e()
-                                                                    ]
-                                                                  )
-                                                                }
-                                                              )
-                                                            : [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "p-3"
-                                                                  },
-                                                                  [
-                                                                    _vm._v(
-                                                                      "Zu diesem Artikel gibt es keinen PDF Anhang."
-                                                                    )
-                                                                  ]
+                                            function(
+                                              variationPropertyGroups,
+                                              index
+                                            ) {
+                                              return [
+                                                _vm._l(
+                                                  variationPropertyGroups.properties,
+                                                  function(
+                                                    variationProperty,
+                                                    index
+                                                  ) {
+                                                    return variationPropertyGroups.id ===
+                                                      1
+                                                      ? [
+                                                          _c("div", [
+                                                            _c("a", {
+                                                              attrs: {
+                                                                href:
+                                                                  variationProperty
+                                                                    .values
+                                                                    .value,
+                                                                target: "_blank"
+                                                              },
+                                                              domProps: {
+                                                                innerHTML: _vm._s(
+                                                                  variationProperty
+                                                                    .names.name
                                                                 )
-                                                              ]
+                                                              }
+                                                            })
+                                                          ])
                                                         ]
-                                                      }
-                                                    )
-                                                  ]
-                                                : _vm._e()
+                                                      : _vm._e()
+                                                  }
+                                                )
+                                              ]
                                             }
                                           )
                                         ]
