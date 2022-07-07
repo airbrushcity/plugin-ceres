@@ -3578,6 +3578,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3642,7 +3644,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters["".concat(this.itemId, "/variationMissingProperties")];
     },
     isVideoAvailable: function isVideoAvailable() {
-      return this.$store.getters["".concat(this.itemId, "/variationGroupedProperties.variationPropertyGroups.id[2].length")];
+      return this.$store.getters["".concat(this.itemId, "/variationGroupedProperties.variationPropertyGroups[2].variationProperties[169].length")];
     },
     isVideoTabActive: function isVideoTabActive() {
       return this.$store.getters.currentItemVariation.variationProperties && this.$store.getters.currentItemVariation.variationProperties.length;
@@ -46332,62 +46334,77 @@ var render = function() {
                                   "div",
                                   { staticClass: "my-2" },
                                   [
-                                    _vm._l(
-                                      _vm.variationGroupedProperties,
-                                      function(variationPropertyGroups, index) {
-                                        return [
+                                    _vm.variationGroupedProperties.length > 0
+                                      ? [
                                           _vm._l(
-                                            variationPropertyGroups.properties,
-                                            function(variationProperty, index) {
-                                              return variationPropertyGroups.id ===
-                                                2
-                                                ? [
-                                                    variationProperty.id ===
-                                                      169 &&
-                                                    variationProperty.values
-                                                      .value.length > 0
+                                            _vm.variationGroupedProperties,
+                                            function(
+                                              variationPropertyGroups,
+                                              index
+                                            ) {
+                                              return [
+                                                _vm._l(
+                                                  variationPropertyGroups.properties,
+                                                  function(
+                                                    variationProperty,
+                                                    index
+                                                  ) {
+                                                    return variationPropertyGroups.id ===
+                                                      2
                                                       ? [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "row mx-2"
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "div",
-                                                                {
-                                                                  staticClass:
-                                                                    "col-12 p-0 embed-responsive embed-responsive-16by9"
-                                                                },
-                                                                [
-                                                                  _c("iframe", {
+                                                          variationProperty.id ===
+                                                            169 &&
+                                                          variationProperty
+                                                            .values.value
+                                                            .length > 0
+                                                            ? [
+                                                                _c(
+                                                                  "div",
+                                                                  {
                                                                     staticClass:
-                                                                      "embed-responsive-item",
-                                                                    attrs: {
-                                                                      src:
-                                                                        "https://www.youtube-nocookie.com/embed/" +
-                                                                        variationProperty
-                                                                          .values
-                                                                          .value,
-                                                                      rel: "0",
-                                                                      allowfullscreen:
-                                                                        ""
-                                                                    }
-                                                                  })
-                                                                ]
-                                                              )
-                                                            ]
-                                                          )
+                                                                      "row mx-2"
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "div",
+                                                                      {
+                                                                        staticClass:
+                                                                          "col-12 p-0 embed-responsive embed-responsive-16by9"
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "iframe",
+                                                                          {
+                                                                            staticClass:
+                                                                              "embed-responsive-item",
+                                                                            attrs: {
+                                                                              src:
+                                                                                "https://www.youtube-nocookie.com/embed/" +
+                                                                                variationProperty
+                                                                                  .values
+                                                                                  .value,
+                                                                              rel:
+                                                                                "0",
+                                                                              allowfullscreen:
+                                                                                ""
+                                                                            }
+                                                                          }
+                                                                        )
+                                                                      ]
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            : void 0
                                                         ]
-                                                      : void 0
-                                                  ]
-                                                : _vm._e()
+                                                      : _vm._e()
+                                                  }
+                                                )
+                                              ]
                                             }
                                           )
                                         ]
-                                      }
-                                    ),
+                                      : _vm._e(),
                                     _vm._v(" "),
                                     _vm.$store.getters.currentItemVariation
                                       .variationProperties &&
@@ -46419,7 +46436,7 @@ var render = function() {
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "row mx-2"
+                                                                  "row mx-2 mb-4"
                                                               },
                                                               [
                                                                 _c(
