@@ -3554,21 +3554,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -45470,47 +45455,60 @@ var render = function() {
                   2
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-md-4 mt-md-2" }, [
-                  _vm.currentVariation.filter.hasManufacturer
-                    ? _c(
-                        "div",
-                        { staticClass: "producertag h6 producer text-muted" },
-                        [
-                          _vm._v(
-                            "\n                                Marke: " +
-                              _vm._s(
-                                _vm.currentVariation.item.manufacturer
-                                  .externalName
-                              ) +
-                              "\n                            "
-                          )
+                _c(
+                  "div",
+                  { staticClass: "col-12 col-md-4 mt-md-2" },
+                  [
+                    _vm.video - _vm.an
+                      ? [
+                          _c("a", { attrs: { href: "#video" } }, [
+                            _vm._v("Produkt Video")
+                          ])
                         ]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "my-2" }, [
-                    _vm.isShortDescriptionActive &&
-                    _vm.currentVariation.texts.shortDescription !== ""
-                      ? _c("p", {
-                          staticClass: "single-description",
-                          domProps: {
-                            innerHTML: _vm._s(
-                              _vm.currentVariation.texts.shortDescription
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.currentVariation.filter.hasManufacturer
+                      ? _c(
+                          "div",
+                          { staticClass: "producertag h6 producer text-muted" },
+                          [
+                            _vm._v(
+                              "\n                                Marke: " +
+                                _vm._s(
+                                  _vm.currentVariation.item.manufacturer
+                                    .externalName
+                                ) +
+                                "\n                            "
                             )
-                          }
-                        })
-                      : _vm._e()
-                  ]),
-                  _vm._v(" "),
-                  _c("div", {
-                    staticClass: "my-2",
-                    domProps: {
-                      innerHTML: _vm._s(
-                        _vm.currentVariation.texts.technicalData
-                      )
-                    }
-                  })
-                ]),
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "my-2" }, [
+                      _vm.isShortDescriptionActive &&
+                      _vm.currentVariation.texts.shortDescription !== ""
+                        ? _c("p", {
+                            staticClass: "single-description",
+                            domProps: {
+                              innerHTML: _vm._s(
+                                _vm.currentVariation.texts.shortDescription
+                              )
+                            }
+                          })
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "my-2",
+                      domProps: {
+                        innerHTML: _vm._s(
+                          _vm.currentVariation.texts.technicalData
+                        )
+                      }
+                    })
+                  ],
+                  2
+                ),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -46306,7 +46304,9 @@ var render = function() {
                                                   ) {
                                                     return [
                                                       variationProperty.id ===
-                                                      169
+                                                        169 &&
+                                                      variationProperty.values
+                                                        .value.length > 0
                                                         ? [
                                                             _c(
                                                               "div",
@@ -46319,7 +46319,11 @@ var render = function() {
                                                                   "div",
                                                                   {
                                                                     staticClass:
-                                                                      "col-12 p-0 embed-responsive embed-responsive-16by9"
+                                                                      "col-12 p-0 embed-responsive embed-responsive-16by9",
+                                                                    attrs: {
+                                                                      id:
+                                                                        "video-an"
+                                                                    }
                                                                   },
                                                                   [
                                                                     _c(
@@ -46345,29 +46349,7 @@ var render = function() {
                                                               ]
                                                             )
                                                           ]
-                                                        : [
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "row mx-2"
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "col-12 p-3"
-                                                                  },
-                                                                  [
-                                                                    _vm._v(
-                                                                      "\n                                                                Dieser Artikel hat bisher noch kein vom Hersteller freigegebenes Video.\n                                                            "
-                                                                    )
-                                                                  ]
-                                                                )
-                                                              ]
-                                                            )
-                                                          ]
+                                                        : void 0
                                                     ]
                                                   }
                                                 )
@@ -46401,185 +46383,181 @@ var render = function() {
                                 }
                               },
                               [
-                                _c(
-                                  "div",
-                                  { staticClass: "my-2" },
-                                  [
-                                    _vm.$store.getters.currentItemVariation
-                                      .variationProperties &&
-                                    _vm.$store.getters.currentItemVariation
-                                      .variationProperties.length > 0
-                                      ? [
-                                          _vm._l(
-                                            _vm.$store.getters
-                                              .currentItemVariation
-                                              .variationProperties,
-                                            function(
-                                              variationPropertyGroups,
-                                              index
-                                            ) {
-                                              return [
-                                                _vm._l(
-                                                  variationPropertyGroups.properties,
-                                                  function(
-                                                    variationProperty,
-                                                    index
-                                                  ) {
-                                                    return variationPropertyGroups.id ===
-                                                      1
-                                                      ? [
-                                                          variationProperty.id ===
-                                                          4
-                                                            ? [
-                                                                _c("div", [
-                                                                  _c("a", {
-                                                                    attrs: {
-                                                                      href:
-                                                                        _vm.cdnUrl +
-                                                                        "/frontend/anhang/sicherheitsdatenblatt/" +
-                                                                        variationProperty
-                                                                          .values
-                                                                          .value,
-                                                                      target:
-                                                                        "_blank"
-                                                                    },
-                                                                    domProps: {
-                                                                      innerHTML: _vm._s(
-                                                                        variationProperty
-                                                                          .names
-                                                                          .name
-                                                                      )
-                                                                    }
-                                                                  })
-                                                                ])
-                                                              ]
-                                                            : _vm._e(),
-                                                          _vm._v(" "),
-                                                          variationProperty.id ===
-                                                          5
-                                                            ? [
-                                                                _c("div", [
-                                                                  _c("a", {
-                                                                    attrs: {
-                                                                      href:
-                                                                        _vm.cdnUrl +
-                                                                        "/frontend/anhang/merkblatt/" +
-                                                                        variationProperty
-                                                                          .values
-                                                                          .value,
-                                                                      target:
-                                                                        "_blank"
-                                                                    },
-                                                                    domProps: {
-                                                                      innerHTML: _vm._s(
-                                                                        variationProperty
-                                                                          .names
-                                                                          .name
-                                                                      )
-                                                                    }
-                                                                  })
-                                                                ])
-                                                              ]
-                                                            : _vm._e(),
-                                                          _vm._v(" "),
-                                                          variationProperty.id ===
-                                                          7
-                                                            ? [
-                                                                _c("div", [
-                                                                  _c("a", {
-                                                                    attrs: {
-                                                                      href:
-                                                                        _vm.cdnUrl +
-                                                                        "/frontend/anhang/explosionszeichnung/" +
-                                                                        variationProperty
-                                                                          .values
-                                                                          .value,
-                                                                      target:
-                                                                        "_blank"
-                                                                    },
-                                                                    domProps: {
-                                                                      innerHTML: _vm._s(
-                                                                        variationProperty
-                                                                          .names
-                                                                          .name
-                                                                      )
-                                                                    }
-                                                                  })
-                                                                ])
-                                                              ]
-                                                            : _vm._e(),
-                                                          _vm._v(" "),
-                                                          variationProperty.id ===
-                                                          223
-                                                            ? [
-                                                                _c("div", [
-                                                                  _c("a", {
-                                                                    attrs: {
-                                                                      href:
-                                                                        _vm.cdnUrl +
-                                                                        "/frontend/anhang/farbkarte/" +
-                                                                        variationProperty
-                                                                          .values
-                                                                          .value,
-                                                                      target:
-                                                                        "_blank"
-                                                                    },
-                                                                    domProps: {
-                                                                      innerHTML: _vm._s(
-                                                                        variationProperty
-                                                                          .names
-                                                                          .name
-                                                                      )
-                                                                    }
-                                                                  })
-                                                                ])
-                                                              ]
-                                                            : _vm._e(),
-                                                          _vm._v(" "),
-                                                          variationProperty.id ===
-                                                          224
-                                                            ? [
-                                                                _c("div", [
-                                                                  _c("a", {
-                                                                    attrs: {
-                                                                      href:
-                                                                        _vm.cdnUrl +
-                                                                        "/frontend/anhang/sonstige/" +
-                                                                        variationProperty
-                                                                          .values
-                                                                          .value,
-                                                                      target:
-                                                                        "_blank"
-                                                                    },
-                                                                    domProps: {
-                                                                      innerHTML: _vm._s(
-                                                                        variationProperty
-                                                                          .names
-                                                                          .name
-                                                                      )
-                                                                    }
-                                                                  })
-                                                                ])
-                                                              ]
-                                                            : [
-                                                                _c("div", [
-                                                                  _vm._v(
-                                                                    "\n                                                            Dieser Artikel hat kein PDF Anhang.\n                                                        "
-                                                                  )
-                                                                ])
-                                                              ]
-                                                        ]
-                                                      : _vm._e()
-                                                  }
-                                                )
-                                              ]
-                                            }
-                                          )
-                                        ]
-                                      : _vm._e()
-                                  ],
-                                  2
-                                )
+                                _c("div", { staticClass: "my-2" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "text-center" },
+                                    [
+                                      _vm.$store.getters.currentItemVariation
+                                        .variationProperties &&
+                                      _vm.$store.getters.currentItemVariation
+                                        .variationProperties.length > 0
+                                        ? [
+                                            _vm._l(
+                                              _vm.$store.getters
+                                                .currentItemVariation
+                                                .variationProperties,
+                                              function(
+                                                variationPropertyGroups,
+                                                index
+                                              ) {
+                                                return [
+                                                  _vm._l(
+                                                    variationPropertyGroups.properties,
+                                                    function(
+                                                      variationProperty,
+                                                      index
+                                                    ) {
+                                                      return variationPropertyGroups.id ===
+                                                        1
+                                                        ? [
+                                                            variationProperty.id ===
+                                                            4
+                                                              ? [
+                                                                  _c("div", [
+                                                                    _c("a", {
+                                                                      attrs: {
+                                                                        href:
+                                                                          _vm.cdnUrl +
+                                                                          "/frontend/anhang/sicherheitsdatenblatt/" +
+                                                                          variationProperty
+                                                                            .values
+                                                                            .value,
+                                                                        target:
+                                                                          "_blank"
+                                                                      },
+                                                                      domProps: {
+                                                                        innerHTML: _vm._s(
+                                                                          variationProperty
+                                                                            .names
+                                                                            .name
+                                                                        )
+                                                                      }
+                                                                    })
+                                                                  ])
+                                                                ]
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            variationProperty.id ===
+                                                            5
+                                                              ? [
+                                                                  _c("div", [
+                                                                    _c("a", {
+                                                                      attrs: {
+                                                                        href:
+                                                                          _vm.cdnUrl +
+                                                                          "/frontend/anhang/merkblatt/" +
+                                                                          variationProperty
+                                                                            .values
+                                                                            .value,
+                                                                        target:
+                                                                          "_blank"
+                                                                      },
+                                                                      domProps: {
+                                                                        innerHTML: _vm._s(
+                                                                          variationProperty
+                                                                            .names
+                                                                            .name
+                                                                        )
+                                                                      }
+                                                                    })
+                                                                  ])
+                                                                ]
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            variationProperty.id ===
+                                                            7
+                                                              ? [
+                                                                  _c("div", [
+                                                                    _c("a", {
+                                                                      attrs: {
+                                                                        href:
+                                                                          _vm.cdnUrl +
+                                                                          "/frontend/anhang/bedienungsanleitung/" +
+                                                                          variationProperty
+                                                                            .values
+                                                                            .value,
+                                                                        target:
+                                                                          "_blank"
+                                                                      },
+                                                                      domProps: {
+                                                                        innerHTML: _vm._s(
+                                                                          variationProperty
+                                                                            .names
+                                                                            .name
+                                                                        )
+                                                                      }
+                                                                    })
+                                                                  ])
+                                                                ]
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            variationProperty.id ===
+                                                            223
+                                                              ? [
+                                                                  _c("div", [
+                                                                    _c("a", {
+                                                                      attrs: {
+                                                                        href:
+                                                                          _vm.cdnUrl +
+                                                                          "/frontend/anhang/farbkarte/" +
+                                                                          variationProperty
+                                                                            .values
+                                                                            .value,
+                                                                        target:
+                                                                          "_blank"
+                                                                      },
+                                                                      domProps: {
+                                                                        innerHTML: _vm._s(
+                                                                          variationProperty
+                                                                            .names
+                                                                            .name
+                                                                        )
+                                                                      }
+                                                                    })
+                                                                  ])
+                                                                ]
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            variationProperty.id ===
+                                                            224
+                                                              ? [
+                                                                  _c("div", [
+                                                                    _c("a", {
+                                                                      attrs: {
+                                                                        href:
+                                                                          _vm.cdnUrl +
+                                                                          "/frontend/anhang/sonstige/" +
+                                                                          variationProperty
+                                                                            .values
+                                                                            .value,
+                                                                        target:
+                                                                          "_blank"
+                                                                      },
+                                                                      domProps: {
+                                                                        innerHTML: _vm._s(
+                                                                          variationProperty
+                                                                            .names
+                                                                            .name
+                                                                        )
+                                                                      }
+                                                                    })
+                                                                  ])
+                                                                ]
+                                                              : void 0
+                                                          ]
+                                                        : _vm._e()
+                                                    }
+                                                  )
+                                                ]
+                                              }
+                                            )
+                                          ]
+                                        : _vm._e()
+                                    ],
+                                    2
+                                  )
+                                ])
                               ]
                             )
                           : _vm._e(),

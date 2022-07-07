@@ -15,6 +15,10 @@
                     </div>
 
                     <div class="col-12 col-md-4 mt-md-2">
+                            <template v-if="video-an">
+                                <a href="#video">Produkt Video</a>
+                            </template>
+
                             <div class="producertag h6 producer text-muted" v-if="currentVariation.filter.hasManufacturer">
                                 Marke: {{ currentVariation.item.manufacturer.externalName }}
                             </div>
@@ -229,24 +233,17 @@
                                     <div class="my-2">
 
                                         <!-- Hier kommt das Video! -->
-
                                         <template v-if="$store.getters.currentItemVariation.variationProperties && $store.getters.currentItemVariation.variationProperties.length > 0">
                                             <template v-for="(variationPropertyGroups, index) in $store.getters.currentItemVariation.variationProperties">
                                                 <template v-for="(variationProperty, index) in variationPropertyGroups.properties">
-                                                    <template v-if="variationProperty.id === 169">
+                                                    <template v-if="variationProperty.id === 169 && variationProperty.values.value.length > 0">
                                                         <div class="row mx-2">
-                                                            <div class="col-12 p-0 embed-responsive embed-responsive-16by9">
+                                                            <div class="col-12 p-0 embed-responsive embed-responsive-16by9" id="video-an">
                                                                 <iframe class="embed-responsive-item"  :src="'https://www.youtube-nocookie.com/embed/' + variationProperty.values.value" rel=0 allowfullscreen></iframe>
                                                             </div>
                                                         </div>
                                                     </template>
-                                                    <template v-else>
-                                                        <div class="row mx-2">
-                                                            <div class="col-12 p-3">
-                                                                Dieser Artikel hat bisher noch kein vom Hersteller freigegebenes Video.
-                                                            </div>
-                                                        </div>
-                                                    </template>
+                                                    <template v-else></template>
                                                 </template>
                                             </template>
                                         </template>
@@ -256,53 +253,41 @@
 
                                 <div :class="{ 'active': !isDescriptionTabActive && !isVideoTabActive && !isTechnicalDataTabActive && isPdfTabActive}" class="tab-pane overflow-auto" id="assessments-details" role="tabpanel" v-if="isPdfTabActive">
                                     <div class="my-2">
-
+                                        <div class="text-center">
                                         <!-- Hier kommen die PDF Anhänge -->
-
                                         <template v-if="$store.getters.currentItemVariation.variationProperties && $store.getters.currentItemVariation.variationProperties.length > 0">
                                             <template v-for="(variationPropertyGroups, index) in $store.getters.currentItemVariation.variationProperties">
                                                 <template v-for="(variationProperty, index) in variationPropertyGroups.properties" v-if="variationPropertyGroups.id === 1">
-
                                                     <template v-if="variationProperty.id === 4">
                                                         <div>
                                                             <a :href="cdnUrl + '/frontend/anhang/sicherheitsdatenblatt/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a>
                                                         </div>
                                                     </template>
-
                                                     <template v-if="variationProperty.id === 5">
                                                         <div>
                                                             <a :href="cdnUrl + '/frontend/anhang/merkblatt/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a> 
                                                         </div>
                                                     </template>
-
                                                     <template v-if="variationProperty.id === 7">
                                                          <div>
-                                                            <a :href="cdnUrl + '/frontend/anhang/explosionszeichnung/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a> 
+                                                            <a :href="cdnUrl + '/frontend/anhang/bedienungsanleitung/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a> 
                                                         </div>
                                                     </template>
-
                                                     <template v-if="variationProperty.id === 223">
                                                          <div>
                                                             <a :href="cdnUrl + '/frontend/anhang/farbkarte/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a> 
                                                         </div>
                                                     </template>
-
                                                     <template v-if="variationProperty.id === 224">
                                                         <div>
                                                             <a :href="cdnUrl + '/frontend/anhang/sonstige/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a> 
                                                         </div>
                                                     </template>
-
-                                                    <template v-else>
-                                                        <div>
-                                                            Dieser Artikel hat kein PDF Anhang.
-                                                        </div>
-                                                    </template>
-
+                                                    <template v-else></template>
                                                 </template>
                                             </template>
                                         </template>
-
+                                        </div>
                                     </div>
                                 </div>
 
@@ -366,11 +351,10 @@ export default {
         }
     },
 
-    data: function() {
-
-
-            return {
-                cdnUrl: 'https://image.airbrush-city.de'
+    data: function() 
+    {
+        return {
+            cdnUrl: 'https://image.airbrush-city.de'
         };            
     },
 
