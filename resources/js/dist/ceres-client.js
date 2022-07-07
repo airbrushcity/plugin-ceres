@@ -1312,6 +1312,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -37526,22 +37544,32 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "col-12 col-md-4 mt-md-2" }, [
                   _c(
-                    "div",
-                    {
-                      staticClass: "row",
-                      class: {
-                        active:
-                          !_vm.isDescriptionTabActive &&
-                          !_vm.isTechnicalDataTabActive &&
-                          !_vm.isPdfTabActive &&
-                          _vm.isVideoTabActive
-                      },
-                      attrs: { id: "video-an" }
-                    },
+                    "ul",
+                    { staticClass: "nav nav-tabs", attrs: { role: "tablist" } },
                     [
-                      _c("a", { attrs: { href: "#youtube-videos" } }, [
-                        _vm._v("Produkt Video")
-                      ])
+                      !_vm.isVideoTabActive
+                        ? _c("li", { staticClass: "nav-item" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "nav-link",
+                                class: {
+                                  active:
+                                    _vm.isDescriptionTabActive ||
+                                    !_vm.isVideoTabActive ||
+                                    _vm.isPdfTabActive ||
+                                    _vm.isTechnicalDataTabActive
+                                },
+                                attrs: {
+                                  "data-toggle": "tab",
+                                  href: "#youtube-videos",
+                                  role: "tab"
+                                }
+                              },
+                              [_vm._v("Produkt Video")]
+                            )
+                          ])
+                        : _vm._e()
                     ]
                   ),
                   _vm._v(" "),
@@ -37779,6 +37807,12 @@ var render = function() {
                   ],
                   2
                 ),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n                    \n                        // Hier kommt das Crosselling ähnliche Artikel dann rein\n\n                    "
+                  )
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-12" }, [
                   _c("div", { staticClass: "my-2" }, [
@@ -38360,17 +38394,57 @@ var render = function() {
                                   [
                                     _vm._l(
                                       _vm.variationGroupedProperties,
-                                      function(variationProperty, index) {
+                                      function(variationPropertyGroups, index) {
                                         return [
-                                          variationProperty.id === 169 &&
-                                          variationProperty.values.value
-                                            .length > 0
-                                            ? [
-                                                _vm._v(
-                                                  "\n                                            test\n                                            "
-                                                )
-                                              ]
-                                            : _vm._e()
+                                          _vm._l(
+                                            variationPropertyGroups.properties,
+                                            function(variationProperty, index) {
+                                              return variationPropertyGroups.id ===
+                                                2
+                                                ? [
+                                                    variationProperty.id ===
+                                                      169 &&
+                                                    variationProperty.values
+                                                      .value.length > 0
+                                                      ? [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "row mx-2"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "col-12 p-0 embed-responsive embed-responsive-16by9"
+                                                                },
+                                                                [
+                                                                  _c("iframe", {
+                                                                    staticClass:
+                                                                      "embed-responsive-item",
+                                                                    attrs: {
+                                                                      src:
+                                                                        "https://www.youtube-nocookie.com/embed/" +
+                                                                        variationProperty
+                                                                          .values
+                                                                          .value,
+                                                                      rel: "0",
+                                                                      allowfullscreen:
+                                                                        ""
+                                                                    }
+                                                                  })
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      : void 0
+                                                  ]
+                                                : _vm._e()
+                                            }
+                                          )
                                         ]
                                       }
                                     ),
