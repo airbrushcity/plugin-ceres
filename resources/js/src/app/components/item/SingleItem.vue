@@ -128,7 +128,7 @@
 
                     <div>
                     
-                        // Hier kommt das Crosselling ähnliche Artikel dann rein
+                        <!-- Hier kommt das Crosselling ähnliche Artikel dann rein -->
 
                     </div>
 
@@ -242,21 +242,6 @@
 
                                 <div :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && !isPdfTabActive && isVideoTabActive }" class="tab-pane overflow-auto" id="youtube-videos" role="tabpanel" v-if="isVideoTabActive">
                                     <div class="my-2">
-
-                                        <template v-if="variationGroupedProperties.length > 0">
-                                            <template v-for="(variationPropertyGroups, index) in variationGroupedProperties">
-                                                <template v-for="(variationProperty, index) in variationPropertyGroups.properties" v-if="variationPropertyGroups.id === 2">
-                                                    <template v-if="variationProperty.id === 169 && variationProperty.values.value.length > 0">
-                                                        <div class="row mx-2">
-                                                            <div class="col-12 p-0 embed-responsive embed-responsive-16by9">
-                                                                <iframe class="embed-responsive-item"  :src="'https://www.youtube-nocookie.com/embed/' + variationProperty.values.value" rel=0 allowfullscreen></iframe>
-                                                            </div>
-                                                        </div>
-                                                    </template>
-                                                    <template v-else></template>
-                                                </template>
-                                            </template>
-                                        </template>
 
                                         <!-- Hier kommt das Video! -->
                                         <template v-if="$store.getters.currentItemVariation.variationProperties && $store.getters.currentItemVariation.variationProperties.length > 0">
@@ -430,7 +415,7 @@ export default {
 
         isVideoAvailable()
         {
-            return this.$store.getters[`${this.itemId}/variationGroupedProperties.variationPropertyGroups[2].variationProperties[169].length`];
+            return this.$store.getters[`${this.itemId}/variationGroupedProperties.variationPropertyGroups.id[2].variationProperties.id[169].variationProperty.values.value.length`];
         },
 
         isVideoTabActive()
