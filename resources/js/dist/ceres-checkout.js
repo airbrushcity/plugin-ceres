@@ -3635,17 +3635,20 @@ __webpack_require__.r(__webpack_exports__);
     isTechnicalDataTabActive: function isTechnicalDataTabActive() {
       return (App.config.item.itemData.includes("item.technical_data") || App.config.item.itemData.includes("all")) && !!this.currentVariation.texts.technicalData.length;
     },
-    isVideoTabActive: function isVideoTabActive() {
-      return this.$store.getters.currentItemVariation.variationProperties && this.$store.getters.currentItemVariation.variationProperties.length;
-    },
-    isPdfTabActive: function isPdfTabActive() {
-      return this.$store.getters.currentItemVariation.variationProperties && this.$store.getters.currentItemVariation.variationProperties.length;
-    },
     variationGroupedProperties: function variationGroupedProperties() {
       return this.$store.getters["".concat(this.itemId, "/variationGroupedProperties")];
     },
     variationMissingProperties: function variationMissingProperties() {
       return this.$store.getters["".concat(this.itemId, "/variationMissingProperties")];
+    },
+    isVideoAvailable: function isVideoAvailable() {
+      return this.$store.getters["".concat(this.itemId, "/variationGroupedProperties.variationPropertyGroups.id[2].length")];
+    },
+    isVideoTabActive: function isVideoTabActive() {
+      return this.$store.getters.currentItemVariation.variationProperties && this.$store.getters.currentItemVariation.variationProperties.length;
+    },
+    isPdfTabActive: function isPdfTabActive() {
+      return this.$store.getters.currentItemVariation.variationProperties && this.$store.getters.currentItemVariation.variationProperties.length;
     },
     currentVariation: function currentVariation() {
       return Object(_helper_get__WEBPACK_IMPORTED_MODULE_7__["get"])(this.$store.state, "items[".concat(this.itemId, "].variation.documents[0].data"));
@@ -45484,7 +45487,7 @@ var render = function() {
                     "ul",
                     { staticClass: "nav nav-tabs", attrs: { role: "tablist" } },
                     [
-                      !_vm.isVideoTabActive
+                      _vm.isVideoAvailable
                         ? _c("li", { staticClass: "nav-item" }, [
                             _c(
                               "a",
@@ -45493,9 +45496,9 @@ var render = function() {
                                 class: {
                                   active:
                                     _vm.isDescriptionTabActive ||
-                                    !_vm.isVideoTabActive ||
-                                    _vm.isPdfTabActive ||
-                                    _vm.isTechnicalDataTabActive
+                                    _vm.isTechnicalDataTabActive ||
+                                    (_vm.isPdfTabActive &&
+                                      !_vm.isVideoTabActive)
                                 },
                                 attrs: {
                                   "data-toggle": "tab",

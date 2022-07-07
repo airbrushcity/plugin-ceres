@@ -18,8 +18,8 @@
 
                             <ul class="nav nav-tabs" role="tablist">
 							
-								<li class="nav-item" v-if="!isVideoTabActive">
-                                    <a :class="{ 'active': isDescriptionTabActive || !isVideoTabActive || isPdfTabActive || isTechnicalDataTabActive }" class="nav-link" data-toggle="tab" :href="'#youtube-videos'" role="tab">Produkt Video</a>
+								<li class="nav-item" v-if="isVideoAvailable">
+                                    <a :class="{ 'active': isDescriptionTabActive || isTechnicalDataTabActive || isPdfTabActive && !isVideoTabActive}" class="nav-link" data-toggle="tab" :href="'#youtube-videos'" role="tab">Produkt Video</a>
                                 </li>
 
                             </ul>
@@ -416,16 +416,6 @@ export default {
                 && !!this.currentVariation.texts.technicalData.length;
         },
 
-        isVideoTabActive()
-        {
-            return this.$store.getters.currentItemVariation.variationProperties && this.$store.getters.currentItemVariation.variationProperties.length;
-        },
-
-        isPdfTabActive()
-        {
-            return this.$store.getters.currentItemVariation.variationProperties && this.$store.getters.currentItemVariation.variationProperties.length;
-        },
-
         variationGroupedProperties()
         {
             return this.$store.getters[`${this.itemId}/variationGroupedProperties`];
@@ -434,6 +424,21 @@ export default {
         variationMissingProperties()
         {
             return this.$store.getters[`${this.itemId}/variationMissingProperties`];
+        },
+
+        isVideoAvailable()
+        {
+            return this.$store.getters[`${this.itemId}/variationGroupedProperties.variationPropertyGroups.id[2].length`];
+        },
+
+        isVideoTabActive()
+        {
+            return this.$store.getters.currentItemVariation.variationProperties && this.$store.getters.currentItemVariation.variationProperties.length;
+        },
+
+        isPdfTabActive()
+        {
+            return this.$store.getters.currentItemVariation.variationProperties && this.$store.getters.currentItemVariation.variationProperties.length;
         },
 
         currentVariation() {
