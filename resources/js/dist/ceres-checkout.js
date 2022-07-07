@@ -3554,6 +3554,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -45455,60 +45461,67 @@ var render = function() {
                   2
                 ),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-12 col-md-4 mt-md-2" },
-                  [
-                    _vm.video - _vm.an
-                      ? [
-                          _c("a", { attrs: { href: "#video" } }, [
-                            _vm._v("Produkt Video")
-                          ])
+                _c("div", { staticClass: "col-12 col-md-4 mt-md-2" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "row",
+                      class: {
+                        active:
+                          !_vm.isDescriptionTabActive &&
+                          !_vm.isTechnicalDataTabActive &&
+                          !_vm.isPdfTabActive &&
+                          _vm.isVideoTabActive
+                      },
+                      attrs: { id: "video-an" }
+                    },
+                    [
+                      _c("a", { attrs: { href: "#youtube-videos" } }, [
+                        _vm._v("Produkt Video")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm.currentVariation.filter.hasManufacturer
+                    ? _c(
+                        "div",
+                        { staticClass: "producertag h6 producer text-muted" },
+                        [
+                          _vm._v(
+                            "\n                                Marke: " +
+                              _vm._s(
+                                _vm.currentVariation.item.manufacturer
+                                  .externalName
+                              ) +
+                              "\n                            "
+                          )
                         ]
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.currentVariation.filter.hasManufacturer
-                      ? _c(
-                          "div",
-                          { staticClass: "producertag h6 producer text-muted" },
-                          [
-                            _vm._v(
-                              "\n                                Marke: " +
-                                _vm._s(
-                                  _vm.currentVariation.item.manufacturer
-                                    .externalName
-                                ) +
-                                "\n                            "
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "my-2" }, [
+                    _vm.isShortDescriptionActive &&
+                    _vm.currentVariation.texts.shortDescription !== ""
+                      ? _c("p", {
+                          staticClass: "single-description",
+                          domProps: {
+                            innerHTML: _vm._s(
+                              _vm.currentVariation.texts.shortDescription
                             )
-                          ]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "my-2" }, [
-                      _vm.isShortDescriptionActive &&
-                      _vm.currentVariation.texts.shortDescription !== ""
-                        ? _c("p", {
-                            staticClass: "single-description",
-                            domProps: {
-                              innerHTML: _vm._s(
-                                _vm.currentVariation.texts.shortDescription
-                              )
-                            }
-                          })
-                        : _vm._e()
-                    ]),
-                    _vm._v(" "),
-                    _c("div", {
-                      staticClass: "my-2",
-                      domProps: {
-                        innerHTML: _vm._s(
-                          _vm.currentVariation.texts.technicalData
-                        )
-                      }
-                    })
-                  ],
-                  2
-                ),
+                          }
+                        })
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "my-2",
+                    domProps: {
+                      innerHTML: _vm._s(
+                        _vm.currentVariation.texts.technicalData
+                      )
+                    }
+                  })
+                ]),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -46282,6 +46295,23 @@ var render = function() {
                                   "div",
                                   { staticClass: "my-2" },
                                   [
+                                    _vm._l(
+                                      _vm.variationGroupedProperties,
+                                      function(variationProperty, index) {
+                                        return [
+                                          variationProperty.id === 169 &&
+                                          variationProperty.values.value
+                                            .length > 0
+                                            ? [
+                                                _vm._v(
+                                                  "\n                                            test\n                                            "
+                                                )
+                                              ]
+                                            : _vm._e()
+                                        ]
+                                      }
+                                    ),
+                                    _vm._v(" "),
                                     _vm.$store.getters.currentItemVariation
                                       .variationProperties &&
                                     _vm.$store.getters.currentItemVariation
@@ -46319,11 +46349,7 @@ var render = function() {
                                                                   "div",
                                                                   {
                                                                     staticClass:
-                                                                      "col-12 p-0 embed-responsive embed-responsive-16by9",
-                                                                    attrs: {
-                                                                      id:
-                                                                        "video-an"
-                                                                    }
+                                                                      "col-12 p-0 embed-responsive embed-responsive-16by9"
                                                                   },
                                                                   [
                                                                     _c(

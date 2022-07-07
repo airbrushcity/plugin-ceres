@@ -15,9 +15,10 @@
                     </div>
 
                     <div class="col-12 col-md-4 mt-md-2">
-                            <template v-if="video-an">
-                                <a href="#video">Produkt Video</a>
-                            </template>
+
+                            <div :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && !isPdfTabActive && isVideoTabActive }" class="row" id="video-an">
+                                <a href="#youtube-videos">Produkt Video</a>
+                            </div>
 
                             <div class="producertag h6 producer text-muted" v-if="currentVariation.filter.hasManufacturer">
                                 Marke: {{ currentVariation.item.manufacturer.externalName }}
@@ -231,6 +232,11 @@
 
                                 <div :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && !isPdfTabActive && isVideoTabActive }" class="tab-pane overflow-auto" id="youtube-videos" role="tabpanel" v-if="isVideoTabActive">
                                     <div class="my-2">
+                                        <template v-for="(variationProperty, index) in variationGroupedProperties">
+                                            <template v-if="variationProperty.id === 169 && variationProperty.values.value.length > 0">
+                                            test
+                                            </template>
+                                        </template>
 
                                         <!-- Hier kommt das Video! -->
                                         <template v-if="$store.getters.currentItemVariation.variationProperties && $store.getters.currentItemVariation.variationProperties.length > 0">
@@ -238,7 +244,7 @@
                                                 <template v-for="(variationProperty, index) in variationPropertyGroups.properties">
                                                     <template v-if="variationProperty.id === 169 && variationProperty.values.value.length > 0">
                                                         <div class="row mx-2">
-                                                            <div class="col-12 p-0 embed-responsive embed-responsive-16by9" id="video-an">
+                                                            <div class="col-12 p-0 embed-responsive embed-responsive-16by9">
                                                                 <iframe class="embed-responsive-item"  :src="'https://www.youtube-nocookie.com/embed/' + variationProperty.values.value" rel=0 allowfullscreen></iframe>
                                                             </div>
                                                         </div>
