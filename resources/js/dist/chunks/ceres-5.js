@@ -306,12 +306,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -933,35 +927,17 @@ var render = function() {
                   _vm.item.unit.content === 1
                 )
                   ? _c("div", { staticClass: "category-unit-price small" }, [
+                      _c("span", [_vm._v(_vm._s(_vm.item.unit.content))]),
+                      _vm._v(" "),
                       _c("span", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.$translate("Ceres::Template.singleItemContent")
-                          ) +
-                            " " +
-                            _vm._s(_vm.item.unit.content)
-                        )
+                        _vm._v(" " + _vm._s(_vm.item.unit.names.name))
                       ]),
                       _vm._v(" "),
-                      _c("span", [_vm._v(_vm._s(_vm.item.unit.names.name))]),
-                      _vm._v(" "),
                       _vm.item.variation.mayShowUnitPrice
-                        ? _c("span", [
-                            _vm._v("(" + _vm._s(_vm.basePrice) + ")")
-                          ])
+                        ? _c("span", [_vm._v(" | " + _vm._s(_vm.basePrice))])
                         : _vm._e()
                     ])
                   : _vm._e(),
-                _vm._v(" "),
-                _c("div", { staticClass: "category-unit-price small" }, [
-                  _c("span", [_vm._v("** Versandgewicht: ")]),
-                  _vm._v(" "),
-                  _c("span", [
-                    _vm._v(_vm._s(_vm.item.variation.weightG) + " ")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Gramm.")])
-                ]),
                 _vm._v(" "),
                 _c("add-to-basket", {
                   attrs: {

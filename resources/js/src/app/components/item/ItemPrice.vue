@@ -38,23 +38,24 @@
         </ul>
 
         <!-- lowest price, according to § 11 PAngV -->
-        <div class="d-none lowest-price text-muted mb-3" v-if="currentVariation.prices.default.lowestPrice.value && showCrossPrice && hasCrossPrice">
+        <div class="lowest-price text-muted mb-3" v-if="currentVariation.prices.default.lowestPrice.value && showCrossPrice && hasCrossPrice">
             <div v-html="$translate('Ceres::Template.singleItemLowestPrice', {'price': currentVariation.prices.default.lowestPrice.formatted})">
             </div>
         </div>
-       
+        
         <!-- class .is-single-piece is added for customers to hide the unit if it is C62 -->
-        <div class="base-price text-muted my-1 p-0"
+        <div class="base-price text-muted my-3"
             v-if="currentVariation.unit"
-            :class="{ 'is-single-piece': currentVariation.unit.unitOfMeasurement === 'C62' }">
-            <div class="d-inline">
-                <span>{{ $translate("Ceres::Template.singleItemContent") }} </span> 
+            :class="{ 'is-single-piece': currentVariation.unit && currentVariation.unit.content === 1 && currentVariation.unit.unitOfMeasurement === 'C62' }">
+            <div>
+                {{ $translate("Ceres::Template.singleItemContent") }}
                 <span>{{ currentVariation.unit.content | numberFormat }} </span>
                 <span>{{ currentVariation.unit.names.name }}</span>
             </div>
-            <div v-if="currentVariation.variation.mayShowUnitPrice" class="d-inline">
+            <div v-if="currentVariation.variation.mayShowUnitPrice">
+                {{ $translate("Ceres::Template.singleItemUnitPrice") }}
                 <span class="base-price-value">
-                    ({{ variationGraduatedPrice.basePrice | specialOffer(currentVariation.prices, "basePrice") }})
+                    {{ variationGraduatedPrice.basePrice | specialOffer(currentVariation.prices, "basePrice") }}
                 </span>
             </div>
         </div>

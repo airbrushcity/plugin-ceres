@@ -7495,6 +7495,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "item-price",
@@ -7950,6 +7951,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+//
+//
+//
+//
 //
 //
 //
@@ -10792,12 +10797,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -10948,6 +10947,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+//
+//
 //
 //
 //
@@ -49615,7 +49616,7 @@ var render = function() {
         (_vm.currentVariation.prices.default.lowestPrice.value &&
         _vm.showCrossPrice &&
         _vm.hasCrossPrice
-          ? '<div class="d-none lowest-price text-muted mb-3"><div>' +
+          ? '<div class="lowest-price text-muted mb-3"><div>' +
             _vm._s(
               _vm.$translate("Ceres::Template.singleItemLowestPrice", {
                 price: _vm.currentVariation.prices.default.lowestPrice.formatted
@@ -49626,15 +49627,19 @@ var render = function() {
         " " +
         (_vm.currentVariation.unit
           ? "<div" +
-            _vm._ssrClass("base-price text-muted my-1 p-0", {
+            _vm._ssrClass("base-price text-muted my-3", {
               "is-single-piece":
+                _vm.currentVariation.unit &&
+                _vm.currentVariation.unit.content === 1 &&
                 _vm.currentVariation.unit.unitOfMeasurement === "C62"
             }) +
-            '><div class="d-inline"><span>' +
+            "><div>" +
             _vm._ssrEscape(
-              _vm._s(_vm.$translate("Ceres::Template.singleItemContent")) + " "
+              "\n            " +
+                _vm._s(_vm.$translate("Ceres::Template.singleItemContent")) +
+                "\n            "
             ) +
-            "</span> <span>" +
+            "<span>" +
             _vm._ssrEscape(
               _vm._s(
                 _vm._f("numberFormat")(_vm.currentVariation.unit.content)
@@ -49644,9 +49649,17 @@ var render = function() {
             _vm._ssrEscape(_vm._s(_vm.currentVariation.unit.names.name)) +
             "</span></div> " +
             (_vm.currentVariation.variation.mayShowUnitPrice
-              ? '<div class="d-inline"><span class="base-price-value">' +
+              ? "<div>" +
                 _vm._ssrEscape(
-                  "\n                (" +
+                  "\n            " +
+                    _vm._s(
+                      _vm.$translate("Ceres::Template.singleItemUnitPrice")
+                    ) +
+                    "\n            "
+                ) +
+                '<span class="base-price-value">' +
+                _vm._ssrEscape(
+                  "\n                " +
                     _vm._s(
                       _vm._f("specialOffer")(
                         _vm.variationGraduatedPrice.basePrice,
@@ -49654,7 +49667,7 @@ var render = function() {
                         "basePrice"
                       )
                     ) +
-                    ")\n            "
+                    "\n            "
                 ) +
                 "</span></div>"
               : "<!---->") +
@@ -50259,103 +50272,115 @@ var render = function() {
                 ]
               ),
               _vm._ssrNode(" "),
-              _vm.isTouchDevice && _vm.property.names.description
-                ? _c("popper", {
-                    staticClass: "order-property-selection-info-popper",
-                    attrs: { placement: "bottom" },
-                    scopedSlots: _vm._u(
-                      [
-                        {
-                          key: "handle",
-                          fn: function() {
-                            return [
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "btn btn-icon btn-circle btn-default btn-appearance font-weight-bold"
-                                },
-                                [_vm._v("?")]
-                              )
-                            ]
-                          },
-                          proxy: true
-                        },
-                        {
-                          key: "content",
-                          fn: function() {
-                            return [
-                              _vm._v(
-                                "\n                " +
-                                  _vm._s(_vm.property.names.description) +
-                                  "\n            "
-                              )
-                            ]
-                          },
-                          proxy: true
-                        }
-                      ],
-                      null,
-                      false,
-                      1214237640
-                    )
-                  })
-                : _vm._e()
+              _c(
+                "client-only",
+                [
+                  _vm.isTouchDevice && _vm.property.names.description
+                    ? _c("popper", {
+                        staticClass: "order-property-selection-info-popper",
+                        attrs: { placement: "bottom" },
+                        scopedSlots: _vm._u(
+                          [
+                            {
+                              key: "handle",
+                              fn: function() {
+                                return [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-icon btn-circle btn-default btn-appearance font-weight-bold"
+                                    },
+                                    [_vm._v("?")]
+                                  )
+                                ]
+                              },
+                              proxy: true
+                            },
+                            {
+                              key: "content",
+                              fn: function() {
+                                return [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(_vm.property.names.description) +
+                                      "\n                "
+                                  )
+                                ]
+                              },
+                              proxy: true
+                            }
+                          ],
+                          null,
+                          false,
+                          1618376136
+                        )
+                      })
+                    : _vm._e()
+                ],
+                1
+              )
             ],
             2
           )
         : _vm._e(),
       _vm._ssrNode(" "),
-      _vm.isTouchDevice &&
-      _vm.inputType !== "selection" &&
-      _vm.inputType !== "file" &&
-      _vm.property.names.description
-        ? _c("popper", {
-            staticClass:
-              "order-property-selection-info-popper position-absolute",
-            class: {
-              "checkbox-or-radio":
-                _vm.inputType === "checkbox" || _vm.inputType === "radio"
-            },
-            attrs: { placement: "bottom" },
-            scopedSlots: _vm._u(
-              [
-                {
-                  key: "handle",
-                  fn: function() {
-                    return [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "btn btn-icon btn-circle btn-default btn-appearance font-weight-bold"
-                        },
-                        [_vm._v("?")]
-                      )
-                    ]
-                  },
-                  proxy: true
+      _c(
+        "client-only",
+        [
+          _vm.isTouchDevice &&
+          _vm.inputType !== "selection" &&
+          _vm.inputType !== "file" &&
+          _vm.property.names.description
+            ? _c("popper", {
+                staticClass:
+                  "order-property-selection-info-popper position-absolute",
+                class: {
+                  "checkbox-or-radio":
+                    _vm.inputType === "checkbox" || _vm.inputType === "radio"
                 },
-                {
-                  key: "content",
-                  fn: function() {
-                    return [
-                      _vm._v(
-                        "\n            " +
-                          _vm._s(_vm.property.names.description) +
-                          "\n        "
-                      )
-                    ]
-                  },
-                  proxy: true
-                }
-              ],
-              null,
-              false,
-              1093542344
-            )
-          })
-        : _vm._e()
+                attrs: { placement: "bottom" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "handle",
+                      fn: function() {
+                        return [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn btn-icon btn-circle btn-default btn-appearance font-weight-bold"
+                            },
+                            [_vm._v("?")]
+                          )
+                        ]
+                      },
+                      proxy: true
+                    },
+                    {
+                      key: "content",
+                      fn: function() {
+                        return [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(_vm.property.names.description) +
+                              "\n            "
+                          )
+                        ]
+                      },
+                      proxy: true
+                    }
+                  ],
+                  null,
+                  false,
+                  1214237640
+                )
+              })
+            : _vm._e()
+        ],
+        1
+      )
     ],
     2
   )
@@ -52590,35 +52615,17 @@ var render = function() {
                   _vm.item.unit.content === 1
                 )
                   ? _c("div", { staticClass: "category-unit-price small" }, [
+                      _c("span", [_vm._v(_vm._s(_vm.item.unit.content))]),
+                      _vm._v(" "),
                       _c("span", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.$translate("Ceres::Template.singleItemContent")
-                          ) +
-                            " " +
-                            _vm._s(_vm.item.unit.content)
-                        )
+                        _vm._v(" " + _vm._s(_vm.item.unit.names.name))
                       ]),
                       _vm._v(" "),
-                      _c("span", [_vm._v(_vm._s(_vm.item.unit.names.name))]),
-                      _vm._v(" "),
                       _vm.item.variation.mayShowUnitPrice
-                        ? _c("span", [
-                            _vm._v("(" + _vm._s(_vm.basePrice) + ")")
-                          ])
+                        ? _c("span", [_vm._v(" | " + _vm._s(_vm.basePrice))])
                         : _vm._e()
                     ])
                   : _vm._e(),
-                _vm._v(" "),
-                _c("div", { staticClass: "category-unit-price small" }, [
-                  _c("span", [_vm._v("** Versandgewicht: ")]),
-                  _vm._v(" "),
-                  _c("span", [
-                    _vm._v(_vm._s(_vm.item.variation.weightG) + " ")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Gramm.")])
-                ]),
                 _vm._v(" "),
                 _c("add-to-basket", {
                   attrs: {
@@ -52757,94 +52764,108 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "position-relative" },
+    {
+      staticClass: "container-max",
+      class: { "p-0": _vm.$ceres.isShopBuilder }
+    },
     [
       _vm._ssrNode(
-        '<div class="d-flex flex-grow-1 position-relative">',
+        '<div class="position-relative">',
         "</div>",
         [
           _vm._ssrNode(
-            '<input type="search"' +
-              _vm._ssrAttr("autofocus", _vm.isShopBuilder) +
-              _vm._ssrAttr(
-                "placeholder",
-                _vm.$translate("Ceres::Template.headerSearchPlaceholder")
-              ) +
-              _vm._ssrAttr(
-                "aria-label",
-                _vm.$translate("Ceres::Template.headerSearchTerm")
-              ) +
-              _vm._ssrAttr("value", _vm.searchString) +
-              ' class="search-input flex-grow-1 py-0 px-1 ml-1 bg-white"> '
+            '<div class="d-flex flex-grow-1 position-relative my-2">',
+            "</div>",
+            [
+              _vm._ssrNode(
+                '<input type="search"' +
+                  _vm._ssrAttr("autofocus", _vm.isShopBuilder) +
+                  _vm._ssrAttr(
+                    "placeholder",
+                    _vm.$translate("Ceres::Template.headerSearchPlaceholder")
+                  ) +
+                  _vm._ssrAttr(
+                    "aria-label",
+                    _vm.$translate("Ceres::Template.headerSearchTerm")
+                  ) +
+                  _vm._ssrAttr("value", _vm.searchString) +
+                  ' class="search-input flex-grow-1 px-3 py-2"> '
+              ),
+              _vm._t("search-button", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "search-submit px-3",
+                    attrs: {
+                      type: "submit",
+                      "aria-label": _vm.$translate(
+                        "Ceres::Template.headerSearch"
+                      )
+                    },
+                    on: {
+                      click: function($event) {
+                        return _vm.search()
+                      }
+                    }
+                  },
+                  [
+                    _c("icon", {
+                      staticClass: "fa-fw",
+                      attrs: {
+                        icon: "search",
+                        loading: _vm.autocompleteIsLoading
+                      }
+                    })
+                  ],
+                  1
+                )
+              ])
+            ],
+            2
           ),
-          _vm._t("search-button", [
-            _c(
-              "button",
-              {
-                staticClass: "my-search-button px-2 mr-1",
-                attrs: {
-                  type: "submit",
-                  "aria-label": _vm.$translate("Ceres::Template.headerSearch")
-                },
-                on: {
-                  click: function($event) {
-                    return _vm.search()
-                  }
-                }
-              },
-              [
-                _c("icon", {
-                  staticClass: "fa-fw",
-                  attrs: { icon: "search", loading: _vm.autocompleteIsLoading }
-                })
-              ],
-              1
-            )
-          ])
+          _vm._ssrNode(" "),
+          _vm.isSearchFocused
+            ? [
+                _vm._ssrNode(
+                  "<div" +
+                    _vm._ssrStyle(null, null, {
+                      display:
+                        (_vm.searchString.length >= _vm.searchMinLength &&
+                          _vm.hasInitialInput) ||
+                        _vm.$ceres.isShopBuilder
+                          ? ""
+                          : "none"
+                    }) +
+                    ">",
+                  "</div>",
+                  [
+                    _vm._t("autocomplete-suggestions", [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "autocomplete-suggestions shadow bg-white w-100"
+                        },
+                        [
+                          _c("search-suggestion-item", {
+                            attrs: {
+                              "show-images": _vm.showItemImages,
+                              "suggestion-type": "item"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ],
+                  2
+                )
+              ]
+            : _vm._e()
         ],
         2
-      ),
-      _vm._ssrNode(" "),
-      _vm.isSearchFocused
-        ? [
-            _vm._ssrNode(
-              "<div" +
-                _vm._ssrStyle(null, null, {
-                  display:
-                    (_vm.searchString.length >= _vm.searchMinLength &&
-                      _vm.hasInitialInput) ||
-                    _vm.$ceres.isShopBuilder
-                      ? ""
-                      : "none"
-                }) +
-                ">",
-              "</div>",
-              [
-                _vm._t("autocomplete-suggestions", [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "autocomplete-suggestions shadow bg-white w-100"
-                    },
-                    [
-                      _c("search-suggestion-item", {
-                        attrs: {
-                          "show-images": _vm.showItemImages,
-                          "suggestion-type": "item"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ])
-              ],
-              2
-            )
-          ]
-        : _vm._e()
-    ],
-    2
+      )
+    ]
   )
 }
 var staticRenderFns = []
@@ -85503,19 +85524,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "send", function() { return send; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setToken", function() { return setToken; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getToken", function() { return getToken; });
-/* harmony import */ var _helper_url__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helper/url */ "./resources/js/src/app/helper/url.js");
-/* harmony import */ var _helper_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/utils */ "./resources/js/src/app/helper/utils.js");
+/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.includes.js */ "./node_modules/core-js/modules/es.array.includes.js");
+/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.string.includes.js */ "./node_modules/core-js/modules/es.string.includes.js");
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_string_starts_with_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.string.starts-with.js */ "./node_modules/core-js/modules/es.string.starts-with.js");
+/* harmony import */ var core_js_modules_es_string_starts_with_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_starts_with_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _helper_url__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helper/url */ "./resources/js/src/app/helper/url.js");
+/* harmony import */ var _helper_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helper/utils */ "./resources/js/src/app/helper/utils.js");
+
+
+
 
 
 
 var NotificationService = __webpack_require__(/*! ./NotificationService */ "./resources/js/src/app/services/NotificationService.js");
 
 var _eventListeners = {};
+var _initialRestCall = true;
 function initListener() {
   $(document).ready(function () {
+    var token = $("input[id=\"csrf-token\"]").val();
     $.ajaxSetup({
-      headers: {
-        "X-CSRF-TOKEN": $("input[id=\"csrf-token\"]").val()
+      beforeSend: function beforeSend(jqxhr, settings) {
+        /*
+            Setting the csrf token for every ajax call can hinder cross origin rest calls from workinmg.
+            Using beforeSend makes sure that the header is only set for requests to our backend.
+         */
+        if (token && (settings.url.includes(document.location.hostname) || settings.url.startsWith("/"))) {
+          jqxhr.setRequestHeader("X-CSRF-TOKEN", token);
+        }
       }
     });
   });
@@ -85555,14 +85593,14 @@ function listen(event, handler) {
   _eventListeners[event].push(handler);
 }
 function before(event, handler) {
-  if (Object(_helper_utils__WEBPACK_IMPORTED_MODULE_1__["isNullOrUndefined"])(handler) && typeof event === "function") {
+  if (Object(_helper_utils__WEBPACK_IMPORTED_MODULE_4__["isNullOrUndefined"])(handler) && typeof event === "function") {
     listen("_before", event);
   } else {
     listen("_before_" + event, handler);
   }
 }
 function after(event, handler) {
-  if (Object(_helper_utils__WEBPACK_IMPORTED_MODULE_1__["isNullOrUndefined"])(handler) && typeof event === "function") {
+  if (Object(_helper_utils__WEBPACK_IMPORTED_MODULE_4__["isNullOrUndefined"])(handler) && typeof event === "function") {
     listen("_after", event);
   } else {
     listen("_after_" + event, handler);
@@ -85584,6 +85622,13 @@ function triggerEvent(event, payload) {
 function get(url, data, config) {
   config = config || {};
   config.method = "GET";
+
+  if (_initialRestCall) {
+    data = data || {};
+    data.initialRestCall = true;
+    _initialRestCall = false;
+  }
+
   return send(url, data, config);
 }
 function put(url, data, config) {
@@ -85605,8 +85650,8 @@ function send(url) {
   var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var config = arguments.length > 2 ? arguments[2] : undefined;
   var deferred = $.Deferred();
-  data = Object(_helper_utils__WEBPACK_IMPORTED_MODULE_1__["isDefined"])(data) ? data : {};
-  url = Object(_helper_url__WEBPACK_IMPORTED_MODULE_0__["normalizeUrl"])(url);
+  data = Object(_helper_utils__WEBPACK_IMPORTED_MODULE_4__["isDefined"])(data) ? data : {};
+  url = Object(_helper_url__WEBPACK_IMPORTED_MODULE_3__["normalizeUrl"])(url);
   config = config || {};
   config.dataType = config.dataType || "json";
   config.contentType = typeof config.contentType !== "undefined" ? config.contentType : "application/x-www-form-urlencoded; charset=UTF-8";
@@ -87259,7 +87304,14 @@ var mutations = {
       if (addressIndex) {
         state.billingAddressList.splice(addressIndex, 0, billingAddress);
       } else {
-        state.billingAddressList.push(billingAddress);
+        var indexToUpdate = state.billingAddressList.findIndex(function (entry) {
+          return entry.id === billingAddress.id;
+        });
+
+        if (indexToUpdate === -1) {
+          state.billingAddressList.push(billingAddress);
+        }
+
         state.billingAddressId = billingAddress.id;
         state.billingAddress = billingAddress;
         document.dispatchEvent(new CustomEvent("billingAddressChanged", state.billingAddress));
@@ -87274,7 +87326,14 @@ var mutations = {
       if (addressIndex) {
         state.deliveryAddressList.splice(addressIndex, 0, deliveryAddress);
       } else {
-        state.deliveryAddressList.push(deliveryAddress);
+        var indexToUpdate = state.deliveryAddressList.findIndex(function (entry) {
+          return entry.id === deliveryAddress.id;
+        });
+
+        if (indexToUpdate === -1) {
+          state.deliveryAddressList.push(deliveryAddress);
+        }
+
         state.deliveryAddressId = deliveryAddress.id;
         state.deliveryAddress = deliveryAddress;
         document.dispatchEvent(new CustomEvent("deliveryAddressChanged", state.deliveryAddress));
@@ -87490,13 +87549,20 @@ var actions = {
         keepOriginalResponse: true
       }).done(function (response) {
         if (addressType === "1") {
-          commit("updateBillingAddress", address);
-
-          if (addressType === "1" && response.events && response.events.CheckoutChanged && response.events.CheckoutChanged.checkout) {
-            var billingAddressId = response.events.CheckoutChanged.checkout.billingAddressId;
-            commit("selectBillingAddressById", billingAddressId);
+          if (response.events && response.events.CheckoutChanged && response.events.CheckoutChanged.checkout) {
+            address.id = response.events.CheckoutChanged.checkout.billingAddressId;
+            commit("addBillingAddress", {
+              billingAddress: address
+            });
           }
         } else if (addressType === "2") {
+          if (response.events && response.events.CheckoutChanged && response.events.CheckoutChanged.checkout) {
+            address.id = response.events.CheckoutChanged.checkout.deliveryAddressId;
+            commit("addDeliveryAddress", {
+              deliveryAddress: address
+            });
+          }
+
           commit("updateDeliveryAddress", address);
         }
 

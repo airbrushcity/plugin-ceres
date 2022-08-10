@@ -77,6 +77,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "item-price",
@@ -307,7 +308,7 @@ var render = function() {
     _vm.currentVariation.prices.default.lowestPrice.value &&
     _vm.showCrossPrice &&
     _vm.hasCrossPrice
-      ? _c("div", { staticClass: "d-none lowest-price text-muted mb-3" }, [
+      ? _c("div", { staticClass: "lowest-price text-muted mb-3" }, [
           _c("div", {
             domProps: {
               innerHTML: _vm._s(
@@ -325,21 +326,21 @@ var render = function() {
       ? _c(
           "div",
           {
-            staticClass: "base-price text-muted my-1 p-0",
+            staticClass: "base-price text-muted my-3",
             class: {
               "is-single-piece":
+                _vm.currentVariation.unit &&
+                _vm.currentVariation.unit.content === 1 &&
                 _vm.currentVariation.unit.unitOfMeasurement === "C62"
             }
           },
           [
-            _c("div", { staticClass: "d-inline" }, [
-              _c("span", [
-                _vm._v(
+            _c("div", [
+              _vm._v(
+                "\n            " +
                   _vm._s(_vm.$translate("Ceres::Template.singleItemContent")) +
-                    " "
-                )
-              ]),
-              _vm._v(" "),
+                  "\n            "
+              ),
               _c("span", [
                 _vm._v(
                   _vm._s(
@@ -352,10 +353,17 @@ var render = function() {
             ]),
             _vm._v(" "),
             _vm.currentVariation.variation.mayShowUnitPrice
-              ? _c("div", { staticClass: "d-inline" }, [
+              ? _c("div", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(
+                        _vm.$translate("Ceres::Template.singleItemUnitPrice")
+                      ) +
+                      "\n            "
+                  ),
                   _c("span", { staticClass: "base-price-value" }, [
                     _vm._v(
-                      "\n                (" +
+                      "\n                " +
                         _vm._s(
                           _vm._f("specialOffer")(
                             _vm.variationGraduatedPrice.basePrice,
@@ -363,7 +371,7 @@ var render = function() {
                             "basePrice"
                           )
                         ) +
-                        ")\n            "
+                        "\n            "
                     )
                   ])
                 ])
