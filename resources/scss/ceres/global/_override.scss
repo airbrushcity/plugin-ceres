@@ -4,7 +4,7 @@ body {
 	font-family: Geneva, Verdana, sans-serif;
 	color: #212427;
 	font-size: 0.875rem !important;
-	line-height: 2.15;
+	line-height: 1.714285714285714;
 	overflow-y: scroll;
   }
   
@@ -46,8 +46,8 @@ body {
 	box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   
 	.controls-list {
-	  min-height: 48px !important;
-	  max-height: 80px !important;
+	  min-height: 28px !important;
+	  max-height: 64px !important;
   
 	  .list-inline-item {
 		margin-right: 0;
@@ -93,14 +93,7 @@ body {
 	color: #222 !important;
   }
   
-  .brand-wrapper .navbar-brand img {
-	max-height: 36px;
-  }
-  
-  .logospecial {
-	max-height: 80px;
-  }
-  
+ 
   .autocomplete-suggestions {
 	padding: 6px 12px;
   }
@@ -144,6 +137,7 @@ body {
   
   .logospecial {
 	margin: 6px;
+	max-height:52px;
   }
   
   .navbar-toggler {
@@ -259,22 +253,83 @@ body {
   .input-unit-preview, .custom-select, select.form-control {
 	font-size: 0.875rem;
   }
-  
-  .top-bar {
-	background-color: #f9f9f9;
+
+  .breadcrumbs .breadcrumb {
+	background-color: transparent !important;
+	padding-bottom: 6px !important;
+	font-size: 11px !important;
   }
   
+  .breadcrumb-item a {
+	color: #09038d !important;
+	font-size: 0.75rem !important;
+	font-family: Tahoma, sans-serif;
+	font-weight: normal !important;
+  }
+  
+  .breadcrumbs .breadcrumb .breadcrumb-item span {
+	font-size: 12px !important;
+	color: red !important;
+	font-weight: normal !important;
+	letter-spacing: normal !important;
+  }
+  
+  p {
+	margin-bottom: 0.5rem !important;
+  
+	a:not(.btn) {
+	  color: #0044cc !important;
+	}
+  }
+  
+  .mobile-navigation {
+	width: 25rem !important;
+	max-width: 90%;
+  
+	.mainmenu li a {
+	  font-family: Tahoma, sans-serif;
+	  font-weight: normal !important;
+	}
+  }
+  
+  .cmp-product-thumb {
+	.add-to-basket-lg-container {
+		-webkit-transform: translateX(0px);
+		transform: translateX(0px);
+	}
+  }
+ 
   .always-visible-search {
 	border-color: #eee8aa !important;
 	padding:2px;
   }
   
-  .anicon > .anicon-search-item {
-	&:after, &:before {
-	  background-color: #fff !important;
+$background-color_1: #fff;
+$border-color_1: #fff;
+
+.anicon {
+	>.anicon-search-item {
+		&:before {
+			background-color: $background-color_1;
+		}
+		&:after {
+			border-color: $border-color_1;
+		}
 	}
-  }
-  
+}
+.top-bar.bg-transparent {
+	&:not(.default-font-color) {
+		.anicon-search-item {
+			&:before {
+				background-color: $background-color_1;
+			}
+			&:after {
+				border-color: $border-color_1;
+			}
+		}
+	}
+}
+ 
   .my-search-button, .search-submit {
 	background-color: #fff !important;
   }
