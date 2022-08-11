@@ -94,9 +94,15 @@
                     </div>
 
                     <div class="category-unit-price small" v-if="!(item.unit.unitOfMeasurement === 'C62' && item.unit.content === 1)">
-                        <span>{{ item.unit.content }}</span>
-                        <span>&nbsp;{{ item.unit.names.name }}</span>
-                        <span v-if="item.variation.mayShowUnitPrice">&nbsp;| {{ basePrice }}</span>
+                        <span>{{ $translate("Ceres::Template.singleItemContent") }} {{ item.unit.content }}</span>
+                        <span>{{ item.unit.names.name }}</span>
+                        <span v-if="item.variation.mayShowUnitPrice">({{ basePrice }})</span>
+                    </div>
+
+                    <div class="category-unit-price small">
+                        <span>** Versandgewicht: </span>
+                        <span>{{ item.variation.weightG }} </span>
+                        <span>Gramm.</span>
                     </div>
 
                     <add-to-basket
