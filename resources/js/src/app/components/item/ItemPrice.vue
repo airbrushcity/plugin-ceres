@@ -44,18 +44,17 @@
         </div>
         
         <!-- class .is-single-piece is added for customers to hide the unit if it is C62 -->
-        <div class="base-price text-muted my-3"
+        <div class="base-price text-muted my-1 p-0"
             v-if="currentVariation.unit"
             :class="{ 'is-single-piece': currentVariation.unit && currentVariation.unit.content === 1 && currentVariation.unit.unitOfMeasurement === 'C62' }">
-            <div>
-                {{ $translate("Ceres::Template.singleItemContent") }}
+            <div class="d-inline">
+                <span>{{ $translate("Ceres::Template.singleItemContent") }} </span> 
                 <span>{{ currentVariation.unit.content | numberFormat }} </span>
                 <span>{{ currentVariation.unit.names.name }}</span>
             </div>
-            <div v-if="currentVariation.variation.mayShowUnitPrice">
-                {{ $translate("Ceres::Template.singleItemUnitPrice") }}
+            <div v-if="currentVariation.variation.mayShowUnitPrice" class="d-inline">
                 <span class="base-price-value">
-                    {{ variationGraduatedPrice.basePrice | specialOffer(currentVariation.prices, "basePrice") }}
+                    ({{ variationGraduatedPrice.basePrice | specialOffer(currentVariation.prices, "basePrice") }})
                 </span>
             </div>
         </div>
