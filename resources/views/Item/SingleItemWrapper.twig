@@ -127,7 +127,6 @@
 
     {% elseif shopBuilderTemplate | trim is not empty or isShopBuilder %}
         {# Shopbuilder template #}
-        {% set ShopBuilderTemplateBottom = shop_builder_category_template(category.id, "content", "top") %}
         {% set ShopBuilderTemplateBottom = shop_builder_category_template(category.id, "content", "bottom") %}
         <div class="single container-max page-content">
             <div class="row shopvorlage-oben">
