@@ -160,20 +160,7 @@
             {% set ShopBuilderTemplateBottom = shop_builder_category_template(category.id, "content", "bottom") %}
             <div class="row my-4">
 			    <hr />
-                <single-item
-                        v-cloak
-                        item-data="{{ item | json_data }}"
-                        attributes-data="{{ attributes | json_data }}"
-                        variations="{{ variations | json_data }}"
-                        :after-key="{{ afterKey | json_encode }}"
-                        :please-select-option-variation-id="{{ dynamicVariationId }}"
-                        :init-please-select-option="{{ initPleaseSelectOption | json_encode }}"
-                        :show-net-prices="{{ services.customer.showNetPrices() | json_encode }}"
-                        :is-wish-list-enabled="{{ services.url.isRouteEnabled("wish-list") | json_encode }}"
-                        :item-id="{{ item.documents[0].data.item.id }}"
-                        v-slot="slotProps">
-                        {{ ShopBuilderTemplateBottom | raw}}
-                </single-item>
+                    {{ ShopBuilderTemplateBottom | raw}}
 				<hr />
             </div>
 
