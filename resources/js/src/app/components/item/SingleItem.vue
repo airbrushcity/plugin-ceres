@@ -15,6 +15,15 @@
                     </div>
 
                     <div class="col-12 col-md-4 mt-md-2">
+
+                            <ul class="nav nav-tabs" role="tablist">
+							
+								<li class="nav-item" v-if="isVideoAvailable">
+                                    <a :class="{ 'active': isDescriptionTabActive || isTechnicalDataTabActive || isPdfTabActive && !isVideoTabActive}" class="nav-link" data-toggle="tab" :href="'#youtube-videos'" role="tab">Produkt Video</a>
+                                </li>
+
+                            </ul>
+
                             <div class="producertag h6 producer text-muted" v-if="currentVariation.filter.hasManufacturer">
                                 Marke: {{ currentVariation.item.manufacturer.externalName }}
                             </div>
@@ -117,20 +126,32 @@
                       
                     </div>
 
+                    <div>
+                    
+                        <!-- Hier kommt das Crosselling ähnliche Artikel dann rein -->
+
+                    </div>
+
                     <div class="col-12">
                         <!-- ITEM DESCRIPTION -->
                         <div class="my-2">
                             <ul class="nav nav-tabs" role="tablist">
+							
                                 <li class="nav-item" v-if="isDescriptionTabActive">
                                     <a class="nav-link active" data-toggle="tab" :href="'#details-' + currentVariation.variation.id" role="tab">{{ $translate("Ceres::Template.singleItemDescription") }}</a>
                                 </li>
-
-                                <li class="nav-item">
-                                    <a :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive }" class="nav-link" data-toggle="tab" href="#assessments-details" role="tab">{{ $translate("Ceres::Template.singleItemMoreDetails") }}</a>
+								
+								<li class="nav-item" v-if="isTechnicalDataTabActive">
+                                    <a :class="{ 'active': !isDescriptionTabActive && !isVideoTabActive && !isPdfTabActive && isTechnicalDataTabActive }" class="nav-link" data-toggle="tab" :href="'#data-' + currentVariation.variation.id" role="tab">{{ $translate("Ceres::Template.singleItemTechnicalData") }}</a>
                                 </li>
 
-                                <li class="nav-item" v-if="isTechnicalDataTabActive">
-                                    <a :class="{ 'active': !isDescriptionTabActive && isTechnicalDataTabActive }" class="nav-link" data-toggle="tab" :href="'#data-' + currentVariation.variation.id" role="tab">{{ $translate("Ceres::Template.singleItemTechnicalData") }}</a>
+
+                                <li class="nav-item" v-if="isVideoTabActive">
+                                    <a :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && !isPdfTabActive && isVideoTabActive }" class="nav-link" data-toggle="tab" href="#youtube-videos" role="tab">Produkt Video</a>
+                                </li>
+
+								<li class="nav-item" v-if="isPdfTabActive">
+                                    <a :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && !isVideoTabActive && isPdfTabActive }" class="nav-link" data-toggle="tab" href="#assessments-details" role="tab">{{ $translate("Ceres::Template.singleItemMoreDetails") }}</a>
                                 </li>
 
                                 <slot name="add-detail-tabs"></slot>
@@ -144,8 +165,10 @@
 
                                 </div>
 
-                                <div :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive }" class="tab-pane overflow-auto" id="assessments-details" role="tabpanel">
+
+                                <div :class="{ 'active': !isDescriptionTabActive && !isVideoTabActive && !isPdfTabActive && isTechnicalDataTabActive }" class="tab-pane overflow-auto" :id="'data-' + currentVariation.variation.id" role="tabpanel" v-if="isTechnicalDataTabActive">
                                     <div class="my-2">
+
                                         <table class="table table-striped table-hover table-sm">
                                             <tbody>
                                             <tr v-if="itemConfig.includes('item.id') || itemConfig.includes('all')">
@@ -213,12 +236,69 @@
                                             </tr>
                                             </tbody>
                                         </table>
+
                                     </div>
                                 </div>
 
-                                <div :class="{ 'active': !isDescriptionTabActive && isTechnicalDataTabActive }" class="tab-pane overflow-auto" :id="'data-' + currentVariation.variation.id" role="tabpanel" v-if="isTechnicalDataTabActive">
+                                <div :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive && !isPdfTabActive && isVideoTabActive }" class="tab-pane overflow-auto" id="youtube-videos" role="tabpanel" v-if="isVideoTabActive">
                                     <div class="my-2">
-                                     Hier kommen die PDF Anhaenge dann rein!
+
+                                        <!-- Hier kommt das Video! -->
+                                        <template v-if="$store.getters.currentItemVariation.variationProperties && $store.getters.currentItemVariation.variationProperties.length > 0">
+                                            <template v-for="(variationPropertyGroups, index) in $store.getters.currentItemVariation.variationProperties">
+                                                <template v-for="(variationProperty, index) in variationPropertyGroups.properties">
+                                                    <template v-if="variationProperty.id === 169 && variationProperty.values.value.length > 0">
+                                                        <div class="row mx-2 mb-4">
+                                                            <div class="col-12 p-0 embed-responsive embed-responsive-16by9">
+                                                                <iframe class="embed-responsive-item"  :src="'https://www.youtube-nocookie.com/embed/' + variationProperty.values.value" rel=0 allowfullscreen></iframe>
+                                                            </div>
+                                                        </div>
+                                                    </template>
+                                                    <template v-else></template>
+                                                </template>
+                                            </template>
+                                        </template>
+
+                                    </div>
+                                </div>
+
+                                <div :class="{ 'active': !isDescriptionTabActive && !isVideoTabActive && !isTechnicalDataTabActive && isPdfTabActive}" class="tab-pane overflow-auto" id="assessments-details" role="tabpanel" v-if="isPdfTabActive">
+                                    <div class="my-2">
+                                        <div class="text-center">
+                                        <!-- Hier kommen die PDF Anhänge -->
+                                        <template v-if="$store.getters.currentItemVariation.variationProperties && $store.getters.currentItemVariation.variationProperties.length > 0">
+                                            <template v-for="(variationPropertyGroups, index) in $store.getters.currentItemVariation.variationProperties">
+                                                <template v-for="(variationProperty, index) in variationPropertyGroups.properties" v-if="variationPropertyGroups.id === 1">
+                                                    <template v-if="variationProperty.id === 4">
+                                                        <div>
+                                                            <a :href="cdnUrl + '/frontend/anhang/sicherheitsdatenblatt/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a>
+                                                        </div>
+                                                    </template>
+                                                    <template v-if="variationProperty.id === 5">
+                                                        <div>
+                                                            <a :href="cdnUrl + '/frontend/anhang/merkblatt/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a> 
+                                                        </div>
+                                                    </template>
+                                                    <template v-if="variationProperty.id === 7">
+                                                         <div>
+                                                            <a :href="cdnUrl + '/frontend/anhang/bedienungsanleitung/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a> 
+                                                        </div>
+                                                    </template>
+                                                    <template v-if="variationProperty.id === 223">
+                                                         <div>
+                                                            <a :href="cdnUrl + '/frontend/anhang/farbkarte/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a> 
+                                                        </div>
+                                                    </template>
+                                                    <template v-if="variationProperty.id === 224">
+                                                        <div>
+                                                            <a :href="cdnUrl + '/frontend/anhang/sonstige/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a> 
+                                                        </div>
+                                                    </template>
+                                                    <template v-else></template>
+                                                </template>
+                                            </template>
+                                        </template>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -282,6 +362,13 @@ export default {
         }
     },
 
+    data: function() 
+    {
+        return {
+            cdnUrl: 'https://image.airbrush-city.de'
+        };            
+    },
+
     computed:
     {
         itemConfig()
@@ -324,6 +411,21 @@ export default {
         variationMissingProperties()
         {
             return this.$store.getters[`${this.itemId}/variationMissingProperties`];
+        },
+
+        isVideoAvailable()
+        {
+            return this.$store.getters[`${this.itemId}/variationGroupedProperties.variationPropertyGroups.id[2].variationProperties.id[169].variationProperty.values.value.length`];
+        },
+
+        isVideoTabActive()
+        {
+            return this.$store.getters.currentItemVariation.variationProperties && this.$store.getters.currentItemVariation.variationProperties.length;
+        },
+
+        isPdfTabActive()
+        {
+            return this.$store.getters.currentItemVariation.variationProperties && this.$store.getters.currentItemVariation.variationProperties.length;
         },
 
         currentVariation() {
