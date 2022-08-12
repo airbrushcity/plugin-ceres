@@ -132,10 +132,8 @@
             {% set ShopBuilderTemplateTop = shop_builder_category_template(category.id, "content", "top") %}
             <div class="row my-4">
 			    <hr />
-                <div class="col">
-                    <single-item v-slot="slotProps">
+                <div class="col">      
                     {{ ShopBuilderTemplateTop | raw}}
-                    </single-item>
                 </div>    
 				<hr />
             </div>
