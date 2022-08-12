@@ -127,13 +127,14 @@
 
     {% elseif shopBuilderTemplate | trim is not empty or isShopBuilder %}
         {# Shopbuilder template #}
+        {% set ShopBuilderTemplateTop = shop_builder_category_template(category.id, "content", "top") %}
         {% set ShopBuilderTemplateBottom = shop_builder_category_template(category.id, "content", "bottom") %}
         <div class="single container-max page-content">
             <div class="row shopvorlage-oben">
-                {{ shopBuilderTemplate | raw }}
+                {{ shopBuilderTemplateTop | raw }}
             </div>
             <div class="row shopvorlage">
-                {% include "Ceres::Item.SingleItemView" %}
+                {{ shopBuilderTemplate | raw }}
             </div>
             <div class="row shopvorlage-unten">
                 {{ shopBuilderTemplateBottom | raw }}
