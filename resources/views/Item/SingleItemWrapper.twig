@@ -128,7 +128,7 @@
     {% elseif shopBuilderTemplate | trim is not empty or isShopBuilder %}
         {# Shopbuilder template #}
         <div class="single container-max page-content">
-            <div class="row">
+            <div class="row teste-inhaltsbox">
                 <div class="col">
                     <single-item
                         v-cloak
@@ -153,5 +153,7 @@
         {# No item template defined in ShopBuilder => use default template from plugin #}
         {% include "Ceres::Item.SingleItemView" %}
     {% endif %}
+
+
 
 {% endblock %}
