@@ -121,28 +121,31 @@
 
         {% if template | trim is not empty %}
             {{ template }}
-            <div class="teste-inhaltsbox-0"></div>
         {% else %}
             {% include "Ceres::Item.SingleItemView" %}
-            <div class="teste-inhaltsbox-1"></div>
         {% endif %}
 
     {% elseif shopBuilderTemplate | trim is not empty or isShopBuilder %}
         {# Shopbuilder template #}
+        {% set ShopBuilderTemplateBottom = shop_builder_category_template(category.id, "content", "top") %}
+        {% set ShopBuilderTemplateBottom = shop_builder_category_template(category.id, "content", "bottom") %}
         <div class="single container-max page-content">
-            <div class="row teste-inhaltsbox-2">
-                {% include "Ceres::Item.SingleItemView" %}
+            <div class="row shopvorlage-oben">
                 {{ shopBuilderTemplate | raw }}
+            </div>
+            <div class="row shopvorlage">
+                {% include "Ceres::Item.SingleItemView" %}
+            </div>
+            <div class="row shopvorlage-unten">
+                {{ shopBuilderTemplateBottom | raw }}
             </div>
         </div>
     {% elseif shop_builder_category_template_exists() %}
         {# Empty shop builder template is loading #}
     {% else %}
         {# No item template defined in ShopBuilder => use default template from plugin #}
-        <div class="teste-inhaltsbox-3"></div>
         {% include "Ceres::Item.SingleItemView" %}
-        <div class="teste-inhaltsbox-4"></div>
     {% endif %}
-    <div class="teste-inhaltsbox-5"></div>
+    <div class="unter-allen"></div>
 
 {% endblock %}
