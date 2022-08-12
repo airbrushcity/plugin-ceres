@@ -128,8 +128,25 @@
     {% elseif shopBuilderTemplate | trim is not empty or isShopBuilder %}
         {# Shopbuilder template #}
         <div class="single container-max page-content">
+                
+            {% set ShopBuilderTemplateTop = shop_builder_category_template(category.id, "content", "top") %}
+            <div class="row my-4">
+			    <hr />
+                <div class="col">
+                    <single-item v-slot="slotProps">
+                    {{ ShopBuilderTemplateTop | raw}}
+                    </single-item>
+                </div>    
+				<hr />
+            </div>
 
-			<div class="row my-4">
+            <div class="row my-4">
+                <hr />
+                {% include "Ceres::Item.SingleItemView" %}
+                <hr />
+            </div>
+            
+            <div class="row my-4">
 			    <hr />
                 <div class="col">
                     <single-item
@@ -147,20 +164,6 @@
                         {{ shopBuilderTemplate | raw }}
                     </single-item>
                 </div>
-				<hr />
-            </div>
-
-            <div class="row my-4">
-                <hr />
-                {% include "Ceres::Item.SingleItemView" %}
-                <hr />
-            </div>
-            
-            {% set shopBuilderTemplate = shop_builder_category_template(category.id) %}
-            {% set ShopBuilderTemplateBottom = shop_builder_category_template(category.id, "content", "bottom") %}
-            <div class="row my-4">
-			    <hr />
-                    {{ ShopBuilderTemplateBottom | raw}}
 				<hr />
             </div>
 
