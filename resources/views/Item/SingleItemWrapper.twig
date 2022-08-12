@@ -127,22 +127,33 @@
 
     {% elseif shopBuilderTemplate | trim is not empty or isShopBuilder %}
         {# Shopbuilder template #}
-        {% set ShopBuilderTemplateTop = shop_builder_category_template(category.id, "content", "top") %}
-        {% set ShopBuilderTemplateBottom = shop_builder_category_template(category.id, "content", "bottom") %}
+
         <div class="single container-max page-content">
-            <div class="row shopvorlage-oben">
-                {{ shopBuilderTemplateTop | raw }}
-            </div>
-            <div class="row shopvorlage">
-                {{ shopBuilderTemplate | raw }}
-            </div>
+            <div class="row">
+                <div class="col">
+                    <single-item
+                        v-cloak
+                        item-data="{{ item | json_data }}"
+                        attributes-data="{{ attributes | json_data }}"
+                        variations="{{ variations | json_data }}"
+                        :after-key="{{ afterKey | json_encode }}"
+                        :please-select-option-variation-id="{{ dynamicVariationId }}"
+                        :init-please-select-option="{{ initPleaseSelectOption | json_encode }}"
+                        :show-net-prices="{{ services.customer.showNetPrices() | json_encode }}"
+                        :is-wish-list-enabled="{{ services.url.isRouteEnabled("wish-list") | json_encode }}"
+                        :item-id="{{ item.documents[0].data.item.id }}"
+                        v-slot="slotProps">
 
-            <div class="row standard-oben"></div>
-                {% include "Ceres::Item.SingleItemView" %}
-            <div class="row standard-unten"></div>
+                        <template #default-dropzone v-slot="slotProps">
+                            {{ shop_builder_category_template(currentCategory.id, "singleitem") | raw }}
+                        </template>
 
-            <div class="row shopvorlage-unten">
-                {{ shopBuilderTemplateBottom | raw }}
+                        <template #second-dropzone v-slot="slotProps">
+                            {{ shop_builder_category_template(currentCategory.id, "singleitem", "second-dropzone") | raw }}
+                        </template>
+
+                    </single-item>
+                </div>
             </div>
         </div>
     {% elseif shop_builder_category_template_exists() %}
