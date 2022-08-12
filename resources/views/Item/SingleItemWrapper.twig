@@ -131,27 +131,14 @@
         <div class="single container-max page-content">
             <div class="row">
                 <div class="col">
-                    <single-item
-                        v-cloak
-                        item-data="{{ item | json_data }}"
-                        attributes-data="{{ attributes | json_data }}"
-                        variations="{{ variations | json_data }}"
-                        :after-key="{{ afterKey | json_encode }}"
-                        :please-select-option-variation-id="{{ dynamicVariationId }}"
-                        :init-please-select-option="{{ initPleaseSelectOption | json_encode }}"
-                        :show-net-prices="{{ services.customer.showNetPrices() | json_encode }}"
-                        :is-wish-list-enabled="{{ services.url.isRouteEnabled("wish-list") | json_encode }}"
-                        :item-id="{{ item.documents[0].data.item.id }}"
-                        v-slot="slotProps">
-
+                    <single-item>
+                        {% set currentCategory = services.category.getCurrentCategory() %}
                         <template #default-dropzone v-slot="slotProps">
                             {{ shop_builder_category_template(currentCategory.id, "singleitem") | raw }}
                         </template>
-
                         <template #second-dropzone v-slot="slotProps">
                             {{ shop_builder_category_template(currentCategory.id, "singleitem", "second-dropzone") | raw }}
                         </template>
-
                     </single-item>
                 </div>
             </div>
