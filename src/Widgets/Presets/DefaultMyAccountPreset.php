@@ -149,7 +149,7 @@ class DefaultMyAccountPreset implements ContentPreset
             ->withSetting('appearance', 'primary')
             ->withSetting('ordersPerPage', $this->ceresConfig->myAccount->ordersPerPage)
             ->withSetting('allowPaymentProviderChange', $this->ceresConfig->myAccount->changePayment)
-            ->withSetting('allowReturn', $this->ceresConfig->myAccount->orderReturnActive);
+            ->withSetting('allowReturn', false);
     }
     
     private function createOrderReturnHistoryWidget()

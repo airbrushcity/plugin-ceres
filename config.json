@@ -2897,7 +2897,7 @@
                     "required": false,
                     "label": "Config.myAccountOrderReturnActiveLabel",
                     "options": {
-                        "defaultValue": "true"
+                        "defaultValue": "false"
                     }
                 },
                 "my_account.order_return_days": {
