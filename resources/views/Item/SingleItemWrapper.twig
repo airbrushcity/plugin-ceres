@@ -136,6 +136,11 @@
             <div class="row shopvorlage">
                 {{ shopBuilderTemplate | raw }}
             </div>
+
+            <div class="row standard-oben"></div>
+                {% include "Ceres::Item.SingleItemView" %}
+            <div class="row standard-unten"></div>
+
             <div class="row shopvorlage-unten">
                 {{ shopBuilderTemplateBottom | raw }}
             </div>

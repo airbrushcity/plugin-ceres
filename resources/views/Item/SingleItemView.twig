@@ -8,25 +8,19 @@
             :is-wish-list-enabled="{{ services.url.isRouteEnabled("wish-list") | json_encode }}"
             :init-please-select-option="{{ initPleaseSelectOption | json_encode }}"
             :item-id="{{ item.documents[0].data.item.id }}">
-    <template #before-price>{{ LayoutContainer.show("Ceres::SingleItem.BeforePrice", item.documents[0].data) }}</template>
-    <template #after-price>{{ LayoutContainer.show("Ceres::SingleItem.AfterPrice", item.documents[0].data) }}</template>
-    <template #before-add-to-basket>{{ LayoutContainer.show("Ceres::SingleItem.BeforeAddToBasket", item.documents[0].data) }}</template>
-    <template #after-add-to-basket>{{ LayoutContainer.show("Ceres::SingleItem.AfterAddToBasket", item.documents[0].data) }}</template>
-    <template #additional-content-after-add-to-basket>{{ LayoutContainer.show("Ceres::SingleItem.AdditionalContentAfterAddToBasket", item.documents[0].data) }}</template>
-    <template #additional-content-after-vat>{{ LayoutContainer.show("Ceres::SingleItem.AdditionalContentAfterVAT", item.documents[0].data) }}</template>
-    <template #add-detail-tabs>{{ LayoutContainer.show("Ceres::SingleItem.AddDetailTabs", item.documents[0].data) }}</template>
-    <template #add-detail-tabs-content>{{ LayoutContainer.show("Ceres::SingleItem.AddDetailTabsContent", item.documents[0].data) }}</template>
-    <template #item-list-container>{{ LayoutContainer.show("Ceres::SingleItem.ItemListContainer", item) }}</template>
-    <template #feedback-container>{{ LayoutContainer.show("Ceres::SingleItem.FeedbackContainer", item) }}</template>
-    <template #image-carousel>
-        {% set ImageCarouselOverride = LayoutContainer.show("Ceres::SingleItem.ImageCarousel") %}
-        {% if ImageCarouselOverride|trim is empty %}
-            <item-image-carousel plugin-path="{{ plugin_path('Ceres') }}" image-url-accessor="url"></item-image-carousel>
-        {% else %}
-            {{ ImageCarouselOverride }}
-        {% endif %}
-    </template>
-    <template #tag-list>
-        <tag-list :enabled-routes="{{ config('IO.routing.enabled_routes') | split(', ') | json_encode }}"></tag-list>
-    </template>
+
+	{% set currentCategory = services.category.getCurrentCategory() %}
+
+    <template #first-dropzone v-slot="slotProps">
+		{{ shop_builder_category_template(currentCategory.id, "singleitem", "first-dropzone") | raw }}
+	</template>
+
+	<template #default-dropzone v-slot="slotProps">
+		{{ shop_builder_category_template(currentCategory.id, "singleitem") | raw }}
+	</template>
+
+	<template #second-dropzone v-slot="slotProps">
+		{{ shop_builder_category_template(currentCategory.id, "singleitem", "second-dropzone") | raw }}
+	</template>
+
 </single-item>
