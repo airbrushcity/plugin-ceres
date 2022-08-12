@@ -128,15 +128,6 @@
     {% elseif shopBuilderTemplate | trim is not empty or isShopBuilder %}
         {# Shopbuilder template #}
         <div class="single container-max page-content">
-                
-            {% set ShopBuilderTemplateTop = shop_builder_category_template(category.id, "content", "top") %}
-            <div class="row my-4">
-			    <hr />
-                <div class="col">      
-                    {{ ShopBuilderTemplateTop | raw}}
-                </div>    
-				<hr />
-            </div>
 
             <div class="row my-4">
                 <hr />
