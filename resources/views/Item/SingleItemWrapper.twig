@@ -129,14 +129,11 @@
         {# Shopbuilder template #}
         <div class="single container-max page-content">
 
-            <div class="row my-4">
-                <hr />
+            <div class="row">
                 {% include "Ceres::Item.SingleItemView" %}
-                <hr />
             </div>
             
-            <div class="row my-4">
-			    <hr />
+            <div class="row my-2">
                 <div class="col">
                     <single-item
                         v-cloak
@@ -153,7 +150,6 @@
                         {{ shopBuilderTemplate | raw }}
                     </single-item>
                 </div>
-				<hr />
             </div>
 
         </div>
