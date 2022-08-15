@@ -23802,6 +23802,10 @@ header .widget {
   border-top: none !important;
 }
 
+.container-max {
+  max-width: 1400px;
+}
+
 .top-bar {
   padding: 3px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
@@ -23919,6 +23923,53 @@ header .widget {
 }
 .always-visible-search {
   border: 3px double;
+}
+
+.brand-wrapper .navbar-brand img {
+  max-height: 52px !important;
+}
+
+.my-search-button {
+  border: 0;
+}
+
+.search-input {
+  font-size: 0.875rem !important;
+}
+
+input:not([type=checkbox]):not([type=radio]) {
+  font-size: 0.875rem;
+}
+
+textarea {
+  font-size: 0.875rem;
+}
+textarea.form-control {
+  font-size: 0.875rem;
+}
+
+.input-unit-preview, .custom-select, select.form-control {
+  font-size: 0.875rem;
+}
+
+.breadcrumbs .breadcrumb {
+  background-color: transparent !important;
+  padding-bottom: 6px !important;
+  font-size: 11px !important;
+}
+
+.breadcrumb-item a {
+  color: #09038d !important;
+  font-size: 0.75rem !important;
+  font-family: Tahoma, sans-serif;
+  font-weight: normal !important;
+}
+
+.breadcrumbs .breadcrumb .breadcrumb-item span {
+  font-size: 12px !important;
+  color: red !important;
+  font-weight: normal !important;
+  letter-spacing: normal !important;
 }
 
 .checkout .basket-items-list .item {
