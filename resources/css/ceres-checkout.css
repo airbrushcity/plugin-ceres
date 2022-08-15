@@ -23942,7 +23942,7 @@ small, .small {
 }
 
 .top-bar .controls-list {
-  max-height: 64px !important;
+  height: 64px !important;
 }
 .top-bar .controls-list .list-inline-item .nav-link {
   padding: 0 2px !important;
