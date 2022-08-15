@@ -116,7 +116,7 @@
                         </li>
 
                         {% if searchStyle == "onDemand" %}
-                            <li class="list-inline-item control-search d-lg-none">
+                            <li class="list-inline-item control-search d-lg-none mr-0">
                                 <a class="anicon anicon-search-xcross nav-link"
                                     {{ WidgetHelper.makeClickable(isPreview) }}
                                     data-toggle="collapse"
@@ -132,7 +132,7 @@
                             </li>
                         {% endif %}
 
-                        <li class="brand-wrapper list-inline-item control-big d-lg-none p-2">
+                        <li class="brand-wrapper list-inline-item control-big d-lg-none py-2">
                             <a href="/" class="navbar-brand p-0 mx-auto">
                                 <picture>
                                     <source srcset="{{ Twig.print("mobileLogoUrlWebp") }}">
