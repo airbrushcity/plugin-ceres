@@ -36533,7 +36533,7 @@ var render = function() {
             "div",
             { staticClass: "single container-max page-content" },
             [
-              _c("div", { staticClass: "row position-relative px-2" }, [
+              _c("div", { staticClass: "row position-relative" }, [
                 _c("div", { staticClass: "col-12 mt-2" }, [
                   _c(
                     "h2",

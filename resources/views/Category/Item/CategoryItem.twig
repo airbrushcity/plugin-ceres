@@ -12,7 +12,7 @@
 
         <div class="categoriegrid pt-0 page-content container-max">
             <div class="row">
-                <div class="col-12 px-3">
+                <div class="col-12">
                     {{ shopBuilderTemplate | raw }}
                 </div>
             </div>
@@ -35,7 +35,7 @@
         <div class="categoriegrid page-content container-max">
 
             {% if isSearch %}
-                <div class="row mt-3">
+                <div class="row mt-2">
                     <div class="col-12">
                         <h1 class="h2">
                             {% if isTag %}
@@ -49,7 +49,7 @@
             {% endif %}
 
             {% if category is defined and not ceresConfig.item.showCategoryImage %}
-                <div class="row mt-3">
+                <div class="row mt-2">
                     <div class="col-12">
                         <h1 class="h2 category-title">{{ category.details[0].name }}</h1>
                         {% if ceresConfig.item.showCategoryDescriptionTop in ["description1", "both"] and category.details[0].description | trim is not empty %}
