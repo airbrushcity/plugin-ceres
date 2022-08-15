@@ -7,7 +7,7 @@ body {
 	-webkit-overflow-scrolling: touch;
       height: 100vh;
       height: -webkit-fill-available;
-      overflow: auto;
+      overflow: hidden;
       overflow-y: scroll;
   }
 
@@ -40,9 +40,7 @@ body {
 	box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   
 	.controls-list {
-	  min-height: 48px !important;	
-	  max-height: 64px !important;
-  
+	  height: 64px !important;
 	  .list-inline-item {
 		margin-right: 3px;
 		font-size: 14px;
@@ -52,7 +50,6 @@ body {
 		-webkit-box-align: stretch;
 		-ms-flex-align: stretch;
 		align-items: stretch;
-  
 		.nav-link {
 		  padding: 6px 15px !important;
 		}

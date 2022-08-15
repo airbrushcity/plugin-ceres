@@ -23809,7 +23809,7 @@ body {
   -webkit-overflow-scrolling: touch;
   height: 100vh;
   height: -webkit-fill-available;
-  overflow: auto;
+  overflow: hidden;
   overflow-y: scroll;
 }
 
@@ -23844,8 +23844,7 @@ small, .small {
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 .top-bar .controls-list {
-  min-height: 48px !important;
-  max-height: 64px !important;
+  height: 64px !important;
 }
 .top-bar .controls-list .list-inline-item {
   margin-right: 3px;
