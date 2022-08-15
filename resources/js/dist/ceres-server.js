@@ -50928,9 +50928,9 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "single container-max page-content" },
+            { staticClass: "container-max single" },
             [
-              _c("div", { staticClass: "row position-relative" }, [
+              _c("div", { staticClass: "row position-relative px-2" }, [
                 _c("div", { staticClass: "col-12 mt-2" }, [
                   _c(
                     "h2",
@@ -50953,7 +50953,7 @@ var render = function() {
                   2
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-lg-4 mt-lg-2" }, [
+                _c("div", { staticClass: "col-12 col-lg-4 mt-2" }, [
                   _c(
                     "ul",
                     { staticClass: "nav nav-tabs", attrs: { role: "tablist" } },
@@ -51027,7 +51027,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "col-12 col-lg-4 mt-lg-2" },
+                  { staticClass: "col-12 col-lg-4 mt-2" },
                   [
                     _c("div", { staticClass: "row mb-2" }, [
                       _c("div", { staticClass: "col-6 pt-1" }, [
@@ -51370,7 +51370,7 @@ var render = function() {
                               },
                               [
                                 _c("div", {
-                                  staticClass: "my-2 p-2",
+                                  staticClass: "my-2",
                                   domProps: {
                                     innerHTML: _vm._s(
                                       _vm.currentVariation.texts.description

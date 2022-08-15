@@ -2,7 +2,7 @@
     <div>
         <slot :getDataField="getDataField" :getFilteredDataField="getFilteredDataField">
             <div class="container-max single">
-                <div class="row position-relative">
+                <div class="row position-relative px-2">
 
                     <div class="col-12 mt-2">
                         <h2 class="h2 title" data-testing="item-name">
@@ -14,7 +14,7 @@
                         <slot name="image-carousel"></slot>
                     </div>
 
-                    <div class="col-12 col-lg-4 mt-lg-2">
+                    <div class="col-12 col-lg-4 mt-2">
 
                             <ul class="nav nav-tabs" role="tablist">
 							
@@ -36,7 +36,7 @@
                             </div>
                     </div>
 
-                    <div class="col-12 col-lg-4 mt-lg-2">
+                    <div class="col-12 col-lg-4 mt-2">
                         
                             <div class="row mb-2">
                                 <div class="col-6 pt-1">
@@ -160,7 +160,7 @@
                             <div class="tab-content overflow-hidden">
                                 <div class="tab-pane active overflow-auto" :id="'details-' + currentVariation.variation.id" role="tabpanel" v-if="isDescriptionTabActive"> 
 
-                                    <div class="my-2 p-2" v-html="currentVariation.texts.description">
+                                    <div class="my-2" v-html="currentVariation.texts.description">
                                     </div>
 
                                 </div>
