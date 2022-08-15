@@ -16737,6 +16737,25 @@ header .widget {
 
 //override
 
+body {
+	color: #212427;
+	overflow-y: scroll;
+  }
+  
+  
+  h1, .h1 {
+	font-size: 1.5rem;
+  }
+  
+  h3, .h3 {
+	font-size: 1rem;
+  }
+  
+  h6, .h6 {
+	font-size: 0.875rem;
+  }
+  
+
 .container-max {max-width:1400px;} 
 
 .top-bar {
@@ -16812,7 +16831,7 @@ header .widget {
   .container-mwst {
 	background-color: #802331;
 	width: 100%;
-	margin-bottom: -16px;
+	margin-bottom: 0px;
 	padding: 2px 0;
 	color: #fff;
   }
