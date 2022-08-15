@@ -31,7 +31,7 @@
 {{ Twig.set("mobileLogoUrlWebp", Twig.call("config", ["Ceres.special.mobileLogoUrlWebp"])) }}
 
 <div class="top-bar header-fw{% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if not isFixed %} unfixed{% endif %}">
-    <div class="container-max px-0 pr-lg-3">
+    <div class="container-max">
         <div class="row mx-0 position-relative">
             {% if isPreview and not
                 enableLogin and not

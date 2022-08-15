@@ -37510,7 +37510,7 @@ var render = function() {
             { staticClass: "single container-max page-content" },
             [
               _c("div", { staticClass: "row position-relative px-2" }, [
-                _c("div", { staticClass: "col-12 mt-3" }, [
+                _c("div", { staticClass: "col-12 mt-2" }, [
                   _c(
                     "h2",
                     {
@@ -37527,12 +37527,12 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "col-12 col-md-4 mt-2" },
+                  { staticClass: "col-12 col-lg-4 mt-2" },
                   [_vm._t("image-carousel")],
                   2
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-md-4 mt-md-2" }, [
+                _c("div", { staticClass: "col-12 col-lg-4 mt-lg-2" }, [
                   _c(
                     "ul",
                     { staticClass: "nav nav-tabs", attrs: { role: "tablist" } },
@@ -37606,7 +37606,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "col-12 col-md-4 mt-md-2" },
+                  { staticClass: "col-12 col-lg-4 mt-lg-2" },
                   [
                     _c("div", { staticClass: "row mb-2" }, [
                       _c("div", { staticClass: "col-6 pt-1" }, [
@@ -37726,10 +37726,7 @@ var render = function() {
                           ])
                         : _c(
                             "div",
-                            {
-                              staticClass:
-                                "col-12 col-sm-7 col-md-12 col-lg-8 my-3 pl-0"
-                            },
+                            { staticClass: "col-8 my-3 pl-0" },
                             [
                               _c("add-to-basket", {
                                 attrs: {

@@ -23059,8 +23059,8 @@ header .widget {
 
 body {
   color: #212427;
-  font-size: 0.875rem !important;
-  line-height: 1.7142857143;
+  font-size: 14px !important;
+  line-height: 28px;
   overflow-y: scroll;
 }
 
@@ -23076,7 +23076,7 @@ h6, .h6 {
   font-size: 0.875rem;
 }
 
-small {
+small, .small {
   font-size: 13px !important;
 }
 
@@ -23100,7 +23100,7 @@ small {
 }
 .top-bar .controls-list .list-inline-item {
   margin-right: 0;
-  font-size: 0.8rem;
+  font-size: 16px;
   display: inline-flex;
   align-items: stretch;
 }

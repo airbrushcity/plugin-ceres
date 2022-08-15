@@ -16739,8 +16739,8 @@ header .widget {
 
 body {
 	color: #212427;
-	font-size: 0.875rem !important;
-	line-height: 1.714285714285714;
+	font-size: 14px !important;
+	line-height: 28px;
 	overflow-y: scroll;
   }
   
@@ -16756,7 +16756,7 @@ body {
 	font-size: 0.875rem;
   }
   
-  small {font-size:13px !important}
+  small, .small { font-size:13px !important}
   
   .container-max {
 	max-width: 1400px;
@@ -16779,7 +16779,7 @@ body {
   
 	  .list-inline-item {
 		margin-right: 0;
-		font-size: 0.8rem;
+		font-size: 16px;
 		display: -webkit-inline-box;
 		display: -ms-inline-flexbox;
 		display: inline-flex;

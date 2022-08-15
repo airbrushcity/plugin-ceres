@@ -4,17 +4,17 @@
             <div class="single container-max page-content">
                 <div class="row position-relative px-2">
 
-                    <div class="col-12 mt-3">
+                    <div class="col-12 mt-2">
                         <h2 class="h2 title" data-testing="item-name">
                             <span>{{ currentVariation | itemName }}</span>
                         </h2>
                     </div>
 
-                    <div class="col-12 col-md-4 mt-2">
+                    <div class="col-12 col-lg-4 mt-2">
                         <slot name="image-carousel"></slot>
                     </div>
 
-                    <div class="col-12 col-md-4 mt-md-2">
+                    <div class="col-12 col-lg-4 mt-lg-2">
 
                             <ul class="nav nav-tabs" role="tablist">
 							
@@ -36,7 +36,7 @@
                             </div>
                     </div>
 
-                    <div class="col-12 col-md-4 mt-md-2">
+                    <div class="col-12 col-lg-4 mt-lg-2">
                         
                             <div class="row mb-2">
                                 <div class="col-6 pt-1">
@@ -92,7 +92,7 @@
                                 <div v-if="currentVariation.item.itemType === 'set'" class="alert alert-info w-100">
                                     {{ $translate("Ceres::Template.singleItemSetInfo") }}
                                 </div>
-                                <div v-else class="col-12 col-sm-7 col-md-12 col-lg-8 my-3 pl-0">
+                                <div v-else class="col-8 my-3 pl-0">
                                     <add-to-basket
                                         :variation-id="currentVariation.variation.id"
                                         :is-salable="!!currentVariation.filter && currentVariation.filter.isSalable"
