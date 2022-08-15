@@ -4,8 +4,16 @@ body {
 	color: #212427;
 	font-size: 14px !important;
 	line-height: 28px;
-	overflow-y: scroll;
+	overflow-y: hidden;
   }
+
+#vue-app {
+	-webkit-overflow-scrolling: touch;
+	 height: 100vh;
+	 height: -webkit-fill-available;
+	 overflow: auto;
+	 overflow-y: scroll;
+}
   
   h1, .h1 {
 	font-size: 1.5rem;
