@@ -127,15 +127,12 @@
 
     {% elseif shopBuilderTemplate | trim is not empty or isShopBuilder %}
         {# Shopbuilder template #}
-        <div class="single container-max page-content">
 
-            <div class="row">
-                {% include "Ceres::Item.SingleItemView" %}
-            </div>
-            
-            <div class="row my-2">
-                <div class="col">
-                    <single-item
+        {% include "Ceres::Item.SingleItemView" %}
+       
+        <div class="row my-2">
+            <div class="col">
+                <single-item
                         v-cloak
                         item-data="{{ item | json_data }}"
                         attributes-data="{{ attributes | json_data }}"
@@ -148,11 +145,10 @@
                         :item-id="{{ item.documents[0].data.item.id }}"
                         v-slot="slotProps">
                         {{ shopBuilderTemplate | raw }}
-                    </single-item>
-                </div>
+                </single-item>
             </div>
-
         </div>
+      
     {% elseif shop_builder_category_template_exists() %}
         {# Empty shop builder template is loading #}
     {% else %}

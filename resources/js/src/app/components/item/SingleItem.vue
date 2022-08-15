@@ -1,7 +1,7 @@
 <template>
     <div>
         <slot :getDataField="getDataField" :getFilteredDataField="getFilteredDataField">
-            <div class="single container-max page-content">
+            <div class="container-max single">
                 <div class="row position-relative">
 
                     <div class="col-12 mt-2">
