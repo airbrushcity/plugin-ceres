@@ -36,8 +36,7 @@ body {
 	box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   
 	.controls-list {
-	  min-height: 28px !important;
-	  max-height: 64px !important;
+	  height: 64px !important;
   
 	  .list-inline-item {
 		margin-right: 2px;
@@ -146,7 +145,7 @@ body {
 	max-height: 64px !important;
   
 	.list-inline-item .nav-link {
-	  padding: 0 6px !important;
+	  padding: 0 2px !important;
   
 	  i {
 		font-size: 1rem !important;
