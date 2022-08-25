@@ -31,7 +31,7 @@
 {{ Twig.set("mobileLogoUrlWebp", Twig.call("config", ["Ceres.special.mobileLogoUrlWebp"])) }}
 
 <div class="top-bar header-fw{% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if not isFixed %} unfixed{% endif %}">
-    <div class="container-max px-0 pr-lg-3">
+    <div class="container-max">
         <div class="row mx-0 position-relative">
             {% if isPreview and not
                 enableLogin and not
@@ -54,7 +54,7 @@
             <div class="w-100 top-bar-items {% if searchStyle == "permanent" %}search-permanent d-flex flex-grow-1 flex-column-reverse flex-md-row{% endif %}">
 
                 <div class="controls">
-                    <ul id="controlsList" class="controls-list mb-0 d-flex list-inline mx-1">
+                    <ul id="controlsList" class="controls-list mb-0 d-flex list-inline">
 
                          <li class="list-inline-item d-none d-lg-block">
                             <a href="/" class="pr-2">
@@ -116,7 +116,7 @@
                         </li>
 
                         {% if searchStyle == "onDemand" %}
-                            <li class="list-inline-item control-search d-lg-none">
+                            <li class="list-inline-item control-search d-lg-none mr-0">
                                 <a class="anicon anicon-search-xcross nav-link"
                                     {{ WidgetHelper.makeClickable(isPreview) }}
                                     data-toggle="collapse"
@@ -132,7 +132,7 @@
                             </li>
                         {% endif %}
 
-                        <li class="brand-wrapper list-inline-item control-big d-lg-none p-2">
+                        <li class="brand-wrapper list-inline-item control-big d-lg-none py-2">
                             <a href="/" class="navbar-brand p-0 mx-auto">
                                 <picture>
                                     <source srcset="{{ Twig.print("mobileLogoUrlWebp") }}">

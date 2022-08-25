@@ -23058,15 +23058,17 @@ header .widget {
 }
 
 body {
-  font-family: Geneva, Verdana, sans-serif;
   color: #212427;
-  font-size: 0.875rem !important;
-  line-height: 2.15;
-  overflow-y: scroll;
-}
-
-h1, .h1, h2, .h2, h3, .h3 {
-  font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
+  font-size: 14px !important;
+  line-height: 28px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  height: -webkit-fill-available;
 }
 
 h1, .h1 {
@@ -23081,18 +23083,15 @@ h6, .h6 {
   font-size: 0.875rem;
 }
 
-.price {
-  font-family: Geneva, Verdana, sans-serif;
+small, .small {
+  font-size: 13px !important;
 }
 
-.page-content {
+.container-max {
   max-width: 1400px;
-  padding: 0px;
-  margin: 0 auto;
 }
 
 .container-footer {
-  max-width: 1400px;
   margin: 0 auto;
   padding: 24px 12px;
 }
@@ -23103,12 +23102,11 @@ h6, .h6 {
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 .top-bar .controls-list {
-  min-height: 48px !important;
-  max-height: 80px !important;
+  height: 64px !important;
 }
 .top-bar .controls-list .list-inline-item {
-  margin-right: 0;
-  font-size: 0.8rem;
+  margin-right: 3px;
+  font-size: 14px;
   display: inline-flex;
   align-items: stretch;
 }
@@ -23143,14 +23141,6 @@ h6, .h6 {
   color: #222 !important;
 }
 
-.brand-wrapper .navbar-brand img {
-  max-height: 36px;
-}
-
-.logospecial {
-  max-height: 80px;
-}
-
 .autocomplete-suggestions {
   padding: 6px 12px;
 }
@@ -23178,7 +23168,7 @@ h6, .h6 {
 .container-mwst {
   background-color: #802331;
   width: 100%;
-  margin-bottom: -16px;
+  margin-bottom: 0px;
   padding: 2px 0;
   color: #fff;
 }
@@ -23210,10 +23200,10 @@ h6, .h6 {
 }
 
 .top-bar .controls-list {
-  max-height: 64px !important;
+  height: 64px !important;
 }
 .top-bar .controls-list .list-inline-item .nav-link {
-  padding: 0 6px !important;
+  padding: 0 2px !important;
 }
 .top-bar .controls-list .list-inline-item .nav-link i {
   font-size: 1rem !important;
@@ -23301,8 +23291,45 @@ textarea.form-control {
   font-size: 0.875rem;
 }
 
-.top-bar {
-  background-color: #f9f9f9;
+.breadcrumbs .breadcrumb {
+  background-color: transparent !important;
+  padding-bottom: 6px !important;
+  font-size: 11px !important;
+}
+
+.breadcrumb-item a {
+  color: #09038d !important;
+  font-size: 0.75rem !important;
+  font-family: Tahoma, sans-serif;
+  font-weight: normal !important;
+}
+
+.breadcrumbs .breadcrumb .breadcrumb-item span {
+  font-size: 12px !important;
+  color: red !important;
+  font-weight: normal !important;
+  letter-spacing: normal !important;
+}
+
+p {
+  margin-bottom: 0.5rem !important;
+}
+p a:not(.btn) {
+  color: #0044cc !important;
+}
+
+.mobile-navigation {
+  width: 25rem !important;
+  max-width: 90%;
+}
+.mobile-navigation .mainmenu li a {
+  font-family: Tahoma, sans-serif;
+  font-weight: normal !important;
+}
+
+.cmp-product-thumb .add-to-basket-lg-container {
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
 }
 
 .always-visible-search {
@@ -23310,8 +23337,18 @@ textarea.form-control {
   padding: 2px;
 }
 
-.anicon > .anicon-search-item:after, .anicon > .anicon-search-item:before {
-  background-color: #fff !important;
+.anicon > .anicon-search-item:before {
+  background-color: #fff;
+}
+.anicon > .anicon-search-item:after {
+  border-color: #fff;
+}
+
+.top-bar.bg-transparent:not(.default-font-color) .anicon-search-item:before {
+  background-color: #fff;
+}
+.top-bar.bg-transparent:not(.default-font-color) .anicon-search-item:after {
+  border-color: #fff;
 }
 
 .my-search-button, .search-submit {
@@ -23335,6 +23372,38 @@ a.mwst-link {
   color: #87cefa !important;
 }
 
+.custom-select {
+  height: 48px;
+}
+
+.notification-wrapper {
+  position: fixed;
+  top: 10rem;
+  left: 50%;
+  right: auto !important;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 10001;
+}
+
+.alert.alert-warning {
+  border: 6px solid #ffc107;
+  background-color: #fffec4;
+}
+
+@media (min-width: 576px) {
+  .notification-wrapper .alert {
+    width: 100% !important;
+    min-width: 400px;
+    max-width: 700px;
+  }
+}
+@media (min-width: 992px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}
 body.lb-disable-scrolling {
   overflow: hidden;
 }
