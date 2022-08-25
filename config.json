@@ -2897,7 +2897,7 @@
                     "required": false,
                     "label": "Config.myAccountOrderReturnActiveLabel",
                     "options": {
-                        "defaultValue": "true"
+                        "defaultValue": "false"
                     }
                 },
                 "my_account.order_return_days": {
@@ -4829,17 +4829,17 @@
             "label": "Config.designTab",
             "formFields": {
                 "brand-primary": {
-                    "deprecated": true,
+                    "deprecated": false,
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
                     "label": "Config.brandPrimaryLabel",
                     "options": {
-                        "defaultValue": "#008ebd"
+                        "defaultValue": "#0044cc"
                     }
                 },
                 "brand-secondary": {
-                    "deprecated": true,
+                    "deprecated": false,
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
@@ -4849,7 +4849,7 @@
                     }
                 },
                 "brand-success": {
-                    "deprecated": true,
+                    "deprecated": false,
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
@@ -4859,7 +4859,7 @@
                     }
                 },
                 "brand-info": {
-                    "deprecated": true,
+                    "deprecated": false,
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
@@ -4869,7 +4869,7 @@
                     }
                 },
                 "brand-warning": {
-                    "deprecated": true,
+                    "deprecated": false,
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
@@ -4879,7 +4879,7 @@
                     }
                 },
                 "brand-danger": {
-                    "deprecated": true,
+                    "deprecated": false,
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
