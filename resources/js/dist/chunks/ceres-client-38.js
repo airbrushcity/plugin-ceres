@@ -307,7 +307,7 @@ var render = function() {
     _vm.currentVariation.prices.default.lowestPrice.value &&
     _vm.showCrossPrice &&
     _vm.hasCrossPrice
-      ? _c("div", { staticClass: "d-none lowest-price text-muted mb-3" }, [
+      ? _c("div", { staticClass: "lowest-price text-muted mb-3" }, [
           _c("div", {
             domProps: {
               innerHTML: _vm._s(
@@ -328,6 +328,8 @@ var render = function() {
             staticClass: "base-price text-muted my-1 p-0",
             class: {
               "is-single-piece":
+                _vm.currentVariation.unit &&
+                _vm.currentVariation.unit.content === 1 &&
                 _vm.currentVariation.unit.unitOfMeasurement === "C62"
             }
           },
