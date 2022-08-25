@@ -5,13 +5,25 @@ const NotificationService = require("./NotificationService");
 
 const _eventListeners = {};
 
+let _initialRestCall = true;
+
 export function initListener()
 {
     $(document).ready(() =>
     {
+        const token = $("input[id=\"csrf-token\"]").val();
+
         $.ajaxSetup({
-            headers: {
-                "X-CSRF-TOKEN": $("input[id=\"csrf-token\"]").val()
+            beforeSend: (jqxhr, settings) =>
+            {
+                /*
+                    Setting the csrf token for every ajax call can hinder cross origin rest calls from workinmg.
+                    Using beforeSend makes sure that the header is only set for requests to our backend.
+                 */
+                if (token && (settings.url.includes(document.location.hostname) || settings.url.startsWith("/")))
+                {
+                    jqxhr.setRequestHeader("X-CSRF-TOKEN", token);
+                }
             }
         });
     });
@@ -106,6 +118,13 @@ export function get(url, data, config)
 {
     config = config || {};
     config.method = "GET";
+    if (_initialRestCall)
+    {
+        data = data || {};
+        data.initialRestCall = true;
+        _initialRestCall = false;
+    }
+
     return send(url, data, config);
 }
 
