@@ -30,9 +30,9 @@
 {{ Twig.set("mobileLogoUrl", Twig.call("config", ["Ceres.special.mobileLogoUrl"])) }}
 {{ Twig.set("mobileLogoUrlWebp", Twig.call("config", ["Ceres.special.mobileLogoUrlWebp"])) }}
 
-<div class="top-bar header-fw{% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if not isFixed %} unfixed{% endif %}">
+<div class="top-bar {% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if not isFixed %} unfixed{% endif %}">
     <div class="container-max">
-        <div class="row mx-0 position-relative">
+        <div class="row">
             {% if isPreview and not
                 enableLogin and not
                 enableRegistration and not
@@ -51,7 +51,7 @@
                 </div>
             {% endif %}
             {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::Header.LeftSide"])) }}
-            <div class="w-100 top-bar-items {% if searchStyle == "permanent" %}search-permanent d-flex flex-grow-1 flex-column-reverse flex-md-row{% endif %}">
+            <div class="col-12 {% if searchStyle == "permanent" %}search-permanent d-flex flex-grow-1 flex-column-reverse flex-md-row{% endif %}">
 
                 <div class="controls">
                     <ul id="controlsList" class="controls-list mb-0 d-flex list-inline">
