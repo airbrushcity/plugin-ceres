@@ -21,14 +21,17 @@
 {% block PartialHead2 %}
 {% endblock %}
 {% include getPartial('head') %}
-{% for styleTemplate in get_additional_styles() %}
-{% include styleTemplate.path ignore missing with styleTemplate.params %}
-{% endfor %}
+
 {% if assetName == 'ceres-checkout' %}{{ LayoutContainer.show("Ceres::Checkout.Styles") }}{% endif %}
 {% if isItem %}
 {{ LayoutContainer.show("Ceres::SingleItem.Styles") }}
-{{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningHeadTag") }}
+
+{% for styleTemplate in get_additional_styles() %}
+{% include styleTemplate.path ignore missing with styleTemplate.params %}
+{% endfor %}
+
 {% endif %}
+{{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningHeadTag") }}
 </head>
 
 <body class="{{ bodyClasses | join(' ') }} {% if request.get('openBasketPreview') == 1 %} basket-open{% endif %}">
