@@ -21,16 +21,11 @@
 {% block PartialHead2 %}
 {% endblock %}
 {% include getPartial('head') %}
-
-{% if assetName == 'ceres-checkout' %}{{ LayoutContainer.show("Ceres::Checkout.Styles") }}{% endif %}
-{% if isItem %}
-{{ LayoutContainer.show("Ceres::SingleItem.Styles") }}
-
 {% for styleTemplate in get_additional_styles() %}
 {% include styleTemplate.path ignore missing with styleTemplate.params %}
 {% endfor %}
-
-{% endif %}
+{% if assetName == 'ceres-checkout' %}{{ LayoutContainer.show("Ceres::Checkout.Styles") }}{% endif %}
+{% if isItem %}{{ LayoutContainer.show("Ceres::SingleItem.Styles") }}{% endif %}
 {{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningHeadTag") }}
 </head>
 
