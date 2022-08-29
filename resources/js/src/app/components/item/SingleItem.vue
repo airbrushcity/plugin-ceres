@@ -2,7 +2,7 @@
     <div>
         <slot :getDataField="getDataField" :getFilteredDataField="getFilteredDataField">
             <div class="container-max single">
-                <div class="row position-relative px-2">
+                <div class="row position-relative px-0">
 
                     <div class="col-12 mt-2">
                         <h2 class="h2 title" data-testing="item-name">
@@ -120,6 +120,13 @@
                             <!-- ./ITEM DETAIL -->
 
                             <slot name="additional-content-after-add-to-basket"></slot>
+
+                            <span class="vat small text-muted">
+                                {{ $translate("Ceres::Template.singleItemFootnote1") }} <template v-if="showNetPrices">{{ $translate("Ceres::Template.singleItemExclVAT") }}</template><template v-else>{{ $translate("Ceres::Template.singleItemInclVAT") }}</template> {{ $translate("Ceres::Template.singleItemExclusive") }}
+                            <a v-if="hasShippingCostsCategoryId" data-toggle="modal" href="#shippingscosts" :title="$translate('Ceres::Template.singleItemShippingCosts')">{{ $translate("Ceres::Template.singleItemShippingCosts") }}</a>
+                            <a v-else :title="$translate('Ceres::Template.singleItemShippingCosts')">{{ $translate("Ceres::Template.singleItemShippingCosts") }}</a>
+
+                            </span>
 
                             <slot name="additional-content-after-vat"></slot>
                             <!-- END SINGLEITEM_DETAILS -->

@@ -14248,7 +14248,7 @@ var render = function render() {
     return [_c("div", {
       staticClass: "container-max single"
     }, [_c("div", {
-      staticClass: "row position-relative px-2"
+      staticClass: "row position-relative px-0"
     }, [_c("div", {
       staticClass: "col-12 mt-2"
     }, [_c("h2", {
@@ -14347,7 +14347,19 @@ var render = function render() {
       }
     })], 1), _vm._v(" "), _c("div", {
       staticClass: "w-100"
-    }, [_vm._t("after-add-to-basket")], 2)]), _vm._v(" "), _vm._t("additional-content-after-add-to-basket"), _vm._v(" "), _vm._t("additional-content-after-vat")], 2), _vm._v(" "), _c("div"), _vm._v(" "), _c("div", {
+    }, [_vm._t("after-add-to-basket")], 2)]), _vm._v(" "), _vm._t("additional-content-after-add-to-basket"), _vm._v(" "), _c("span", {
+      staticClass: "vat small text-muted"
+    }, [_vm._v("\n                                " + _vm._s(_vm.$translate("Ceres::Template.singleItemFootnote1")) + " "), _vm.showNetPrices ? [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemExclVAT")))] : [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemInclVAT")))], _vm._v(" " + _vm._s(_vm.$translate("Ceres::Template.singleItemExclusive")) + "\n                            "), _vm.hasShippingCostsCategoryId ? _c("a", {
+      attrs: {
+        "data-toggle": "modal",
+        href: "#shippingscosts",
+        title: _vm.$translate("Ceres::Template.singleItemShippingCosts")
+      }
+    }, [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemShippingCosts")))]) : _c("a", {
+      attrs: {
+        title: _vm.$translate("Ceres::Template.singleItemShippingCosts")
+      }
+    }, [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemShippingCosts")))])], 2), _vm._v(" "), _vm._t("additional-content-after-vat")], 2), _vm._v(" "), _c("div"), _vm._v(" "), _c("div", {
       staticClass: "col-12"
     }, [_c("div", {
       staticClass: "my-2"
