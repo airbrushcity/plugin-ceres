@@ -25,8 +25,10 @@
 {% include styleTemplate.path ignore missing with styleTemplate.params %}
 {% endfor %}
 {% if assetName == 'ceres-checkout' %}{{ LayoutContainer.show("Ceres::Checkout.Styles") }}{% endif %}
-{% if isItem %}{{ LayoutContainer.show("Ceres::SingleItem.Styles") }}{% endif %}
+{% if isItem %}
+{{ LayoutContainer.show("Ceres::SingleItem.Styles") }}
 {{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningHeadTag") }}
+{% endif %}
 </head>
 
 <body class="{{ bodyClasses | join(' ') }} {% if request.get('openBasketPreview') == 1 %} basket-open{% endif %}">
@@ -45,13 +47,9 @@
 
 {{ context.renderState() }}
 
-    <lazy-hydrate when-idle>
-        <notifications template="#vue-notifications" :initial-notifications="{{ notifications | json_encode() }}"></notifications>
-    </lazy-hydrate>
-
     {% include getPartial('header') %}
 
-    <div id="page-body" class="main">
+    <div id="page-body" class="container-max main">
         {% block PageBody %}{% endblock %}
     </div>
 
@@ -90,6 +88,10 @@
         {% include getPartial('footer') %}
         {% block PartialFooter %}{% endblock %}
     {% endcacheblock %}
+
+    <lazy-hydrate when-idle>
+        <notifications template="#vue-notifications" :initial-notifications="{{ notifications | json_encode() }}"></notifications>
+    </lazy-hydrate>
 
     <!-- BASKET MODAL -->
     <lazy-load component="add-item-to-basket-overlay">
