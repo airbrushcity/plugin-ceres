@@ -10,7 +10,7 @@
 
     {% if shopBuilderTemplate | trim is not empty or isShopBuilder %}
 
-        <div class="categoriegrid pt-0 page-content px-1 px-lg-2">
+        <div class="categoriegrid pt-0 page-content px-1 px-lg-3">
             <div class="row">
                 <div class="col-12">
                     {{ shopBuilderTemplate | raw }}
@@ -32,7 +32,7 @@
             {% include "Ceres::Category.Item.Partials.CategoryParallaxImage" with { 'category': category } %}
         {% endif %}
 
-        <div class="categoriegrid page-content px-1 px-lg-2">
+        <div class="categoriegrid page-content px-1 px-lg-3">
 
             {% if isSearch %}
                 <div class="row mt-2">
