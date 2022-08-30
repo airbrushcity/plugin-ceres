@@ -280,35 +280,35 @@
                                                     <template v-if="variationProperty.id === 4">
                                                         <div>
                                                             <a :href="cdnUrl + '/frontend/anhang/sicherheitsdatenblatt/' + variationProperty.values.value" target="_blank">
-                                                            <span><i class="fas fa-file-pdf"></i></span> <span v-html="variationProperty.names.name"></span>
+                                                            <span><i class="fa fa-file-pdf-o"></i> </span>  <span v-html="variationProperty.names.name"></span>
                                                             </a>
                                                         </div>
                                                     </template>
                                                     <template v-if="variationProperty.id === 5">
                                                         <div>
                                                             <a :href="cdnUrl + '/frontend/anhang/merkblatt/' + variationProperty.values.value" target="_blank">
-                                                            <span><i class="fas fa-file-pdf"></i> </span><span v-html="variationProperty.names.name"></span>
+                                                            <span><i class="fa fa-file-pdf-o"></i> </span>  <span v-html="variationProperty.names.name"></span>
                                                             </a> 
                                                         </div>
                                                     </template>
                                                     <template v-if="variationProperty.id === 7">
                                                          <div>
                                                             <a :href="cdnUrl + '/frontend/anhang/bedienungsanleitung/' + variationProperty.values.value" target="_blank">
-                                                            <span><i class="fas fa-file-pdf"></i> </span><span v-html="variationProperty.names.name"></span>
+                                                            <span><i class="fa fa-file-pdf-o"></i> </span>  <span v-html="variationProperty.names.name"></span>
                                                             </a> 
                                                         </div>
                                                     </template>
                                                     <template v-if="variationProperty.id === 223">
                                                          <div>
                                                             <a :href="cdnUrl + '/frontend/anhang/farbkarte/' + variationProperty.values.value" target="_blank">
-                                                            <span><i class="fas fa-file-pdf"></i> </span> <span v-html="variationProperty.names.name"></span>
+                                                            <span><i class="fa fa-file-pdf-o"></i> </span>  <span v-html="variationProperty.names.name"></span>
                                                             </a> 
                                                         </div>
                                                     </template>
                                                     <template v-if="variationProperty.id === 224">
                                                         <div>
                                                             <a :href="cdnUrl + '/frontend/anhang/sonstige/' + variationProperty.values.value" target="_blank">
-                                                            <span><i class="fas fa-file-pdf"></i> </span> <span v-html="variationProperty.names.name"></span>
+                                                            <span><i class="fa fa-file-pdf-o"></i> </span>  <span v-html="variationProperty.names.name"></span>
                                                             </a> 
                                                         </div>
                                                     </template>

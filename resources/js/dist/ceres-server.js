@@ -14486,7 +14486,7 @@ var render = function render() {
             target: "_blank"
           }
         }, [_c("span", [_c("i", {
-          staticClass: "fas fa-file-pdf"
+          staticClass: "fa fa-file-pdf-o"
         })]), _vm._v(" "), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
@@ -14497,8 +14497,8 @@ var render = function render() {
             target: "_blank"
           }
         }, [_c("span", [_c("i", {
-          staticClass: "fas fa-file-pdf"
-        })]), _c("span", {
+          staticClass: "fa fa-file-pdf-o"
+        })]), _vm._v(" "), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
           }
@@ -14508,8 +14508,8 @@ var render = function render() {
             target: "_blank"
           }
         }, [_c("span", [_c("i", {
-          staticClass: "fas fa-file-pdf"
-        })]), _c("span", {
+          staticClass: "fa fa-file-pdf-o"
+        })]), _vm._v(" "), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
           }
@@ -14519,7 +14519,7 @@ var render = function render() {
             target: "_blank"
           }
         }, [_c("span", [_c("i", {
-          staticClass: "fas fa-file-pdf"
+          staticClass: "fa fa-file-pdf-o"
         })]), _vm._v(" "), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
@@ -14530,7 +14530,7 @@ var render = function render() {
             target: "_blank"
           }
         }, [_c("span", [_c("i", {
-          staticClass: "fas fa-file-pdf"
+          staticClass: "fa fa-file-pdf-o"
         })]), _vm._v(" "), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)

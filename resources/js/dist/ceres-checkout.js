@@ -7043,7 +7043,7 @@ var render = function render() {
             href: _vm.cdnUrl + "/frontend/anhang/merkblatt/" + variationProperty.values.value,
             target: "_blank"
           }
-        }, [_vm._m(2, true), _c("span", {
+        }, [_vm._m(2, true), _vm._v(" "), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
           }
@@ -7052,7 +7052,7 @@ var render = function render() {
             href: _vm.cdnUrl + "/frontend/anhang/bedienungsanleitung/" + variationProperty.values.value,
             target: "_blank"
           }
-        }, [_vm._m(3, true), _c("span", {
+        }, [_vm._m(3, true), _vm._v(" "), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
           }
@@ -7093,35 +7093,35 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("span", [_c("i", {
-    staticClass: "fas fa-file-pdf"
+    staticClass: "fa fa-file-pdf-o"
   })]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
 
   return _c("span", [_c("i", {
-    staticClass: "fas fa-file-pdf"
+    staticClass: "fa fa-file-pdf-o"
   })]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
 
   return _c("span", [_c("i", {
-    staticClass: "fas fa-file-pdf"
+    staticClass: "fa fa-file-pdf-o"
   })]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
 
   return _c("span", [_c("i", {
-    staticClass: "fas fa-file-pdf"
+    staticClass: "fa fa-file-pdf-o"
   })]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
 
   return _c("span", [_c("i", {
-    staticClass: "fas fa-file-pdf"
+    staticClass: "fa fa-file-pdf-o"
   })]);
 }];
 render._withStripped = true;
