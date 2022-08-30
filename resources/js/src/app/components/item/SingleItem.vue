@@ -2,7 +2,7 @@
     <div>
         <slot :getDataField="getDataField" :getFilteredDataField="getFilteredDataField">
             <div class="container-max single">
-                <div class="row position-relative px-0">
+                <div class="row position-relative px-0 px-lg-2">
 
                     <div class="col-12 mt-2">
                         <h2 class="h2 title" data-testing="item-name">
