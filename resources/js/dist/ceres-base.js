@@ -2614,7 +2614,10 @@ var render = function render() {
     }, [_c("div", {
       staticClass: "my-2"
     }, [_c("div", {
-      staticClass: "text-center"
+      staticClass: "text-center",
+      attrs: {
+        id: "pdf-anhang"
+      }
     }, [_vm.$store.getters.currentItemVariation.variationProperties && _vm.$store.getters.currentItemVariation.variationProperties.length > 0 ? [_vm._l(_vm.$store.getters.currentItemVariation.variationProperties, function (variationPropertyGroups, index) {
       return [_vm._l(variationPropertyGroups.properties, function (variationProperty, index) {
         return variationPropertyGroups.id === 1 ? [variationProperty.id === 4 ? [_c("div", [_c("a", {

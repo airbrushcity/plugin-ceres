@@ -272,7 +272,7 @@
 
                                 <div :class="{ 'active': !isDescriptionTabActive && !isVideoTabActive && !isTechnicalDataTabActive && isPdfTabActive}" class="tab-pane overflow-auto" id="assessments-details" role="tabpanel" v-if="isPdfTabActive">
                                     <div class="my-2">
-                                        <div class="text-center">
+                                        <div id="pdf-anhang" class="text-center">
                                         <!-- Hier kommen die PDF Anhänge -->
                                         <template v-if="$store.getters.currentItemVariation.variationProperties && $store.getters.currentItemVariation.variationProperties.length > 0">
                                             <template v-for="(variationPropertyGroups, index) in $store.getters.currentItemVariation.variationProperties">
