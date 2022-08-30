@@ -3040,7 +3040,7 @@ var render = function render() {
     return [_c("div", {
       staticClass: "container-max single"
     }, [_c("div", {
-      staticClass: "row position-relative px-0"
+      staticClass: "row position-relative px-0 px-lg-2"
     }, [_c("div", {
       staticClass: "col-12 mt-2"
     }, [_c("h2", {
