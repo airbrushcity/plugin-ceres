@@ -3112,7 +3112,7 @@ var render = function render() {
       }
     }), _vm._v(" "), _vm._t("after-price"), _vm._v(" "), _c("span", {
       staticClass: "vat small text-muted"
-    }, [_vm._v("\n                              *  " + _vm._s(_vm.$translate("Ceres::Template.singleItemFootnote1")) + " "), _vm.showNetPrices ? [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemExclVAT")))] : [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemInclVAT")))], _vm._v(" " + _vm._s(_vm.$translate("Ceres::Template.singleItemExclusive")) + "\n                            "), _vm.hasShippingCostsCategoryId ? _c("a", {
+    }, [_vm._v("\n                            " + _vm._s(_vm.$translate("Ceres::Template.singleItemFootnote1")) + " "), _vm.showNetPrices ? [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemExclVAT")))] : [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemInclVAT")))], _vm._v(" " + _vm._s(_vm.$translate("Ceres::Template.singleItemExclusive")) + "\n                            "), _vm.hasShippingCostsCategoryId ? _c("a", {
       attrs: {
         "data-toggle": "modal",
         href: "#shippingscosts",
@@ -3251,7 +3251,7 @@ var render = function render() {
         }, [_c("iframe", {
           staticClass: "embed-responsive-item",
           attrs: {
-            src: "https://www.youtube-nocookie.com/embed/" + variationProperty.values.value,
+            src: "https://www.youtube-nocookie.com/embed/" + variationProperty.values.value + "&origin=https://airbrush-city.de",
             rel: "0",
             allowfullscreen: ""
           }
@@ -3276,43 +3276,48 @@ var render = function render() {
           attrs: {
             href: _vm.cdnUrl + "/frontend/anhang/sicherheitsdatenblatt/" + variationProperty.values.value,
             target: "_blank"
-          },
+          }
+        }, [_vm._m(1, true), _vm._v(" "), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
           }
-        })])] : _vm._e(), _vm._v(" "), variationProperty.id === 5 ? [_c("div", [_c("a", {
+        })])])] : _vm._e(), _vm._v(" "), variationProperty.id === 5 ? [_c("div", [_c("a", {
           attrs: {
             href: _vm.cdnUrl + "/frontend/anhang/merkblatt/" + variationProperty.values.value,
             target: "_blank"
-          },
+          }
+        }, [_vm._m(2, true), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
           }
-        })])] : _vm._e(), _vm._v(" "), variationProperty.id === 7 ? [_c("div", [_c("a", {
+        })])])] : _vm._e(), _vm._v(" "), variationProperty.id === 7 ? [_c("div", [_c("a", {
           attrs: {
             href: _vm.cdnUrl + "/frontend/anhang/bedienungsanleitung/" + variationProperty.values.value,
             target: "_blank"
-          },
+          }
+        }, [_vm._m(3, true), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
           }
-        })])] : _vm._e(), _vm._v(" "), variationProperty.id === 223 ? [_c("div", [_c("a", {
+        })])])] : _vm._e(), _vm._v(" "), variationProperty.id === 223 ? [_c("div", [_c("a", {
           attrs: {
             href: _vm.cdnUrl + "/frontend/anhang/farbkarte/" + variationProperty.values.value,
             target: "_blank"
-          },
+          }
+        }, [_vm._m(4, true), _vm._v(" "), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
           }
-        })])] : _vm._e(), _vm._v(" "), variationProperty.id === 224 ? [_c("div", [_c("a", {
+        })])])] : _vm._e(), _vm._v(" "), variationProperty.id === 224 ? [_c("div", [_c("a", {
           attrs: {
             href: _vm.cdnUrl + "/frontend/anhang/sonstige/" + variationProperty.values.value,
             target: "_blank"
-          },
+          }
+        }, [_vm._m(5, true), _vm._v(" "), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
           }
-        })])] : void 0] : _vm._e();
+        })])])] : void 0] : _vm._e();
       })];
     })] : _vm._e()], 2)])]) : _vm._e(), _vm._v(" "), _vm._t("add-detail-tabs-content")], 2)])])]), _vm._v(" "), _vm._t("item-list-container"), _vm._v(" "), _vm._t("feedback-container")], 2)];
   }, {
@@ -3326,6 +3331,41 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("h6", [_c("strong", [_vm._v("Deutschland:")]), _vm._v(" Standard DHL Lieferzeit 1 bis 3 Tage.")]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("span", [_c("i", {
+    staticClass: "fas fa-file-pdf"
+  })]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("span", [_c("i", {
+    staticClass: "fas fa-file-pdf"
+  })]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("span", [_c("i", {
+    staticClass: "fas fa-file-pdf"
+  })]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("span", [_c("i", {
+    staticClass: "fas fa-file-pdf"
+  })]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("span", [_c("i", {
+    staticClass: "fas fa-file-pdf"
+  })]);
 }];
 render._withStripped = true;
 

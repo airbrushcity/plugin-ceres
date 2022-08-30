@@ -14320,7 +14320,7 @@ var render = function render() {
       }
     }), _vm._v(" "), _vm._t("after-price"), _vm._v(" "), _c("span", {
       staticClass: "vat small text-muted"
-    }, [_vm._v("\n                              *  " + _vm._s(_vm.$translate("Ceres::Template.singleItemFootnote1")) + " "), _vm.showNetPrices ? [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemExclVAT")))] : [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemInclVAT")))], _vm._v(" " + _vm._s(_vm.$translate("Ceres::Template.singleItemExclusive")) + "\n                            "), _vm.hasShippingCostsCategoryId ? _c("a", {
+    }, [_vm._v("\n                            " + _vm._s(_vm.$translate("Ceres::Template.singleItemFootnote1")) + " "), _vm.showNetPrices ? [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemExclVAT")))] : [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemInclVAT")))], _vm._v(" " + _vm._s(_vm.$translate("Ceres::Template.singleItemExclusive")) + "\n                            "), _vm.hasShippingCostsCategoryId ? _c("a", {
       attrs: {
         "data-toggle": "modal",
         href: "#shippingscosts",
@@ -14459,7 +14459,7 @@ var render = function render() {
         }, [_c("iframe", {
           staticClass: "embed-responsive-item",
           attrs: {
-            src: "https://www.youtube-nocookie.com/embed/" + variationProperty.values.value,
+            src: "https://www.youtube-nocookie.com/embed/" + variationProperty.values.value + "&origin=https://airbrush-city.de",
             rel: "0",
             allowfullscreen: ""
           }
@@ -14484,43 +14484,58 @@ var render = function render() {
           attrs: {
             href: _vm.cdnUrl + "/frontend/anhang/sicherheitsdatenblatt/" + variationProperty.values.value,
             target: "_blank"
-          },
+          }
+        }, [_c("span", [_c("i", {
+          staticClass: "fas fa-file-pdf"
+        })]), _vm._v(" "), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
           }
-        })])] : _vm._e(), _vm._v(" "), variationProperty.id === 5 ? [_c("div", [_c("a", {
+        })])])] : _vm._e(), _vm._v(" "), variationProperty.id === 5 ? [_c("div", [_c("a", {
           attrs: {
             href: _vm.cdnUrl + "/frontend/anhang/merkblatt/" + variationProperty.values.value,
             target: "_blank"
-          },
+          }
+        }, [_c("span", [_c("i", {
+          staticClass: "fas fa-file-pdf"
+        })]), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
           }
-        })])] : _vm._e(), _vm._v(" "), variationProperty.id === 7 ? [_c("div", [_c("a", {
+        })])])] : _vm._e(), _vm._v(" "), variationProperty.id === 7 ? [_c("div", [_c("a", {
           attrs: {
             href: _vm.cdnUrl + "/frontend/anhang/bedienungsanleitung/" + variationProperty.values.value,
             target: "_blank"
-          },
+          }
+        }, [_c("span", [_c("i", {
+          staticClass: "fas fa-file-pdf"
+        })]), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
           }
-        })])] : _vm._e(), _vm._v(" "), variationProperty.id === 223 ? [_c("div", [_c("a", {
+        })])])] : _vm._e(), _vm._v(" "), variationProperty.id === 223 ? [_c("div", [_c("a", {
           attrs: {
             href: _vm.cdnUrl + "/frontend/anhang/farbkarte/" + variationProperty.values.value,
             target: "_blank"
-          },
+          }
+        }, [_c("span", [_c("i", {
+          staticClass: "fas fa-file-pdf"
+        })]), _vm._v(" "), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
           }
-        })])] : _vm._e(), _vm._v(" "), variationProperty.id === 224 ? [_c("div", [_c("a", {
+        })])])] : _vm._e(), _vm._v(" "), variationProperty.id === 224 ? [_c("div", [_c("a", {
           attrs: {
             href: _vm.cdnUrl + "/frontend/anhang/sonstige/" + variationProperty.values.value,
             target: "_blank"
-          },
+          }
+        }, [_c("span", [_c("i", {
+          staticClass: "fas fa-file-pdf"
+        })]), _vm._v(" "), _c("span", {
           domProps: {
             innerHTML: _vm._s(variationProperty.names.name)
           }
-        })])] : void 0] : _vm._e();
+        })])])] : void 0] : _vm._e();
       })];
     })] : _vm._e()], 2)])]) : _vm._e(), _vm._v(" "), _vm._t("add-detail-tabs-content")], 2)])])]), _vm._v(" "), _vm._t("item-list-container"), _vm._v(" "), _vm._t("feedback-container")], 2)];
   }, {

@@ -84,7 +84,7 @@
                             <slot name="after-price"></slot>
 
                             <span class="vat small text-muted">
-                              *  {{ $translate("Ceres::Template.singleItemFootnote1") }} <template v-if="showNetPrices">{{ $translate("Ceres::Template.singleItemExclVAT") }}</template><template v-else>{{ $translate("Ceres::Template.singleItemInclVAT") }}</template> {{ $translate("Ceres::Template.singleItemExclusive") }}
+                            {{ $translate("Ceres::Template.singleItemFootnote1") }} <template v-if="showNetPrices">{{ $translate("Ceres::Template.singleItemExclVAT") }}</template><template v-else>{{ $translate("Ceres::Template.singleItemInclVAT") }}</template> {{ $translate("Ceres::Template.singleItemExclusive") }}
                             <a v-if="hasShippingCostsCategoryId" data-toggle="modal" href="#shippingscosts" :title="$translate('Ceres::Template.singleItemShippingCosts')">{{ $translate("Ceres::Template.singleItemShippingCosts") }}</a>
                             <a v-else :title="$translate('Ceres::Template.singleItemShippingCosts')">{{ $translate("Ceres::Template.singleItemShippingCosts") }}</a>
                             </span>
@@ -258,7 +258,7 @@
                                                     <template v-if="variationProperty.id === 169 && variationProperty.values.value.length > 0">
                                                         <div class="row mx-2 mb-4">
                                                             <div class="col-12 p-0 embed-responsive embed-responsive-16by9">
-                                                                <iframe class="embed-responsive-item"  :src="'https://www.youtube-nocookie.com/embed/' + variationProperty.values.value" rel=0 allowfullscreen></iframe>
+                                                                <iframe class="embed-responsive-item"  :src="'https://www.youtube-nocookie.com/embed/' + variationProperty.values.value + '&origin=https://airbrush-city.de'" rel=0 allowfullscreen></iframe>
                                                             </div>
                                                         </div>
                                                     </template>
@@ -279,27 +279,37 @@
                                                 <template v-for="(variationProperty, index) in variationPropertyGroups.properties" v-if="variationPropertyGroups.id === 1">
                                                     <template v-if="variationProperty.id === 4">
                                                         <div>
-                                                            <a :href="cdnUrl + '/frontend/anhang/sicherheitsdatenblatt/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a>
+                                                            <a :href="cdnUrl + '/frontend/anhang/sicherheitsdatenblatt/' + variationProperty.values.value" target="_blank">
+                                                            <span><i class="fas fa-file-pdf"></i></span> <span v-html="variationProperty.names.name"></span>
+                                                            </a>
                                                         </div>
                                                     </template>
                                                     <template v-if="variationProperty.id === 5">
                                                         <div>
-                                                            <a :href="cdnUrl + '/frontend/anhang/merkblatt/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a> 
+                                                            <a :href="cdnUrl + '/frontend/anhang/merkblatt/' + variationProperty.values.value" target="_blank">
+                                                            <span><i class="fas fa-file-pdf"></i> </span><span v-html="variationProperty.names.name"></span>
+                                                            </a> 
                                                         </div>
                                                     </template>
                                                     <template v-if="variationProperty.id === 7">
                                                          <div>
-                                                            <a :href="cdnUrl + '/frontend/anhang/bedienungsanleitung/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a> 
+                                                            <a :href="cdnUrl + '/frontend/anhang/bedienungsanleitung/' + variationProperty.values.value" target="_blank">
+                                                            <span><i class="fas fa-file-pdf"></i> </span><span v-html="variationProperty.names.name"></span>
+                                                            </a> 
                                                         </div>
                                                     </template>
                                                     <template v-if="variationProperty.id === 223">
                                                          <div>
-                                                            <a :href="cdnUrl + '/frontend/anhang/farbkarte/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a> 
+                                                            <a :href="cdnUrl + '/frontend/anhang/farbkarte/' + variationProperty.values.value" target="_blank">
+                                                            <span><i class="fas fa-file-pdf"></i> </span> <span v-html="variationProperty.names.name"></span>
+                                                            </a> 
                                                         </div>
                                                     </template>
                                                     <template v-if="variationProperty.id === 224">
                                                         <div>
-                                                            <a :href="cdnUrl + '/frontend/anhang/sonstige/' + variationProperty.values.value" v-html="variationProperty.names.name" target="_blank"></a> 
+                                                            <a :href="cdnUrl + '/frontend/anhang/sonstige/' + variationProperty.values.value" target="_blank">
+                                                            <span><i class="fas fa-file-pdf"></i> </span> <span v-html="variationProperty.names.name"></span>
+                                                            </a> 
                                                         </div>
                                                     </template>
                                                     <template v-else></template>
