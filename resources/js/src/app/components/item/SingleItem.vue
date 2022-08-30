@@ -258,7 +258,7 @@
                                                     <template v-if="variationProperty.id === 169 && variationProperty.values.value.length > 0">
                                                         <div class="row mx-2 mb-4">
                                                             <div class="col-12 p-0 embed-responsive embed-responsive-16by9">
-                                                                <iframe class="embed-responsive-item"  :src="'https://www.youtube-nocookie.com/embed/' + variationProperty.values.value + '&origin=https://airbrush-city.de'" rel=0 allowfullscreen></iframe>
+                                                                <iframe class="embed-responsive-item"  :src="'https://www.youtube-nocookie.com/embed/' + variationProperty.values.value + '/&origin=https://airbrush-city.de'" rel=0 allowfullscreen></iframe>
                                                             </div>
                                                         </div>
                                                     </template>

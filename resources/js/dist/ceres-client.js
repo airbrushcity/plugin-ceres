@@ -3251,7 +3251,7 @@ var render = function render() {
         }, [_c("iframe", {
           staticClass: "embed-responsive-item",
           attrs: {
-            src: "https://www.youtube-nocookie.com/embed/" + variationProperty.values.value + "&origin=https://airbrush-city.de",
+            src: "https://www.youtube-nocookie.com/embed/" + variationProperty.values.value + "/&origin=https://airbrush-city.de",
             rel: "0",
             allowfullscreen: ""
           }
