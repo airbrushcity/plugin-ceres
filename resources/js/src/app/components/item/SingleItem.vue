@@ -276,7 +276,7 @@
                                         <!-- Hier kommen die PDF Anhänge -->
                                         <template v-if="$store.getters.currentItemVariation.variationProperties && $store.getters.currentItemVariation.variationProperties.length > 0">
                                             <template v-for="(variationPropertyGroups, index) in $store.getters.currentItemVariation.variationProperties">
-                                                <template v-for="(variationProperty, index) in variationPropertyGroups.properties" v-if="variationPropertyGroups.id === 1">
+                                                <template v-for="(variationProperty, index) in variationPropertyGroups.properties" v-if="variationPropertyGroups.id === 16">
                                                     <template v-if="variationProperty.id === 4">
                                                         <div>
                                                             <a :href="cdnUrl + '/frontend/anhang/sicherheitsdatenblatt/' + variationProperty.values.value" target="_blank">

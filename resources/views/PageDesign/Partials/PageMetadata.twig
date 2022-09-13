@@ -31,7 +31,7 @@
 {% if block('keywords') is defined %}
     {% set keywords = block('keywords') %}
 {% elseif details is not null %}
-    {% set keywords = details.metaKeywords %}
+    {% set keywords = details.metaTitle | default(details.name) %}
 {% endif %}
 
 {% set companyLogo = ceresConfig.header.companyLogo %}
@@ -64,13 +64,11 @@
 <meta name="robots" content="{% if forceNoIndex %}NOINDEX{% else %}{{ robots }}{% endif %}">
 <link rel="preload" as="style" href="{{ defaultCSS }}">
 
-<title>{{ title | trim | raw }}</title>
+<title>{{ keywords | trim }}</title>
 {% if description | trim is not empty %}
 <meta name="description" content="{{ description | trim }}">
 {% endif %}
-{% if keywords | trim is not empty %}
-<meta name="keywords" content="{{ keywords | trim }}">
-{% endif %}
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes, shrink-to-fit=yes" >
 <meta name="format-detection" content="telephone=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
