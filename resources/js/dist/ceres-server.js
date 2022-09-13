@@ -14483,7 +14483,7 @@ var render = function render() {
       }
     }, [_vm.$store.getters.currentItemVariation.variationProperties && _vm.$store.getters.currentItemVariation.variationProperties.length > 0 ? [_vm._l(_vm.$store.getters.currentItemVariation.variationProperties, function (variationPropertyGroups, index) {
       return [_vm._l(variationPropertyGroups.properties, function (variationProperty, index) {
-        return variationPropertyGroups.id === 1 ? [variationProperty.id === 4 ? [_c("div", [_c("a", {
+        return variationPropertyGroups.id === 16 ? [variationProperty.id === 4 ? [_c("div", [_c("a", {
           attrs: {
             href: _vm.cdnUrl + "/frontend/anhang/sicherheitsdatenblatt/" + variationProperty.values.value,
             target: "_blank"
