@@ -30,7 +30,6 @@
 {{ Twig.set("mobileLogoUrl", Twig.call("config", ["Ceres.special.mobileLogoUrl"])) }}
 {{ Twig.set("mobileLogoUrlWebp", Twig.call("config", ["Ceres.special.mobileLogoUrlWebp"])) }}
 
-{% set isItem = vueApp.$store.state.item.documents[0].data.length %}
 {% set description = '' %}
 {% if isItem %}
     {% set itemData = vueApp.$store.state.item.documents[0].data %}
