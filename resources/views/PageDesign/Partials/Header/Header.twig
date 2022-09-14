@@ -5,6 +5,17 @@
 {% set enableCurrencySelect = config("Ceres.currency.enable_selection") == "true" and activeCurrencies | length > 0 %}
 {% set currencyFormat = config("Ceres.currency.format") %}
 {% set currencyFormatSelect = config("Ceres.currency.format_selection") %}
+{% set description = '' %}
+{% if isItem %}
+    {% set itemData = item.documents[0].data %}
+    {% set description = itemData.texts.metaDescription %}
+{% elseif category is defined and category is not null %}
+    {% set details = category.details[0] %}
+    {% set description = details.metaDescription %}
+{% endif %}    
+{% if description == '' %}
+    {% set description = 'Webshop der Airbrush City GmbH, wir wünschen Ihnen viel Spaß beim Einkaufen.' %}
+{% endif %}
 
 {% cacheblock use "category.tree" %}
     {% set headerContainer = LayoutContainer.show("Ceres::Header") | trim %}

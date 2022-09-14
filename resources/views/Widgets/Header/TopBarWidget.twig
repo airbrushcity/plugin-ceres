@@ -30,18 +30,6 @@
 {{ Twig.set("mobileLogoUrl", Twig.call("config", ["Ceres.special.mobileLogoUrl"])) }}
 {{ Twig.set("mobileLogoUrlWebp", Twig.call("config", ["Ceres.special.mobileLogoUrlWebp"])) }}
 
-{% set description = '' %}
-{% if isItem %}
-    {% set itemData = item.documents[0].data %}
-    {% set description = itemData.texts.metaDescription %}
-{% elseif category is defined and category is not null %}
-    {% set details = category.details[0] %}
-    {% set description = details.metaDescription %}
-{% endif %}    
-{% if description == '' %}
-    {% set description = 'Webshop der Airbrush City GmbH, wir wünschen Ihnen viel Spaß beim Einkaufen.' %}
-{% endif %}    
-
 <div class="top-bar {% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if not isFixed %} unfixed{% endif %}">
     <div class="container-max">
         <div class="row">
@@ -84,9 +72,9 @@
                         </li>
 
                         <li class="list-inline-item control-info d-lg-none">          
-                            <a href="#" class="anicon nav-link">
+                            <div class="anicon nav-link">
                                <i class="fa fa-info" data-toggle="tooltip" data-placement="bottom" title="{{ description }}"></i>
-                            </a>               
+                            </div>               
                         </li>
 
                         <li class="list-inline-item d-none d-lg-block pl-2 flex-grow-1">    
@@ -154,9 +142,9 @@
                         </li>
 
                         <li class="list-inline-item control-user d-none d-lg-flex">
-                            <a href="#" class="nav-link">
+                            <div class="nav-link">
                                 <i class="fa fa-info" data-toggle="tooltip" data-placement="right" title="{{ description }}"></i>
-                            </a>
+                            </div>
                         </li>
                     
                         <li class="list-inline-item control-user">
