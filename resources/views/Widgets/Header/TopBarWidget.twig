@@ -30,6 +30,9 @@
 {{ Twig.set("mobileLogoUrl", Twig.call("config", ["Ceres.special.mobileLogoUrl"])) }}
 {{ Twig.set("mobileLogoUrlWebp", Twig.call("config", ["Ceres.special.mobileLogoUrlWebp"])) }}
 
+{{ Twig.import("HeaderInfo", "Ceres::PageDesign.Partials.Header.Header") }}
+{{ Twig.set("description", Twig.call("HeaderInfo.show", ["description"])) }}
+
 <div class="top-bar {% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if not isFixed %} unfixed{% endif %}">
     <div class="container-max">
         <div class="row">
