@@ -32,7 +32,7 @@
 
 {% set description = '' %}
 {{ Twig.import("PageMetadata", "Ceres::PageDesign.Partials.PageMetadata") }}
-{{ Twig.set("description", Twig.call("PageMetadata.show", ["Ceres.description"])) }}
+{{ Twig.set("description", Twig.call("PageMetadata.show", ["description"])) }}
 {% if description == '' %}
     {% set description = 'Webshop der Airbrush City GmbH, wir wünschen Ihnen viel Spaß beim Einkaufen.' %}
 {% endif %}
