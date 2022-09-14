@@ -30,8 +30,18 @@
 {{ Twig.set("mobileLogoUrl", Twig.call("config", ["Ceres.special.mobileLogoUrl"])) }}
 {{ Twig.set("mobileLogoUrlWebp", Twig.call("config", ["Ceres.special.mobileLogoUrlWebp"])) }}
 
-{{ Twig.import("HeaderInfo", "Ceres::PageDesign.Partials.Header.Header") }}
-{{ Twig.set("description", Twig.call("HeaderInfo.show", ["description"])) }}
+{% set isItem = vueApp.$store.state.item.documents[0].data.length %}
+{% set description = '' %}
+{% if isItem %}
+    {% set itemData = vueApp.$store.state.item.documents[0].data %}
+    {% set description = itemData.texts.metaDescription %}
+{% elseif category is defined and category is not null %}
+    {% set details = vueApp.$store.state.category.details[0] %}
+    {% set description = details.metaDescription %}
+{% endif %}    
+{% if description == '' %}
+    {% set description = 'Webshop der Airbrush City GmbH, wir wünschen Ihnen viel Spaß beim Einkaufen.' %}
+{% endif %}
 
 <div class="top-bar {% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if not isFixed %} unfixed{% endif %}">
     <div class="container-max">
