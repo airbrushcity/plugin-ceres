@@ -31,13 +31,7 @@
 {{ Twig.set("mobileLogoUrlWebp", Twig.call("config", ["Ceres.special.mobileLogoUrlWebp"])) }}
 
 {% set description = '' %}
-{% if isItem %}
-    {% set itemData = vueApp.$store.state.item.documents[0].data %}
-    {% set description = itemData.texts.metaDescription %}
-{% elseif category is defined and category is not null %}
-    {% set details = vueApp.$store.state.category.details[0] %}
-    {% set description = details.metaDescription %}
-{% endif %}    
+
 {% if description == '' %}
     {% set description = 'Webshop der Airbrush City GmbH, wir wünschen Ihnen viel Spaß beim Einkaufen.' %}
 {% endif %}
