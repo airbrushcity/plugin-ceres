@@ -17349,8 +17349,7 @@ html.safari .widget-grid .widget-inner-stacked .widget-inner {
 }
 
 body.menu-is-visible {
-  position: fixed;
-  overflow-y: hidden;
+  position: relative;
 }
 
 .normalmenu a {
@@ -17521,9 +17520,10 @@ body.menu-is-visible {
 }
 
 .mobile-navigation {
+  width: 30rem;
   position: fixed;
   top: 0;
-  right: 0;
+  right: auto;
   bottom: 0;
   left: 0;
   z-index: 99999;
@@ -17531,8 +17531,8 @@ body.menu-is-visible {
   font-size: 1.2em;
   opacity: 0.6;
   transition: all 0.3s ease;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
   -webkit-overflow-scrolling: touch;
   padding: 0 12px;
 }
