@@ -39,7 +39,6 @@ module.exports = env =>
                         {
                             loader: "sass-loader",
                             options: {
-                                hoistUseStatements: true,
                                 sourceMap: !env.prod,
                                 outputStyle: env.prod ? "compressed" : "expanded"
                             }
