@@ -88,7 +88,8 @@
 
 // When mobile navigation is open
 body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
-    position: relative;
+    position: fixed;
+    overflow-y: hidden;
 }
 
 .normalmenu {
@@ -250,10 +251,9 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
 }
 
 .mobile-navigation {
-    width:30rem;
     position: fixed;
     top: 0;
-    right: auto;
+    right: 0;
     bottom: 0;
     left: 0;
     z-index: 99999;
@@ -263,7 +263,7 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
     @include theme() { background-color: theme-get('navbar-bg-color'); }
     opacity: .6;
     @include transition(all .3s ease);
-    transform: translateX(-100%);
+    transform: translateX(100%);
     -webkit-overflow-scrolling: touch;
     padding: 0 map-get($spacers, 2);
 
