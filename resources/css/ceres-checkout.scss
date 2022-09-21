@@ -12479,7 +12479,6 @@ html.ios .basket-preview-content .totals { // stylelint-disable-line selector-no
         }
     }
 
-    .category-lowest-price,
     .category-unit-price {
         @include theme() { color: theme-get('font-color-secondary'); }
     }
@@ -16554,6 +16553,7 @@ header .widget {
     }
 }
 
+@use "sass:selector";
 
 // stylelint-disable declaration-no-important
 @each $color, $value in $shop-builder-colors {
@@ -16733,7 +16733,6 @@ header .widget {
         border-top: none !important; // stylelint-disable-line declaration-no-important
     }
 }
-
 
 
 .checkout {

@@ -1,3 +1,4 @@
+@use "sass:selector";
 
 // stylelint-disable declaration-no-important
 @each $color, $value in $shop-builder-colors {
