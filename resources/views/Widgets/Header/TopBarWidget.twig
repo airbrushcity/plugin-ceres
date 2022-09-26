@@ -168,13 +168,10 @@
                         </li>
                        
                         <li class="list-inline-item control-wish-list">
-                            <lazy-hydrate when-idle>
-                                <wish-list-count>
-                                    <a class="nav-link" aria-label="{{ Twig.print('trans("Ceres::Template.wishList")') }}">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </a>
-                                </wish-list-count>
-                            </lazy-hydrate>
+                            <a class="nav-link" aria-label="{{ Twig.print('trans("Ceres::Template.wishList")') }}">
+                                        
+                                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            </a>
                         </li>
                      
                         {% if enableBasketPreview %}
