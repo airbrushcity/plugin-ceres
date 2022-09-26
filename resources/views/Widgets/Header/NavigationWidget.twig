@@ -22,16 +22,6 @@
     {% set megaMenuLevels = 2 %}
 {% endif %}
 
-{% if companyLogoUrl is empty %}
-    {% set companyLogoUrl = ceresConfig.header.companyLogo %}
-{% endif %}
-
-{% if fallbackImagePath | trim is empty %}
-    {% set fallbackImagePath = companyLogoUrl %}
-{% endif %}
-
-{{ Twig.set("logoUrl", companyLogoUrl | json_encode) }}
-{{ Twig.print("add_asset(logoUrl,'image')") }}
 
 {{ Twig.import("Tree", "Ceres::Category.Macros.CategoryTree") }}
 
@@ -39,8 +29,8 @@
     <div class="container-max d-block{% if spacingClasses | length > 0 %} {{ spacingClasses }}{% endif %}"
     {% if inlineSpacings | length > 0 %} style="{{ inlineSpacings }}"{% endif %}>
         <div class="row mx-0 position-relative d-flex">
-            
-            <div class="main-navbar-collapsable d-none d-lg-block">
+    
+            <div class="d-none d-lg-block">
                 <ul class="mainmenu p-0 m-0 d-flex">
                     {{ Twig.print(Twig.call("Tree.get_nav_bar", [Twig.var("categories"), "", megaMenuLevels, megaMenuMaxItems])) }}
                 </ul>
