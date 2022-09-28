@@ -9968,7 +9968,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     breakpoints: {
       type: Array,
       default: function _default() {
-        return ["xs", "sm", "md"];
+        return ["xs", "sm", "md", "lg", "xl"];
       }
     },
     includeLanguage: Boolean

@@ -93,7 +93,7 @@ export default {
         initialCategory: Object,
         breakpoints: {
             type: Array,
-            default: () => ["xs", "sm", "md"]
+            default: () => ["xs", "sm", "md", "lg", "xl"]
         },
         includeLanguage: Boolean
     },
