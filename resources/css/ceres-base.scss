@@ -17014,7 +17014,9 @@ body {
   .mobile-navigation {
 	width: 25rem !important;
 	max-width: 90%;
-  
+	-webkit-transform: translateX(-400%);
+	        transform: translateX(-400%);
+ 
 	.mainmenu li a {
 	  font-family: Tahoma, sans-serif;
 	  font-weight: normal !important;
