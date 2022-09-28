@@ -89,9 +89,10 @@
                             <div class="always-visible-search rounded-pill bg-white flex-grow-1">
                             {% if not isPreview %}<lazy-hydrate when-idle>{% endif %}
                                 <item-search>
+                                <div class="position-relative mx-1">
                                     <div class="position-relative d-flex flex-grow-1">
-                                        <input type="search" class="search-input flex-grow-1 py-0 px-1 ml-1 bg-white" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm")') }}">
-                                        <button class="my-search-button px-2" type="submit" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}">
+                                        <input type="search" class="search-input flex-grow-1 p-0 ml-2 bg-white" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm")') }}">
+                                        <button class="my-search-button px-2 mr-1" type="submit" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}">
                                             <i class="fa fa-search"></i>
                                         </button>
                                     </div>
@@ -112,6 +113,7 @@
                                             </div>
                                         </template>
                                     {% endif %}
+                                </div>
                                 </item-search>
                             {% if not isPreview %}</lazy-hydrate>{% endif %}
                             </div>
@@ -168,9 +170,14 @@
                         </li>
                        
                         <li class="list-inline-item control-wish-list">
-                            <a href="/wish-list" class="nav-link" aria-label="{{ Twig.print('trans("Ceres::Template.wishList")') }}">  
-                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                            </a>
+                            <lazy-hydrate when-idle>
+                                <wish-list-count>
+                                    <a class="nav-link" aria-label="{{ Twig.print('trans("Ceres::Template.wishList")') }}">
+                                        <span class="badge-right mr-1 d-none d-sm-inline">0</span>
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    </a>
+                                </wish-list-count>
+                            </lazy-hydrate>
                         </li>
                      
                         {% if enableBasketPreview %}

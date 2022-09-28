@@ -2778,7 +2778,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "position-relative"
+    staticClass: "position-relative mx-1"
   }, [_c("div", {
     staticClass: "d-flex flex-grow-1 position-relative"
   }, [_c("input", {
@@ -2789,7 +2789,7 @@ var render = function render() {
       expression: "searchString"
     }],
     ref: "searchInput",
-    staticClass: "search-input flex-grow-1 py-0 px-1 ml-1 bg-white",
+    staticClass: "search-input flex-grow-1 p-0 ml-2 bg-white",
     attrs: {
       type: "search",
       autofocus: _vm.isShopBuilder,

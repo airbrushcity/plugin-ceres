@@ -15022,8 +15022,8 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "position-relative"
-  }, [_vm._ssrNode('<div class="d-flex flex-grow-1 position-relative">', "</div>", [_vm._ssrNode('<input type="search"' + _vm._ssrAttr("autofocus", _vm.isShopBuilder) + _vm._ssrAttr("placeholder", _vm.$translate("Ceres::Template.headerSearchPlaceholder")) + _vm._ssrAttr("aria-label", _vm.$translate("Ceres::Template.headerSearchTerm")) + _vm._ssrAttr("value", _vm.searchString) + ' class="search-input flex-grow-1 py-0 px-1 ml-1 bg-white"> '), _vm._t("search-button", function () {
+    staticClass: "position-relative mx-1"
+  }, [_vm._ssrNode('<div class="d-flex flex-grow-1 position-relative">', "</div>", [_vm._ssrNode('<input type="search"' + _vm._ssrAttr("autofocus", _vm.isShopBuilder) + _vm._ssrAttr("placeholder", _vm.$translate("Ceres::Template.headerSearchPlaceholder")) + _vm._ssrAttr("aria-label", _vm.$translate("Ceres::Template.headerSearchTerm")) + _vm._ssrAttr("value", _vm.searchString) + ' class="search-input flex-grow-1 p-0 ml-2 bg-white"> '), _vm._t("search-button", function () {
     return [_c("button", {
       staticClass: "my-search-button px-2 mr-1",
       attrs: {
