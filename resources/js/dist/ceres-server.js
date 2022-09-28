@@ -9968,7 +9968,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     breakpoints: {
       type: Array,
       default: function _default() {
-        return ["xs", "sm", "md", "lg", "xl", "xxl"];
+        return ["xs", "sm", "md"];
       }
     },
     includeLanguage: Boolean
@@ -15855,7 +15855,7 @@ var render = function render() {
   }, [_vm._ssrNode("<div" + _vm._ssrStyle(null, null, {
     display: _vm.isNavigationInitialized ? "" : "none"
   }) + ">", "</div>", [_vm._ssrNode('<ul class="breadcrumb d-block px-3 py-0"><li class="btn-close"></li> <li class="breadcrumb-item"><i aria-hidden="true" class="fa fa-home"></i></li> ' + _vm._ssrList(_vm.breadcrumbs, function (breadcrumb) {
-    return '<li class="breadcrumb-item">' + _vm._ssrEscape("\n                        " + _vm._s(breadcrumb.name) + "\n                    ") + "</li>";
+    return '<li class="breadcrumb-item">' + _vm._ssrEscape("\n                " + _vm._s(breadcrumb.name) + "\n            ") + "</li>";
   }) + "</ul> "), _c("ul", {
     directives: [{
       name: "menu",

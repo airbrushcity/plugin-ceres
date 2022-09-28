@@ -2919,7 +2919,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     breakpoints: {
       type: Array,
       default: function _default() {
-        return ["xs", "sm", "md", "lg", "xl", "xxl"];
+        return ["xs", "sm", "md"];
       }
     },
     includeLanguage: Boolean
@@ -7831,7 +7831,7 @@ var render = function render() {
           return _vm.slideTo(breadcrumb.parent, true);
         }
       }
-    }, [_vm._v("\n                        " + _vm._s(breadcrumb.name) + "\n                    ")]);
+    }, [_vm._v("\n                " + _vm._s(breadcrumb.name) + "\n            ")]);
   })], 2), _vm._v(" "), _c("ul", {
     directives: [{
       name: "menu",
