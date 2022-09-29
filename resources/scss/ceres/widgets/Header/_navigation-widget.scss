@@ -263,7 +263,9 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
     @include theme() { background-color: theme-get('navbar-bg-color'); }
     opacity: .6;
     @include transition(all .3s ease);
-    transform: translateX(-100%); // stylelint-disable-line
+    /* stylelint-disable */
+    transform: translateX(calc(100% - 200%)); 
+    /* stylelint-enable */
     -webkit-overflow-scrolling: touch;
     padding: 0 map-get($spacers, 2);
 

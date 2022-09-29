@@ -18216,8 +18216,10 @@ body.menu-is-visible {
   font-size: 1.2em;
   opacity: 0.6;
   transition: all 0.3s ease;
+  /* stylelint-disable */
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
+  /* stylelint-enable */
   -webkit-overflow-scrolling: touch;
   padding: 0 12px;
 }
