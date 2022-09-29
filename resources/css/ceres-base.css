@@ -22464,8 +22464,6 @@ p a:not(.btn) {
 .mobile-navigation {
   width: 25rem !important;
   max-width: 90%;
-  -webkit-transform: translateX(-400%);
-          transform: translateX(-400%);
 }
 .mobile-navigation .mainmenu li a {
   font-family: Tahoma, sans-serif;

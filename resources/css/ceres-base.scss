@@ -15444,7 +15444,7 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
     opacity: .6;
     @include transition(all .3s ease);
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+            transform: translateX(-100%); // stylelint-disable-line
     -webkit-overflow-scrolling: touch;
     padding: 0 map-get($spacers, 2);
 
@@ -15453,6 +15453,8 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
         -webkit-transform: translateX(0);
                 transform: translateX(0);
     }
+
+
 
     .sk-fading-circle .sk-circle::before,
     .loading-animation > div {
@@ -17014,9 +17016,6 @@ body {
   .mobile-navigation {
 	width: 25rem !important;
 	max-width: 90%;
-	-webkit-transform: translateX(-400%);
-	        transform: translateX(-400%);
- 
 	.mainmenu li a {
 	  font-family: Tahoma, sans-serif;
 	  font-weight: normal !important;
