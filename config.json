@@ -1,7 +1,6 @@
 {
     "formatVersion": 1,
     "menu": {
-	
 		"Config.SpecialTab": {
             "label": "Config.specialTab",
             "formFields": {
@@ -26,7 +25,7 @@
                     "required": false,
                     "label": "Config.specialCDNPluginURL",
                     "options": {
-                        "defaultValue": "https://image.airbrush-city.de/plugin/54/front"
+                        "defaultValue": "https://image.airbrush-city.de/plugin/75/front"
                     }
                 },
                 "special.cdnImageUrl": {
@@ -86,7 +85,7 @@
                     }
                 }
             }
-		},
+		},   
         "Config.GlobalTab": {
             "label": "Config.globalTab",
             "formFields": {
