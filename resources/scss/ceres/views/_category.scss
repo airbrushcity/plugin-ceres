@@ -17,6 +17,8 @@
 @import "../global/reboot";
 @import "../global/typography";
 
+@import "../global/override";
+
 // External plugins overrides
 @import "../plugins/owl-carousel";
 
@@ -59,4 +61,3 @@
 
 // Widgets
 @import "../widgets/widgets";
-@import "../global/override";
