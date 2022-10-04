@@ -88,7 +88,7 @@
                         <div class="h-100 d-flex align-items-center">
                             <div class="always-visible-search rounded-pill bg-white flex-grow-1">
                             {% if not isPreview %}<lazy-hydrate when-idle>{% endif %}
-                                <item-search>
+                                <item-search2>
                                 <div class="position-relative mx-1">
                                     <div class="position-relative d-flex flex-grow-1">
                                         <input type="search" class="search-input flex-grow-1 p-0 ml-2 bg-white" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm")') }}">
@@ -114,7 +114,7 @@
                                         </template>
                                     {% endif %}
                                 </div>
-                                </item-search>
+                                </item-search2>
                             {% if not isPreview %}</lazy-hydrate>{% endif %}
                             </div>
                         </div>
