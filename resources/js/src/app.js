@@ -17,7 +17,6 @@ import UserLoginHandler from "./app/components/customer/login/UserLoginHandler.v
 
 import CategoryItem from "./app/components/itemList/CategoryItem.vue";
 import ItemSearch from "./app/components/itemList/ItemSearch.vue";
-import ItemSearch2 from "./app/components/itemList/ItemSearch2.vue";
 
 import CookieBar from "./app/components/pageDesign/CookieBar.vue";
 import Carousel from "./app/components/pageDesign/Carousel.vue";
@@ -133,7 +132,6 @@ export function beforeCreate(context)
     Vue.component("tag-list", () => import("./app/components/item/TagList.vue"));
     Vue.component("category-item", CategoryItem);
     Vue.component("item-search", ItemSearch);
-    Vue.component("item-search2", ItemSearch2);
     Vue.component("search-suggestion-item", () => import("./app/components/itemList/SearchSuggestionItem.vue"));
     Vue.component("item-filter-list", () => import("./app/components/itemList/filter/ItemFilterList.vue"));
     Vue.component("item-filter-tag-list", () => import("./app/components/itemList/filter/ItemFilterTagList.vue"));
