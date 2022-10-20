@@ -73,7 +73,13 @@
                             </a>
                         </li>
 						
-						<li class="list-inline-item control-user d-lg-none">
+                        <li class="list-inline-item">
+                            <button v-open-mobile-navigation class="navbar-toggler" type="button">
+                                &#9776; <span class="d-none d-xl-inline">Alle Kategorien</span>
+                            </button>
+                        </li>
+
+                        <li class="list-inline-item control-user d-lg-none">
                         {{ Twig.if("services.authentication.isLoggedIn() == true") }}
                             <a href="/my-account" class="nav-link" aria-label="{{ trans('Ceres::Template.myAccount') }}">
                                 <i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
@@ -86,13 +92,6 @@
                             </a>                   
                         {{ Twig.endif() }}
                         </li>
-
-                        <li class="list-inline-item">
-                            <button v-open-mobile-navigation class="navbar-toggler" type="button">
-                                &#9776; <span class="d-none d-xl-inline">Alle Kategorien</span>
-                            </button>
-                        </li>
-
 
                         <li class="list-inline-item d-none d-lg-block pl-2 flex-grow-1">    
                         {{ Twig.if("overrideSearchBar | trim is empty") }}
