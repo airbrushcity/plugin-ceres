@@ -37,7 +37,7 @@
 {% endif %}
 
 <div class="top-bar {% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if not isFixed %} unfixed{% endif %}">
-
+    <div class="container-max w-100">
 
             {% if isPreview and not
                 enableLogin and not
@@ -72,8 +72,22 @@
                                 </picture>
                             </a>
                         </li>
+						
+						<li class="list-inline-item control-user d-lg-none">
+                        {{ Twig.if("services.authentication.isLoggedIn() == true") }}
+                            <a href="/my-account" class="nav-link" aria-label="{{ trans('Ceres::Template.myAccount') }}">
+                                <i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
+                                <span class="d-none d-lg-block">{{ trans('Ceres::Template.myAccount') }}</span>
+                            </a>                    
+                        {{ Twig.else() }}
+                            <a href="/login" class="nav-link" aria-label="{{ trans('Ceres::Template.login') }}">
+                                <i class="fa fa-user-plus mr-0 mr-sm-1" aria-hidden="true"></i>
+                                <span class="d-none d-lg-block">{{ trans("Ceres::Template.login") }}</span>
+                            </a>                   
+                        {{ Twig.endif() }}
+                        </li>
 
-                        <li class="list-inline-item">
+                        <li class="list-inline-item d-none">
                             <button v-open-mobile-navigation class="navbar-toggler" type="button">
                                 &#9776; <span class="d-none d-xl-inline">Alle Kategorien</span>
                             </button>
@@ -175,7 +189,7 @@
                             </div>
                         </li>
                     
-                        <li class="list-inline-item control-user">
+                        <li class="list-inline-item control-user d-none d-lg-flex">
                         {{ Twig.if("services.authentication.isLoggedIn() == true") }}
                             <a href="/my-account" class="nav-link" aria-label="{{ trans('Ceres::Template.myAccount') }}">
                                 <i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
@@ -262,7 +276,7 @@
                         {% endif %}
                     </ul>
                 </div>
-				
+	</div>			
 
     <div class="container-max px-0 px-lg-3 d-lg-none">
         <div class="row mx-0 flex-row-reverse position-relative">
