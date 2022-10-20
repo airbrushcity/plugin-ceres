@@ -87,17 +87,12 @@
                         {{ Twig.endif() }}
                         </li>
 
-                        <li class="list-inline-item d-none">
+                        <li class="list-inline-item">
                             <button v-open-mobile-navigation class="navbar-toggler" type="button">
                                 &#9776; <span class="d-none d-xl-inline">Alle Kategorien</span>
                             </button>
                         </li>
 
-                        <li class="list-inline-item control-info d-none">          
-                            <div class="anicon nav-link">
-                               <i class="fa fa-info" data-toggle="tooltip" data-placement="bottom" title="{{ description }}"></i>
-                            </div>               
-                        </li>
 
                         <li class="list-inline-item d-none d-lg-block pl-2 flex-grow-1">    
                         {{ Twig.if("overrideSearchBar | trim is empty") }}
@@ -156,23 +151,6 @@
                             {{ Twig.print("overrideSearchBar | raw") }}
                         {{ Twig.endif() }}
                         </li>
-
-                        {% if searchStyle == "onDemand" %}
-                            <li class="list-inline-item control-search d-lg-none mr-0">
-                                <a class="anicon anicon-search-xcross nav-link"
-                                    {{ WidgetHelper.makeClickable(isPreview) }}
-                                    data-toggle="collapse"
-                                    href="#searchBox"
-                                    aria-expanded="false"
-                                    aria-controls="searchBox"
-                                    data-testing="searchbox-select"
-                                    data-parent="#controlsList"
-                                    aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}"
-                                    @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
-                                    <span class="anicon-search-item" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                        {% endif %}
 
                         <li class="list-inline-item control-big d-lg-none">
                             <a href="/" class="m-0 p-0 mx-auto my-auto py-2">
