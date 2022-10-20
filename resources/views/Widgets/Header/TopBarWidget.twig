@@ -160,8 +160,8 @@
                             </li>
                         {% endif %}
 
-                        <li class="brand-wrapper list-inline-item control-big d-lg-none py-2">
-                            <a href="/" class="navbar-brand p-0 mx-auto">
+                        <li class="brand-wrapper list-inline-item control-big d-lg-none">
+                            <a href="/" class="m-0 p-0 mx-auto my-auto py-2">
                                 <picture>
                                     <source srcset="{{ Twig.print("mobileLogoUrlWebp") }}">
                                     <img src="{{ Twig.print("mobileLogoUrl") }}" alt="{{ Twig.print("webshopName") }}" class="img-fluid"> 
@@ -189,7 +189,7 @@
                         {{ Twig.endif() }}
                         </li>
                        
-                        <li class="list-inline-item control-wish-list">
+                        <li class="list-inline-item control-wish-list d-none d-md-inline">
                             <lazy-hydrate when-idle>
                                 <wish-list-count>
                                     <a class="nav-link" aria-label="{{ Twig.print('trans("Ceres::Template.wishList")') }}">
