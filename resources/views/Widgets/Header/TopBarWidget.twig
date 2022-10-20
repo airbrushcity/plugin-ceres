@@ -79,7 +79,7 @@
                             </button>
                         </li>
 
-                        <li class="list-inline-item control-info d-lg-none">          
+                        <li class="list-inline-item control-info d-none">          
                             <div class="anicon nav-link">
                                <i class="fa fa-info" data-toggle="tooltip" data-placement="bottom" title="{{ description }}"></i>
                             </div>               
@@ -189,7 +189,7 @@
                         {{ Twig.endif() }}
                         </li>
                        
-                        <li class="list-inline-item control-wish-list d-none d-md-inline">
+                        <li class="list-inline-item control-wish-list d-none">
                             <lazy-hydrate when-idle>
                                 <wish-list-count>
                                     <a class="nav-link" aria-label="{{ Twig.print('trans("Ceres::Template.wishList")') }}">
