@@ -22,9 +22,7 @@ use Plenty\Plugin\Application;
  */
 class DefaultHeaderPreset implements ContentPreset
 {
-    /** @var PresetWidgetFactory */
-    private $topBarWidget;
-    
+
     /**
      * @inheritDoc
      */
@@ -36,23 +34,27 @@ class DefaultHeaderPreset implements ContentPreset
         /** @var PresetHelper $preset */
         $preset = pluginApp(PresetHelper::class);
 
-        $this->topBarWidget = $preset->createWidget("Ceres::TopBarWidget")
+		$preset->createWidget("Ceres::SearchSuggestionItemWidget")
+		 ->withSetting('customClass', '');
+		
+		$preset->createWidget("Ceres::NavigationWidget")
             ->withSetting("isFixed", $config->header->fixedNavBar)
-            ->withSetting("searchStyle", "onDemand")
-            ->withSetting("enableLogin", true)
-            ->withSetting("enableRegistration", false)
-            ->withSetting("enableLanguageSelect", false)
-            ->withSetting("enableShippingCountrySelect", false)
-            ->withSetting("enableCurrencySelect", false)
-            ->withSetting("enableWishList", true)
-            ->withSetting("enableBasketPreview", true)
-            ->withSetting("basketValues", $config->header->basketValues)
-            ->withSetting("showItemImages", true)
-            ->withSetting("forwardToSingleItem", $config->search->forwardToSingleItem)
-            ->withSetting('customClass', '');
+            ->withSetting("navigationStyle", $config->header->megamenuLevels > 1 ? "megaMenu" : "normal")
+            ->withSetting("megaMenuLevels", $config->header->megamenuLevels)
+            ->withSetting("megaMenuMaxItems.stage1", $config->header->megamenuItemsStage1)
+            ->withSetting("megaMenuMaxItems.stage2", $config->header->megamenuItemsStage2)
+            ->withSetting("megaMenuMaxItems.stage3", $config->header->megamenuItemsStage3)
+            ->withSetting("companyLogoUrl", $config->header->companyLogo)
+            ->withSetting('customClass', 'bg-transparent');
 
-        $this->topBarWidget->createChild('suggestions', 'Ceres::SearchSuggestionItemWidget')
-            ->withSetting('customClass', '');
+        $preset->createWidget("Ceres::BreadcrumbWidget")
+            ->withSetting("isFixed", false)
+            ->withSetting("showOnHomepage", false)
+            ->withSetting("showOnMyAccount", false)
+            ->withSetting("showOnCheckout", false)
+            ->withSetting("showOnContentCategory", false)
+            ->withSetting("showOnLegalPages", false)
+            ->withSetting('customClass', 'mx-n3');
 
         return $preset->toArray();
     }

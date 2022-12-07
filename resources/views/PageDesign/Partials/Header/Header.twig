@@ -1,4 +1,5 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+{% spaceless %}
 
 {% set lang = services.localizationRepository.getLanguage() %}
 {% set activeCurrencies = config("Ceres.currency.available_currencies") | split(', ') %}
@@ -6,17 +7,191 @@
 {% set currencyFormat = config("Ceres.currency.format") %}
 {% set currencyFormatSelect = config("Ceres.currency.format_selection") %}
 
+{% set description = '' %}
+{% if isItem %}
+    {% set itemData = item.documents[0].data %}
+    {% set description = itemData.texts.metaDescription %}
+{% elseif category is defined and category is not null %}
+    {% set details = category.details[0] %}
+    {% set description = details.metaDescription %}
+{% endif %}    
+{% if description == '' %}
+    {% set description = 'Webshop der Airbrush City GmbH, wir wünschen Ihnen viel Spaß beim Einkaufen.' %}
+{% endif %}    
+
+{% endspaceless %}    
 {% cacheblock use "category.tree" %}
-    {% set headerContainer = LayoutContainer.show("Ceres::Header") | trim %}
-    {% if headerContainer is empty %}
-        {% include "Ceres::PageDesign.Partials.Header.DefaultHeader" %}
-    {% else %}
-    <header id="page-header">
-        <div class="d-block w-100 mx-0">
-            <div id="page-header-parent" class="header-container" data-header-offset>
-                {{ headerContainer | raw }}
-            </div>
-        </div>
-    </header>
-    {% endif %}
+{% set headerContainer = LayoutContainer.show("Ceres::Header") | trim %}
+
+{% if headerContainer is empty %}
+
+    {% include "CityShop::PageDesign.Partials.Header.DefaultHeader" %}
+	
+{% else %}
+
+<header id="page-header" class="default-header top-bar d-print-none">
+	<div class="container-max">
+		<div id="page-header-parent" class="header-container" data-header-offset>
+			
+			<div class="row px-1 d-flex position-relative">
+			
+				<div class="col-5 col-sm-4 col-xl-3 order-1">
+					<ul id="controlsList" class="controls-list mb-0 d-flex list-inline list-left">
+						<li class="list-inline-item d-lg-none">
+							<button v-open-mobile-navigation class="navbar-toggler p-2" type="button">
+									&#9776; <span class="d-none d-md-inline small">Alle Kategorien</span>
+							</button>
+						</li>
+						<li class="list-inline-item d-none d-lg-flex ml-2 mt-1">
+							<a href="/" class="d-flex align-items-center justify-content-center">
+								<picture>
+									<source srcset="https://image.airbrush-city.de/frontend/design/airbrush/airbrush-logo.webp">
+										<img src="https://image.airbrush-city.de/frontend/design/airbrush/airbrush-logo.png" alt="Airbrush City" class="img-fluid logospecial"> 
+								</picture>
+							</a>
+						</li>
+						<li class="list-inline-item control-info">   
+							<a href="#" class="nav-link">
+								<i class="fa fa-info" data-toggle="tooltip" data-placement="right" title="{{ description }}"></i>  
+							</a>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="col-2 col-sm-4 order-2 order-lg-6 d-lg-none">
+					<div class="controls-list h-100 w-100">
+						<div class="list-inline-item h-100 w-100 align-items-center justify-content-center">
+							<a href="/" class="mx-n4 mx-sm-0">
+								<picture>
+									<source srcset="https://image.airbrush-city.de/frontend/design/airbrush/logo-footer.webp">
+									<img src="https://image.airbrush-city.de/frontend/design/airbrush/logo-footer.png" alt="Airbrush City" class="img-fluid logospecial"> 
+								</picture>
+							</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-12 col-lg-4 col-xl-6 order-4 order-lg-2">
+					<div class="row position-absolute w-100">
+						<div class="col-12 d-flex">
+							<div class="p-1 flex-grow-1">
+								<div class="always-visible-search flex-grow-1 rounded-pill bg-white"> 
+								
+									<lazy-hydrate when-idle>
+										<item-search>
+											<div class="container-max">	
+												<div class="position-relative">
+													<div class="d-flex flex-grow-1 position-relative my-2">
+														<input type="search" class="search-input flex-grow-1 px-3 py-2" placeholder="$translate('Ceres::Template.headerSearchPlaceholder')" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm")') }}">
+														<button class="search-submit px-3" type="submit" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}">
+															<i class="fa fa-search"></i>
+														</button>
+													</div>
+												</div>
+											</div>
+										</item-search>
+									</lazy-hydrate>
+									
+								</div>
+							</div>
+					   </div>   
+					</div>
+				</div>
+				
+				<div class="col-5 col-sm-4 col-xl-3 order-3">
+					<ul id="controlsList" class="controls-list mb-0 d-flex list-inline list-right">
+						
+						{% if services.url.isRouteEnabled("wish-list") %}
+							<li class="list-inline-item control-wish-list d-none d-lg-flex">
+								<lazy-hydrate when-idle>
+									<wish-list-count>
+										<a class="nav-link" aria-label="{{ trans('CityShop::Template.wishList') }}">
+											<span class="badge-right mr-2 d-none d-sm-inline">0</span>
+											<i class="fa fa-heart-o" aria-hidden="true"></i>
+										</a>
+									</wish-list-count>
+								</lazy-hydrate>
+							</li>
+						{% endif %}
+						
+						<li class="list-inline-item control-user">
+							<a href="/login" class="nav-link" aria-label="{{ trans('CityShop::Template.login') }}">
+								<i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
+								<span class="d-none d-sm-inline">{{ trans("CityShop::Template.login") }}</span>
+							</a>
+						</li>
+														   
+						<li class="list-inline-item control-basket position-relative">
+							<a v-toggle-basket-preview href="#" class="toggle-basket-preview nav-link" {{ set_testing_attr("data-testing", "basket-preview-button") }}>
+								{% if config("Ceres.header.basket_values") != "sum" %}
+								<span class="mr-2" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span>
+								{% endif %}
+
+								<icon icon="shopping-cart" class-loading="fa-refresh" :loading="$store.state.basket.isBasketLoading"></icon>
+								{% if config("Ceres.header.basket_values") != "quantity" %}
+								<span class="badge p-0 ml-2 d-none d-md-block" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+								<span class="badge p-0 ml-2 d-none d-md-block" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+								{% endif %}
+							</a>
+
+							<basket-preview v-if="$store.state.lazyComponent.components['basket-preview']" :show-net-prices="{{ showNetPrices | json_encode }}">
+								<template #before-basket-item>
+									{{ LayoutContainer.show("CityShop::BasketList.BeforeItem") }}
+								</template>
+								<template #after-basket-item>
+									{{ LayoutContainer.show("CityShop::BasketList.AfterItem") }}
+								</template>
+								<template #before-basket-totals>
+									{{ LayoutContainer.show("CityShop::BasketPreview.BeforeBasketTotals") }}
+								</template>
+								<template #before-item-sum>
+									{{ LayoutContainer.show("CityShop::BasketTotals.BeforeItemSum") }}
+								</template>
+								<template #after-item-sum>
+									{{ LayoutContainer.show("CityShop::BasketTotals.AfterItemSum") }}
+								</template>
+								<template #before-shipping-costs>
+									{{ LayoutContainer.show("CityShop::BasketTotals.BeforeShippingCosts") }}
+								</template>
+								<template #after-shipping-costs>
+									{{ LayoutContainer.show("CityShop::BasketTotals.AfterShippingCosts") }}
+								</template>
+								<template #before-total-sum>
+									{{ LayoutContainer.show("CityShop::BasketTotals.BeforeTotalSum") }}
+								</template>
+								<template #before-vat>
+									{{ LayoutContainer.show("CityShop::BasketTotals.BeforeVat") }}
+								</template>
+								<template #after-vat>
+									{{ LayoutContainer.show("CityShop::BasketTotals.AfterVat") }}
+								</template>
+								<template #after-total-sum>
+									{{ LayoutContainer.show("CityShop::BasketTotals.AfterTotalSum") }}
+								</template>
+								<template #after-basket-totals>
+									{{ LayoutContainer.show("CityShop::BasketPreview.AfterBasketTotals") }}
+								</template>
+								<template #before-checkout-button>
+									{{ LayoutContainer.show("CityShop::BasketPreview.BeforeCheckoutButton") }}
+								</template>
+								<template #after-checkout-button>
+									{{ LayoutContainer.show("CityShop::BasketPreview.AfterCheckoutButton") }}
+								</template>
+							</basket-preview>
+						</li>
+						
+					</ul>
+				</div>
+				
+			</div>
+			
+			<div class="default-header mx-n3 d-print-none">
+				{{ headerContainer | raw }}
+			</div>	
+				
+		</div>
+	</div>
+</header>
+
+{% endif %}
 {% endcacheblock %}
