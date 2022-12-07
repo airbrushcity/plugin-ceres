@@ -33,10 +33,7 @@ class DefaultHeaderPreset implements ContentPreset
 
         /** @var PresetHelper $preset */
         $preset = pluginApp(PresetHelper::class);
-
-		$preset->createWidget("Ceres::SearchSuggestionItemWidget")
-		 ->withSetting('customClass', '');
-		
+	
 		$preset->createWidget("Ceres::NavigationWidget")
             ->withSetting("isFixed", $config->header->fixedNavBar)
             ->withSetting("navigationStyle", $config->header->megamenuLevels > 1 ? "megaMenu" : "normal")
