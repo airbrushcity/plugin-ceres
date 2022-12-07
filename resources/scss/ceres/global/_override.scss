@@ -28,20 +28,16 @@ body {
   
   small, .small { font-size:13px !important}
   
-  .container-max {
-	max-width: 1400px;
-  }
-  
   .container-footer {
 	margin: 0 auto;
 	padding: 24px 12px;
   }
   
   .top-bar {
-	padding: 3px;
+	
 	background-color: #f9f9f9;
 	.controls-list {
-	  height: 64px !important;
+	  height: auto !important;
 	  .list-inline-item {
 		margin-right: 3px;
 		font-size: 14px;
