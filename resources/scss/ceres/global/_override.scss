@@ -8,7 +8,10 @@ body {
 	padding:0;
 	border:0;
 	outline:none;
-	
+	width: 100vw;
+	max-width: 100%;
+	height: 100vh;
+	height: -webkit-fill-available;
   }
 
   h1, .h1 {
@@ -31,10 +34,10 @@ body {
   }
   
   .top-bar {
-	
+	padding: 3px;
 	background-color: #f9f9f9;
 	.controls-list {
-	  height: auto !important;
+	  min-height: 48px !important;
 	  .list-inline-item {
 		margin-right: 3px;
 		font-size: 14px;
@@ -56,7 +59,6 @@ body {
   }
   
   .top-bar-items {
-	
 	margin: 0 auto;
   }
   
@@ -138,7 +140,7 @@ body {
   }
   
   .top-bar .controls-list {
-	height: auto !important;
+	min-height: 48px !important;
   
 	.list-inline-item .nav-link {
 	  padding: 0 2px !important;
@@ -157,6 +159,11 @@ body {
 	font-size: 0.875rem !important;
 	line-height: 2.15;
   }
+
+  body.menu-is-visible { 
+    position: relative !important;
+    overflow-y: scroll !important;
+	}
   
   h6, .h6 {
 	font-size: 0.875rem;
@@ -359,3 +366,10 @@ $border-color_1: #fff;
    }
 }
 
+
+@media (min-width: 992px) { 
+	body {
+		overflow-x: hidden;
+		overflow-y: scroll;
+	}
+}
