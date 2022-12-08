@@ -53,7 +53,7 @@
         {% block PageBody %}{% endblock %}
     </div>
 
-    <div>
+    <div class="d-block d-lg-none d-xl-none">
     {% spaceless %}
         {% set lang = services.localizationRepository.getLanguage() %}
         {% if category.linklist == "Y" %}

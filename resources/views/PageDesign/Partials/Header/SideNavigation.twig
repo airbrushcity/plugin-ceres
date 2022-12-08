@@ -16,5 +16,5 @@
 {% endspaceless %}
 <div class="category-title d-none d-lg-flex pt-0">{{ trans("Ceres::Template.itemCategories") }}</div>	
 <lazy-hydrate when-idle>
-    <mobile-navigation :initial-category="{{ initialCategory | json_encode }}" :include-language="{{ urls.includeLanguage | json_encode }}" :breakpoints="['xs', 'sm', 'md', 'lg', 'xl']"></mobile-navigation>
+    <mobile-navigation :initial-category="{{ initialCategory | json_encode }}" :include-language="{{ urls.includeLanguage | json_encode }}" :breakpoints="['lg', 'xl']"></mobile-navigation>
 </lazy-hydrate>
