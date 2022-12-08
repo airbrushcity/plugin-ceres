@@ -26,10 +26,10 @@
 {{ Twig.import("Tree", "Ceres::Category.Macros.CategoryTree") }}
 
 <nav class="d-none d-xl-flex navbar p-0 border-bottom{% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if navigationStyle == 'megaMenu' %} megamenu{% else %} normalmenu{%endif%}{% if not isFixed %} unfixed{% endif %}">
-    <div class="container-max">
+    <div class="flex-grow-1">
         <div class="row">
             <div class="w-100">
-                <ul class="py-1 px-3 m-0 d-flex justify-content-between mainmenu">
+                <ul class="py-0 px-3 m-0 d-flex justify-content-between mainmenu">
                     {{ Twig.print(Twig.call("Tree.get_nav_bar", [Twig.var("categories"), "", megaMenuLevels, megaMenuMaxItems])) }}
                 </ul>
             </div>
