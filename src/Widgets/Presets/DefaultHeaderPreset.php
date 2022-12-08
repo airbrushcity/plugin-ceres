@@ -44,15 +44,6 @@ class DefaultHeaderPreset implements ContentPreset
             ->withSetting("companyLogoUrl", $config->header->companyLogo)
             ->withSetting('customClass', 'bg-transparent');
 
-        $preset->createWidget("Ceres::BreadcrumbWidget")
-            ->withSetting("isFixed", false)
-            ->withSetting("showOnHomepage", false)
-            ->withSetting("showOnMyAccount", false)
-            ->withSetting("showOnCheckout", false)
-            ->withSetting("showOnContentCategory", false)
-            ->withSetting("showOnLegalPages", false)
-            ->withSetting('customClass', '');
-
         return $preset->toArray();
     }
 }

@@ -1,0 +1,105 @@
+$themes: (
+    
+    light-theme: (
+        
+        // Colors
+        "white": $white,
+        "white-important": $white !important,
+        "white-static-important": $white !important,
+        "gray-100": $gray-100,
+        "gray-100-important": $gray-100 !important,
+        "gray-200": $gray-200,
+        "gray-300": $gray-300,
+        "gray-400": $gray-400,
+        "gray-500": $gray-500,
+        "gray-600": $gray-600,
+        "gray-700": $gray-700,
+        "gray-800": $gray-800,
+        "gray-900": $gray-900,
+        "transparent": $transparent,
+        "font-color-primary": $font-color-primary,
+        "font-color-primary-important": $font-color-primary !important,
+        "font-color-secondary": $font-color-secondary,
+        "font-color-light": $font-color-light,
+        "link-primary": $link-primary,
+        "link-primary-important": $link-primary !important,
+        "link-primary-hover": $link-primary-hover,
+        "link-primary-hover-important": $link-primary-hover !important,
+        "yiq-text-dark": $yiq-text-dark,
+        "yiq-text-light": $yiq-text-light,
+        "body-bg": $body-bg,
+        "body-color": $body-color,
+        
+        // Footer
+        "footer-bg": $footer-bg,
+        "footer-color": $footer-color,
+        "footer-features-bg": $footer-features-bg,
+        "footer-features-color": $footer-features-color,
+        
+        // Top Bar
+        "top-bar-bg-color": $top-bar-bg-color,
+        "top-bar-color": $top-bar-color,
+        "top-bar-transparent-color": $top-bar-transparent-color,
+        
+        // Navbar
+        "navbar-bg-color": $navbar-bg-color,
+        
+        // Pagination
+        "pagination-color": $pagination-color,
+        "pagination-bg": $pagination-bg,
+        "pagination-hover-color": $pagination-hover-color,
+        "pagination-hover-bg": $pagination-hover-bg,
+        "pagination-active-color": $pagination-active-color,
+        "pagination-active-bg": $pagination-active-bg,
+        "pagination-disabled-color": $pagination-disabled-color,
+        
+        // Tabs
+        "nav-tabs-border-color": $nav-tabs-border-color,
+        
+        // Breadcrumbs
+        "breadcrumb-bg": $breadcrumb-bg,
+        
+        // Category
+        "category-text-color": $category-text-color,
+        "component-active-bg": $component-active-bg,
+        "component-active-color": $component-active-color,
+        
+        // Misc
+        "hr-border-color": $hr-border-color,
+
+        // Button
+        "button-bg-color": #3e4346,
+        "button-bg-color-important": #3e4346 !important
+    )
+);
+
+@mixin theme() {
+    @each $theme, $map in $themes {
+        $theme-map: $map !global;
+        @if ($theme == 'light-theme')
+        {
+            & {
+                @content;
+            }
+        } @else {
+            .#{$theme} & {
+                @content;
+            }
+        }
+    }
+    $theme-map: null !global;
+}
+
+@mixin theme-body() {
+    @each $theme, $map in $themes {
+        $theme-map: $map !global;
+        &.#{$theme} {
+            @content;
+        }
+    }
+    $theme-map: null !global;
+}
+
+@function theme-get($key) {
+    @return map-get($theme-map, $key);
+}
