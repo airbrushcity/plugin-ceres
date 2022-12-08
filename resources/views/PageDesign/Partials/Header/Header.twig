@@ -29,10 +29,10 @@
 	
 {% else %}
 
-<header id="page-header" class="default-header top-bar d-print-none">
-	<div class="container-max">
-		<div id="page-header-parent">
-			
+<header id="page-header" class="default-header d-print-none">
+	<div id="page-header-parent" class="header-container" data-header-offset>
+
+		<div class="container-max top-bar">
 			<div class="row px-1 d-flex position-relative">
 			
 				<div class="col-5 col-sm-4 col-xl-3 order-1">
@@ -179,19 +179,17 @@
 								</template>
 							</basket-preview>
 						</li>
-						
 					</ul>
 				</div>
 				
 			</div>
-							
 		</div>
+			
+		<div class="container-max top-bar2 d-print-none">
+			{{ headerContainer | raw }}
+		</div>					
+		
 	</div>
 </header>
-
-<div class="container-max top-bar2 d-print-none class="header-container" data-header-offset">
-	{{ headerContainer | raw }}
-</div>	
-
 {% endif %}
 {% endcacheblock %}
