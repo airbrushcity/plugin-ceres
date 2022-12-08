@@ -112,49 +112,68 @@
     {% if currentCategory is defined %}
         {% set shopBuilderTemplate = shop_builder_category_template(currentCategory.id, isItemSet ? "itemset" : "singleitem") %}
     {% endif %}
+    
+<div class="container-max">
+	
+    <div class="row d-flex flex-row-reverse">
+        
+        <div class="col-12 col-lg-9 col-xl-10">	
+        
+        {% if item.documents[0].data.item.add_cms_page > 0 and not isShopBuilder %}
+            {# Item template is configured for the item #}
+            {% set template %}
+                {% include [category_template( item.documents[0].data.item.add_cms_page, lang, webstoreConfig.webstoreId ), "Ceres::Item.SingleItemView"] %}
+            {% endset %}
 
-    {% if item.documents[0].data.item.add_cms_page > 0 and not isShopBuilder %}
-        {# Item template is configured for the item #}
-        {% set template %}
-            {% include [category_template( item.documents[0].data.item.add_cms_page, lang, webstoreConfig.webstoreId ), "Ceres::Item.SingleItemView"] %}
-        {% endset %}
+            {% if template | trim is not empty %}
+                {{ template }}
+            {% else %}
+                {% include "Ceres::Item.SingleItemView" %}
+            {% endif %}
 
-        {% if template | trim is not empty %}
-            {{ template }}
+        {% elseif shopBuilderTemplate | trim is not empty or isShopBuilder %}
+            {# Shopbuilder template #}
+
+            {% include "Ceres::Item.SingleItemView" %}
+        
+            <div class="row mt-2">
+                <div class="col">
+                    <single-item
+                            v-cloak
+                            item-data="{{ item | json_data }}"
+                            attributes-data="{{ attributes | json_data }}"
+                            variations="{{ variations | json_data }}"
+                            :after-key="{{ afterKey | json_encode }}"
+                            :please-select-option-variation-id="{{ dynamicVariationId }}"
+                            :init-please-select-option="{{ initPleaseSelectOption | json_encode }}"
+                            :show-net-prices="{{ services.customer.showNetPrices() | json_encode }}"
+                            :is-wish-list-enabled="{{ services.url.isRouteEnabled("wish-list") | json_encode }}"
+                            :item-id="{{ item.documents[0].data.item.id }}"
+                            v-slot="slotProps">
+                            {{ shopBuilderTemplate | raw }}
+                    </single-item>
+                </div>
+            </div>
+        
+        {% elseif shop_builder_category_template_exists() %}
+            {# Empty shop builder template is loading #}
         {% else %}
+            {# No item template defined in ShopBuilder => use default template from plugin #}
             {% include "Ceres::Item.SingleItemView" %}
         {% endif %}
-
-    {% elseif shopBuilderTemplate | trim is not empty or isShopBuilder %}
-        {# Shopbuilder template #}
-
-        {% include "Ceres::Item.SingleItemView" %}
-       
-        <div class="row mt-2">
-            <div class="col">
-                <single-item
-                        v-cloak
-                        item-data="{{ item | json_data }}"
-                        attributes-data="{{ attributes | json_data }}"
-                        variations="{{ variations | json_data }}"
-                        :after-key="{{ afterKey | json_encode }}"
-                        :please-select-option-variation-id="{{ dynamicVariationId }}"
-                        :init-please-select-option="{{ initPleaseSelectOption | json_encode }}"
-                        :show-net-prices="{{ services.customer.showNetPrices() | json_encode }}"
-                        :is-wish-list-enabled="{{ services.url.isRouteEnabled("wish-list") | json_encode }}"
-                        :item-id="{{ item.documents[0].data.item.id }}"
-                        v-slot="slotProps">
-                        {{ shopBuilderTemplate | raw }}
-                </single-item>
-            </div>
+        
         </div>
-      
-    {% elseif shop_builder_category_template_exists() %}
-        {# Empty shop builder template is loading #}
-    {% else %}
-        {# No item template defined in ShopBuilder => use default template from plugin #}
-        {% include "Ceres::Item.SingleItemView" %}
-    {% endif %}
-    <div class="unter-allen"></div>
-
+        
+        <div class="col-12 col-lg-3 col-xl-2">
+            
+            <div class="sidebar-categories">
+                {{ include('Ceres::PageDesign.Partials.Header.SideNavigation.twig') }}
+            </div>
+            
+            {{ LayoutContainer.show("Ceres::CategoryItem.SideNavBarBottom") }}
+            
+        </div>
+	
+    </div>
+</div>
 {% endblock %}

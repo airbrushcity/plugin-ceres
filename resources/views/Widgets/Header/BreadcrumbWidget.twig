@@ -32,7 +32,7 @@
     {% endif %}
 {% endif %}
 
-<div class="d-flex main breadcrumbs bg-white{% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if not isFixed %} unfixed{% endif %}">
+<div class="mx-n3 px-3 d-flex main breadcrumbs bg-white{% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if not isFixed %} unfixed{% endif %}">
     <nav class="small d-none d-lg-block px-0" data-component="breadcrumbs" data-renderer="twig">
         {{ Twig.set('crumbs', '[]') }}
         <ul class="breadcrumb container-max px-3 py-1 my-0 mx-auto">
