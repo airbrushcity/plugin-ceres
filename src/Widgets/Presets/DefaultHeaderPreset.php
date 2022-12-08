@@ -51,7 +51,7 @@ class DefaultHeaderPreset implements ContentPreset
             ->withSetting("showOnCheckout", false)
             ->withSetting("showOnContentCategory", false)
             ->withSetting("showOnLegalPages", false)
-            ->withSetting('customClass', 'mx-n3');
+            ->withSetting('customClass', 'w-100 mx-n3 bg-white');
 
         return $preset->toArray();
     }
