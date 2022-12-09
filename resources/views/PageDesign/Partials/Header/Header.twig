@@ -33,7 +33,7 @@
 	<div id="page-header-parent" class="header-container" data-header-offset>
 
 		<div class="container-max top-bar">
-			<div class="row mx-1 px-1 px-lg-2 d-flex position-relative">
+			<div class="row px-1 px-lg-2 mt-1 d-flex position-relative">
 			
 				<div class="col-4 col-sm-5 col-md-4 col-xl-3 order-1">
 					<ul id="controlsList" class="controls-list mb-0 d-flex list-inline list-left">
@@ -55,13 +55,20 @@
 								<i class="fa fa-info" data-toggle="tooltip" data-placement="right" title="{{ description }}"></i>  
 							</a>
 						</li>
+						<li class="d-flex d-md-none list-inline-item control-user">
+							<a href="/login" class="nav-link" aria-label="{{ trans('CityShop::Template.login') }}">
+								<i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
+								<span class="d-none d-sm-inline">{{ trans("CityShop::Template.login") }}</span>
+							</a>
+						</li>
+					
 					</ul>
 				</div>
 				
 				<div class="col-4 col-sm-2 col-md-4 order-2 order-lg-6 d-lg-none">
 					<div class="controls-list h-100 w-100">
 						<div class="list-inline-item h-100 w-100 align-items-center justify-content-center">
-							<a href="/" class="mx-n3">
+							<a href="/" class="mx-n2">
 								<picture>
 									<source srcset="https://image.airbrush-city.de/frontend/design/airbrush/logo-footer.webp">
 									<img src="https://image.airbrush-city.de/frontend/design/airbrush/logo-footer.png" alt="Airbrush City" class="img-fluid logospecial"> 
@@ -74,7 +81,7 @@
 				<div class="col-12 col-lg-4 col-xl-6 order-4 order-lg-2">
 					<div class="row">
 						<div class="col-12">
-							<div class="py-2 my-auto flex-grow-1">
+							<div class="p-2 my-auto flex-grow-1">
 								<div class="always-visible-search flex-grow-1 rounded-pill bg-white"> 
 								
 									<lazy-hydrate when-idle>
@@ -114,7 +121,7 @@
 							</li>
 						{% endif %}
 						
-						<li class="list-inline-item control-user">
+						<li class="d-none d-md-flex list-inline-item control-user">
 							<a href="/login" class="nav-link" aria-label="{{ trans('CityShop::Template.login') }}">
 								<i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
 								<span class="d-none d-sm-inline">{{ trans("CityShop::Template.login") }}</span>
