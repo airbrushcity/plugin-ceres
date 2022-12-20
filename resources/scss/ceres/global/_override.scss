@@ -28,6 +28,10 @@ body {
   
   small, .small { font-size:13px !important}
   
+  .container-max {
+	max-width: 1400px;
+  }
+  
   .container-footer {
 	margin: 0 auto;
 	padding: 24px 12px;
@@ -37,7 +41,7 @@ body {
 	padding: 3px;
 	background-color: #f9f9f9;
 	.controls-list {
-	  min-height: 48px !important;
+	  height: 64px !important;
 	  .list-inline-item {
 		margin-right: 3px;
 		font-size: 14px;
@@ -59,6 +63,7 @@ body {
   }
   
   .top-bar-items {
+	max-width: 1400px;
 	margin: 0 auto;
   }
   
@@ -140,7 +145,7 @@ body {
   }
   
   .top-bar .controls-list {
-	min-height: 48px !important;
+	height: 64px !important;
   
 	.list-inline-item .nav-link {
 	  padding: 0 2px !important;
@@ -159,11 +164,6 @@ body {
 	font-size: 0.875rem !important;
 	line-height: 2.15;
   }
-
-  body.menu-is-visible { 
-    position: relative !important;
-    overflow-y: scroll !important;
-	}
   
   h6, .h6 {
 	font-size: 0.875rem;

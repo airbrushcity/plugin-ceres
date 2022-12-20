@@ -105,13 +105,13 @@ $footer-features-bg: $gray-100 !default;
 $footer-features-color: $gray-800 !default;
 
 // Top Bar
-$top-bar-bg-color: $gray-800 !default;
-$top-bar-color: $white !default;
+$top-bar-bg-color: $white !default;
+$top-bar-color: $gray-800 !default;
 $top-bar-transparent-color: $gray-800 !default;
 
 // Navbar
-$navbar-bg-color: $gray-600 !default;
-$navbar-dark-color: $white !default;
+$navbar-bg-color: $white !default;
+$navbar-dark-color: $gray-600 !default;
 $navbar-dark-disabled-color: $gray-500 !default;
 
 // Nav
@@ -202,9 +202,9 @@ $container-max-widths: ( // not actual .container-max ...
 ) !default;
 
 // Typography
-$font-family-sans-serif: custom-font, "Noto Sans", helvetica, arial, sans-serif !default;
-$font-family-serif: "EB Garamond", georgia, "Times New Roman", times, serif !default;
-$font-family-heading: $font-family-serif !default;
+$font-family-sans-serif: custom-font, montserrat, helvetica, arial, sans-serif !default;
+$font-family-serif: georgia, "Times New Roman", times, serif !default;
+$font-family-heading: $font-family-sans-serif !default;
 $font-size-base: 1rem !default;
 $font-size-lg: $font-size-base * 1.25 !default;
 $font-size-sm: $font-size-base * 0.825 !default;

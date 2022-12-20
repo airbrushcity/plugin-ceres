@@ -13,7 +13,7 @@
     &.fixed-top {
         position: fixed;
     }
-
+    
     &.bg-transparent {
         &:not(.default-font-color) {
             .controls-list {
@@ -28,10 +28,6 @@
                 }
             }
         }
-    }
-
-    .top-bar-items {
-        max-width: 100%;
     }
     
     > .container-max {
