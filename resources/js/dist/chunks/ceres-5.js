@@ -312,6 +312,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -761,7 +763,7 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    " +
+                      "\n                        " +
                         _vm._s(_vm._f("itemName")(_vm.item))
                     ),
                     _vm._l(_vm.item.groupedAttributes, function(attribute) {
@@ -795,7 +797,7 @@ var render = function() {
                             _vm.item.prices.specialOffer
                               ? _c("del", { staticClass: "crossprice" }, [
                                   _vm._v(
-                                    "\n                                " +
+                                    "\n                                    " +
                                       _vm._s(
                                         _vm._f("itemCrossPrice")(
                                           _vm.item.prices.default.unitPrice
@@ -803,19 +805,19 @@ var render = function() {
                                           true
                                         )
                                       ) +
-                                      "\n                            "
+                                      "\n                                "
                                   )
                                 ])
                               : _c("del", { staticClass: "crossprice" }, [
                                   _vm._v(
-                                    "\n                                " +
+                                    "\n                                    " +
                                       _vm._s(
                                         _vm._f("itemCrossPrice")(
                                           _vm.item.prices.rrp.unitPrice
                                             .formatted
                                         )
                                       ) +
-                                      "\n                            "
+                                      "\n                                "
                                   )
                                 ])
                           ])
@@ -828,7 +830,7 @@ var render = function() {
                           _vm.item.item.itemType === "set"
                             ? [
                                 _vm._v(
-                                  "\n                                " +
+                                  "\n                                    " +
                                     _vm._s(
                                       _vm.$translate(
                                         "Ceres::Template.itemSetPrice",
@@ -841,13 +843,13 @@ var render = function() {
                                         "Ceres::Template.itemFootnote"
                                       )
                                     ) +
-                                    "\n                            "
+                                    "\n                                "
                                 )
                               ]
                             : _vm.itemGraduatedPriceisCheapestSorting
                             ? [
                                 _vm._v(
-                                  "\n                                " +
+                                  "\n                                    " +
                                     _vm._s(
                                       _vm.$translate(
                                         "Ceres::Template.itemFromPrice",
@@ -860,13 +862,13 @@ var render = function() {
                                         "Ceres::Template.itemFootnote"
                                       )
                                     ) +
-                                    "\n                            "
+                                    "\n                                "
                                 )
                               ]
                             : _vm.itemGraduatedPricesalableVariationCount
                             ? [
                                 _vm._v(
-                                  "\n                                " +
+                                  "\n                                    " +
                                     _vm._s(
                                       _vm.$translate(
                                         "Ceres::Template.itemFromPrice",
@@ -879,12 +881,12 @@ var render = function() {
                                         "Ceres::Template.itemFootnote"
                                       )
                                     ) +
-                                    "\n                            "
+                                    "\n                                "
                                 )
                               ]
                             : [
                                 _vm._v(
-                                  "\n                                " +
+                                  "\n                                    " +
                                     _vm._s(
                                       _vm._f("specialOffer")(
                                         _vm.item.prices.default.unitPrice
@@ -900,7 +902,7 @@ var render = function() {
                                         "Ceres::Template.itemFootnote"
                                       )
                                     ) +
-                                    "\n                            "
+                                    "\n                                "
                                 )
                               ]
                         ],
@@ -963,6 +965,8 @@ var render = function() {
                   _c("span", [_vm._v("Gramm.")])
                 ]),
                 _vm._v(" "),
+                _c("item-availability"),
+                _vm._v(" "),
                 _c("add-to-basket", {
                   attrs: {
                     "variation-id": _vm.item.variation.id,
@@ -1003,7 +1007,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "vat small text-muted" }, [
                   _vm._v(
-                    "\n                    " +
+                    "\n                        " +
                       _vm._s(_vm.$translate("Ceres::Template.itemFootnote")) +
                       " "
                   ),
@@ -1019,9 +1023,9 @@ var render = function() {
                         )
                       ]),
                   _vm._v(
-                    "\n                    " +
+                    "\n                        " +
                       _vm._s(_vm.$translate("Ceres::Template.itemExclusive")) +
-                      "\n                    "
+                      "\n                        "
                   ),
                   _vm.$ceres.config.global.shippingCostsCategoryId > 0
                     ? _c(

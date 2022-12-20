@@ -44,9 +44,9 @@
 						</li>
 						<li class="list-inline-item d-none d-lg-flex ml-2 mt-1">
 							<a href="/" class="d-flex align-items-center justify-content-center">
-								<picture>
-									<source srcset="https://image.airbrush-city.de/frontend/design/airbrush/airbrush-logo.webp">
-									<img src="https://image.airbrush-city.de/frontend/design/airbrush/airbrush-logo.png" alt="Airbrush City" class="img-fluid logospecial"> 
+								<picture> 
+									<source srcset="{{ config('Ceres.special.specialLogoURLWebp') }}">
+									<img src="{{ config('Ceres.special.specialLogoURL') }}" alt="{{ config('Ceres.special.specialWebshopName') }}" class="img-fluid logospecial"> 
 								</picture>
 							</a>
 						</li>
@@ -70,8 +70,8 @@
 						<div class="list-inline-item h-100 w-100 align-items-center justify-content-center">
 							<a href="/" class="mx-n2">
 								<picture>
-									<source srcset="https://image.airbrush-city.de/frontend/design/airbrush/logo-footer.webp">
-									<img src="https://image.airbrush-city.de/frontend/design/airbrush/logo-footer.png" alt="Airbrush City" class="img-fluid logospecial"> 
+									<source srcset="{{ config('Ceres.special.specialMobileLogoURLWebp') }}">
+									<img src="{{ config('Ceres.special.specialMobileLogoURL') }}" alt="{{ config('Ceres.special.specialWebshopName') }}" class="img-fluid logospecial"> 
 								</picture>
 							</a>
 						</div>

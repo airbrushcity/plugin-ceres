@@ -20,6 +20,14 @@
                         "defaultValue": "Airbrush City"
                     }
                 },
+                "special.deliveryUrl": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Config.specialDeliveryURL",
+                    "options": {
+                        "defaultValue": "https://www.airbrush-city.de/zahlung-und-versand/"
+                    }
+                },
                 "special.cdnPluginUrl": {
                     "type": "inputText",
                     "required": false,

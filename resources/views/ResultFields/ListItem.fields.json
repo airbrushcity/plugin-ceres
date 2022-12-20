@@ -31,6 +31,8 @@
     "variation.availability.id",
     "variation.availability.names.name",
     "variation.availability.names.lang",
+    "variation.availability.icon",
+    "variation.availability.names.*",
     "variation.bundleType",
     "variation.id",
     "variation.intervalOrderQuantity",

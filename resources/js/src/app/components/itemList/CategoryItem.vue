@@ -104,6 +104,8 @@
                         <span>{{ item.variation.weightG }} </span>
                         <span>Gramm.</span>
                     </div>
+					
+					<item-availability></item-availability>
 
                     <add-to-basket
                             :variation-id="item.variation.id"
