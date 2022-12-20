@@ -47,47 +47,46 @@
 
 {{ context.renderState() }}
 
-    {% include getPartial('header') %}
+	{% include getPartial('header') %}
 
-    <div id="page-body" class="container-max main pt-3">
-        {% block PageBody %}{% endblock %}
-    </div>
+	<div id="page-body" class="container-max">
+		<div class="row">
 
-    <div class="d-block d-lg-none d-xl-none">
-    {% spaceless %}
-        {% set lang = services.localizationRepository.getLanguage() %}
-        {% if category.linklist == "Y" %}
-            {% set initialCategory = { id: category.id } %}
-        {% else %}
-            {% set initialCategory = category %}
-        {% endif %}
-
-        {# set the initialCategory to the default category of the current item #}
-        {% if services.template.isItem() == "1" and defaultCategory is not null %}
-            {% set initialCategory = defaultCategory %}
-        {% elseif services.template.isCurrentTemplate('tpl.home.category') %}
-            {% set initialCategory = null %}
-        {% endif %}
-    {% endspaceless %}
-
-        <lazy-hydrate when-idle>
-            <mobile-navigation :initial-category="{{ initialCategory | json_encode }}" :include-language="{{ urls.includeLanguage | json_encode }}"></mobile-navigation>
-        </lazy-hydrate>
-        
-    </div>
-
-    {% cacheblock %}
-        <div class="row">
-            <div class="col-12">
-                <div class="container-mwst text-center">
-                    <span class="text-mwst">* Alle Preise inkl. Mwst <a href="{{ config('Ceres.special.deliveryUrl') }}" class="mwst-link">zuzüglich Versandkosten</a></span>
-                </div>
-            </div>
-        </div>
-        
-        {% include getPartial('footer') %}
-        {% block PartialFooter %}{% endblock %}
-    {% endcacheblock %}
+		<main class="col-12 {% if isShopBuilder %}col-lg-9 order-1 {% else %}col-lg-6 col-xl-8 order-2{% endif %} main" role="main">
+			{% block PageBody %}{% endblock %} 
+		</main>	
+		
+		<nav class="col-12 {% if isShopBuilder %}d-none {% else %}col-lg-3 col-xl-2 order-1{% endif %}" role="navigation">
+			<div class="sidebar-categories">
+				{{ include('CityShop::PageDesign.Partials.Header.SideNavigation.twig') }}
+			</div>
+			{{ LayoutContainer.show("Ceres::CategoryItem.SideNavBarBottom") }}	
+		</nav>	
+		
+		<aside class="col-12 {% if isShopBuilder %}d-block col-lg-3 order-2 {% else %}col-lg-3 col-xl-2 order-3{% endif %}" role="banner">
+			<div class="row d-none d-lg-block">				
+				{% block PartialBanner %}
+				{% endblock %}
+			</div>	
+		</aside>		
+		
+		</div>		
+	</div>
+		
+	{% cacheblock %}
+	<footer role="contentinfo">
+		<div class="row">
+			<div class="col-12">
+				<div class="container-mwst text-center">
+					<span class="text-mwst">* Alle Preise inkl. Mwst <a href="/zahlung-und-versand/" class="mwst-link">zuzüglich Versandkosten</a></span>
+				</div>
+			</div>
+		</div>
+				
+		{% include getPartial('footer') %}
+		{% block PartialFooter %}{% endblock %}
+	</footer>
+	{% endcacheblock %}
 
     <lazy-hydrate when-idle>
         <notifications template="#vue-notifications" :initial-notifications="{{ notifications | json_encode() }}"></notifications>
