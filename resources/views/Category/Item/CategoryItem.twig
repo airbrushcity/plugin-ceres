@@ -11,15 +11,9 @@
     {% if shopBuilderTemplate | trim is not empty or isShopBuilder %}
     <div class="categoriegrid page-content px-1 px-lg-3">
         <div class="row">		
-            <div class="col-12 col-lg-9 col-xl-10 order-2">
+            <div class="col-12">
                 {{ shopBuilderTemplate | raw }}              
             </div>
-			<div class="col-12 col-lg-3 col-xl-2 order-1">
-				<div class="sidebar-categories">
-					{{ include('Ceres::PageDesign.Partials.Header.SideNavigation.twig') }}
-				</div>
-				{{ LayoutContainer.show("Ceres::CategoryItem.SideNavBarBottom") }}
-			</div>
 		</div>
 		<div class="row">
             <div class="col-12 p-3 text-center small">
