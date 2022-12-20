@@ -31,7 +31,7 @@
 
 {% if headerContainer is empty %}
 
-    {% include "CityShop::PageDesign.Partials.Header.DefaultHeader" %}
+    {% include "Ceres::PageDesign.Partials.Header.DefaultHeader" %}
 	
 {% else %}
 
@@ -62,9 +62,9 @@
 							</a>
 						</li>
 						<li class="d-flex d-md-none list-inline-item control-user">
-							<a href="/login" class="nav-link" aria-label="{{ trans('CityShop::Template.login') }}">
+							<a href="/login" class="nav-link" aria-label="{{ trans('Ceres::Template.login') }}">
 								<i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
-								<span class="d-none d-sm-inline">{{ trans("CityShop::Template.login") }}</span>
+								<span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
 							</a>
 						</li>
 					
@@ -118,7 +118,7 @@
 							<li class="list-inline-item control-wish-list d-none d-lg-flex">
 								<lazy-hydrate when-idle>
 									<wish-list-count>
-										<a class="nav-link" aria-label="{{ trans('CityShop::Template.wishList') }}">
+										<a class="nav-link" aria-label="{{ trans('Ceres::Template.wishList') }}">
 											<span class="badge-right mr-2 d-none d-sm-inline">0</span>
 											<i class="fa fa-heart-o" aria-hidden="true"></i>
 										</a>
@@ -128,9 +128,9 @@
 						{% endif %}
 						
 						<li class="d-none d-md-flex list-inline-item control-user">
-							<a href="/login" class="nav-link" aria-label="{{ trans('CityShop::Template.login') }}">
+							<a href="/login" class="nav-link" aria-label="{{ trans('Ceres::Template.login') }}">
 								<i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
-								<span class="d-none d-sm-inline">{{ trans("CityShop::Template.login") }}</span>
+								<span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
 							</a>
 						</li>
 														   
@@ -149,46 +149,46 @@
 
 							<basket-preview v-if="$store.state.lazyComponent.components['basket-preview']" :show-net-prices="{{ showNetPrices | json_encode }}">
 								<template #before-basket-item>
-									{{ LayoutContainer.show("CityShop::BasketList.BeforeItem") }}
+									{{ LayoutContainer.show("Ceres::BasketList.BeforeItem") }}
 								</template>
 								<template #after-basket-item>
-									{{ LayoutContainer.show("CityShop::BasketList.AfterItem") }}
+									{{ LayoutContainer.show("Ceres::BasketList.AfterItem") }}
 								</template>
 								<template #before-basket-totals>
-									{{ LayoutContainer.show("CityShop::BasketPreview.BeforeBasketTotals") }}
+									{{ LayoutContainer.show("Ceres::BasketPreview.BeforeBasketTotals") }}
 								</template>
 								<template #before-item-sum>
-									{{ LayoutContainer.show("CityShop::BasketTotals.BeforeItemSum") }}
+									{{ LayoutContainer.show("Ceres::BasketTotals.BeforeItemSum") }}
 								</template>
 								<template #after-item-sum>
-									{{ LayoutContainer.show("CityShop::BasketTotals.AfterItemSum") }}
+									{{ LayoutContainer.show("Ceres::BasketTotals.AfterItemSum") }}
 								</template>
 								<template #before-shipping-costs>
-									{{ LayoutContainer.show("CityShop::BasketTotals.BeforeShippingCosts") }}
+									{{ LayoutContainer.show("Ceres::BasketTotals.BeforeShippingCosts") }}
 								</template>
 								<template #after-shipping-costs>
-									{{ LayoutContainer.show("CityShop::BasketTotals.AfterShippingCosts") }}
+									{{ LayoutContainer.show("Ceres::BasketTotals.AfterShippingCosts") }}
 								</template>
 								<template #before-total-sum>
-									{{ LayoutContainer.show("CityShop::BasketTotals.BeforeTotalSum") }}
+									{{ LayoutContainer.show("Ceres::BasketTotals.BeforeTotalSum") }}
 								</template>
 								<template #before-vat>
-									{{ LayoutContainer.show("CityShop::BasketTotals.BeforeVat") }}
+									{{ LayoutContainer.show("Ceres::BasketTotals.BeforeVat") }}
 								</template>
 								<template #after-vat>
-									{{ LayoutContainer.show("CityShop::BasketTotals.AfterVat") }}
+									{{ LayoutContainer.show("Ceres::BasketTotals.AfterVat") }}
 								</template>
 								<template #after-total-sum>
-									{{ LayoutContainer.show("CityShop::BasketTotals.AfterTotalSum") }}
+									{{ LayoutContainer.show("Ceres::BasketTotals.AfterTotalSum") }}
 								</template>
 								<template #after-basket-totals>
-									{{ LayoutContainer.show("CityShop::BasketPreview.AfterBasketTotals") }}
+									{{ LayoutContainer.show("Ceres::BasketPreview.AfterBasketTotals") }}
 								</template>
 								<template #before-checkout-button>
-									{{ LayoutContainer.show("CityShop::BasketPreview.BeforeCheckoutButton") }}
+									{{ LayoutContainer.show("Ceres::BasketPreview.BeforeCheckoutButton") }}
 								</template>
 								<template #after-checkout-button>
-									{{ LayoutContainer.show("CityShop::BasketPreview.AfterCheckoutButton") }}
+									{{ LayoutContainer.show("Ceres::BasketPreview.AfterCheckoutButton") }}
 								</template>
 							</basket-preview>
 						</li>
