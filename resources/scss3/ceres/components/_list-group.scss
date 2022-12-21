@@ -1,5 +1,0 @@
-.list-group {
-    .list-group-item {
-        @include theme() { background-color: theme-get('white'); }
-    }
-}

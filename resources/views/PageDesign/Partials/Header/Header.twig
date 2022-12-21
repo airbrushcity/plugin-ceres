@@ -35,11 +35,11 @@
 	
 {% else %}
 
-<header id="page-header" class="default-header top-bar2 d-print-none">
-	<div id="page-header-parent" class="header-container" data-header-offset>
+<header id="page-header" class="row top-bar2 d-print-none">
+	<div id="page-header-parent" class="header-container col-12" data-header-offset>
 
-		<div class="container-max top-bar">
-			<div class="row px-1 px-lg-2 mt-1 d-flex position-relative">
+		<div class="container-max top-bar py-2 px-1">
+			<div class="row d-flex position-relative">
 			
 				<div class="col-4 col-sm-5 col-md-4 col-xl-3 order-1">
 					<ul id="controlsList" class="controls-list mb-0 d-flex list-inline list-left">
@@ -112,7 +112,7 @@
 				</div>
 				
 				<div class="col-4 col-sm-5 col-md-4 col-xl-3 order-3">
-					<ul id="controlsList" class="controls-list mb-0 d-flex list-inline list-right">
+					<ul id="controlsList" class="controls-list d-flex list-inline list-right">
 						
 						{% if services.url.isRouteEnabled("wish-list") %}
 							<li class="list-inline-item control-wish-list d-none d-lg-flex">
