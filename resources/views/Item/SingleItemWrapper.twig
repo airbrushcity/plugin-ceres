@@ -113,7 +113,7 @@
         {% set shopBuilderTemplate = shop_builder_category_template(currentCategory.id, isItemSet ? "itemset" : "singleitem") %}
     {% endif %}
     
-<div class="container-max">
+<div class="container-max px-0 px-xl-3">
 	
     <div class="row d-flex">
         
@@ -136,7 +136,7 @@
 
             {% include "Ceres::Item.SingleItemView" %}
         
-            <div class="row mt-2">
+            <div class="row mt-1">
                 <div class="col">
                     <single-item
                             v-cloak
