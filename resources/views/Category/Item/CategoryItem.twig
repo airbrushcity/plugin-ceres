@@ -9,7 +9,7 @@
     {% set shopBuilderTemplate = shop_builder_category_template(category.id, listType) %}
     {% set ShopBuilderTemplateSide = shop_builder_category_template(category.id, "content", "side") %}
     {% if shopBuilderTemplate | trim is not empty or isShopBuilder %}
-    <div class="categoriegrid page-content mt-2 px-0 px-xl-3">
+    <div class="categoriegrid page-content px-0">
         <div class="row">		
             <div class="col-12">
                 {{ shopBuilderTemplate | raw }}              
@@ -30,7 +30,7 @@
             {% include "Ceres::Category.Item.Partials.CategoryParallaxImage" with { 'category': category } %}
         {% endif %}
 
-        <div class="categoriegrid page-content mt-1 px-0 px-xl-3">
+        <div class="categoriegrid page-content px-0">
 
             {% if isSearch %}
                 <div class="row mt-1">
