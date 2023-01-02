@@ -62,10 +62,19 @@
 							</a>
 						</li>
 						<li class="d-flex d-md-none list-inline-item control-user">
-							<a href="/login" class="nav-link" aria-label="{{ trans('Ceres::Template.login') }}">
-								<i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
-								<span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
-							</a>
+
+							{% if services.authentication.isLoggedIn() == true %}
+                                <a href="/my-account" class="nav-link" aria-label="{{ trans('Ceres::Template.myAccount') }}">
+                                    <i class="fa fa-user-plus mr-0 mr-sm-1" aria-hidden="true"></i>
+                                    <span class="d-none d-sm-inline">{{ trans('Ceres::Template.myAccount') }}</span>
+                                </a>
+                                {% else %}
+                                <a href="/login" class="nav-link" aria-label="{{ trans('Ceres::Template.login') }}">
+                                    <i class="fa fa-user-plus mr-0 mr-sm-1" aria-hidden="true"></i>
+                                    <span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
+                                </a>
+                            {% endif %}
+							
 						</li>
 					
 					</ul>
@@ -128,10 +137,19 @@
 						{% endif %}
 						
 						<li class="d-none d-md-flex list-inline-item control-user">
-							<a href="/login" class="nav-link" aria-label="{{ trans('Ceres::Template.login') }}">
-								<i class="fa fa-user mr-0 mr-sm-1" aria-hidden="true"></i>
-								<span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
-							</a>
+
+							{% if services.authentication.isLoggedIn() == true %}
+                                <a href="/my-account" class="nav-link" aria-label="{{ trans('Ceres::Template.myAccount') }}">
+                                    <i class="fa fa-user-plus mr-0 mr-sm-1" aria-hidden="true"></i>
+                                    <span class="d-none d-sm-inline">{{ trans('Ceres::Template.myAccount') }}</span>
+                                </a>
+                                {% else %}
+                                <a href="/login" class="nav-link" aria-label="{{ trans('Ceres::Template.login') }}">
+                                    <i class="fa fa-user-plus mr-0 mr-sm-1" aria-hidden="true"></i>
+                                    <span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
+                                </a>
+                            {% endif %}
+						
 						</li>
 														   
 						<li class="list-inline-item control-basket position-relative">
