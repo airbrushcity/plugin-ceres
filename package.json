@@ -1,7 +1,7 @@
 {
   "name": "Ceres",
   "license": "AGPL-3.0",
-  "version": "5.0.55",
+  "version": "5.0.56",
   "repository": {
     "type": "git",
     "url": "https://github.com/airbrushcity/plugin-ceres.git"
@@ -27,7 +27,7 @@
     "test": "npm run test:monetaryFormatter",
     "test:monetaryFormatter": "node -r esm tools/testMonetaryFormatter.js"
   },
-    "browserslist": [
+  "browserslist": [
     "> .25%"
   ],
   "devDependencies": {
