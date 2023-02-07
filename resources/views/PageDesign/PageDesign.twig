@@ -42,7 +42,9 @@
 <!-- End Google Tag Manager -->
 
 <script>if('ontouchstart' in document.documentElement){document.body.classList.add("touch");}else{document.body.classList.add("no-touch");}</script>
+
 <!-- SSR:app() -->
+
 <div id="vue-app" class="app">
 
 {{ context.renderState() }}
@@ -70,11 +72,11 @@
 				{% endblock %}
 				
 				<div class="bannerplatz">
-					<a href="https://www.youtube.com/user/AirbrushCityDE" class="bannerlink" target="_blank"><img src="https://image.airbrush-city.de/frontend/design/airbrush/YouTube.png" class="img-fluid" alt="Youtube"></a>	
+					<a href="https://www.youtube.com/user/AirbrushCityDE" class="bannerlink" target="_blank"><img src="https://image.airbrush-city.de/frontend/design/airbrush/YouTube.png" class="img-fluid" alt="Youtube" /></a>	
 				
-					<a href="https://www.amazon.de/s?me=AFNN0XG95YWB1&marketplaceID=A1PA6795UKMFR9" class="bannerlink" target="_blank"><img src="https://image.airbrush-city.de/frontend/design/airbrush/Amazon.webp" class="img-fluid" alt="Amazon"></a>				
+					<a href="https://www.amazon.de/s?me=AFNN0XG95YWB1&marketplaceID=A1PA6795UKMFR9" class="bannerlink" target="_blank"><img src="https://image.airbrush-city.de/frontend/design/airbrush/Amazon.webp" class="img-fluid" alt="Amazon" /></a>				
 				
-					<a href="https://www.ebay.de/str/airbrushcity" class="bannerlink" target="_blank"><img src="https://www.airbrush-city.de/design/airbrush/badge-airbrush.png" class="img-fluid" alt="Ebay"></a>
+					<a href="https://www.ebay.de/str/airbrushcity" class="bannerlink" target="_blank"><img src="https://www.airbrush-city.de/design/airbrush/badge-airbrush.png" class="img-fluid" alt="Ebay" /></a>
 				</div>
 			</div>	
 		</aside>		
@@ -122,8 +124,11 @@
     <!-- ./PASSWORD RESET MODAL -->
 
 </div>
+
 <!-- /SSR -->
+
 <!-- SSR:global(App) -->
+
 <script id="app-data" type="application/json">
     {
         "config": {{ ceresConfig | json_encode | raw }},
@@ -158,7 +163,9 @@
         "languageMap": {{ webstoreConfig.browserLanguage | json_encode | raw }}
     }
 </script>
+
 <!-- /SSR -->
+
 <script>
     window.App = JSON.parse(document.getElementById("app-data").innerText);
     window.__loadPluginChunk = function(source) {
