@@ -33,8 +33,13 @@
     "test:monetaryFormatter": "node -r esm tools/testMonetaryFormatter.js"
   },
   "browserslist": [
-    "> .25%"
-  ],
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead",
+    "not IE 11",
+    "not op_mini all"
+  ],  
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
