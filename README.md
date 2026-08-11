@@ -42,3 +42,5 @@ Find the latest news and updates in our [Changelog](https://github.com/plentymar
 ## License
 
 This project is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE - see the [LICENSE.md](/LICENSE.md) file for details.
+
+Ceres with ES6 Settings
