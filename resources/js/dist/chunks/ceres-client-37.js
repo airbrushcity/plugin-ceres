@@ -1,32 +1,23 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[37],{
 
-/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/item/ItemAvailability.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/app/components/item/ItemAvailability.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/item/GraduatedPrices.vue?vue&type=script&lang=js":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/app/components/item/GraduatedPrices.vue?vue&type=script&lang=js ***!
+  \****************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.function.name.js */ "./node_modules/core-js/modules/es.function.name.js");
-/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_0__);
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "item-availability",
+  name: "graduated-prices",
   props: {
-    paddingClasses: String,
-    paddingStyles: String
+    paddingClasses: {
+      type: String
+    },
+    paddingInlineStyles: {
+      type: String
+    }
   },
   inject: {
     itemId: {
@@ -34,25 +25,41 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
-    availability: function availability() {
-      var currentVariation = this.$store.getters["".concat(this.itemId, "/currentItemVariation")];
-      return currentVariation && currentVariation.variation && currentVariation.variation.availability;
+    graduatedPrices() {
+      const currentVariation = this.$store.getters[`${this.itemId}/currentItemVariation`];
+      let prices = currentVariation && currentVariation.prices.graduatedPrices;
+      const minQuantity = currentVariation && currentVariation.variation.minimumOrderQuantity;
+      prices = prices.filter(price => price.minimumOrderQuantity > minQuantity);
+      return [...prices].sort((priceA, priceB) => {
+        return priceA.minimumOrderQuantity - priceB.minimumOrderQuantity;
+      });
     },
-    classes: function classes() {
-      return ["availability", "badge", "availability-" + (this.availability && this.availability.id), this.paddingClasses];
+    showBasePrice() {
+      const currentVariation = this.$store.getters[`${this.itemId}/currentItemVariation`];
+      const mayShowUnitPrice = currentVariation.variation.mayShowUnitPrice;
+      const isSinglePiece = currentVariation.unit && currentVariation.unit.content === 1 && currentVariation.unit.unitOfMeasurement === "C62";
+      return mayShowUnitPrice && !isSinglePiece;
     },
-    name: function name() {
-      return this.availability && this.availability.names && this.availability.names.name;
+    activeGraduationIndex() {
+      const prices = this.graduatedPrices.filter(price => this.variationOrderQuantity >= price.minimumOrderQuantity);
+      if (!prices.length) {
+        return -1;
+      }
+      const price = prices.reduce((prev, current) => prev.minimumOrderQuantity > current.minimumOrderQuantity ? prev : current);
+      return this.graduatedPrices.indexOf(price);
+    },
+    variationOrderQuantity() {
+      return this.$store.state.items[this.itemId] && this.$store.state.items[this.itemId].variationOrderQuantity;
     }
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/item/ItemAvailability.vue?vue&type=template&id=3f09aa68&":
-/*!********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/app/components/item/ItemAvailability.vue?vue&type=template&id=3f09aa68& ***!
-  \********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/item/GraduatedPrices.vue?vue&type=template&id=0fc0278e":
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/app/components/item/GraduatedPrices.vue?vue&type=template&id=0fc0278e ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -60,34 +67,64 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm.availability
-    ? _c("span", { class: _vm.classes, style: _vm.paddingStyles }, [
-        _c("span", [_vm._v("\n        " + _vm._s(_vm.name) + "\n    ")])
-      ])
-    : _vm._e()
-}
-var staticRenderFns = []
-render._withStripped = true
-
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _vm.graduatedPrices[0] ? _c("div", [_c("b", [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemGraduatedPrices")) + ":")]), _vm._v(" "), _c("table", {
+    staticClass: "graduated-prices-table text-muted"
+  }, [_c("tbody", [_vm._l(_vm.graduatedPrices, function (price, index) {
+    return [_c("tr", [_c("td", {
+      class: _vm.paddingClasses,
+      style: _vm.paddingInlineStyles
+    }, [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemMinimumQuantity")) + " " + _vm._s(price.minimumOrderQuantity))]), _vm._v(" "), _c("td", {
+      staticClass: "graduated-price",
+      class: _vm.paddingClasses,
+      style: _vm.paddingInlineStyles
+    }, [_vm._v("\n                        " + _vm._s(price.unitPrice.formatted) + "\n                        "), _c("transition", {
+      attrs: {
+        name: "fade"
+      }
+    }, [index === _vm.activeGraduationIndex ? _c("i", {
+      staticClass: "fa fa-lg fa-check-circle-o text-appearance",
+      attrs: {
+        "aria-hidden": "true"
+      }
+    }) : _vm._e()])], 1), _vm._v(" "), _vm.showBasePrice ? _c("td", {
+      staticClass: "graduated-base-price pl-3 d-none d-xl-block",
+      class: _vm.paddingClasses,
+      style: _vm.paddingInlineStyles
+    }, [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemGraduatedBasePrice", {
+      price: price.basePrice
+    })))]) : _vm._e()]), _vm._v(" "), _vm.showBasePrice ? _c("tr", {
+      staticClass: "graduated-base-price d-xl-none"
+    }, [_c("td", {
+      class: _vm.paddingClasses,
+      style: _vm.paddingInlineStyles
+    }), _vm._v(" "), _c("td", {
+      class: _vm.paddingClasses,
+      style: _vm.paddingInlineStyles
+    }, [_vm._v(_vm._s(_vm.$translate("Ceres::Template.singleItemGraduatedBasePrice", {
+      price: price.basePrice
+    })))])]) : _vm._e()];
+  })], 2)]), _vm._v(" "), _c("br")]) : _vm._e();
+};
+var staticRenderFns = [];
+render._withStripped = true;
 
 
 /***/ }),
 
-/***/ "./resources/js/src/app/components/item/ItemAvailability.vue":
-/*!*******************************************************************!*\
-  !*** ./resources/js/src/app/components/item/ItemAvailability.vue ***!
-  \*******************************************************************/
+/***/ "./resources/js/src/app/components/item/GraduatedPrices.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/src/app/components/item/GraduatedPrices.vue ***!
+  \******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ItemAvailability_vue_vue_type_template_id_3f09aa68___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ItemAvailability.vue?vue&type=template&id=3f09aa68& */ "./resources/js/src/app/components/item/ItemAvailability.vue?vue&type=template&id=3f09aa68&");
-/* harmony import */ var _ItemAvailability_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ItemAvailability.vue?vue&type=script&lang=js& */ "./resources/js/src/app/components/item/ItemAvailability.vue?vue&type=script&lang=js&");
+/* harmony import */ var _GraduatedPrices_vue_vue_type_template_id_0fc0278e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GraduatedPrices.vue?vue&type=template&id=0fc0278e */ "./resources/js/src/app/components/item/GraduatedPrices.vue?vue&type=template&id=0fc0278e");
+/* harmony import */ var _GraduatedPrices_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GraduatedPrices.vue?vue&type=script&lang=js */ "./resources/js/src/app/components/item/GraduatedPrices.vue?vue&type=script&lang=js");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -97,9 +134,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ItemAvailability_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ItemAvailability_vue_vue_type_template_id_3f09aa68___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ItemAvailability_vue_vue_type_template_id_3f09aa68___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _GraduatedPrices_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _GraduatedPrices_vue_vue_type_template_id_0fc0278e__WEBPACK_IMPORTED_MODULE_0__["render"],
+  _GraduatedPrices_vue_vue_type_template_id_0fc0278e__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -109,38 +146,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/src/app/components/item/ItemAvailability.vue"
+component.options.__file = "resources/js/src/app/components/item/GraduatedPrices.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/src/app/components/item/ItemAvailability.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/src/app/components/item/ItemAvailability.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************/
+/***/ "./resources/js/src/app/components/item/GraduatedPrices.vue?vue&type=script&lang=js":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/src/app/components/item/GraduatedPrices.vue?vue&type=script&lang=js ***!
+  \******************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_ItemAvailability_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ItemAvailability.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/item/ItemAvailability.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_ItemAvailability_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_GraduatedPrices_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./GraduatedPrices.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/item/GraduatedPrices.vue?vue&type=script&lang=js");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_GraduatedPrices_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/src/app/components/item/ItemAvailability.vue?vue&type=template&id=3f09aa68&":
-/*!**************************************************************************************************!*\
-  !*** ./resources/js/src/app/components/item/ItemAvailability.vue?vue&type=template&id=3f09aa68& ***!
-  \**************************************************************************************************/
+/***/ "./resources/js/src/app/components/item/GraduatedPrices.vue?vue&type=template&id=0fc0278e":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/src/app/components/item/GraduatedPrices.vue?vue&type=template&id=0fc0278e ***!
+  \************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItemAvailability_vue_vue_type_template_id_3f09aa68___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ItemAvailability.vue?vue&type=template&id=3f09aa68& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/item/ItemAvailability.vue?vue&type=template&id=3f09aa68&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItemAvailability_vue_vue_type_template_id_3f09aa68___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_GraduatedPrices_vue_vue_type_template_id_0fc0278e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./GraduatedPrices.vue?vue&type=template&id=0fc0278e */ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/item/GraduatedPrices.vue?vue&type=template&id=0fc0278e");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_GraduatedPrices_vue_vue_type_template_id_0fc0278e__WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItemAvailability_vue_vue_type_template_id_3f09aa68___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_GraduatedPrices_vue_vue_type_template_id_0fc0278e__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
