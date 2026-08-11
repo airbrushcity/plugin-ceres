@@ -1,8 +1,8 @@
-import Vue from "vue";
-import { isNullOrUndefined } from "./app/helper/utils";
-import { compileToFunctions, ssrCompileToFunctions } from "vue-template-compiler";
+import Vue from 'vue';
+import {isNullOrUndefined} from './app/helper/utils';
+import {compileToFunctions, ssrCompileToFunctions} from 'vue-template-compiler';
 
-const kebabCase = require("lodash/kebabCase");
+const kebabCase = require('lodash/kebabCase');
 
 const originalMountFn = Vue.prototype.$mount;
 const originalComponentFn = Vue.component;
@@ -14,39 +14,31 @@ const originalComponentFn = Vue.component;
  * @param {boolean} hydrating
  * @returns {Vue}
  */
-function mount(el, hydrating)
-{
-    let componentTemplate;
+function mount(el, hydrating) {
+  let componentTemplate;
 
-    if (this.$props && this.$props.templateOverride)
-    {
-        // template element is references from property for current component instance
-        const rawTemplate = getTemplateOverride(this.$props.templateOverride);
+  if (this.$props && this.$props.templateOverride) {
+    // template element is references from property for current component instance
+    const rawTemplate = getTemplateOverride(this.$props.templateOverride);
 
-        if (isNullOrUndefined(rawTemplate))
-        {
-            console.warn("Overriding a component template has failed. Did you import the template into the DOM?");
-        }
-        else
-        {
-            componentTemplate = replaceDelimiters(rawTemplate);
-        }
+    if (isNullOrUndefined(rawTemplate)) {
+      console.warn('Overriding a component template has failed. Did you import the template into the DOM?');
+    } else {
+      componentTemplate = replaceDelimiters(rawTemplate);
     }
-    else if (this.$options && this.$options._componentTag)
-    {
-        // check for global template override
-        componentTemplate = getComponentTemplate(this.$options._componentTag);
-    }
+  } else if (this.$options && this.$options._componentTag) {
+    // check for global template override
+    componentTemplate = getComponentTemplate(this.$options._componentTag);
+  }
 
-    if (componentTemplate)
-    {
-        Object.assign(
-            this.$options,
-            Vue.compile(componentTemplate)
-        );
-    }
+  if (componentTemplate) {
+    Object.assign(
+        this.$options,
+        Vue.compile(componentTemplate),
+    );
+  }
 
-    return originalMountFn.call(this, el, hydrating);
+  return originalMountFn.call(this, el, hydrating);
 }
 
 /**
@@ -55,9 +47,8 @@ function mount(el, hydrating)
  * @param {object|function} definition  Component definition or async load callback.
  * @return {*}
  */
-function component(id, definition)
-{
-    return originalComponentFn.call(this, id, applyOverride(definition, id));
+function component(id, definition) {
+  return originalComponentFn.call(this, id, applyOverride(definition, id));
 }
 
 /**
@@ -67,77 +58,63 @@ function component(id, definition)
  * @param {Object|Function} component The vue component to apply the override to.
  * @param {string} name Tag name of the component. Used to query custom templates by. If not defined, the name property of the component object will be used. (Optional)
  */
-function applyOverride(component, name)
-{
-    // use ssr optimized compiler function if document is not defined
-    const compileFn = typeof document !== "undefined" ? compileToFunctions : ssrCompileToFunctions;
+function applyOverride(component, name) {
+  // use ssr optimized compiler function if document is not defined
+  const compileFn = typeof document !== 'undefined' ? compileToFunctions : ssrCompileToFunctions;
 
-    if (typeof component === "object")
-    {
-        if (component.components)
-        {
-            applyOverrideToChildren(component);
+  if (typeof component === 'object') {
+    if (component.components) {
+      applyOverrideToChildren(component);
+    }
+
+    const customTemplate = getComponentTemplate(name || component.name);
+
+    // overridden component is defined in the common way: Vue.component('...', { ... })
+    return Object.assign(
+        component,
+            customTemplate ? compileFn(customTemplate) : {},
+    );
+  } else if (typeof component === 'function') {
+    // overridden component is defined asynchronously
+    return () => {
+      // invoke async loading function
+      const asyncComponent = component();
+      const customTemplate = getComponentTemplate(name || component.name);
+
+      if (asyncComponent instanceof Promise) {
+        return asyncComponent.then((module) => {
+          if (module.default.components) {
+            applyOverrideToChildren(module.default);
+          }
+
+          if (customTemplate) {
+            // override template after resolving external chunk
+            delete module.default.render;
+            module.default.template = replaceDelimiters(customTemplate);
+          }
+
+          return module;
+        });
+      } else {
+        // may never gets called
+        if (asyncComponent && asyncComponent.components) {
+          applyOverrideToChildren(asyncComponent);
         }
 
-        const customTemplate = getComponentTemplate(name || component.name);
+        if (customTemplate) {
+          // override component definition of already loaded async component
+          Object.assign(
+              asyncComponent,
+              compileFn(customTemplate),
+          );
+        }
 
-        // overridden component is defined in the common way: Vue.component('...', { ... })
-        return Object.assign(
-            component,
-            customTemplate ? compileFn(customTemplate) : {}
-        );
-    }
-    else if (typeof component === "function")
-    {
-        // overridden component is defined asynchronously
-        return () =>
-        {
-            // invoke async loading function
-            const asyncComponent = component();
-            const customTemplate = getComponentTemplate(name || component.name);
+        return asyncComponent;
+      }
+    };
+  }
 
-            if (asyncComponent instanceof Promise)
-            {
-                return asyncComponent.then((module) =>
-                {
-                    if (module.default.components)
-                    {
-                        applyOverrideToChildren(module.default);
-                    }
-
-                    if (customTemplate)
-                    {
-                        // override template after resolving external chunk
-                        delete module.default.render;
-                        module.default.template = replaceDelimiters(customTemplate);
-                    }
-
-                    return module;
-                });
-            }
-            else
-            {
-                // may never gets called
-                if (asyncComponent && asyncComponent.components)
-                {
-                    applyOverrideToChildren(asyncComponent);
-                }
-
-                if (customTemplate)
-                {
-                    // override component definition of already loaded async component
-                    Object.assign(
-                        asyncComponent,
-                        compileFn(customTemplate)
-                    );
-                }
-
-                return asyncComponent;
-            }
-        };
-    }
-
-    return component;
+  return component;
 }
 
 /**
@@ -145,17 +122,15 @@ function applyOverride(component, name)
  * @param {Object} component
  * @return {Object}
  */
-function applyOverrideToChildren(component)
-{
-    component.components = Object.keys(component.components).reduce((components, key) =>
-    {
-        return {
-            ...components,
-            [key]: applyOverride(component.components[key], kebabCase(key))
-        };
-    }, {});
+function applyOverrideToChildren(component) {
+  component.components = Object.keys(component.components).reduce((components, key) => {
+    return {
+      ...components,
+      [key]: applyOverride(component.components[key], kebabCase(key)),
+    };
+  }, {});
 
-    return component;
+  return component;
 }
 
 /**
@@ -164,18 +139,14 @@ function applyOverrideToChildren(component)
  * @param {string} templateOverride The component tag to get the override for
  * @return {string}
  */
-function getTemplateOverride(templateOverride)
-{
-    if (typeof document !== "undefined")
-    {
-        return (document.querySelector(templateOverride) || {}).innerHTML;
-    }
-    else if (typeof templates !== "undefined")
-    {
-        return templates[templateOverride];
-    }
+function getTemplateOverride(templateOverride) {
+  if (typeof document !== 'undefined') {
+    return (document.querySelector(templateOverride) || {}).innerHTML;
+  } else if (typeof templates !== 'undefined') {
+    return templates[templateOverride];
+  }
 
-    return "";
+  return '';
 }
 
 /**
@@ -192,37 +163,30 @@ let componentTemplates = null;
  * @param {string} tagName
  * @returns {string}
  */
-function getComponentTemplate(tagName)
-{
-    if (isNullOrUndefined(componentTemplates))
-    {
-        if (typeof document !== "undefined")
-        {
-            componentTemplates = [].slice.call(document.querySelectorAll("script[data-component], template[data-component]"))
-                .reduce(
-                    (obj, el) =>
-                    {
-                        return {
-                            ...obj,
-                            [el.dataset.component]: replaceDelimiters(el.innerHTML)
-                        };
-                    },
-                    {}
-                );
-        }
-        else if (typeof templates !== "undefined")
-        {
-            componentTemplates = Object.keys(templates || {}).reduce((result, key) =>
-            {
+function getComponentTemplate(tagName) {
+  if (isNullOrUndefined(componentTemplates)) {
+    if (typeof document !== 'undefined') {
+      componentTemplates = [].slice.call(document.querySelectorAll('script[data-component], template[data-component]'))
+          .reduce(
+              (obj, el) => {
                 return {
-                    ...result,
-                    [key]: replaceDelimiters(templates[key])
+                  ...obj,
+                  [el.dataset.component]: replaceDelimiters(el.innerHTML),
                 };
-            }, {});
-        }
+              },
+              {},
+          );
+    } else if (typeof templates !== 'undefined') {
+      componentTemplates = Object.keys(templates || {}).reduce((result, key) => {
+        return {
+          ...result,
+          [key]: replaceDelimiters(templates[key]),
+        };
+      }, {});
     }
+  }
 
-    return componentTemplates[tagName];
+  return componentTemplates[tagName];
 }
 
 /**
@@ -231,29 +195,27 @@ function getComponentTemplate(tagName)
  * @param {string} template
  * @returns {string}
  */
-function replaceDelimiters(template)
-{
-    let posStart = 0;
+function replaceDelimiters(template) {
+  let posStart = 0;
 
-    const offset = 0;
+  const offset = 0;
 
-    let content;
+  let content;
 
-    while ((posStart = template.indexOf("${", offset)) >= 0 && posStart <= template.length)
-    {
-        // read delimiter content from template starting behind opening delimiter (= posStart + "${".length)
-        content = readDelimiterContent(template, posStart + 2);
+  while ((posStart = template.indexOf('${', offset)) >= 0 && posStart <= template.length) {
+    // read delimiter content from template starting behind opening delimiter (= posStart + "${".length)
+    content = readDelimiterContent(template, posStart + 2);
 
-        /* eslint-disable */
+    /* eslint-disable */
         template = template.substr(0, posStart)               // template content before opening delimiter
             + "{{"                                                  // new opening delimiter
             + content                                               // content between delimiters
             + "}}"                                                  // new closing delimiter
             + template.substr(posStart + content.length + 3); // template content after closing delimiter (skip "${" and "}")
         /* eslint-enable */
-    }
+  }
 
-    return template;
+  return template;
 }
 
 /**
@@ -263,33 +225,27 @@ function replaceDelimiters(template)
  * @param {number} offset
  * @returns string
  */
-function readDelimiterContent(input, offset)
-{
-    let count = 0;
+function readDelimiterContent(input, offset) {
+  let count = 0;
 
-    let i = offset;
+  let i = offset;
 
-    let current;
+  let current;
 
-    while ((current = input.charAt(i)) !== "")
-    {
-        if (current === "}" && count === 0)
-        {
-            return input.substr(offset, i - offset);
-        }
-
-        if (current === "{")
-        {
-            count++;
-        }
-        else if (current === "}")
-        {
-            count--;
-        }
-        i++;
+  while ((current = input.charAt(i)) !== '') {
+    if (current === '}' && count === 0) {
+      return input.substr(offset, i - offset);
     }
 
-    return "";
+    if (current === '{') {
+      count++;
+    } else if (current === '}') {
+      count--;
+    }
+    i++;
+  }
+
+  return '';
 }
 
-export { mount, component };
+export {mount, component};
