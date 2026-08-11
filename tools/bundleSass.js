@@ -91,7 +91,6 @@ ImportTree.prototype._resolveImportPath = function( importPath )
         }
     }
 
-
     return resolvedPath;
 };
 
@@ -127,14 +126,10 @@ SassResolver.prototype.bundle = function( targetFile )
     importTree.parseImports();
 
     var bundleContent = importTree.toString();
-    var prefixOptions = {
-        browsers: [
-            "last 2 versions",
-            "> 5%",
-            "Firefox ESR"
-        ]
-    };
-    postcss( [autoprefixer(prefixOptions)] )
+
+    // Keine eigene browsers-Liste mehr -> Autoprefixer liest
+    // automatisch das "browserslist"-Feld aus der package.json
+    postcss( [autoprefixer()] )
         .process( bundleContent, { from: targetFile, syntax: postcssSCSS })
         .then(function( result )
         {
