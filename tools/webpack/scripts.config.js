@@ -63,7 +63,10 @@ module.exports = env => {
         extensions: ["js"],
         exclude: "node_modules",
         fix: env.prod,
-        cache: true
+        cache: true,
+        failOnError: false,
+        emitWarning: true,
+        emitError: false
       })
     ]
   };
